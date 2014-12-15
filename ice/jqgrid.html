@@ -1227,16 +1227,13 @@
 					pager : pager_selector,
 					altRows: true,
 					//toppager: true,
-					
 					multiselect: true,
 					//multikey: "ctrlKey",
 			        multiboxonly: true,
-			
 					loadComplete : function() {
 						var table = this;
 						setTimeout(function(){
 							styleCheckbox(table);
-							
 							updateActionIcons(table);
 							updatePagerIcons(table);
 							enableTooltips(table);
@@ -1245,10 +1242,6 @@
 			
 					editurl: "/dummy.html",//nothing is saved
 					caption: "jqGrid with inline editing"
-			
-					//,autowidth: true,
-			
-			
 					/**
 					,
 					grouping:true, 
