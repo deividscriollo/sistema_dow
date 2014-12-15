@@ -5,9 +5,9 @@ if(!isset($_SESSION)){
 }
 //informacion empresa
 function empresa(){
-	print'DOW DELOPERS';
+	print'DOW<';
 }
-//Menu banner arriba usuario perfil
+//Menu banner arriba usuario perfil dependientes del nivel de usuario
 function menu_arriba(){
 	print'
 	<div id="navbar" class="navbar navbar-default">
@@ -220,7 +220,7 @@ function menu_lateral(){
 			</div>
 	';
 }
-//pie de Pagina Footer 
+//pie de Pagina Footer proceso desarrolladores empresa y datos adicionales de la misma
 function footer(){
 	print'<div class="footer">
 				<div class="footer-inner">
