@@ -138,8 +138,19 @@
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Celular: </label>
 
-																	<div class="col-sm-9">
-																		<input type="text" id="txt_7" name="txt_7" placeholder="Celular" class="form-control" />
+																	<div class="col-sm-9">																		
+																		<div class="col-sm-5">
+																			<input type="text" id="txt_7" name="txt_7" placeholder="Celular" class="form-control" />
+																		</div>
+																		<div class="col-sm-7">
+																			<div class="checkbox">
+																				<label class="block">
+																					<input name="form-field-checkbox" type="checkbox" class="ace input-lg" />
+																					<span class="lbl bigger-120"> Nacionalidad</span>
+																				</label>
+																			</div>
+
+																		</div>
 																	</div>
 																</div>
 																<div class="form-group">
