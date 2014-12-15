@@ -66,7 +66,7 @@
 									<div class="widget-body">
 										<div class="widget-main">
 											<div class="row">
-												<form class="form-horizontal" role="form">
+												<form class="form-horizontal" role="form" method="POST">
 													<div class="row">
 														<div class="col-xs-12">
 															<div class="col-sm-2">
@@ -88,14 +88,14 @@
 
 															</div>
 															<div class="col-sm-5">
-																<div class="form-group">
+																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> C.I.:</label>
 
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_1" name="txt_1" placeholder="Cedula" class="form-control"/>
+																		<input type="text" id="txt_1" name="txt_1" placeholder="Cedula" class="form-control" required maxlength="13" required pattern="[0-9]{10,13} />
 																	</div>
 																</div>
-																<div class="form-group">
+																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Nombres: </label>
 
 																	<div class="col-sm-9">
@@ -119,18 +119,18 @@
 																		</select>
 																	</div>
 																</div>
-																<div class="form-group">
+																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Password: </label>
 
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_5" name="txt_5" placeholder="Password" class="form-control" />
+																		<input type="password" id="txt_5" name="txt_5" placeholder="Password" class="form-control" />
 																	</div>
 																</div>
-																<div class="form-group">
+																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Repetir: </label>
 
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_6" name="txt_6" placeholder="Repetir Password" class="form-control" />
+																		<input type="password" id="txt_6" name="txt_6" placeholder="Repetir Password" class="form-control" />
 																	</div>
 																</div>
 															</div>
@@ -146,7 +146,7 @@
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Correo: </label>
 
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_8" name="txt_8" placeholder="Correo" class="form-control" />
+																		<input type="mail" id="txt_8" name="txt_8" placeholder="Correo" class="form-control" />
 																	</div>
 																</div>													
 																<div class="form-group">
@@ -179,7 +179,7 @@
 																		</select>
 																	</div>
 																</div>
-																<div class="form-group">
+																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Dirección: </label>
 
 																	<div class="col-sm-9">
@@ -289,39 +289,9 @@
 		<!-- ace scripts -->
 		<script src="../../dist/js/ace-elements.min.js"></script>
 		<script src="../../dist/js/ace.min.js"></script>
+		<script src="usuario.js"></script>
 
 		<!-- inline scripts related to this page -->
-		<script type="text/javascript">
-			jQuery(function($) {
-
-				$('#txt_0').ace_file_input({
-					style:'well',
-					btn_choose:'Seleccionar',
-					btn_change:null,
-					no_icon:'ace-icon fa fa-image',
-					droppable:true,
-					thumbnail:'small'
-				})
-				$('.chosen-select').chosen({allow_single_deselect:true}); 
-				$(window)
-					.off('resize.chosen')
-					.on('resize.chosen', function() {
-						$('.chosen-select').each(function() {
-							 var $this = $(this);
-							 $this.next().css({'width': $this.parent().width()});
-						})
-					}).trigger('resize.chosen');
-					//resize chosen on sidebar collapse/expand
-					$(document).on('settings.ace.chosen', function(e, event_name, event_val) {
-						if(event_name != 'sidebar_collapsed') return;
-						$('.chosen-select').each(function() {
-							 var $this = $(this);
-							 $this.next().css({'width': $this.parent().width()});
-						})
-					});
-
-
-			})
-		</script>
+		
 	</body>
 </html>
