@@ -103,31 +103,31 @@
 																	</div>
 																</div>
 																<div class="form-group">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Teléfono </label>
+																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Teléfono: </label>
 
 																	<div class="col-sm-9">
 																		<input type="text" id="txt_3" name="txt_3" placeholder="Teléfono" class="form-control" />
 																	</div>
 																</div>
 																<div class="form-group">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Cargo </label>
+																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Cargo: </label>
 
 																	<div class="col-sm-9">
 																		<select class="chosen-select form-control" id="txt_4" name="txt_4" data-placeholder="Pais">
-																			<option value="NM">New Mexico</option>
-																			<option value="NY">New York</option>													
+																			<option value="Administrador">Administrador</option>
+																			<option value="Vendedor">Vendedor</option>													
 																		</select>
 																	</div>
 																</div>
 																<div class="form-group">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Password </label>
+																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Password: </label>
 
 																	<div class="col-sm-9">
 																		<input type="text" id="txt_5" name="txt_5" placeholder="Password" class="form-control" />
 																	</div>
 																</div>
 																<div class="form-group">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Repetir </label>
+																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Repetir: </label>
 
 																	<div class="col-sm-9">
 																		<input type="text" id="txt_6" name="txt_6" placeholder="Repetir Password" class="form-control" />
@@ -136,31 +136,31 @@
 															</div>
 															<div class="col-sm-5">
 																<div class="form-group">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Celular </label>
+																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Celular: </label>
 
 																	<div class="col-sm-9">
 																		<input type="text" id="txt_7" name="txt_7" placeholder="Celular" class="form-control" />
 																	</div>
 																</div>
 																<div class="form-group">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Correo </label>
+																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Correo: </label>
 
 																	<div class="col-sm-9">
 																		<input type="text" id="txt_8" name="txt_8" placeholder="Correo" class="form-control" />
 																	</div>
 																</div>													
 																<div class="form-group">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Pais </label>
+																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> País: </label>
 
 																	<div class="col-sm-9">
-																		<select class="chosen-select form-control" id="txt_9" name="txt_9" data-placeholder="Pais">
+																		<select class="chosen-select form-control" id="txt_9" name="txt_9" data-placeholder="País">
 																			<option value="NM">New Mexico</option>
 																			<option value="NY">New York</option>													
 																		</select>
 																	</div>
 																</div>
 																<div class="form-group">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Provincia </label>
+																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Provincia: </label>
 
 																	<div class="col-sm-9">
 																		<select class="chosen-select form-control" id="txt_10" name="txt_10" data-placeholder="Provincia">
@@ -170,7 +170,7 @@
 																	</div>
 																</div>
 																<div class="form-group">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Ciudad </label>
+																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Ciudad: </label>
 
 																	<div class="col-sm-9">
 																		<select class="chosen-select form-control" id="txt_11" name="txt_11" data-placeholder="Ciudad">
@@ -180,7 +180,7 @@
 																	</div>
 																</div>
 																<div class="form-group">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Dirección </label>
+																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Dirección: </label>
 
 																	<div class="col-sm-9">
 																		<input type="text" id="txt_12" name="txt_12" placeholder="Dirección" class="form-control" />
