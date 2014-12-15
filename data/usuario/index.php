@@ -138,8 +138,19 @@
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Celular: </label>
 
-																	<div class="col-sm-9">
-																		<input type="text" id="txt_7" name="txt_7" placeholder="Celular" class="form-control" />
+																	<div class="col-sm-9">																		
+																		<div class="col-sm-5">
+																			<input type="text" id="txt_7" name="txt_7" placeholder="Celular" class="form-control" />
+																		</div>
+																		<div class="col-sm-7">
+																			<div class="checkbox">
+																				<label class="block">
+																					<input name="form-field-checkbox" type="checkbox" class="ace input-lg" />
+																					<span class="lbl bigger-120"> Nacionalidad</span>
+																				</label>
+																			</div>
+
+																		</div>
 																	</div>
 																</div>
 																<div class="form-group">
@@ -225,7 +236,7 @@
 												<div class="col-xs-12">
 													<div class="center">														
 														
-																							
+															<button class="btn" id="bootbox-regular">Regular Dialog</button>								
 													</div>																					
 												</div>
 											</div>
@@ -292,6 +303,63 @@
 		<script src="usuario.js"></script>
 
 		<!-- inline scripts related to this page -->
+<<<<<<< HEAD
 		
+=======
+		<script type="text/javascript">
+			jQuery(function($) {
+
+				$('#txt_0').ace_file_input({
+					style:'well',
+					btn_choose:'Seleccionar',
+					btn_change:null,
+					no_icon:'ace-icon fa fa-image',
+					droppable:true,
+					thumbnail:'small'
+				})
+				$('.chosen-select').chosen({allow_single_deselect:true}); 
+					$(window)
+					.off('resize.chosen')
+					.on('resize.chosen', function() {
+						$('.chosen-select').each(function() {
+							 var $this = $(this);
+							 $this.next().css({'width': $this.parent().width()});
+						})
+					}).trigger('resize.chosen');
+					//resize chosen on sidebar collapse/expand
+					$(document).on('settings.ace.chosen', function(e, event_name, event_val) {
+						if(event_name != 'sidebar_collapsed') return;
+						$('.chosen-select').each(function() {
+							 var $this = $(this);
+							 $this.next().css({'width': $this.parent().width()});
+						})
+					});
+
+
+
+			})
+		</script>
+>>>>>>> 22d541bd3f218dc41a8364f38d52c367aa4f7281
 	</body>
 </html>
+  <!-- Button trigger modal -->
+  <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Launch demo modal</a>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
