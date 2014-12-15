@@ -92,7 +92,7 @@
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> C.I.:</label>
 
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_1" name="txt_1" placeholder="Cedula" class="form-control" required maxlength="13" required pattern="[0-9]{10,13} />
+																		<input type="text" id="txt_1" name="txt_1" placeholder="Cedula" class="form-control" required maxlength="10|1" required pattern="[0-9]{10,13} />
 																	</div>
 																</div>
 																<div class="form-group has-error">
