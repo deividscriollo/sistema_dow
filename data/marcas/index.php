@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta charset="utf-8" />
         <link rel="shortcut icon" href="../../dist/images/logo.fw.png">
-        <title>Bodegas - <?php empresa(); ?></title>
+        <title>Marcas - <?php empresa(); ?></title>
 
         <meta name="description" content="Dynamic tables and grids using jqGrid plugin" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -47,7 +47,7 @@
                             </li>
                             <li class="active">Ingresos</li>
                             <li class="active">Generales</li>
-                            <li class="active">Bodegas</li>
+                            <li class="active">Marcas</li>
                         </ul>
                     </div>
 
@@ -92,6 +92,6 @@
         <!-- ace scripts -->
         <script src="../../dist/js/ace-elements.min.js"></script>
         <script src="../../dist/js/ace.min.js"></script>
-        <script src="bodegas.js"></script>
+        <script src="marcas.js"></script>
     </body>
 </html>

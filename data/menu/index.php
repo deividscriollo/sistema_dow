@@ -1,5 +1,6 @@
 <?php
 //verificacion si esta iniciada la variable se ssesion 
+//error_reporting(0);
 if(!isset($_SESSION)){
 	session_start();
 }
@@ -81,9 +82,10 @@ function menu_arriba(){
 }
 //Menu Latera perfil aplicacion
 function menu_lateral(){
+	error_reporting(0);
 	$url = $_SERVER['PHP_SELF'];
-	$acus=parse_url($url, PHP_URL_PATH);
-	$acus=split('/', $acus);
+	$acus = parse_url($url, PHP_URL_PATH);
+	$acus = split ('/', $acus);
 	
 	print'
 		<div id="sidebar" class="sidebar responsive">
@@ -94,12 +96,12 @@ function menu_lateral(){
 					<li>
 						<a href="../inicio/">
 							<i class="menu-icon fa fa-home"></i>
-							<span class="menu-text"> Principal </span>
+							<span class="menu-text"> Inicio </span>
 						</a>
 
 						<b class="arrow"></b>
 					</li>					
-					<li ';if ($acus[3]=='bodegas'||$acus[3]=='usuario') {
+					<li ';if ($acus[3]=='categorias' || $acus[3]=='bodegas' || $acus[3]=='clientes' || $acus[3]=='marcas' || $acus[3]=='unidad_medida'|| $acus[3]=='usuario'|| $acus[3]=='empresa'|| $acus[3]=='tipo_producto'|| $acus[3]=='proveedores'|| $acus[3]=='productos') {
 								print('class="active open"');
 							}print'>
 						<a href="#" class="dropdown-toggle">
@@ -114,7 +116,7 @@ function menu_lateral(){
 						<b class="arrow"></b>
 
 						<ul class="submenu">
-							<li ';if ($acus[3]=='bodegas') {
+							<li ';if ($acus[3]=='bodegas'||$acus[3]=='categorias'||$acus[3]=='marcas'||$acus[3]=='unidad_medida'||$acus[3]=='tipo_producto') {
 									print('class="active open"');
 								}print'>
 								<a href="#" class="dropdown-toggle">
@@ -127,7 +129,9 @@ function menu_lateral(){
 								<b class="arrow"></b>
 
 								<ul class="submenu">
-									<li class="active">
+									<li ';if ($acus[3]=='bodegas') {
+									print('class="active"');
+								}print'>
 										<a href="../bodegas/">
 											<i class="menu-icon fa fa-caret-right"></i>
 											Bodegas
@@ -136,7 +140,9 @@ function menu_lateral(){
 										<b class="arrow"></b>
 									</li>									
 
-									<li class="">
+									<li ';if ($acus[3]=='categorias') {
+									print('class="active"');
+								}print'>
 										<a href="../categorias/">
 											<i class="menu-icon fa fa-caret-right"></i>
 											Categorías
@@ -144,7 +150,9 @@ function menu_lateral(){
 
 										<b class="arrow"></b>
 									</li>
-									<li class="">
+									<li ';if ($acus[3]=='marcas') {
+									print('class="active"');
+								}print'>
 										<a href="../marcas/">
 											<i class="menu-icon fa fa-caret-right"></i>
 											Marcas
@@ -152,7 +160,9 @@ function menu_lateral(){
 
 										<b class="arrow"></b>
 									</li>
-									<li class="">
+									<li ';if ($acus[3]=='unidad_medida') {
+									print('class="active"');
+								}print'>
 										<a href="../unidad_medida/">
 											<i class="menu-icon fa fa-caret-right"></i>
 											Unidades de Medida
@@ -161,7 +171,9 @@ function menu_lateral(){
 										<b class="arrow"></b>
 									</li>
 
-									<li class="">
+									<li ';if ($acus[3]=='tipo_producto') {
+									print('class="active"');
+								}print'>
 										<a href="../tipo_producto/">
 											<i class="menu-icon fa fa-caret-right"></i>
 											Tipo de producto
@@ -172,7 +184,9 @@ function menu_lateral(){
 								</ul>
 							</li>
 
-							<li class="">
+							<li ';if ($acus[3]=='empresa') {
+									print('class="active"');
+								}print'>
 								<a href="../empresa/">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Empresa
@@ -190,7 +204,9 @@ function menu_lateral(){
 
 								<b class="arrow"></b>
 							</li>							
-							<li class="">
+							<li ';if ($acus[3]=='clientes') {
+									print('class="active"');
+								}print'>
 								<a href="../clientes/">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Clientes
@@ -198,7 +214,9 @@ function menu_lateral(){
 
 								<b class="arrow"></b>
 							</li>
-							<li class="">
+							<li ';if ($acus[3]=='proveedores') {
+									print('class="active"');
+								}print'>
 								<a href="../proveedores/">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Proveedores
@@ -206,7 +224,9 @@ function menu_lateral(){
 
 								<b class="arrow"></b>
 							</li>
-							<li class="">
+							<li ';if ($acus[3]=='productos') {
+									print('class="active"');
+								}print'>
 								<a href="../productos/">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Productos
