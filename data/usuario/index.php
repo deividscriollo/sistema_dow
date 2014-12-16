@@ -91,9 +91,20 @@
 																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> C.I.:</label>
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_1" name="txt_1" placeholder="Cedula" class="form-control" data-toggle="tooltip" data-original-title="Agregue el nro de CI en caso de ser extranjero seleccione la casilla Extranjero" required pattern="[0-9]{1,}" />
+																		<input type="text" id="txt_1" name="txt_1"  placeholder="Cedula" class="col-xs-10 col-sm-5" data-toggle="tooltip" data-original-title="Agregue el nro de CI en caso de ser extranjero seleccione la casilla Extranjero" required pattern="[0-9]{1,}" />
+																		<span class="help-inline col-xs-12 col-sm-7">
+																			
+																			<div class="checkbox">
+																				<label class="block">
+																					<input name="form-field-checkbox" type="checkbox" class="ace input-lg" />
+																					<span class="lbl bigger-120"> Extranjero</span>
+																				</label>
+																			</div>
+																		</span>
+
 																	</div>
 																</div>
+
 																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Nombres: </label>
 																	<div class="col-sm-9">
@@ -133,20 +144,8 @@
 															<div class="col-sm-5">
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Celular: </label>
-
-																	<div class="col-sm-9">																		
-																		<div class="col-sm-5">
-																			<input type="text" id="txt_7" name="txt_7" placeholder="Celular" class="form-control" />
-																		</div>
-																		<div class="col-sm-7">
-																			<div class="checkbox">
-																				<label class="block">
-																					<input name="form-field-checkbox" type="checkbox" class="ace input-lg" />
-																					<span class="lbl bigger-120"> Extranjero</span>
-																				</label>
-																			</div>
-
-																		</div>
+																	<div class="col-sm-9">																																				
+																			<input type="text" id="txt_7" name="txt_7" placeholder="Celular" class="form-control" />																																		
 																	</div>
 																</div>
 																<div class="form-group">
