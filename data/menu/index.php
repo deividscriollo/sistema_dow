@@ -8,7 +8,7 @@ function empresa(){
 	print'DOW';
 }
 //Menu banner arriba usuario perfil dependientes del nivel de usuario
-function menu_arriba(){
+function menu_arriba(){	
 	print'
 	<div id="navbar" class="navbar navbar-default">
 			<script type="text/javascript">
@@ -81,13 +81,17 @@ function menu_arriba(){
 }
 //Menu Latera perfil aplicacion
 function menu_lateral(){
+	$url = $_SERVER['PHP_SELF'];
+	$acus=parse_url($url, PHP_URL_PATH);
+	$acus=split('/', $acus);
+	
 	print'
 		<div id="sidebar" class="sidebar responsive">
 				<script type="text/javascript">
 					try{ace.settings.check("sidebar" , "fixed")}catch(e){}
 				</script>
 				<ul class="nav nav-list">
-					<li class="active">
+					<li>
 						<a href="../inicio/">
 							<i class="menu-icon fa fa-home"></i>
 							<span class="menu-text"> Inicio </span>
@@ -95,7 +99,9 @@ function menu_lateral(){
 
 						<b class="arrow"></b>
 					</li>					
-					<li class="">
+					<li ';if ($acus[3]=='bodegas'||$acus[3]=='usuario') {
+								print('class="active open"');
+							}print'>
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-desktop"></i>
 							<span class="menu-text">
@@ -108,7 +114,9 @@ function menu_lateral(){
 						<b class="arrow"></b>
 
 						<ul class="submenu">
-							<li class="">
+							<li ';if ($acus[3]=='bodegas') {
+									print('class="active open"');
+								}print'>
 								<a href="#" class="dropdown-toggle">
 									<i class="menu-icon fa fa-caret-right"></i>
 
@@ -119,7 +127,7 @@ function menu_lateral(){
 								<b class="arrow"></b>
 
 								<ul class="submenu">
-									<li class="">
+									<li class="active">
 										<a href="../bodegas/">
 											<i class="menu-icon fa fa-caret-right"></i>
 											Bodegas
@@ -172,7 +180,9 @@ function menu_lateral(){
 
 								<b class="arrow"></b>
 							</li>
-							<li class="">
+							<li ';if ($acus[3]=='usuario') {
+									print('class="active"');
+								}print'>
 								<a href="../usuario/">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Usuario
