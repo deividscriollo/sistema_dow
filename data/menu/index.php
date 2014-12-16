@@ -1,5 +1,6 @@
 <?php
 //verificacion si esta iniciada la variable se ssesion 
+//error_reporting(0);
 if(!isset($_SESSION)){
 	session_start();
 }
@@ -84,6 +85,7 @@ function menu_lateral(){
 	$url = $_SERVER['PHP_SELF'];
 	$acus=parse_url($url, PHP_URL_PATH);
 	$acus=split('/', $acus);
+
 	
 	print'
 		<div id="sidebar" class="sidebar responsive">
