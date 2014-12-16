@@ -26,8 +26,13 @@
 		return $resp;
 
 	}
-	function modifcarSql(){
-
+	function id($conexion,$sql){ //retorna el id de una consulta con solo un parametro de retorno en el sql
+		$id = 0;
+		$sql = pg_query($conexion, $sql);
+		while($row = pg_fetch_row($sql)){
+			$id = $row[0];
+		}
+		echo $id;
 	}
 	function repetidos($conexion,$campo,$valor,$tabla,$tipo,$id,$id_campo){///conexion,campo a comparar,valor campo,tabla,tipo g o m id si tiene, id campo si tiene
 		$repetidos = 'true';

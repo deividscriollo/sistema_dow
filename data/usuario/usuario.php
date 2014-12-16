@@ -7,6 +7,7 @@
     $fecha_larga = date('His', time()); 
 	$sql = "";	
 	$id = unique($fecha_larga);	
+	$id_c = unique($fecha_larga);	
 	$check = "OFF";
 	$extension = explode(".", $_FILES["txt_0"]["name"]);
 	$extension = end($extension);
@@ -35,10 +36,36 @@
 			}else{
 				$data = 2; /// error al guardar
 			}
+			$sql = "insert into claves values ('$id_c','$id','$_POST[txt_5]')";
+			guardarSql($conexion,$sql);
+
 		}
 	}else{
 		if($_GET['tipo'] == "m"){
+			$repetidos = repetidos($conexion,"usuario",strtoupper($_POST["txt_13"]),"usuario","m",$_POST['txt_o'],"id_usuario");		
+			if( $repetidos == 'true'){
+				$data = 1; /// este dato ya existe;
+			}else{		
+				if ($img == "") {
+					$sql ="update usuario set identificacion='$_POST[txt_1]',nombres_completos='$_POST[txt_2]',telefono1='$_POST[txt_3]',telefono2='$_POST[txt_7]',id_ciudad='$_POST[txt_11]',direccion='$_POST[txt_12]',correo='$_POST[txt_8]',usuario='$_POST[txt_13]',id_cargo='$_POST[txt_4]',extranjero='$check' where id_usuario = '$_POST[txt_o]'";					
+
+				}else{
+					$foto = $_POST['txt_o'] . '.' . $extension;
+					move_uploaded_file($_FILES["txt_0"]["tmp_name"], "img/" . $foto);	
+					$sql ="update usuario set identificacion='$_POST[txt_1]',nombres_completos='$_POST[txt_2]',telefono1='$_POST[txt_3]',telefono2='$_POST[txt_7]',id_ciudad='$_POST[txt_11]',direccion='$_POST[txt_12]',correo='$_POST[txt_8]',usuario='$_POST[txt_13]',id_cargo='$_POST[txt_4]',imagen='$foto',extranjero='$check' where id_usuario = '$_POST[txt_o]'";					
+				}	
+				$guardar = guardarSql($conexion,$sql);
+				if( $guardar == 'true'){
+					$data = 0; ////datos guardados
+				}else{
+					$data = 2; /// error al guardar
+				}				
+				$sql = "update claves set id_usuario='$_POST[txt_o]',clave='$_POST[txt_5]' where id_usuario = '$_POST[txt_o]'";
+				guardarSql($conexion,$sql);
+
+			}
 		}
+
 	}	
 	echo $data;
 ?>

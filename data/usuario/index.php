@@ -15,7 +15,7 @@
 		<link rel="stylesheet" href="../../dist/css/font-awesome.min.css" />
 		<!-- Select -->
 		<link rel="stylesheet" href="../../dist/css/chosen.min.css" />
-
+		<link rel="stylesheet" href="../../dist/css/ui.jqgrid.min.css" />
 
 		<!-- page specific plugin styles -->
 
@@ -79,7 +79,7 @@
 																		<div class="widget-main">
 																			<div class="form-group">
 																				<div class="col-xs-12">
-																					<input multiple="" type="file" class="txt_0" id="txt_0" name="txt_0" />
+																					<input type="file" class="txt_0" id="txt_0" name="txt_0" />
 																				</div>
 																			</div>
 																		</div>
@@ -92,6 +92,7 @@
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> C.I.:</label>
 																	<div class="col-sm-9">
 																		<input type="text" id="txt_1" name="txt_1"  placeholder="Cedula" class="col-xs-10 col-sm-5" data-toggle="tooltip" data-original-title="Agregue el nro de CI en caso de ser extranjero seleccione la casilla Extranjero" required pattern="[0-9]{1,}" />
+																		<input type="hidden" id="txt_o" name="txt_o" />
 																		<span class="help-inline col-xs-12 col-sm-7">																			
 																			<div class="checkbox">
 																				<label class="block">
@@ -288,9 +289,12 @@
 		<script src="../../dist/js/chosen.jquery.min.js"></script>
 
 
+
 		<!-- ace scripts -->
 		<script src="../../dist/js/ace-elements.min.js"></script>
 		<script src="../../dist/js/ace.min.js"></script>
+		<script src="../../dist/js/jqGrid/jquery.jqGrid.min.js"></script>
+        <script src="../../dist/js/jqGrid/i18n/grid.locale-en.js"></script>
 		<script src="usuario.js"></script>
 		<script src="../generales.js"></script>
 
@@ -306,10 +310,11 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Modal title</h4>
+          <h4 class="modal-title">BUSCAR USUARIOS</h4>
         </div>
         <div class="modal-body">
-          ...
+            <table id="table"></table>
+			<div id="pager"></div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
