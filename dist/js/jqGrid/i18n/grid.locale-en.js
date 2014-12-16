@@ -35,7 +35,7 @@ $.extend($.jgrid,{
 		bNo : "No",
 		bExit : "Cancelar",
 		msg: {
-			required:"Se requiere Campo",
+			required:"Campo Obligatorio",
 			number:"Por favor, ingrese un número válido",
 			minValue:"Valor debe ser mayor que o igual a",
 			maxValue:"Valor debe ser menor que o igual a",

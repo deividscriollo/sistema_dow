@@ -53,8 +53,8 @@
 	        height: 250,
 	        colNames:['ID','DESCRIPCIÓN','UBICACIÓN'],
 	        colModel:[
-	            {name:'id_bodega',index:'id_bodega', width:60, sorttype:"int", editable: true},
-	            {name:'txt_1',index:'txt_1',width:90, editable:true, sorttype:"date",unformat: pickDate},
+	            {name:'id_bodega',index:'id_bodega', width:60, sorttype:"int", editable: true, editoptions: {readonly: 'readonly'}},
+	            {name:'txt_1',index:'txt_1',width:90, editable:true, editoptions:{size:"20",maxlength:"30"}, editrules: {required: true}},
 	            {name:'txt_2',index:'txt_2', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}}
 	        ], 
 	        rowNum:10,
