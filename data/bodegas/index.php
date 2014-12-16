@@ -43,7 +43,7 @@
                         <ul class="breadcrumb">
                             <li>
                                 <i class="ace-icon fa fa-home home-icon"></i>
-                                <a href="../inicio/">Principal</a>
+                                <a href="../inicio/">Inicio</a>
                             </li>
                             <li class="active">Ingresos</li>
                             <li class="active">Generales</li>
