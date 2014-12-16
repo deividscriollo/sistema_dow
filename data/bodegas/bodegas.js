@@ -53,16 +53,15 @@
 	        height: 250,
 	        colNames:['ID','DESCRIPCIÓN','UBICACIÓN'],
 	        colModel:[
-	            {name:'id_bodega',index:'id_bodega', width:60, sorttype:"int", editable: true, editoptions: {readonly: 'readonly'}},
-	            {name:'txt_1',index:'txt_1',width:90, editable:true, editoptions:{size:"20",maxlength:"30"}, editrules: {required: true}},
-	            {name:'txt_2',index:'txt_2', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}}
+	            {name:'id_bodega',index:'id_bodega', width:50, sorttype:"int", editable: true, editoptions: {readonly: 'readonly'}},
+	            {name:'nombre_bodega',index:'nombre_bodega',width:90, editable:true, editoptions:{size:"20",maxlength:"30"}, editrules: {required: true}},
+	            {name:'ubicacion_bodega',index:'ubicacion_bodega', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}}
 	        ], 
 	        rowNum:10,
 	        rowList:[10,20,30],
 	        pager : pager_selector,
 	        sortname: 'id_bodega',
 	        sortorder: 'asc',
-	        width: null,
 	        altRows: true,
 	        multiselect: false,
 	        multiboxonly: true,
@@ -77,7 +76,7 @@
 	            }, 0);
 	        },
 
-	        editurl: "/dummy.html",
+	        editurl: "bodegas.php",
 	        caption: "LISTA BODEGAS"
 	    });
 	    $(window).triggerHandler('resize.jqGrid');//cambiar el tamaño para hacer la rejilla conseguir el tamaño correcto
@@ -105,7 +104,7 @@
 	        editicon : 'ace-icon fa fa-pencil blue',
 	        add: true,
 	        addicon : 'ace-icon fa fa-plus-circle purple',
-	        del: true,
+	        del: false,
 	        delicon : 'ace-icon fa fa-trash-o red',
 	        search: true,
 	        searchicon : 'ace-icon fa fa-search orange',
@@ -115,9 +114,6 @@
 	        viewicon : 'ace-icon fa fa-search-plus grey'
 	    },
 	    {
-	        //edit record form
-	        //closeAfterEdit: true,
-	        //width: 700,
 	        recreateForm: true,
 	        beforeShowForm : function(e) {
 	            var form = $(e[0]);
@@ -126,8 +122,6 @@
 	        }
 	    },
 	    {
-	        //new record form
-	        //width: 700,
 	        closeAfterAdd: true,
 	        recreateForm: true,
 	        viewPagerButtons: false,
@@ -136,7 +130,22 @@
 	            form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar')
 	            .wrapInner('<div class="widget-header" />')
 	            style_edit_form(form);
-	        }
+	        },
+	        afterSubmit: function (response){
+	        	if(response.responseText == "0"){
+	        		$.gritter.add({
+						title: 'Mensaje',
+						text: 'Registro guardado correctamente <i class="ace-icon fa fa-spinner fa-spin green bigger-125"></i>',
+						time: 1000				
+					});
+	        		return true;
+	        	}else{
+	        		if(response.responseText == "1"){	
+	        			$("#nombre_bodega").val("");
+	        			return [false,"Error.. La Bodega ya existe"];
+		        	}	
+	        	}
+	        },
 	    },
 	    {
 	        //delete record form
@@ -144,10 +153,8 @@
 	        beforeShowForm : function(e) {
 	            var form = $(e[0]);
 	            if(form.data('styled')) return false;
-	                
 	            form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
 	            style_delete_form(form);
-	                
 	            form.data('styled', true);
 	        },
 	        onClick : function(e) {

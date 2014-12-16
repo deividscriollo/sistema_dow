@@ -54,8 +54,8 @@
 	        colNames:['ID','DESCRIPCIÓN','ABREVIATURA'],
 	        colModel:[
 	            {name:'id_unidad',index:'id_unidad', width:60, sorttype:"int", editable: true, editoptions: {readonly: 'readonly'}},
-	            {name:'descripcion',index:'descripcion',width:90, editable:true, editoptions:{size:"20",maxlength:"30"}, editrules: {required: true}},
-	            {name:'abreviatura',index:'abreviatura',width:90, editable:true, editoptions:{size:"20",maxlength:"30"}, editrules: {required: true}}
+	            {name:'descripcion',index:'descripcion',width:150, editable:true, editoptions:{size:"20",maxlength:"30"}, editrules: {required: true}},
+	            {name:'abreviatura',index:'abreviatura',width:150, editable:true, editoptions:{size:"20",maxlength:"30"}, editrules: {required: true}}
 	        ], 
 	        rowNum:10,
 	        rowList:[10,20,30],
@@ -96,7 +96,6 @@
 	            .datepicker({format:'yyyy-mm-dd' , autoclose:true}); 
 	        }, 0);
 	    }
-
 
 	    //navButtons
 	    jQuery(grid_selector).jqGrid('navGrid',pager_selector,

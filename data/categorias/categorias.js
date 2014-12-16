@@ -54,7 +54,7 @@
 	        colNames:['ID','DESCRIPCIÓN'],
 	        colModel:[
 	            {name:'id_categoria',index:'id_categoria', width:60, sorttype:"int", editable: true, editoptions: {readonly: 'readonly'}},
-	            {name:'nombre_categoria',index:'nombre_categoria',width:90, editable:true, editoptions:{size:"20",maxlength:"30"}, editrules: {required: true}},
+	            {name:'nombre_categoria',index:'nombre_categoria',width:300, editable:true, editoptions:{size:"20",maxlength:"30"}, editrules: {required: true}},
 	        ], 
 	        rowNum:10,
 	        rowList:[10,20,30],
@@ -76,7 +76,7 @@
 	            }, 0);
 	        },
 
-	        editurl: "/dummy.html",
+	        editurl: "categorias.php",
 	        caption: "LISTA CATEGORIAS"
 	    });
 	    $(window).triggerHandler('resize.jqGrid');//cambiar el tamaño para hacer la rejilla conseguir el tamaño correcto
@@ -122,7 +122,22 @@
 	            var form = $(e[0]);
 	            form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
 	            style_edit_form(form);
-	        }
+	        },
+	        afterSubmit: function (response){
+	        	if(response.responseText == "0"){
+	        		$.gritter.add({
+						title: 'Mensaje',
+						text: 'Registro guardado correctamente <i class="ace-icon fa fa-spinner fa-spin green bigger-125"></i>',
+						time: 1000				
+					});
+	        		return true;
+	        	}else{
+	        		if(response.responseText == "1"){	
+	        			$("#nombre_categoria").val("");
+	        			return [false,"Error.. La Categoria ya existe"];
+		        	}	
+	        	}
+	        },
 	    },
 	    {
 	        //new record form

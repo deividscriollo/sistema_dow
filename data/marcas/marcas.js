@@ -54,7 +54,7 @@
 	        colNames:['ID','DESCRIPCIÓN'],
 	        colModel:[
 	            {name:'id_marca',index:'id_marca', width:60, sorttype:"int", editable: true, editoptions: {readonly: 'readonly'}},
-	            {name:'nombre_marca',index:'nombre_marca',width:90, editable:true, editoptions:{size:"20",maxlength:"30"}, editrules: {required: true}},
+	            {name:'nombre_marca',index:'nombre_marca',width:300, editable:true, editoptions:{size:"20",maxlength:"30"}, editrules: {required: true}},
 	        ], 
 	        rowNum:10,
 	        rowList:[10,20,30],

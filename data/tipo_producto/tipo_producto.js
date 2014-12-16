@@ -54,7 +54,7 @@
 	        colNames:['ID','DESCRIPCIÓN'],
 	        colModel:[
 	            {name:'id_tipo',index:'id_tipo', width:60, sorttype:"int", editable: true, editoptions: {readonly: 'readonly'}},
-	            {name:'descripcion',index:'descripcion',width:90, editable:true, editoptions:{size:"20",maxlength:"30"}, editrules: {required: true}},
+	            {name:'descripcion',index:'descripcion',width:300, editable:true, editoptions:{size:"20",maxlength:"30"}, editrules: {required: true}},
 	        ], 
 	        rowNum:10,
 	        rowList:[10,20,30],
@@ -104,7 +104,7 @@
 	        editicon : 'ace-icon fa fa-pencil blue',
 	        add: true,
 	        addicon : 'ace-icon fa fa-plus-circle purple',
-	        del: true,
+	        del: false,
 	        delicon : 'ace-icon fa fa-trash-o red',
 	        search: true,
 	        searchicon : 'ace-icon fa fa-search orange',
