@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
 		<link rel="shortcut icon" href="../../dist/images/logo.fw.png">
-		<title>Inicio - <?php empresa(); ?></title>
+		<title>Bodegas - <?php empresa(); ?></title>
 
 		<meta name="description" content="overview &amp; stats" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
