@@ -24,13 +24,12 @@ function comprobarCamposRequired(form){////funcion para campos requeridos en el 
     var campos_text=$('#'+form+' input:required');
     $(campos_text).each(function() {
         var pattern = new RegExp("^" + $(this)[0].pattern + "$");
-        if($(this).val() != '' && pattern.test($(this).val())){
-            $(this).parent().removeClass('has-error');
-            $(this).parent().addClass('has-success');
-          }else{
+        if($(this).val() != '' && pattern.test($(this).val())){            
+            $(this).parent().parent().removeClass('has-error');            
+        }else{
             correcto=false;
-            $(this).parent().addClass('has-error');
-        }
+            $(this).parent().parent().addClass('has-error');
+        }   
     });
     return correcto;
 }

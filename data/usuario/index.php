@@ -66,7 +66,7 @@
 									<div class="widget-body">
 										<div class="widget-main">
 											<div class="row">
-												<form class="form-horizontal" role="form" method="POST">
+												<form class="form-horizontal" role="form" method="POST" id="form_usuario">
 													<div class="row">
 														<div class="col-xs-12">
 															<div class="col-sm-2">
@@ -90,16 +90,14 @@
 															<div class="col-sm-5">
 																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> C.I.:</label>
-
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_1" name="txt_1" placeholder="Cedula" class="form-control" maxlength="10" required pattern="[0-9]{10}" />
+																		<input type="text" id="txt_1" name="txt_1" placeholder="Cedula" class="form-control" data-toggle="tooltip" data-original-title="Agregue el nro de CI en caso de ser extranjero seleccione la casilla Extranjero" required pattern="[0-9]{1,}" />
 																	</div>
 																</div>
 																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Nombres: </label>
-
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_2" name="txt_2" placeholder="Nombre Completo" class="form-control"  />
+																		<input type="text" id="txt_2" name="txt_2" placeholder="Nombre Completo" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Nombres completos del usuario"  />
 																	</div>
 																</div>
 																<div class="form-group">
@@ -113,9 +111,7 @@
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Cargo: </label>
 
 																	<div class="col-sm-9">
-																		<select class="chosen-select form-control" id="txt_4" name="txt_4" data-placeholder="Pais">
-																			<option value="Administrador">Administrador</option>
-																			<option value="Vendedor">Vendedor</option>													
+																		<select class="chosen-select form-control" id="txt_4" name="txt_4" data-placeholder="Pais">																			
 																		</select>
 																	</div>
 																</div>
@@ -123,14 +119,14 @@
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Password: </label>
 
 																	<div class="col-sm-9">
-																		<input type="password" id="txt_5" name="txt_5" placeholder="Password" class="form-control" />
+																		<input type="password" id="txt_5" name="txt_5" placeholder="Password" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{5,}" data-toggle="tooltip" data-original-title="Digite la contraseña del usuario mínimo 5 carácteres"/>
 																	</div>
 																</div>
 																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Repetir: </label>
 
 																	<div class="col-sm-9">
-																		<input type="password" id="txt_6" name="txt_6" placeholder="Repetir Password" class="form-control" />
+																		<input type="password" id="txt_6" name="txt_6" placeholder="Repetir Password" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{5,}" data-toggle="tooltip" data-original-title="Repita la contraseña ingresada"/>
 																	</div>
 																</div>
 															</div>
@@ -146,7 +142,7 @@
 																			<div class="checkbox">
 																				<label class="block">
 																					<input name="form-field-checkbox" type="checkbox" class="ace input-lg" />
-																					<span class="lbl bigger-120"> Nacionalidad</span>
+																					<span class="lbl bigger-120"> Extranjero</span>
 																				</label>
 																			</div>
 
@@ -165,9 +161,9 @@
 
 																	<div class="col-sm-9">
 																		<select class="chosen-select form-control" id="txt_9" name="txt_9" data-placeholder="País">
-																			<option value="NM">New Mexico</option>
-																			<option value="NY">New York</option>													
-																		</select>
+																			
+																			
+																		</select>																	
 																	</div>
 																</div>
 																<div class="form-group">
@@ -175,8 +171,7 @@
 
 																	<div class="col-sm-9">
 																		<select class="chosen-select form-control" id="txt_10" name="txt_10" data-placeholder="Provincia">
-																			<option value="NM">New Mexico</option>
-																			<option value="NY">New York</option>													
+																															
 																		</select>
 																	</div>
 																</div>
@@ -185,8 +180,7 @@
 
 																	<div class="col-sm-9">
 																		<select class="chosen-select form-control" id="txt_11" name="txt_11" data-placeholder="Ciudad">
-																			<option value="NM">New Mexico</option>
-																			<option value="NY">New York</option>													
+																															
 																		</select>
 																	</div>
 																</div>
@@ -194,7 +188,7 @@
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Dirección: </label>
 
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_12" name="txt_12" placeholder="Dirección" class="form-control" />
+																		<input type="text" id="txt_12" name="txt_12" placeholder="Dirección" class="form-control"  required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Ingrese la dirección del usuario a crear" />
 																	</div>
 																</div>
 																
@@ -214,8 +208,8 @@
 														<button type="button" id="btn_1" class="btn btn-white btn-info btn-bold">
 															<i class="ace-icon fa fa-refresh bigger-120 blue"></i>
 															Actualizar
-														</button>
-														<button type="button" id="btn_2" class="btn btn-white btn-info btn-bold">
+														</button>														
+														<button data-toggle="modal" href="#myModal" type="button" id="btn_2" class="btn btn-white btn-info btn-bold">
 															<i class="ace-icon fa fa-search bigger-120 blue"></i>
 															Buscar
 														</button>
@@ -232,14 +226,7 @@
 											</div>									
 											
 
-											<div class="row">
-												<div class="col-xs-12">
-													<div class="center">														
-														
-															<button class="btn" id="bootbox-regular">Regular Dialog</button>								
-													</div>																					
-												</div>
-											</div>
+											
 										</div>
 									</div>
 								</div>
@@ -301,16 +288,14 @@
 		<script src="../../dist/js/ace-elements.min.js"></script>
 		<script src="../../dist/js/ace.min.js"></script>
 		<script src="usuario.js"></script>
+		<script src="../generales.js"></script>
 
 		<!-- inline scripts related to this page -->
 
 	
 
 	</body>
-</html>
-  <!-- Button trigger modal -->
-  <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Launch demo modal</a>
-
+</html>  
   <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">

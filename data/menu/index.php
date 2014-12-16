@@ -5,7 +5,7 @@ if(!isset($_SESSION)){
 }
 //informacion empresa
 function empresa(){
-	print'DOW<';
+	print'DOW';
 }
 //Menu banner arriba usuario perfil dependientes del nivel de usuario
 function menu_arriba(){
