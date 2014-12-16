@@ -29,6 +29,7 @@ function inicio (){
 	/*-----------------------*/
 	$("input").on("keyup click",function (e){//campos requeridos		
 		comprobarCamposRequired(e.currentTarget.form.id)
+
 	});	
 	/*cargr el select de cargos*/
     $.ajax({      /*cargar el select ciudades*/         
@@ -117,5 +118,30 @@ function inicio (){
 	        }                   
 	    });
     });
+    /*igualar password*/
+    $("#txt_6").focus(function (){
+    	if($("#txt_5").val() == ""){
+    		alert("Digite una contraseña");
+    		$("#txt_5").focus();
+    	}
+    	else{
+    		/*$(this).keyup(function(){
+    			var pattern = new RegExp("^" + $(this).val() + "$");					    			    							    							
+				if($(this).val() != '' && pattern.test($("#txt_5").val())){ 
+					$(this).parent().parent().addClass("has-success");
+					$(this).parent().parent().removeClass("has-error");										        			
+					$("#txt_5").parent().parent().addClass("has-success");
+					$("#txt_5").parent().parent().removeClass("has-error");										        			
+				}else{
+					$(this).parent().parent().removeClass("has-success");
+					$(this).parent().parent().addClass("has-error");					
+					$("#txt_5").parent().parent().removeClass("has-success");
+					$("#txt_5").parent().parent().addClass("has-error");										        			
+				}
+    		});*/
+    	}
+    });
+
+    /*-----*/
     
 }

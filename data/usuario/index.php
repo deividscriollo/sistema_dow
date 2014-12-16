@@ -92,8 +92,7 @@
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> C.I.:</label>
 																	<div class="col-sm-9">
 																		<input type="text" id="txt_1" name="txt_1"  placeholder="Cedula" class="col-xs-10 col-sm-5" data-toggle="tooltip" data-original-title="Agregue el nro de CI en caso de ser extranjero seleccione la casilla Extranjero" required pattern="[0-9]{1,}" />
-																		<span class="help-inline col-xs-12 col-sm-7">
-																			
+																		<span class="help-inline col-xs-12 col-sm-7">																			
 																			<div class="checkbox">
 																				<label class="block">
 																					<input name="form-field-checkbox" type="checkbox" class="ace input-lg" />
@@ -137,7 +136,7 @@
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Repetir: </label>
 
 																	<div class="col-sm-9">
-																		<input type="password" id="txt_6" name="txt_6" placeholder="Repetir Password" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{5,}" data-toggle="tooltip" data-original-title="Repita la contraseña ingresada"/>
+																		<input type="password" id="txt_6" name="txt_6" placeholder="Repetir Password" class="form-control" required  data-toggle="tooltip" data-original-title="Repita la contraseña ingresada"/>
 																	</div>
 																</div>
 															</div>
