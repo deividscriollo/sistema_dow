@@ -21,7 +21,7 @@ function mostrar(input) {///funcion para mostrar la hora se necesita un nombre d
 }
 function comprobarCamposRequired(form){////funcion para campos requeridos en el formulario se necesita el nombre del formulario
     var correcto=true;
-    var campos_text=$('#'+form+' input:required');    
+    var campos_text=$('#'+form+' input:required').not("input:password");    
     $(campos_text).each(function() {
         var pattern = new RegExp("^" + $(this)[0].pattern + "$");
         if($(this).val() != '' && pattern.test($(this).val())){            
@@ -33,9 +33,9 @@ function comprobarCamposRequired(form){////funcion para campos requeridos en el 
     });
     var campos_pas=$('#'+form+' input:required').filter("input:password");        
     var pass1 = $(campos_pas[0]).val();
-    var pass2 = $(campos_pas[1]).val();        
-    var pattern = new RegExp("^" + pass1 + "$");                                                                                                            
-    if($(campos_pas[0]).val() != '' && pattern.test(pass2)){ 
+    var pass2 = $(campos_pas[1]).val();            
+    var pattern = new RegExp("^" + pass1 + "$");                
+    if($(campos_pas[0]).val() != '' && pattern.test(pass2)){         
         $("#txt_6").parent().parent().addClass("has-success");
         $("#txt_6").parent().parent().removeClass("has-error");                                                         
         $("#txt_5").parent().parent().addClass("has-success");
@@ -44,9 +44,15 @@ function comprobarCamposRequired(form){////funcion para campos requeridos en el 
         $("#txt_6").parent().parent().removeClass("has-success");
         $("#txt_6").parent().parent().addClass("has-error");                    
         $("#txt_5").parent().parent().removeClass("has-success");
-        $("#txt_5").parent().parent().addClass("has-error");   
-        correcto=false;                                                         
-    }
-    
+        $("#txt_5").parent().parent().addClass("has-error");       
+        correcto = false;    
+    }    
     return correcto;
+}
+function enter(e) {
+    if (e.which === 13 || e.keyCode === 13) {
+        entrar();
+        return false;
+    }
+    return true;
 }

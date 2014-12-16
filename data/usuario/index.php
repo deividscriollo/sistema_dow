@@ -66,7 +66,7 @@
 									<div class="widget-body">
 										<div class="widget-main">
 											<div class="row">
-												<form class="form-horizontal" role="form" method="POST" id="form_usuario">
+												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_usuario">												
 													<div class="row">
 														<div class="col-xs-12">
 															<div class="col-sm-2">
@@ -95,7 +95,7 @@
 																		<span class="help-inline col-xs-12 col-sm-7">																			
 																			<div class="checkbox">
 																				<label class="block">
-																					<input name="form-field-checkbox" type="checkbox" class="ace input-lg" />
+																					<input name="form-field-checkbox" id="form-field-checkbox" type="checkbox" class="ace input-lg" />
 																					<span class="lbl bigger-120"> Extranjero</span>
 																				</label>
 																			</div>
@@ -107,7 +107,7 @@
 																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Nombres: </label>
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_2" name="txt_2" placeholder="Nombre Completo" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Nombres completos del usuario"  />
+																		<input type="text" id="txt_2" name="txt_2" placeholder="Nombre Completo" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Nombres completos"  />
 																	</div>
 																</div>
 																<div class="form-group">
@@ -117,14 +117,12 @@
 																		<input type="text" id="txt_3" name="txt_3" placeholder="Teléfono" class="form-control" />
 																	</div>
 																</div>
-																<div class="form-group">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Cargo: </label>
-
+																<div class="form-group has-error">
+																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Usuario: </label>
 																	<div class="col-sm-9">
-																		<select class="chosen-select form-control" id="txt_4" name="txt_4" data-placeholder="Pais">																			
-																		</select>
+																		<input type="text" id="txt_13" name="txt_13" placeholder="Nombre de usuario" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Nombres de usuario"  />
 																	</div>
-																</div>
+																</div>																
 																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Password: </label>
 
@@ -136,7 +134,7 @@
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Repetir: </label>
 
 																	<div class="col-sm-9">
-																		<input type="password" id="txt_6" name="txt_6" placeholder="Repetir Password" class="form-control" required  data-toggle="tooltip" data-original-title="Repita la contraseña ingresada"/>
+																		<input type="password" id="txt_6" name="txt_6" placeholder="Repetir Password" class="form-control" required data-toggle="tooltip" data-original-title="Repita la contraseña ingresada"/>
 																	</div>
 																</div>
 															</div>
@@ -153,7 +151,15 @@
 																	<div class="col-sm-9">
 																		<input type="mail" id="txt_8" name="txt_8" placeholder="Correo" class="form-control" />
 																	</div>
-																</div>													
+																</div>
+																<div class="form-group">
+																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Cargo: </label>
+
+																	<div class="col-sm-9">
+																		<select class="chosen-select form-control" id="txt_4" name="txt_4" data-placeholder="Pais">																			
+																		</select>
+																	</div>
+																</div>											
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> País: </label>
 
@@ -195,27 +201,27 @@
 													</div>
 													<h3 class="header smaller lighter green"></h3>
 													<div class="center">
-														<button type="submit" class="btn btn-white btn-info btn-bold">
+														<button type="button" class="btn btn-white btn-info btn-bold" id="btn_0">
 															<i class="ace-icon fa fa-floppy-o bigger-120 blue"></i>
 															Guardar
 														</button>
-														<button type="button" id="btn_0" class="btn btn-white btn-info btn-bold">
+														<button type="button" id="btn_1" class="btn btn-white btn-info btn-bold">
 															<i class="ace-icon fa fa-file-o bigger-120 blue"></i>
 															Limpiar
 														</button>
-														<button type="button" id="btn_1" class="btn btn-white btn-info btn-bold">
+														<button type="button" id="btn_2" class="btn btn-white btn-info btn-bold">
 															<i class="ace-icon fa fa-refresh bigger-120 blue"></i>
 															Actualizar
 														</button>														
-														<button data-toggle="modal" href="#myModal" type="button" id="btn_2" class="btn btn-white btn-info btn-bold">
+														<button data-toggle="modal" href="#myModal" type="button" id="btn_3" class="btn btn-white btn-info btn-bold">
 															<i class="ace-icon fa fa-search bigger-120 blue"></i>
 															Buscar
 														</button>
-														<button type="button" id="btn_3" class="btn btn-white btn-info btn-bold">
+														<button type="button" id="btn_4" class="btn btn-white btn-info btn-bold">
 															<i class="ace-icon fa fa-arrow-circle-left bigger-120 blue"></i>
 															Atras
 														</button>
-														<button type="button" id="btn_4" class="btn btn-white btn-info btn-bold">
+														<button type="button" id="btn_5" class="btn btn-white btn-info btn-bold">
 															<i class="ace-icon fa fa fa-arrow-circle-right bigger-120 blue"></i>
 															Adelante
 														</button>
