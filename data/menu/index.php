@@ -82,10 +82,10 @@ function menu_arriba(){
 }
 //Menu Latera perfil aplicacion
 function menu_lateral(){
+	error_reporting(0);
 	$url = $_SERVER['PHP_SELF'];
-	$acus=parse_url($url, PHP_URL_PATH);
-	$acus=split('/', $acus);
-
+	$acus = parse_url($url, PHP_URL_PATH);
+	$acus = split ('/', $acus);
 	
 	print'
 		<div id="sidebar" class="sidebar responsive">
@@ -101,7 +101,7 @@ function menu_lateral(){
 
 						<b class="arrow"></b>
 					</li>					
-					<li ';if ($acus[3]=='bodegas'||$acus[3]=='usuario') {
+					<li ';if ($acus[3]=='bodegas' || $acus[3]=='usuario') {
 								print('class="active open"');
 							}print'>
 						<a href="#" class="dropdown-toggle">
