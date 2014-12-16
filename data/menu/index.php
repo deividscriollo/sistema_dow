@@ -94,7 +94,7 @@ function menu_lateral(){
 					<li>
 						<a href="../inicio/">
 							<i class="menu-icon fa fa-home"></i>
-							<span class="menu-text"> Inicio </span>
+							<span class="menu-text"> Principal </span>
 						</a>
 
 						<b class="arrow"></b>

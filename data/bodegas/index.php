@@ -43,34 +43,17 @@
                         <ul class="breadcrumb">
                             <li>
                                 <i class="ace-icon fa fa-home home-icon"></i>
-                                <a href="../inicio/">Home</a>
+                                <a href="../inicio/">Principal</a>
                             </li>
                             <li class="active">Ingresos</li>
                             <li class="active">Generales</li>
                             <li class="active">Bodegas</li>
-                        </ul><!-- /.breadcrumb -->
+                        </ul>
                     </div>
 
                     <div class="page-content">
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 widget-container-col">
-                                <div class="widget-box">
-                                    <div class="widget-header">
-                                        <h5 class="widget-title"><i class="ace-icon fa fa-user"></i> Bodegas</h5>
-                                        <div class="widget-toolbar">
-                                            <a href="#" data-action="fullscreen" class="orange2">
-                                                <i class="ace-icon fa fa-expand"></i>
-                                            </a>
-                                            <a href="#" data-action="reload">
-                                                <i class="ace-icon fa fa-refresh"></i>
-                                            </a>
-                                            <a href="#" data-action="collapse">
-                                                <i class="ace-icon fa fa-chevron-up"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
                                 <div class="widget-body">
                                     <div class="widget-main">
                                         <div class="row">                           
@@ -90,7 +73,7 @@
             <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
                 <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
             </a>
-        </div><!-- /.main-container -->
+        </div>
 
         <script type="text/javascript">
             window.jQuery || document.write("<script src='../../dist/js/jquery.min.js'>"+"<"+"/script>");
