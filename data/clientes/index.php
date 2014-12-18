@@ -84,7 +84,7 @@
 												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_usuario">												
 													<div class="row">
 														<div class="col-xs-12">															
-															<div class="col-sm-5">
+															<div class="col-sm-6">
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Tipo Documento: </label>
 
@@ -127,9 +127,23 @@
 																	<div class="col-sm-9">
 																		<input type="mail" id="txt_8" name="txt_8" placeholder="Correo" class="form-control" />
 																	</div>
-																</div>														
+																</div>
+																<div class="form-group">
+																	<label class="control-label col-xs-12 col-sm-3 no-padding-right">Cupo de Credito:</label>
+
+																	<div class="col-xs-12 col-sm-9">
+																		<div class="input-group">
+																			<span class="input-group-addon">
+																				<i class="ace-icon fa fa-money"></i>
+																			</span>
+
+																			<input type="tel" id="phone" name="phone" class="form-control" placeholder="Cupo de Credito" />
+																			
+																		</div>
+																	</div>
+																</div>													
 															</div>
-															<div class="col-sm-5">
+															<div class="col-sm-6">
 																
 																
 																<div class="form-group">
