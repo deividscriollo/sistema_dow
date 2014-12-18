@@ -79,10 +79,10 @@
 																		<div class="widget-main">
 																			<div class="form-group">
 																				<div class="col-xs-12">
-																					<input type="file" class="txt_0" id="txt_0" name="txt_0" />
+																					<input type="file" class="txt_0" id="txt_0" name="txt_0" onchange='Test.UpdatePreview(this)' accept="image/*" />
 																				</div>
-																				<div class="center profile-picture "> 
-																					<img src="../../dist/avatars/profile-pic.jpg" width="100%">
+																				<div class="center profile-picture " > 
+																					<img src="img/default.jpg" width="100%" id="imagen">
 																				</div>
 																			</div>
 																		</div>

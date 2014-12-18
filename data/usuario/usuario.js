@@ -16,7 +16,7 @@ $(function(){
              
                 reader.onload = function(e) {
                     target =  e.target || e.srcElement;
-                    $("#foto").prop("src", target.result);
+                    $("#imagen").prop("src", target.result);
                 };
                 reader.readAsDataURL(obj.files[0]);
             }
@@ -268,6 +268,7 @@ function inicio (){
 	            }else{
 	            	$("#form-field-checkbox").prop("checked",false);
 	            }
+	            $("#imagen").attr("src","img/"+ret.imagen);	
 	            /**/
 	            var prov = 0;
 	            var pais = 0;

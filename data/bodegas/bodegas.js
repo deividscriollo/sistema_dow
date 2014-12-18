@@ -23,29 +23,9 @@
 	        }
 	    })
 
-	    jQuery(grid_selector).jqGrid({
-	        subGrid : false,
-	        //subGridModel: [{ name : ['No','Item Name','Qty'], width : [55,200,80] }],
-	        //datatype: "xml",
-	        subGridOptions : {
-	            /*plusicon : "ace-icon fa fa-plus center bigger-110 blue",
-	            minusicon  : "ace-icon fa fa-minus center bigger-110 blue",
-	            openicon : "ace-icon fa fa-chevron-right center orange"*/
-	        },
+	    jQuery(grid_selector).jqGrid({	       
 	        //for this example we are using local data
-	        subGridRowExpanded: function (subgridDivId, rowId) {
-	           /* var subgridTableId = subgridDivId + "_t";
-	            $("#" + subgridDivId).html("<table id='" + subgridTableId + "'></table>");
-	            $("#" + subgridTableId).jqGrid({
-	                datatype: 'local',
-	                data: subgrid_data,
-	                colNames: ['No','Item Name','Qty'],
-	                colModel: [
-	                    { name: 'id', width: 50 },
-	                    { name: 'name', width: 150 },
-	                    { name: 'qty', width: 50 }
-	                ]
-	            });*/
+	        subGridRowExpanded: function (subgridDivId, rowId) {	          
 	        },
 
 	        url: 'xml_bodegas.php',
@@ -64,7 +44,7 @@
 	        sortorder: 'asc',
 	        altRows: true,
 	        multiselect: false,
-	        multiboxonly: true,
+	        multiboxonly: false,
 	        viewrecords : true,
 	        loadComplete : function() {
 	            var table = this;
@@ -172,7 +152,8 @@
 	            style_search_filters($(this));
 	        }
 	        ,
-	        multipleSearch: true
+	        multipleSearch: false,
+	        overlay:false,
 	      },
 	    {
 	        //view record form
