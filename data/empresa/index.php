@@ -16,6 +16,11 @@
 		<!-- Select -->
 		<link rel="stylesheet" href="../../dist/css/chosen.min.css" />
 		<link rel="stylesheet" href="../../dist/css/ui.jqgrid.min.css" />
+		<link rel="stylesheet" href="../../dist/css/datepicker.min.css" />
+		<link rel="stylesheet" href="../../dist/css/bootstrap-timepicker.min.css" />
+		<link rel="stylesheet" href="../../dist/css/daterangepicker.min.css" />
+		<link rel="stylesheet" href="../../dist/css/bootstrap-datetimepicker.min.css" />
+		<link rel="stylesheet" href="../../dist/css/colorpicker.min.css" />
 
 		<!-- page specific plugin styles -->
 
@@ -102,110 +107,123 @@
 																	</div>
 																</div>
 															</div>
-															<div class="col-sm-5">
-																<div class="form-group has-error">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Ruc Empr.:</label>
+															<div class="col-sm-3">
+																<div class="form-group has-error">																	
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_1" name="txt_1"  placeholder="Cedula" class="form-control" data-toggle="tooltip" data-original-title="Agregue el nro de CI en caso de ser extranjero seleccione la casilla Extranjero" required pattern="[0-9]{1,}" />
+																		<input type="text" id="txt_1" name="txt_1"  placeholder="RUC. Empresa" class="form-control" data-toggle="tooltip" data-original-title="Agregue el nro de CI en caso de ser extranjero seleccione la casilla Extranjero" required pattern="[0-9]{1,}" />
 																		<input type="hidden" id="txt_0" name="txt_0" />
 																	</div>
 																</div>																
 																<div class="form-group">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Telefono: </label>
-
 																	<div class="col-sm-9">
 																		<input type="text" id="txt_3" name="txt_3" placeholder="Teléfono" class="form-control" />
 																	</div>
 																</div>
 																<div class="form-group has-error">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Fax: </label>
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_13" name="txt_13" placeholder="Nombre de usuario" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Nombres de usuario"  />
+																		<input type="text" id="txt_13" name="txt_13" placeholder="Fax" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Nombres de usuario"  />
 																	</div>
 																</div>																
 																<div class="form-group has-error">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Contador: </label>
-
 																	<div class="col-sm-9">
-																		<input type="password" id="txt_5" name="txt_5" placeholder="Password" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{5,}" data-toggle="tooltip" data-original-title="Digite la contraseña del usuario mínimo 5 carácteres"/>
+																		<input type="password" id="txt_5" name="txt_5" placeholder="Contador" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{5,}" data-toggle="tooltip" data-original-title="Digite la contraseña del usuario mínimo 5 carácteres"/>
 																	</div>
 																</div>
 																<div class="form-group">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> País: </label>
-
 																	<div class="col-sm-9">
 																		<select class="chosen-select form-control" id="txt_9" name="txt_9" data-placeholder="País">
 																		</select>																	
 																	</div>
 																</div>
 																<div class="form-group">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Provincia: </label>
-
 																	<div class="col-sm-9">
 																		<select class="chosen-select form-control" id="txt_10" name="txt_10" data-placeholder="Provincia">
 																		</select>
 																	</div>
 																</div>
 																<div class="form-group">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Ciudad: </label>
-
 																	<div class="col-sm-9">
 																		<select class="chosen-select form-control" id="txt_11" name="txt_11" data-placeholder="Ciudad">
 																		</select>
 																	</div>
 																</div>
 																<div class="form-group has-error">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Dirección: </label>
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_2" name="txt_2" placeholder="Nombre Completo" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Nombres completos"  />
+																		<input type="text" id="txt_2" name="txt_2" placeholder="Dirección" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Nombres completos"  />
 																	</div>
 																</div>
 															</div>
-															<div class="col-sm-5">
+															<div class="col-sm-3">
 																<div class="form-group has-error">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Auto. SRI:</label>
 																	<div class="col-sm-9">
 																		<input type="text" id="txt_2" name="txt_2" placeholder="Autorizacion SRI" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Autorizacion SRI"  />
 																	</div>
 																</div>
 																<div class="form-group has-error">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Correo.:</label>
 																	<div class="col-sm-9">
 																		<input type="text" id="txt_2" name="txt_2" placeholder="Correo electronico" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Correo Electronico"  />
 																	</div>
 																</div>
 																<div class="form-group has-error">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Estado.:</label>
 																	<div class="col-sm-9">
 																		<select class="chosen-select form-control" id="txt_9" name="txt_9" data-placeholder="Estado">
+																			<option ></option>
+																			<option value="ACTIVO">ACTIVO</option>
+																			<option value="PASIVO">PASIVO</option>
 																		</select>	
 																	</div>
 																</div>
 																<div class="form-group has-error">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Ascesor Legal:</label>
 																	<div class="col-sm-9">
 																		<input type="text" id="txt_2" name="txt_2" placeholder="Ascesor Legal" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Ascesor Legal"  />
 																	</div>
 																</div>
 																<div class="form-group has-error">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Representante Legal:</label>
 																	<div class="col-sm-9">
 																		<input type="text" id="txt_2" name="txt_2" placeholder="Representante Legal" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Representante Legal"  />
 																	</div>
 																</div>
 																<div class="form-group has-error">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> CI. Representante Legal:</label>
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_1" name="txt_1"  placeholder="Cedula" class="form-control" data-toggle="tooltip" data-original-title="CI. Representante Legal" required pattern="[0-9]{1,}" />																		
+																		<input type="text" id="txt_1" name="txt_1"  placeholder="CI. Representante Legal" class="form-control" data-toggle="tooltip" data-original-title="CI. Representante Legal" required pattern="[0-9]{1,}" />
 																	</div>
 																</div>
 																<div class="form-group has-error">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Modo Costeo.:</label>
 																	<div class="col-sm-9">
-																		<select class="chosen-select form-control" id="txt_9" name="txt_9" data-placeholder="Estado">
+																		<select class="chosen-select form-control" id="txt_9" name="txt_9" data-placeholder="Modo Costeo">
 																		</select>
 																	</div>
 																</div>																
+															</div>
+															<div class="col-sm-3">																																
+																<div class="form-group has-error">
+																	<label class="col-sm-9 control-label ">Inicio Factura Pre-impresa</label>
+																	<div class="col-sm-9">
+																		<input type="text" id="spinner1"  />	
+																	</div>
+																</div>
+																<div class="form-group has-error">
+																	<label class="col-sm-9 control-label ">Item´s factura</label>
+																	<div class="col-sm-9">
+																		<input type="text" id="spinner2"  name="txt_1" class="form-control" data-toggle="tooltip" data-original-title="Item´s factura" required pattern="[0-9]{1,}" />																		
+																	</div>
+																</div>
+																<div class="form-group has-error">
+																	<div class="col-sm-9">
+																		<input type="text" id="txt_1" name="txt_1"  placeholder="Nombre Empresa" class="form-control" data-toggle="tooltip" data-original-title="Nombre Empresa" required pattern="[0-9]{1,}" />
+																	</div>
+																</div>																
+																<div class="form-group has-error">
+																<label class="col-sm-9 control-label ">Año Contable</label>
+																	<div class="col-sm-9">
+																		<input type="text" id="spinner3" name="txt_1"  class="form-control" data-toggle="tooltip" data-original-title="Año Contable" required pattern="[0-9]{1,}" />
+																	</div>
+																</div>																
+																<div class="form-group has-error">
+																	<div class="clearfix">
+																		<textarea class="input-xlarge" name="txt_0" id="txt_0" placeholder="Comentario"></textarea>
+																	</div>
+																</div>
 															</div>
 														</div>
 													</div>
@@ -213,28 +231,12 @@
 													<div class="row">
 														<div class="col-xs-12">
 															<div class="col-sm-4">
-																<div class="form-group has-error">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Comentario:</label>
-																	<div class="clearfix">
-																		<textarea class="input-xlarge" name="txt_0" id="txt_0"></textarea>
-																	</div>
-																</div>
+																
 															</div>
 															<div class="col-sm-4">
-																<div class="form-group has-error">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Estado.:</label>
-																	<div class="col-sm-9">
-																		<input type="text" id="spinner1" />	
-																	</div>
-																</div>
-																<div class="form-group has-error">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Estado.:</label>
-																	<div class="col-sm-9">
-																		<select class="chosen-select form-control" id="txt_9" name="txt_9" data-placeholder="Estado">
-																		</select>	
-																	</div>
-																</div>
+																
 															</div>
+															
 														</div>
 													</div>													
 												</form>
@@ -288,12 +290,20 @@
 		<![endif]-->
 		<script src="../../dist/js/jquery-ui.custom.min.js"></script>
 		<script src="../../dist/js/jquery.ui.touch-punch.min.js"></script>
-		<script src="../../dist/js/jquery.easypiechart.min.js"></script>
-		<script src="../../dist/js/jquery.sparkline.min.js"></script>
-		<script src="../../dist/js/flot/jquery.flot.min.js"></script>
-		<script src="../../dist/js/flot/jquery.flot.pie.min.js"></script>
-		<script src="../../dist/js/flot/jquery.flot.resize.min.js"></script>
 		<script src="../../dist/js/chosen.jquery.min.js"></script>
+		<script src="../../dist/js/fuelux/fuelux.spinner.min.js"></script>
+		<script src="../../dist/js/date-time/bootstrap-datepicker.min.js"></script>
+		<script src="../../dist/js/date-time/bootstrap-timepicker.min.js"></script>
+		<script src="../../dist/js/date-time/moment.min.js"></script>
+		<script src="../../dist/js/date-time/daterangepicker.min.js"></script>
+		<script src="../../dist/js/date-time/bootstrap-datetimepicker.min.js"></script>
+		<script src="../../dist/js/bootstrap-colorpicker.min.js"></script>
+		<script src="../../dist/js/jquery.knob.min.js"></script>
+		<script src="../../dist/js/jquery.autosize.min.js"></script>
+		<script src="../../dist/js/jquery.inputlimiter.1.3.1.min.js"></script>
+		<script src="../../dist/js/jquery.maskedinput.min.js"></script>
+		<script src="../../dist/js/bootstrap-tag.min.js"></script>
+
 
 
 
@@ -333,11 +343,10 @@
 			});
 			/*-----------------------*/
 			/*funcion inicial spinner para objetos de subir y bajar con intervalos automaticos*/
-			$('#spinner1').ace_spinner({value:0,min:0,max:200,step:1, btn_up_class:'btn-info' , btn_down_class:'btn-info'})
-				.closest('.ace-spinner')
-				.on('changed.fu.spinbox', function(){
-					//alert($('#spinner1').val())
-				});
+			$('#spinner1').ace_spinner({value:0,min:0,max:200,step:1, btn_up_class:'btn-info' , btn_down_class:'btn-info'});
+			$('#spinner2').ace_spinner({value:0,min:0,max:200,step:1, btn_up_class:'btn-info' , btn_down_class:'btn-info'});
+			$('#spinner3').ace_spinner({value:2015,min:2015,max:2050,step:1, btn_up_class:'btn-info' , btn_down_class:'btn-info'});			
+				
 			/*-----------------------*/			
 			/*funcion inicial proceso*/
 				
