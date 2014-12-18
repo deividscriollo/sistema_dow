@@ -23,48 +23,28 @@
 	        }
 	    })
 
-	    jQuery(grid_selector).jqGrid({
-	        subGrid : false,
-	        //subGridModel: [{ name : ['No','Item Name','Qty'], width : [55,200,80] }],
-	        //datatype: "xml",
-	        subGridOptions : {
-	            /*plusicon : "ace-icon fa fa-plus center bigger-110 blue",
-	            minusicon  : "ace-icon fa fa-minus center bigger-110 blue",
-	            openicon : "ace-icon fa fa-chevron-right center orange"*/
-	        },
+	    jQuery(grid_selector).jqGrid({	       
 	        //for this example we are using local data
-	        subGridRowExpanded: function (subgridDivId, rowId) {
-	           /* var subgridTableId = subgridDivId + "_t";
-	            $("#" + subgridDivId).html("<table id='" + subgridTableId + "'></table>");
-	            $("#" + subgridTableId).jqGrid({
-	                datatype: 'local',
-	                data: subgrid_data,
-	                colNames: ['No','Item Name','Qty'],
-	                colModel: [
-	                    { name: 'id', width: 50 },
-	                    { name: 'name', width: 150 },
-	                    { name: 'qty', width: 50 }
-	                ]
-	            });*/
+	        subGridRowExpanded: function (subgridDivId, rowId) {	          
 	        },
 
 	        url: 'xml_categorias.php',
 	        datatype: "xml",
 	        height: 250,
-	        colNames:['ID','DESCRIPCIÓN'],
+	        colNames:['ID','DESCRIPCIÓN','FECHA'],
 	        colModel:[
-	            {name:'id_categoria',index:'id_categoria', width:60, sorttype:"int", editable: true, editoptions: {readonly: 'readonly'}},
-	            {name:'nombre_categoria',index:'nombre_categoria',width:300, editable:true, editoptions:{size:"20",maxlength:"30"}, editrules: {required: true}},
+	            {name:'id_categoria',index:'id_categoria', width:60, sorttype:"int", editable: true, hidden: true, editoptions: {readonly: 'readonly'}},
+	            {name:'nombre_categoria',index:'nombre_categoria',width:150, editable:true, editoptions:{size:"20",maxlength:"30"}, editrules: {required: true}},
+	            {name:'fecha_creacion',index:'fecha_creacion', width:150,editable: true,editoptions:{size:"20",maxlength:"30",readonly: 'readonly'}}
 	        ], 
 	        rowNum:10,
 	        rowList:[10,20,30],
 	        pager : pager_selector,
 	        sortname: 'id_categoria',
 	        sortorder: 'asc',
-	        width: null,
 	        altRows: true,
 	        multiselect: false,
-	        multiboxonly: true,
+	        multiboxonly: false,
 	        viewrecords : true,
 	        loadComplete : function() {
 	            var table = this;
@@ -104,7 +84,7 @@
 	        editicon : 'ace-icon fa fa-pencil blue',
 	        add: true,
 	        addicon : 'ace-icon fa fa-plus-circle purple',
-	        del: true,
+	        del: false,
 	        delicon : 'ace-icon fa fa-trash-o red',
 	        search: true,
 	        searchicon : 'ace-icon fa fa-search orange',
@@ -114,25 +94,25 @@
 	        viewicon : 'ace-icon fa fa-search-plus grey'
 	    },
 	    {
-	        //edit record form
-	        //closeAfterEdit: true,
-	        //width: 700,
+	    	closeAfterEdit: true,
 	        recreateForm: true,
+	        viewPagerButtons: false,
+	        overlay:false,
 	        beforeShowForm : function(e) {
 	            var form = $(e[0]);
 	            form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
 	            style_edit_form(form);
 	        },
 	        afterSubmit: function (response){
-	        	if(response.responseText == "0"){
+			if(response.responseText == 3){
 	        		$.gritter.add({
 						title: 'Mensaje',
-						text: 'Registro guardado correctamente <i class="ace-icon fa fa-spinner fa-spin green bigger-125"></i>',
+						text: 'Registro Modificado correctamente <i class="ace-icon fa fa-spinner fa-spin green bigger-125"></i>',
 						time: 1000				
 					});
 	        		return true;
 	        	}else{
-	        		if(response.responseText == "1"){	
+	        		if(response.responseText == 1){	
 	        			$("#nombre_categoria").val("");
 	        			return [false,"Error.. La Categoria ya existe"];
 		        	}	
@@ -140,28 +120,41 @@
 	        },
 	    },
 	    {
-	        //new record form
-	        //width: 700,
 	        closeAfterAdd: true,
 	        recreateForm: true,
 	        viewPagerButtons: false,
+	        overlay:false,
 	        beforeShowForm : function(e) {
 	            var form = $(e[0]);
 	            form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar')
 	            .wrapInner('<div class="widget-header" />')
 	            style_edit_form(form);
-	        }
+	        },
+	        afterSubmit: function (response){
+	        	if(response.responseText == 2){
+	        		$.gritter.add({
+						title: 'Mensaje',
+						text: 'Registro Guardado correctamente <i class="ace-icon fa fa-spinner fa-spin green bigger-125"></i>',
+						time: 1000				
+					});
+	        		return true;
+	        	}else{
+	        		if(response.responseText == 1){	
+	        			$("#nombre_categoria").val("");
+	        			return [false,"Error.. La Categoria ya existe"];
+		        	}	
+	        	}
+	        },
 	    },
 	    {
 	        //delete record form
 	        recreateForm: true,
+	        overlay:false,
 	        beforeShowForm : function(e) {
 	            var form = $(e[0]);
 	            if(form.data('styled')) return false;
-	                
 	            form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
 	            style_delete_form(form);
-	                
 	            form.data('styled', true);
 	        },
 	        onClick : function(e) {
@@ -170,6 +163,7 @@
 	    },
 	    {
 	          recreateForm: true,
+	          overlay:false,
 	        afterShowSearch: function(e){
 	            var form = $(e[0]);
 	            form.closest('.ui-jqdialog').find('.ui-jqdialog-title').wrap('<div class="widget-header" />')
@@ -179,11 +173,12 @@
 	            style_search_filters($(this));
 	        }
 	        ,
-	        multipleSearch: true
+	        multipleSearch: false,
 	      },
 	    {
 	        //view record form
 	        recreateForm: true,
+	        overlay:false,
 	        beforeShowForm: function(e){
 	            var form = $(e[0]);
 	            form.closest('.ui-jqdialog').find('.ui-jqdialog-title').wrap('<div class="widget-header" />')

@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="../../dist/css/jquery-ui.min.css" />
         <link rel="stylesheet" href="../../dist/css/datepicker.min.css" />
         <link rel="stylesheet" href="../../dist/css/ui.jqgrid.min.css" />
+        <link rel="stylesheet" href="../../dist/css/jquery.gritter.min.css" />
 
         <!-- text fonts -->
         <link rel="stylesheet" href="../../dist/css/fontdc.css" />
@@ -88,6 +89,7 @@
         <script src="../../dist/js/date-time/bootstrap-datepicker.min.js"></script>
         <script src="../../dist/js/jqGrid/jquery.jqGrid.min.js"></script>
         <script src="../../dist/js/jqGrid/i18n/grid.locale-en.js"></script>
+        <script src="../../dist/js/jquery.gritter.min.js"></script>
 
         <!-- ace scripts -->
         <script src="../../dist/js/ace-elements.min.js"></script>

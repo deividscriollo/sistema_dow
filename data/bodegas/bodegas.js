@@ -31,11 +31,12 @@
 	        url: 'xml_bodegas.php',
 	        datatype: "xml",
 	        height: 250,
-	        colNames:['ID','DESCRIPCIÓN','UBICACIÓN'],
+	        colNames:['ID','DESCRIPCIÓN','UBICACIÓN','FECHA'],
 	        colModel:[
-	            {name:'id_bodega',index:'id_bodega', width:50, sorttype:"int", editable: true, editoptions: {readonly: 'readonly'}},
+	            {name:'id_bodega',index:'id_bodega', width:50, sorttype:"int", editable: false, hidden: true, editoptions: {readonly: 'readonly'}},
 	            {name:'nombre_bodega',index:'nombre_bodega',width:90, editable:true, editoptions:{size:"20",maxlength:"30"}, editrules: {required: true}},
-	            {name:'ubicacion_bodega',index:'ubicacion_bodega', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}}
+	            {name:'ubicacion_bodega',index:'ubicacion_bodega', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
+	            {name:'fecha_creacion',index:'fecha_creacion', width:150,editable: true,editoptions:{size:"20",maxlength:"30",readonly: 'readonly'}}
 	        ], 
 	        rowNum:10,
 	        rowList:[10,20,30],
@@ -94,17 +95,36 @@
 	        viewicon : 'ace-icon fa fa-search-plus grey'
 	    },
 	    {
+	    	closeAfterEdit: true,
 	        recreateForm: true,
+	        viewPagerButtons: false,
+	        overlay:false,
 	        beforeShowForm : function(e) {
 	            var form = $(e[0]);
 	            form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
 	            style_edit_form(form);
-	        }
+	        },
+	        afterSubmit: function (response){
+			if(response.responseText == 3){
+	        		$.gritter.add({
+						title: 'Mensaje',
+						text: 'Registro Modificado correctamente <i class="ace-icon fa fa-spinner fa-spin green bigger-125"></i>',
+						time: 1000				
+					});
+	        		return true;
+	        	}else{
+	        		if(response.responseText == 1){	
+	        			$("#nombre_bodega").val("");
+	        			return [false,"Error.. La Bodega ya existe"];
+		        	}	
+	        	}
+	        },
 	    },
 	    {
 	        closeAfterAdd: true,
 	        recreateForm: true,
 	        viewPagerButtons: false,
+	        overlay:false,
 	        beforeShowForm : function(e) {
 	            var form = $(e[0]);
 	            form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar')
@@ -112,7 +132,7 @@
 	            style_edit_form(form);
 	        },
 	        afterSubmit: function (response){
-	        	if(response.responseText == "0"){
+	        	if(response.responseText == 2){
 	        		$.gritter.add({
 						title: 'Mensaje',
 						text: 'Registro guardado correctamente <i class="ace-icon fa fa-spinner fa-spin green bigger-125"></i>',
@@ -120,7 +140,7 @@
 					});
 	        		return true;
 	        	}else{
-	        		if(response.responseText == "1"){	
+	        		if(response.responseText == 1){	
 	        			$("#nombre_bodega").val("");
 	        			return [false,"Error.. La Bodega ya existe"];
 		        	}	
@@ -130,6 +150,7 @@
 	    {
 	        //delete record form
 	        recreateForm: true,
+	        overlay:false,
 	        beforeShowForm : function(e) {
 	            var form = $(e[0]);
 	            if(form.data('styled')) return false;
@@ -143,6 +164,7 @@
 	    },
 	    {
 	          recreateForm: true,
+	          overlay:false,
 	        afterShowSearch: function(e){
 	            var form = $(e[0]);
 	            form.closest('.ui-jqdialog').find('.ui-jqdialog-title').wrap('<div class="widget-header" />')
@@ -153,11 +175,11 @@
 	        }
 	        ,
 	        multipleSearch: false,
-	        overlay:false,
 	      },
 	    {
 	        //view record form
 	        recreateForm: true,
+	        overlay:false,
 	        beforeShowForm: function(e){
 	            var form = $(e[0]);
 	            form.closest('.ui-jqdialog').find('.ui-jqdialog-title').wrap('<div class="widget-header" />')
