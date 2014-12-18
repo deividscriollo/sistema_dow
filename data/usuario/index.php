@@ -81,6 +81,7 @@
 																				<div class="col-xs-12">
 																					<input type="file" class="txt_0" id="txt_0" name="txt_0" />
 																				</div>
+																				<div class="center profile-picture "> <img src="../../dist/avatars/profile-pic.jpg" width="100%"></div>
 																			</div>
 																		</div>
 																	</div>
