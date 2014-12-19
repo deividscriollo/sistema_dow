@@ -19,6 +19,20 @@ function mostrar(input) {///funcion para mostrar la hora se necesita un nombre d
 
     setTimeout("mostrar('"+input+"')", 1000);    
 }
+function comprobarCamposRequired1(form){
+   var correcto=true;
+    var campos_text=$('#'+form+' input:required');    
+    $(campos_text).each(function() {
+        var pattern = new RegExp("^" + $(this)[0].pattern + "$");
+        if($(this).val() != '' && pattern.test($(this).val())){            
+            $(this).parent().parent().removeClass('has-error');            
+        }else{
+            correcto=false;
+            $(this).parent().parent().addClass('has-error');
+        }   
+    });
+     return correcto; 
+}
 function comprobarCamposRequired(form){////funcion para campos requeridos en el formulario se necesita el nombre del formulario
     var correcto=true;
     var campos_text=$('#'+form+' input:required').not("input:password");    
@@ -55,4 +69,7 @@ function enter(e) {
         return false;
     }
     return true;
+}
+function limpiar(){
+    location.reload();
 }

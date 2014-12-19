@@ -4,6 +4,7 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
+		
 		<link rel="shortcut icon" href="../../dist/images/logo.fw.png">
 		<title>Inicio - <?php empresa(); ?></title>
 
@@ -14,7 +15,7 @@
 		<link rel="stylesheet" href="../../dist/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="../../dist/css/font-awesome.min.css" />
 		<!-- Select -->
-		<link rel="stylesheet" href="../../dist/css/chosen.min.css" />
+		<link rel="stylesheet" href="../../dist/css/chosen.min.css" />		
 		<link rel="stylesheet" href="../../dist/css/ui.jqgrid.min.css" />
 
 		<!-- page specific plugin styles -->
@@ -81,7 +82,7 @@
 									<div class="widget-body">
 										<div class="widget-main">
 											<div class="row">
-												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_usuario">												
+												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_cliente">												
 													<div class="row">
 														<div class="col-xs-12">															
 															<div class="col-sm-6">
@@ -89,43 +90,44 @@
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Tipo Documento: </label>
 
 																	<div class="col-sm-9">
-																		<select class="chosen-select form-control" id="txt_9" name="txt_9" data-placeholder="País">
-																			
-																			
-																		</select>																	
+																		<select class="chosen-select form-control" id="txt_1" name="txt_1" data-placeholder="País">
+																			<option value="Cédula">Cédula</option>	
+																			<option value="RUC">RUC</option>	
+																			<option value="Pasaporte">Pasaporte</option>																				
+																		</select>						
+																		<input type="hidden" id="txt_0" name="txt_0" />											
 																	</div>
 																</div>
 																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> C.I.:</label>
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_1" name="txt_1"  placeholder="Cedula" class="form-control" data-toggle="tooltip" data-original-title="Agregue el nro de CI en caso de ser extranjero seleccione la casilla Extranjero" required pattern="[0-9]{1,}" />
-																																				
+																		<input type="text" id="txt_2" name="txt_2"  placeholder="Cedula" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
 																	</div>
 																</div>
 																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Nombres : </label>
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_2" name="txt_2" placeholder="Nombre Completo" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Nombres completos"  />
+																		<input type="text" id="txt_3" name="txt_3" placeholder="Nombre Completo" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Nombres completos"  />
 																	</div>
 																</div>
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Teléfono: </label>
 
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_3" name="txt_3" placeholder="Teléfono" class="form-control" />
+																		<input type="text" id="txt_4" name="txt_4" placeholder="Teléfono" class="form-control" />
 																	</div>
 																</div>
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Celular: </label>
 																	<div class="col-sm-9">																																				
-																			<input type="text" id="txt_7" name="txt_7" placeholder="Celular" class="form-control" />																																		
+																			<input type="text" id="txt_5" name="txt_5" placeholder="Celular" class="form-control" />																																		
 																	</div>
 																</div>
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Correo: </label>
 
 																	<div class="col-sm-9">
-																		<input type="mail" id="txt_8" name="txt_8" placeholder="Correo" class="form-control" />
+																		<input type="mail" id="txt_6" name="txt_6" placeholder="Correo" class="form-control" />
 																	</div>
 																</div>
 																<div class="form-group">
@@ -137,7 +139,7 @@
 																				<i class="ace-icon fa fa-money"></i>
 																			</span>
 
-																			<input type="tel" id="phone" name="phone" class="form-control" placeholder="Cupo de Credito" />
+																			<input type="text" id="txt_7" name="txt_7" class="form-control" placeholder="Cupo de Credito" />
 																			
 																		</div>
 																	</div>
@@ -150,14 +152,16 @@
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Tipo Cliente: </label>
 
 																	<div class="col-sm-9">
-																		<select class="chosen-select form-control" id="txt_4" name="txt_4" data-placeholder="Tipo cliente">																			
+																		<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Tipo cliente">																			
+																		<option value="Natural">Natural</option>	
+																			<option value="Jurídico">Jurídico</option>	
 																		</select>
 																	</div>
 																</div>											
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> País: </label>
 
-																	<div class="col-sm-9">
+																	<div class="col-sm-9">																	
 																		<select class="chosen-select form-control" id="txt_9" name="txt_9" data-placeholder="País">
 																			
 																			
@@ -186,13 +190,13 @@
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Dirección: </label>
 
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_12" name="txt_12" placeholder="Dirección" class="form-control"  required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Ingrese la dirección del usuario a crear" />
+																		<input type="text" id="txt_12" name="txt_12" placeholder="Dirección" class="form-control"  required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Ingrese la dirección del cliente" />
 																	</div>
 																</div>
-																<div class="form-group has-error">
+																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Otros: </label>
 																	<div class="col-sm-9">																		
-																		<textarea placeholder="otros" rows="3" class="form-control" >
+																		<textarea placeholder="otros" rows="3" id="txt_13" name="txt_13" class="form-control" >
 																			
 																		</textarea>
 																	</div>
@@ -204,7 +208,7 @@
 													</div>
 													<h3 class="header smaller lighter green"></h3>
 													<div class="center">
-														<button type="button" class="btn btn-white btn-info btn-bold" id="btn_0">
+														<button type="submit" class="btn btn-white btn-info btn-bold" id="btn_0">
 															<i class="ace-icon fa fa-floppy-o bigger-120 blue"></i>
 															Guardar
 														</button>
@@ -299,6 +303,7 @@
         <script src="../../dist/js/jqGrid/i18n/grid.locale-en.js"></script>
 		
 		<script src="../generales.js"></script>
+		<script src="clientes.js"></script>
 
 		<!-- inline scripts related to this page -->
 

@@ -1,61 +1,6 @@
 $(document).on("ready",inicio);
-$(document).keypress(function(e) {
-    if(e.which == 13) {
-        guardar();
-    }
-});
-$(function(){
-    Test = {
-        UpdatePreview: function(obj){
-            // if IE < 10 doesn't support FileReader
-            if(!window.FileReader){
-            // don't know how to proceed to assign src to image tag
-            } else {
-                var reader = new FileReader();
-                var target = null;
-             
-                reader.onload = function(e) {
-                    target =  e.target || e.srcElement;
-                    $("#imagen").prop("src", target.result);
-                };
-                reader.readAsDataURL(obj.files[0]);
-            }
-        }
-    };
-});
-/*--*/
-function inicio (){
-	/*----para la imagen----*/
-	function getDoc(frame) {
-    	var doc = null;     
-     	
-     	try {
-        	if (frame.contentWindow) {
-            	doc = frame.contentWindow.document;
-         	}
-     	} catch(err) {
-    	}
-	    if (doc) { 
-	         return doc;
-	    }
-	    try { 
-	         doc = frame.contentDocument ? frame.contentDocument : frame.document;
-	    } catch(err) {
-	       
-	         doc = frame.document;
-	    }
-	    return doc;
- 	}
- 	/*------------*/
-	/*funcion inicial de la imagen y  buscadores del select no topar plz*/
-	$('#txt_0').ace_file_input({
-		style:'well',
-		btn_choose:'Seleccionar',
-		btn_change:null,
-		no_icon:'ace-icon fa fa-image',
-		droppable:true,
-		thumbnail:'small'
-	});
+function inicio (){	
+	/*funcion inicial de la imagen y  buscadores del select no topar plz*/	
 	$('.chosen-select').chosen({allow_single_deselect:true}); 
 	$(window)
 	.off('resize.chosen')
@@ -75,26 +20,14 @@ function inicio (){
 	});
 	/*-----------------------*/
 	$("input").on("keyup click",function (e){//campos requeridos		
-		comprobarCamposRequired(e.currentTarget.form.id)
+		comprobarCamposRequired1(e.currentTarget.form.id)
 
 	});	
-	/*cargr el select de cargos*/
-    $.ajax({      /*cargar el select ciudades*/         
-        type: "POST",
-        dataType: 'json',        
-        url: "carga_ubicaciones.php?tipo=0&id=0&fun=4",        
-        success: function(response) {         
-            for (var i = 0; i < response.length; i=i+2) {            	
-				$("#txt_4").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
-            }   
-            $("#txt_4").trigger("chosen:updated");                              
-        }                   
-    });     
 	/*cargar el select pais*/
 	$.ajax({        
         type: "POST",
         dataType: 'json',        
-        url: "carga_ubicaciones.php?tipo=0&id=0&fun=1",        
+        url: "../usuario/carga_ubicaciones.php?tipo=0&id=0&fun=1",        
         success: function(response) {         
             for (var i = 0; i < response.length; i=i+2) {            	
 				$("#txt_9").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
@@ -103,7 +36,7 @@ function inicio (){
             $.ajax({       /*cargar el select provincia*/        
 		        type: "POST",
 		        dataType: 'json',        
-		        url: "carga_ubicaciones.php?tipo=0&id="+$("#txt_9").val()+"&fun=2",        
+		        url: "../usuario/carga_ubicaciones.php?tipo=0&id="+$("#txt_9").val()+"&fun=2",        
 		        success: function(response) {         
 		            for (var i = 0; i < response.length; i=i+2) {            	
 						$("#txt_10").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
@@ -112,7 +45,7 @@ function inicio (){
 		            $.ajax({      /*cargar el select ciudades*/         
 				        type: "POST",
 				        dataType: 'json',        
-				        url: "carga_ubicaciones.php?tipo=0&id="+$("#txt_10").val()+"&fun=3",        
+				        url: "../usuario/carga_ubicaciones.php?tipo=0&id="+$("#txt_10").val()+"&fun=3",        
 				        success: function(response) {         
 				            for (var i = 0; i < response.length; i=i+2) {            	
 								$("#txt_11").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
@@ -129,7 +62,7 @@ function inicio (){
     	$.ajax({       /*cargar el select provincia*/        
 	        type: "POST",
 	        dataType: 'json',        
-	        url: "carga_ubicaciones.php?tipo=0&id="+$("#txt_9").val()+"&fun=2",        
+	        url: "../usuario/carga_ubicaciones.php?tipo=0&id="+$("#txt_9").val()+"&fun=2",        
 	        success: function(response) {         
 	        	$("#txt_10").html("");
 	            for (var i = 0; i < response.length; i=i+2) {            	
@@ -139,7 +72,7 @@ function inicio (){
 	            $.ajax({      /*cargar el select ciudades*/         
 			        type: "POST",
 			        dataType: 'json',        
-			        url: "carga_ubicaciones.php?tipo=0&id="+$("#txt_10").val()+"&fun=3",        
+			        url: "../usuario/carga_ubicaciones.php?tipo=0&id="+$("#txt_10").val()+"&fun=3",        
 			        success: function(response) {  
 			        	$("#txt_11").html("");       
 			            for (var i = 0; i < response.length; i=i+2) {            	
@@ -155,7 +88,7 @@ function inicio (){
     	$.ajax({       /*cargar el select provincia*/        
 	        type: "POST",
 	        dataType: 'json',        
-	        url: "carga_ubicaciones.php?tipo=0&id="+$("#txt_10").val()+"&fun=3",        
+	        url: "../usuario/carga_ubicaciones.php?tipo=0&id="+$("#txt_10").val()+"&fun=3",        
 	        success: function(response) {         
 	        	$("#txt_11").html("");
 	            for (var i = 0; i < response.length; i=i+2) {            	
@@ -165,25 +98,12 @@ function inicio (){
 	        }                   
 	    });
     });
-    /*igualar password*/
-    $("#txt_6").focus(function (){
-    	if($("#txt_5").val() == ""){
-    		alert("Digite una contraseña");
-    		$("#txt_5").focus();
-    	}    	    	
-    });    
-    /*-----*/
-    /*procesos de guardar buscar modificar*/    
-	$("#btn_0").on("click",guardar);
-	$("#btn_1").on("click",limpiar);
-	$("#btn_2").on("click",limpiar);
-
-	$("#btn_9").click(function(e){		
-		$("#table").trigger('reloadGrid');
-	})
+    
+    /*procesos de guardar buscar modificar*/    	
+	$("#btn_1").on("click",limpiar);	
+	$("#btn_0").on("click",guardar_clientes);
     /*------*/
-    /*jqgrid*/    
-	jQuery(function($) {
+    jQuery(function($) {
 	    var grid_selector = "#table";
 	    var pager_selector = "#pager";
 	    
@@ -206,25 +126,22 @@ function inicio (){
 
 	    jQuery(grid_selector).jqGrid({	        
 	        datatype: "xml",
-	        url: 'xml_usuario.php',        
-	        colNames: ['ID','CI','NOMBRES','TELÉFONO','CELULAR','id_ciudad','CIUDAD','DIRECCIÓN','CORREO','USUARIO','id_cargo','CARGO','estado','imagen','extranjero','clave'],
+	        url: 'xml_cliente.php',        
+	        colNames: ['ID','DOCUMENTO','CI','NOMBRES','TIPO CLIENTE','TELÉFONO','CELULAR','id_ciudad','CIUDAD','DIRECCIÓN','CORREO','COMENTARIO','CUPO CRÉDITO'],
 	        colModel:[      
-	            {name:'txt_o',index:'txt_o',frozen:true,align:'left',search:false},
-	            {name:'txt_1',index:'identificacion',frozen : true,align:'left',search:true},
-	            {name:'txt_2',index:'nombres_completos',frozen : true,align:'left',search:true},
-	            {name:'txt_3',index:'txt_3',frozen : true,align:'left',search:false},
-	            {name:'txt_7',index:'txt_7',frozen : true,align:'left',search:false},
-	            {name:'txt_11',index:'txt_11',frozen : true,align:'left',search:false},            
-	            {name:'nombre_ciudad',index:'nombre_ciudad',frozen : true,align:'left',search:false},
-	            {name:'txt_12',index:'txt_12',frozen : true,align:'left',search:false},
-	            {name:'txt_8',index:'txt_8',frozen : true,align:'left',search:false},
-	            {name:'txt_13',index:'usuario',frozen : true,align:'left',search:true},
-	            {name:'txt_4',index:'txt_4',frozen : true,align:'left',search:false},
-	            {name:'nombre_cargo',index:'nombre_cargo',frozen : true,align:'left',search:false},
-	            {name:'estado',index:'estado',frozen : true,align:'left',search:false},
-	            {name:'imagen',index:'imagen',frozen : true,align:'left',search:false},
-	            {name:'extranjero',index:'extranjero',frozen : true,align:'left',search:false},
-	            {name:'txt_5',index:'txt_5',frozen : true,align:'left',search:false},
+	            {name:'txt_0',index:'id_cliente',frozen:true,align:'left',search:false},
+	            {name:'txt_1',index:'tipo_documento',frozen : true,align:'left',search:true},
+	            {name:'txt_2',index:'identificacion',frozen : true,align:'left',search:true},
+	            {name:'txt_3',index:'nombres_completos',frozen : true,align:'left',search:false},
+	            {name:'txt_8',index:'tipo',frozen : true,align:'left',search:false},
+	            {name:'txt_4',index:'telefono1',frozen : true,align:'left',search:false},            
+	            {name:'txt_5',index:'telefono2',frozen : true,align:'left',search:false},
+				{name:'txt_11',index:'id_ciudad',frozen : true,align:'left',search:false},	            
+	            {name:'descripcion',index:'descripcion',frozen : true,align:'left',search:false},
+	            {name:'txt_12',index:'direccion',frozen : true,align:'left',search:false},
+	            {name:'txt_6',index:'correo',frozen : true,align:'left',search:true},
+	            {name:'txt_13',index:'comentario',frozen : true,align:'left',search:false},
+	            {name:'txt_7',index:'cupo_credito',frozen : true,align:'left',search:false},
 	            
 
 	        ],          
@@ -234,9 +151,9 @@ function inicio (){
 	        height:200,
 	        rowList: [10,20,30],
 	        pager: pager_selector,        
-	        sortname: 'id_usuario',
+	        sortname: 'id_cliente',
 	        sortorder: 'asc',
-	        caption: 'LISTA DE USUARIOS',	        
+	        caption: 'LISTA DE CLIENTES',	        
 	        
 	        altRows: true,
 	        multiselect: false,
@@ -254,42 +171,35 @@ function inicio (){
 	        ondblClickRow: function(rowid) {     	            	            
 	            var gsr = jQuery(grid_selector).jqGrid('getGridParam','selrow');                                              
             	var ret = jQuery(grid_selector).jqGrid('getRowData',gsr);       	            
-	            $("#txt_o").val(ret.txt_o);
+	            $("#txt_0").val(ret.txt_0);
 	            $("#txt_1").val(ret.txt_1);
 	            $("#txt_2").val(ret.txt_2);
 	            $("#txt_3").val(ret.txt_3);
-	            $("#txt_4").val(ret.txt_4);
-	            $("#txt_4").trigger("chosen:updated");            
+	            $("#txt_4").val(ret.txt_4);	            
 	            $("#txt_5").val(ret.txt_5);
-	            $("#txt_6").val(ret.txt_5);
+	            $("#txt_6").val(ret.txt_6);
 	            $("#txt_7").val(ret.txt_7);
 	            $("#txt_8").val(ret.txt_8);	            
 	            $("#txt_12").val(ret.txt_12);
-	            $("#txt_13").val(ret.txt_13);	            
-	            if(ret.extranjero == "ON"){
-	            	$("#form-field-checkbox").prop("checked",true);
-	            }else{
-	            	$("#form-field-checkbox").prop("checked",false);
-	            }
-	            $("#imagen").attr("src","img/"+ret.imagen);	
+	            $("#txt_13").val(ret.txt_13);	            	            
 	            /**/
 	            var prov = 0;
 	            var pais = 0;
 	            $.ajax({/*obtnengo el id de provincia*/
 			        type: "POST",			        
-			        url: "carga_ubicaciones.php?tipo=0&id="+ret.txt_11+"&fun=5",        
+			        url: "../usuario/carga_ubicaciones.php?tipo=0&id="+ret.txt_11+"&fun=5",        
 			        success: function(response) {         
 			        	prov = response;
 			        	$.ajax({/*obtnengo el id del pais*/
 					        type: "POST",			        
-					        url: "carga_ubicaciones.php?tipo=0&id="+prov+"&fun=6",        
+					        url: "../usuario/carga_ubicaciones.php?tipo=0&id="+prov+"&fun=6",        
 					        success: function(response) {         
 					        	pais = response;						        	
 					        	/*cambio los combos*/
 							    $.ajax({        
 							        type: "POST",
 							        dataType: 'json',        
-							        url: "carga_ubicaciones.php?tipo=0&id=0&fun=1",        
+							        url: "../usuario/carga_ubicaciones.php?tipo=0&id=0&fun=1",        
 							        success: function(response) {         			        	
 							        	$("#txt_9").html("");
 							            for (var i = 0; i < response.length; i=i+2) {            				            	
@@ -304,7 +214,7 @@ function inicio (){
 							            $.ajax({        
 									        type: "POST",
 									        dataType: 'json',        
-									        url: "carga_ubicaciones.php?tipo=0&id="+pais+"&fun=2",        
+									        url: "../usuario/carga_ubicaciones.php?tipo=0&id="+pais+"&fun=2",        
 									        success: function(response) {         			        	
 									        	$("#txt_10").html("");
 									            for (var i = 0; i < response.length; i=i+2) {            				            	
@@ -319,7 +229,7 @@ function inicio (){
 									            $.ajax({        
 											        type: "POST",
 											        dataType: 'json',        
-											        url: "carga_ubicaciones.php?tipo=0&id="+prov+"&fun=3",        
+											        url: "../usuario/carga_ubicaciones.php?tipo=0&id="+prov+"&fun=3",        
 											        success: function(response) {         			        	
 											        	$("#txt_11").html("");
 											            for (var i = 0; i < response.length; i=i+2) {            				            	
@@ -345,21 +255,15 @@ function inicio (){
 			    });			    	            
 	            /**/
 	            $('#myModal').modal('hide');
-	            comprobarCamposRequired("form_usuario");  
+	            comprobarCamposRequired1("form_cliente");  
 	            $("#btn_0").text("");
 	            $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> Modificar");     	            
 	        },
 	        
-	        caption: "LISTA DE USUARIOS"
+	        caption: "LISTA CLIENTES"
 	    });
-		jQuery(grid_selector).jqGrid('hideCol', "txt_o");
-		jQuery(grid_selector).jqGrid('hideCol', "txt_11");
-		jQuery(grid_selector).jqGrid('hideCol', "txt_4");
-		jQuery(grid_selector).jqGrid('hideCol', "estado");
-		jQuery(grid_selector).jqGrid('hideCol', "imagen");
-		jQuery(grid_selector).jqGrid('hideCol', "extranjero");		
-		jQuery(grid_selector).jqGrid('hideCol', "txt_5");		
-
+		jQuery(grid_selector).jqGrid('hideCol', "txt_0");
+		jQuery(grid_selector).jqGrid('hideCol', "txt_11");		
 
 	    $(window).triggerHandler('resize.jqGrid');//cambiar el tamaño para hacer la rejilla conseguir el tamaño correcto
 
@@ -571,89 +475,47 @@ function inicio (){
 	        $(grid_selector).jqGrid('GridUnload');
 	        $('.ui-jqdialog').remove();
 	    });
-	});
-    /**/    
+	}); 
 }
-function guardar(){///funcion para guardar datos
-	if($("#txt_5").val() == $("#txt_6").val())
-	{
-	    var resp=comprobarCamposRequired("form_usuario");	    
-	    if(resp==true){    	
-	        $("#form_usuario").on("submit",function (e){           	
-	            var valores = $("#form_usuario").serialize();
-	            var texto=($("#btn_0").text()).trim();   
-				var formObj = $(this);		
-				if(window.FormData !== undefined) {	
-					var formData = new FormData(this); 		    					
-					if(texto=="Guardar"){       
-	                	guardar_datos(formData,"g",e);
-		            }else{
-		                guardar_datos(formData,"m",e);
-		            }	    
-					e.preventDefault();						
-				}else{
-				    var  iframeId = "unique" + (new Date().getTime());
-				    var iframe = $('<iframe src="javascript:false;" name="'+iframeId+'" />');
-				    iframe.hide();
-				    formObj.attr("target",iframeId);
-				    iframe.appendTo("body");
-			    	iframe.load(function(e) {
-			        	var doc = getDoc(iframe[0]);
-				        var docRoot = doc.body ? doc.body : doc.documentElement;
-				        var data = docRoot.innerHTML;
-				    });			
-				}	                    	            	            
-		    });	  
-		    $("#form_usuario").submit();	      	    
-		    $("#form_usuario").unbind("submit")
-	    }else{    	
-	    	alert("Complete todos los campos requeridos")
-	    	$('#form_usuario input:required').each(function(e){
-	    		var com = $(this).parent().parent().attr("class");
-	    		var patt = new RegExp("has-error");
-    			var res = patt.test(com);    			
-    			if(res == true){
-    				$(this).focus();
-    				return false;
-    			}
-
-	    	});
-	    }
-    }else{
-    	$("#txt_6").val("");
-    	$("#txt_6").focus();
-    	alert("Repíta la contraseña ingresada")
-    }
+/*Formularios Servicios Administrativos*/
+function guardar_clientes(){
+	var resp=comprobarCamposRequired1("form_cliente");
+	if(resp==true){
+		$("#form_cliente").on("submit",function (e){	
+			var valores = $("#form_cliente").serialize();
+			var texto=($("#btn_0").text()).trim();	
+			if(texto=="Guardar"){		
+				datos_usuarios(valores,"g",e);
+			}else{
+				datos_usuarios(valores,"m",e);
+			}
+			e.preventDefault();
+    		$(this).unbind("submit")
+		});
+	}
 }
-function guardar_datos(formData,tipo,p){
-	$.ajax({
-	    url: "usuario.php?tipo="+tipo,				    
-	    type: "POST",
-	    data:  formData,
-	    mimeType:"multipart/form-data",
-	    contentType: false,
-	    cache: false,
-	    processData:false,
-	    success: function(data, textStatus, jqXHR)
-	    {				    
+function datos_usuarios(valores,tipo,p){	
+	$.ajax({				
+		type: "POST",
+		data: valores+"&tipo="+tipo,
+		//contentType: "application/x-www-form-urlencoded;charset=ISO-8859-15",
+		url: "clientes.php",			
+	    success: function(data) {	
 	    	if( data == 0 ){
 	    		alert('Datos Agregados Correctamente');	
-	    		location.reload();
+				limpiar();				
 	    	}else{
 	    		if( data == 1 ){
-	    			alert('Este usuario ya existe. Ingrese otro');		    			
-	    			$("#txt_13").val("");
-	    			$("#txt_13").focus();
+	    			alert('Este nro de CI/RUC/PASAPORTE ya existe ingrese otro');	
+	    			$("#txt_2").val("");
+	    			$("#txt_2").focus();	    			
 	    		}else{
-	    			alert("Error al momento de enviar los datos. La página se recargara")
-	    			location.reload();
+	    			alert("Error al momento de enviar los datos la página se recargara");
+	    			//limpiar();
 	    		}
 	    	}
 
-		},
-		error: function(jqXHR, textStatus, errorThrown) 
-	    {
-	    } 	
+		}
 	}); 
 }
-
+/*---------------------------------*/
