@@ -120,7 +120,7 @@ function inicio (){
 	$("#btn_4").on("click",function(){
 		atras();
 	});
-	//$("#btn_5").on("click",adelante)
+
 	/*-----*/
     
 	
