@@ -1,9 +1,5 @@
 $(document).on("ready",inicio);
-$(document).keypress(function(e) {
-    if(e.which == 13) {
-        guardar();
-    }
-});
+
 $(function(){
     Test = {
         UpdatePreview: function(obj){
@@ -78,8 +74,8 @@ function inicio (){
 		comprobarCamposRequired(e.currentTarget.form.id)
 
 	});	
-	/*cargr el select de cargos*/
-    $.ajax({      /*cargar el select ciudades*/         
+	/*cargar el select de cargos*/
+    $.ajax({          
         type: "POST",
         dataType: 'json',        
         url: "carga_ubicaciones.php?tipo=0&id=0&fun=4",        
@@ -89,99 +85,45 @@ function inicio (){
             }   
             $("#txt_4").trigger("chosen:updated");                              
         }                   
-    });     
-	/*cargar el select pais*/
-	$.ajax({        
-        type: "POST",
-        dataType: 'json',        
-        url: "carga_ubicaciones.php?tipo=0&id=0&fun=1",        
-        success: function(response) {         
-            for (var i = 0; i < response.length; i=i+2) {            	
-				$("#txt_9").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
-            }   
-            $("#txt_9").trigger("chosen:updated");                              
-            $.ajax({       /*cargar el select provincia*/        
-		        type: "POST",
-		        dataType: 'json',        
-		        url: "carga_ubicaciones.php?tipo=0&id="+$("#txt_9").val()+"&fun=2",        
-		        success: function(response) {         
-		            for (var i = 0; i < response.length; i=i+2) {            	
-						$("#txt_10").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
-		            }   
-		            $("#txt_10").trigger("chosen:updated");      
-		            $.ajax({      /*cargar el select ciudades*/         
-				        type: "POST",
-				        dataType: 'json',        
-				        url: "carga_ubicaciones.php?tipo=0&id="+$("#txt_10").val()+"&fun=3",        
-				        success: function(response) {         
-				            for (var i = 0; i < response.length; i=i+2) {            	
-								$("#txt_11").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
-				            }   
-				            $("#txt_11").trigger("chosen:updated");                              
-				        }                   
-				    });                        
-		        }                   
-		    });
-        }                   
-    });    
-    /*----------------*/     
-    $("#txt_9").change(function (){
-    	$.ajax({       /*cargar el select provincia*/        
-	        type: "POST",
-	        dataType: 'json',        
-	        url: "carga_ubicaciones.php?tipo=0&id="+$("#txt_9").val()+"&fun=2",        
-	        success: function(response) {         
-	        	$("#txt_10").html("");
-	            for (var i = 0; i < response.length; i=i+2) {            	
-					$("#txt_10").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
-	            }   
-	            $("#txt_10").trigger("chosen:updated");      
-	            $.ajax({      /*cargar el select ciudades*/         
-			        type: "POST",
-			        dataType: 'json',        
-			        url: "carga_ubicaciones.php?tipo=0&id="+$("#txt_10").val()+"&fun=3",        
-			        success: function(response) {  
-			        	$("#txt_11").html("");       
-			            for (var i = 0; i < response.length; i=i+2) {            	
-							$("#txt_11").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
-			            }   
-			            $("#txt_11").trigger("chosen:updated");                              
-			        }                   
-			    });                        
-	        }                   
-	    });
-    });
-	$("#txt_10").change(function (){
-    	$.ajax({       /*cargar el select provincia*/        
-	        type: "POST",
-	        dataType: 'json',        
-	        url: "carga_ubicaciones.php?tipo=0&id="+$("#txt_10").val()+"&fun=3",        
-	        success: function(response) {         
-	        	$("#txt_11").html("");
-	            for (var i = 0; i < response.length; i=i+2) {            	
-					$("#txt_11").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
-	            }   
-	            $("#txt_11").trigger("chosen:updated");      	                             
-	        }                   
-	    });
-    });
-    /*igualar password*/
-    $("#txt_6").focus(function (){
-    	if($("#txt_5").val() == ""){
-    		alert("Digite una contraseña");
-    		$("#txt_5").focus();
-    	}    	    	
-    });    
-    /*-----*/
-    /*procesos de guardar buscar modificar*/    
-	$("#btn_0").on("click",guardar);
-	$("#btn_1").on("click",limpiar);
-	$("#btn_2").on("click",limpiar);
-
-	$("#btn_9").click(function(e){		
-		$("#table").trigger('reloadGrid');
+    }); 
+    /*---*/
+	carga_ubicaciones("txt_9","txt_10","txt_11");//pais provincia ciudad
+	$("#txt_9").change(function(){
+		change_pais("txt_9","txt_10","txt_11");
+	});
+	$("#txt_10").change(function(){
+		change_provincia("txt_9","txt_10","txt_11");
+	});
+	$("#txt_1").on("keyup",function(){		
+		if($("#form-field-checkbox").prop("checked"))
+			ci("txt_1","ON");
+		else
+			ci("txt_1","OFF");
+	});	
+	$("#form-field-checkbox").click(function(){
+		if($("#form-field-checkbox").prop("checked")){
+			$("#txt_1").val("");
+			$("#txt_1").focus();
+			$("#txt_1").prop("maxlength","30");
+		}
+		else{
+			$("#txt_1").val("");
+			$("#txt_1").focus();
+			$("#txt_1").prop("maxlength","10");
+		}
 	})
-    /*------*/
+	/*-----*/
+	$("#btn_0").on("click",guardar);	
+	$("#btn_1").on("click",limpiar_form);
+	$("#btn_2").on("click",actualizar_form);
+
+	$("#btn_4").on("click",function(){
+		atras();
+	});
+	//$("#btn_5").on("click",adelante)
+	/*-----*/
+    
+	
     /*jqgrid*/    
 	jQuery(function($) {
 	    var grid_selector = "#table";
@@ -359,8 +301,6 @@ function inicio (){
 		jQuery(grid_selector).jqGrid('hideCol', "imagen");
 		jQuery(grid_selector).jqGrid('hideCol', "extranjero");		
 		jQuery(grid_selector).jqGrid('hideCol', "txt_5");		
-
-
 	    $(window).triggerHandler('resize.jqGrid');//cambiar el tamaño para hacer la rejilla conseguir el tamaño correcto
 
 	    function aceSwitch( cellvalue, options, cell ) {
@@ -575,55 +515,55 @@ function inicio (){
     /**/    
 }
 function guardar(){///funcion para guardar datos
-	if($("#txt_5").val() == $("#txt_6").val())
-	{
-	    var resp=comprobarCamposRequired("form_usuario");	    
-	    if(resp==true){    	
-	        $("#form_usuario").on("submit",function (e){           	
-	            var valores = $("#form_usuario").serialize();
-	            var texto=($("#btn_0").text()).trim();   
-				var formObj = $(this);		
-				if(window.FormData !== undefined) {	
-					var formData = new FormData(this); 		    					
-					if(texto=="Guardar"){       
-	                	guardar_datos(formData,"g",e);
-		            }else{
-		                guardar_datos(formData,"m",e);
-		            }	    
-					e.preventDefault();						
-				}else{
-				    var  iframeId = "unique" + (new Date().getTime());
-				    var iframe = $('<iframe src="javascript:false;" name="'+iframeId+'" />');
-				    iframe.hide();
-				    formObj.attr("target",iframeId);
-				    iframe.appendTo("body");
-			    	iframe.load(function(e) {
-			        	var doc = getDoc(iframe[0]);
-				        var docRoot = doc.body ? doc.body : doc.documentElement;
-				        var data = docRoot.innerHTML;
-				    });			
-				}	                    	            	            
-		    });	  
-		    $("#form_usuario").submit();	      	    
-		    $("#form_usuario").unbind("submit")
-	    }else{    	
-	    	alert("Complete todos los campos requeridos")
-	    	$('#form_usuario input:required').each(function(e){
-	    		var com = $(this).parent().parent().attr("class");
-	    		var patt = new RegExp("has-error");
-    			var res = patt.test(com);    			
-    			if(res == true){
-    				$(this).focus();
-    				return false;
-    			}
-
-	    	});
-	    }
-    }else{
-    	$("#txt_6").val("");
-    	$("#txt_6").focus();
-    	alert("Repíta la contraseña ingresada")
-    }
+	var resp=comprobarCamposRequired("form_usuario");	    
+	if(resp==true){    		
+		$("#form_usuario").on("submit",function (e){				
+			var texto=($("#btn_0").text()).trim();					
+			var formObj = $(this);		
+			if(window.FormData !== undefined) {	
+				var formData = new FormData(this); 		    					
+				if(texto=="Guardar"){ 
+					if($("#txt_11").val() != null){
+						if($("#txt_5").val() == $("#txt_6").val()){
+							guardar_datos(formData,"g",e);		
+						}else{
+							alert("Repita la contraseña correctamente");	
+							$("#txt_6").val("");
+							$("#txt_6").focus();
+						}						
+					}else{
+						alert("Indique una ciudad antes de continuar");
+					}     					                	
+	            }else{
+	                if($("#txt_11").val() != null){
+						if($("#txt_5").val() == $("#txt_6").val()){
+							guardar_datos(formData,"m",e);		
+						}else{
+							alert("Repita la contraseña correctamente");	
+							$("#txt_6").val("");
+							$("#txt_6").focus();
+						}						
+					}else{
+						alert("Indique una ciudad antes de continuar");
+					}     		 					                	
+	            }	
+	            e.preventDefault();
+    			$(this).unbind("submit")			    			            
+			}else{
+			    var  iframeId = "unique" + (new Date().getTime());
+			    var iframe = $('<iframe src="javascript:false;" name="'+iframeId+'" />');
+			    iframe.hide();
+			    formObj.attr("target",iframeId);
+			    iframe.appendTo("body");
+		    	iframe.load(function(e) {
+		        	var doc = getDoc(iframe[0]);
+			        var docRoot = doc.body ? doc.body : doc.documentElement;
+			        var data = docRoot.innerHTML;
+			    });			
+			}			
+		});	
+		
+	}				 
 }
 function guardar_datos(formData,tipo,p){
 	$.ajax({
@@ -638,15 +578,18 @@ function guardar_datos(formData,tipo,p){
 	    {				    
 	    	if( data == 0 ){
 	    		alert('Datos Agregados Correctamente');	
-	    		location.reload();
+	    		limpiar_form(p);		
 	    	}else{
-	    		if( data == 1 ){
-	    			alert('Este usuario ya existe. Ingrese otro');		    			
+	    		if( data == 1 ){	    		
+	    			alert('Este usuario ya existe. Ingrese otro')	;
 	    			$("#txt_13").val("");
 	    			$("#txt_13").focus();
-	    		}else{
-	    			alert("Error al momento de enviar los datos. La página se recargara")
-	    			location.reload();
+	    		}else{	    			
+	    			if(data == 2){
+	    				alert('Este nro de cédula ya existe ingrese otro')	;
+	    				$("#txt_1").val("");
+	    				$("#txt_1").focus();
+	    			}
 	    		}
 	    	}
 

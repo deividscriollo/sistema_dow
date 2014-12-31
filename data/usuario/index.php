@@ -87,7 +87,7 @@
 															<div class="col-sm-2">
 																<div class="widget-box">
 																	<div class="widget-header">
-																		<h4 class="widget-title">Imagen</h4>
+																		<h4 class="widget-title">Imagén</h4>
 																	</div>
 
 																	<div class="widget-body">
@@ -107,9 +107,9 @@
 															</div>
 															<div class="col-sm-5">
 																<div class="form-group has-error">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> C.I.:</label>
+																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> C.I./RUC:</label>
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_1" name="txt_1"  placeholder="Cedula" class="col-xs-10 col-sm-5" data-toggle="tooltip" data-original-title="Agregue el nro de CI en caso de ser extranjero seleccione la casilla Extranjero" required pattern="[0-9]{1,}" />
+																		<input type="text" id="txt_1" name="txt_1"  placeholder="Cedula" class="col-xs-10 col-sm-5" data-toggle="tooltip" data-original-title="Agregue el nro de CI en caso de ser extranjero seleccione la casilla Extranjero" required pattern="[0-9]{1,}" maxlength="10" />
 																		<input type="hidden" id="txt_o" name="txt_o" />
 																		<span class="help-inline col-xs-12 col-sm-7">																			
 																			<div class="checkbox">
@@ -133,7 +133,7 @@
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Teléfono: </label>
 
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_3" name="txt_3" placeholder="Teléfono" class="form-control" />
+																		<input type="text" id="txt_3" name="txt_3" placeholder="Teléfono" class="form-control" onkeydown="return validarNumeros(event)" />
 																	</div>
 																</div>
 																<div class="form-group has-error">
@@ -146,14 +146,14 @@
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Password: </label>
 
 																	<div class="col-sm-9">
-																		<input type="password" id="txt_5" name="txt_5" placeholder="Password" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{5,}" data-toggle="tooltip" data-original-title="Digite la contraseña del usuario mínimo 5 carácteres"/>
+																		<input type="password" id="txt_5" name="txt_5" placeholder="Password" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{6,}" data-toggle="tooltip" data-original-title="Digite la contraseña del usuario mínimo 5 carácteres"/>
 																	</div>
 																</div>
-																<div class="form-group has-error">
+																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Repetir: </label>
 
 																	<div class="col-sm-9">
-																		<input type="password" id="txt_6" name="txt_6" placeholder="Repetir Password" class="form-control" required data-toggle="tooltip" data-original-title="Repita la contraseña ingresada"/>
+																		<input type="password" id="txt_6" name="txt_6" placeholder="Repetir Password" class="form-control" data-toggle="tooltip" data-original-title="Repita la contraseña ingresada"/>
 																	</div>
 																</div>
 															</div>
@@ -161,7 +161,7 @@
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Celular: </label>
 																	<div class="col-sm-9">																																				
-																			<input type="text" id="txt_7" name="txt_7" placeholder="Celular" class="form-control" />																																		
+																			<input type="text" id="txt_7" name="txt_7" placeholder="Celular" class="form-control" onkeydown="return validarNumeros(event)" />																																		
 																	</div>
 																</div>
 																<div class="form-group">
@@ -202,7 +202,7 @@
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Ciudad: </label>
 
 																	<div class="col-sm-9">
-																		<select class="chosen-select form-control" id="txt_11" name="txt_11" data-placeholder="Ciudad">
+																		<select class="chosen-select form-control" id="txt_11" name="txt_11" data-placeholder="Ciudad" >
 																															
 																		</select>
 																	</div>
@@ -219,8 +219,8 @@
 														</div>
 													</div>
 													<h3 class="header smaller lighter green"></h3>
-													<div class="center">
-														<button type="button" class="btn btn-white btn-info btn-bold" id="btn_0">
+													<div class="center">													 
+														<button type="submit" class="btn btn-white btn-info btn-bold" id="btn_0">
 															<i class="ace-icon fa fa-floppy-o bigger-120 blue"></i>
 															Guardar
 														</button>
