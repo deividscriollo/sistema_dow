@@ -72,9 +72,7 @@
 												<i class="ace-icon fa fa-refresh"></i>
 											</a>
 
-											<a href="#" data-action="collapse">
-												<i class="ace-icon fa fa-chevron-up"></i>
-											</a>
+											
 										</div>
 									</div>
 
@@ -109,13 +107,7 @@
 																	<div class="col-sm-8">
 																		<input type="text" id="txt_3" name="txt_3" placeholder="Empresa" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Empresa"  />
 																	</div>
-																</div>
-																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Visitador : </label>
-																	<div class="col-sm-8">
-																		<input type="text" id="txt_4" name="txt_4" placeholder="Visitador" class="form-control" data-toggle="tooltip" data-original-title="Visitador"  />
-																	</div>
-																</div>
+																</div>																
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Teléfono: </label>
 
@@ -135,7 +127,13 @@
 																	<div class="col-sm-8">
 																		<input type="mail" id="txt_7" name="txt_7" placeholder="Correo" class="form-control" />
 																	</div>
-																</div>														
+																</div>		
+																<div class="form-group">
+																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Fax: </label>
+																	<div class="col-sm-8">
+																		<input type="text" id="txt_13" name="txt_13" placeholder="Fax:" class="form-control" />
+																	</div>
+																</div>												
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Forma de Pago: </label>
 
@@ -157,11 +155,11 @@
 																	</div>
 																</div>
 																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Fax: </label>
+																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Visitador : </label>
 																	<div class="col-sm-8">
-																		<input type="text" id="txt_13" name="txt_13" placeholder="Fax:" class="form-control" />
+																		<input type="text" id="txt_4" name="txt_4" placeholder="Visitador" class="form-control" data-toggle="tooltip" data-original-title="Visitador"  />
 																	</div>
-																</div>																
+																</div>																																
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Tipo Proveedor: </label>
 
@@ -219,7 +217,7 @@
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Observacion: </label>
 																	<div class="col-sm-8">																	
 																	
-																		<textarea class="input-xlarge"  id="txt_17" name="txt_17" placeholder="Observacion"></textarea>
+																		<textarea class="col-sm-12"  id="txt_17" name="txt_17" placeholder="Observacion"></textarea>
 																	</div>
 																</div>
 

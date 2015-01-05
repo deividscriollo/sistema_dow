@@ -55,21 +55,13 @@
 											<a href="#" data-action="reload">
 												<i class="ace-icon fa fa-refresh"></i>
 											</a>
-
-											<a href="#" data-action="collapse">
-												<i class="ace-icon fa fa-chevron-up"></i>
-											</a>
-
-											<a href="#" data-action="close">
-												<i class="ace-icon fa fa-times"></i>
-											</a>
 										</div>
 									</div>
 
 									<div class="widget-body">
 										<div class="widget-main">
 											<div class="row">
-												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_cliente">												
+												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_proveedores">
 													<div class="row">
 														<div class="col-xs-12">	
 															<div class="col-sm-12">
@@ -77,7 +69,7 @@
 																	<ul class="nav nav-tabs" id="myTab">
 																		<li class="active">
 																			<a data-toggle="tab" href="#info_pro">
-																				<i class="green ace-icon fa fa-home bigger-120"></i>
+																				<i class="green ace-icon fa fa-cube bigger-120"></i>
 																				Información Producto
 																			</a>
 																		</li>
@@ -133,7 +125,7 @@
 																						</select>						
 																						<input type="hidden" id="txt_0" name="txt_0" />											
 																					</div>
-																					<div class="col-sm-2 btn btn-sm btn-success"> Agregar</div>
+																					<div class="col-sm-2 btn btn-sm btn-success" id="btn_agr_cat" data-toggle="modal" href="#modal_categoria" > Agregar</div>
 																				</div>	
 																				<div class="form-group has-error">
 																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Asignado a: </label>
@@ -142,7 +134,7 @@
 																						</select>						
 																						<input type="hidden" id="txt_0" name="txt_0" />											
 																					</div>
-																					<div class="col-sm-2 btn btn-sm btn-success"> Agregar</div>
+																					<div class="col-sm-2 btn btn-sm btn-success" id="btn_asi_a" data-toggle="modal" href="#modal_asi_a"> Agregar</div>
 																				</div>
 																				<div class="form-group">
 																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Facturar sin existencia: </label>
@@ -194,7 +186,7 @@
 																						</select>						
 																						<input type="hidden" id="txt_0" name="txt_0" />											
 																					</div>
-																					<div class="col-sm-2 btn btn-sm btn-success"> Agregar</div>
+																					<div class="col-sm-2 btn btn-sm btn-success" id="btn_agr_mar" data-toggle="modal" href="#modal_marcas"> Agregar</div>
 																				</div>
 																				<div class="form-group has-error">
 																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Se vender por: </label>
@@ -203,12 +195,12 @@
 																						</select>						
 																						<input type="hidden" id="txt_0" name="txt_0" />											
 																					</div>
-																					<div class="col-sm-2 btn btn-sm btn-success"> Agregar</div>
+																					<div class="col-sm-2 btn btn-sm btn-success" id="btn_se-ven_por" data-toggle="modal" href="#modal_se-vender_por"> Agregar</div>
 																				</div>
 																				<div class="form-group">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1">y contiene.!:</label>
+																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1">y contiene:</label>
 																					<div class="col-sm-6">
-																						<input type="text" id="txt_2" name="txt_2"  placeholder="y contiene.!" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+																						<input type="text" readonly id="txt_2" name="txt_2"  class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
 																					</div>
 																					<label class="col-sm-1 control-label no-padding-right" for="form-field-1">Unid(s)</label>
 
@@ -251,7 +243,7 @@
 																										<span class="lbl"></span>
 																									</label>
 																								</div>	
-																							<div class="col-sm-3 btn btn-sm btn-success"> Asignar lotes</div>
+																							<div class="col-sm-3 btn btn-sm btn-success" id="btn_asig_lot"> Asignar lotes</div>
 																						</div>																																																																	
 																					</div>
 																					<div class="col-xs-5">
@@ -269,7 +261,7 @@
 																										<span class="lbl"></span>
 																									</label>
 																								</div>	
-																							<div class="col-sm-3 btn btn-sm btn-success"> Asignar series</div>																							
+																							<div class="col-sm-3 btn btn-sm btn-success" id="btn_asig_series"> Asignar series</div>																							
 																						</div>
 																						<div class="form-group">
 																							<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Producto Activo:</label>
@@ -280,7 +272,7 @@
 																									</label>
 																								</div>	
 																						</div>
-																						<div class="form-group has-error">
+																						<div class="form-group">
 																							<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Detalle producto:</label>
 																							<div class=" col-xs-7">
 																								<textarea class="input-xlarge" name="txt_0" id="txt_0" placeholder="Comentario"></textarea>
@@ -340,8 +332,127 @@
 			</a>
 		</div><!-- /.main-container -->
 
-		<!-- basic scripts -->
+		<!-- basic scripts modales-->
+		<!-- Modal categoria-->
+		  <div class="modal fade" id="modal_categoria" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    <div class="modal-dialog">
+		      <div class="modal-content blue">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		          <h4 class="modal-title">AGREGAR CATEGORIAS</h4>
+		        </div>
+		        <div class="modal-body">
+		            <form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_proveedores">
+		            	<div class="form-group has-error">
+							<label class="col-sm-2 control-label no-padding-right" for="form-field-1">Descripción:</label>
+							<div class="col-sm-5">
+								<input type="text" id="txt_2" name="txt_2"  placeholder="Ingrese categoria" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+							</div>
+						</div>						
+		            </form>
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+		          <button type="button" class="btn btn-primary">Guardar</button>
+		        </div>
+		      </div><!-- /.modal-content -->
+		    </div><!-- /.modal-dialog -->
+		  </div><!-- /.modal -->
 
+		<!-- Modal categoria-->
+		  <div class="modal fade" id="modal_asi_a" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    <div class="modal-dialog">
+		      <div class="modal-content blue">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		          <h4 class="modal-title">ASIGNAR A</h4>
+		        </div>
+		        <div class="modal-body">
+		            <form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_proveedores">
+		            	<div class="form-group has-error">
+							<label class="col-sm-2 control-label no-padding-right" for="form-field-1">Descripción:</label>
+							<div class="col-sm-5">
+								<input type="text" id="txt_2" name="txt_2"  placeholder="Ingrese bodega" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+							</div>
+						</div>	
+						<div class="form-group has-error">
+							<label class="col-sm-2 control-label no-padding-right" for="form-field-1">Ubicacion:</label>
+							<div class="col-sm-5">
+								<input type="text" id="txt_2" name="txt_2"  placeholder="Ingrese ubicación" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+							</div>
+						</div>						
+		            </form>
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+		          <button type="button" class="btn btn-primary">Guardar</button>
+		        </div>
+		      </div><!-- /.modal-content -->
+		    </div><!-- /.modal-dialog -->
+		  </div><!-- /.modal -->
+
+		<!-- Modal categoria-->
+		  <div class="modal fade" id="modal_marcas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    <div class="modal-dialog">
+		      <div class="modal-content blue">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		          <h4 class="modal-title">AGREGAR MARCAS</h4>
+		        </div>
+		        <div class="modal-body">
+		            <form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_proveedores">
+		            	<div class="form-group has-error">
+							<label class="col-sm-2 control-label no-padding-right" for="form-field-1">Descripción:</label>
+							<div class="col-sm-5">
+								<input type="text" id="txt_2" name="txt_2"  placeholder="Ingrese marca" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+							</div>
+						</div>				
+		            </form>
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+		          <button type="button" class="btn btn-primary">Guardar</button>
+		        </div>
+		      </div><!-- /.modal-content -->
+		    </div><!-- /.modal-dialog -->
+		  </div><!-- /.modal -->
+		<!-- Modal unidades-->
+		  <div class="modal fade" id="modal_se-vender_por" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    <div class="modal-dialog">
+		      <div class="modal-content blue">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		          <h4 class="modal-title">SE VENDE POR</h4>
+		        </div>
+		        <div class="modal-body">
+		            <form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_proveedores">
+		            	<div class="form-group has-error">
+							<label class="col-sm-2 control-label no-padding-right" for="form-field-1">Descripción:</label>
+							<div class="col-sm-5">
+								<input type="text" id="txt_2" name="txt_2"  placeholder="Ingrese marca" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+							</div>
+						</div>
+						<div class="form-group has-error">
+							<label class="col-sm-2 control-label no-padding-right" for="form-field-1">Abreviatura:</label>
+							<div class="col-sm-5">
+								<input type="text" id="txt_2" name="txt_2"  placeholder="Ingrese Abreviatura" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+							</div>
+						</div>
+						<div class="form-group has-error">
+							<label class="col-sm-2 control-label no-padding-right" for="form-field-1">Cantidad:</label>
+							<div class="col-sm-5">
+								<input type="text" id="txt_2" name="txt_2"  placeholder="Ingrese cantidad" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+							</div>
+						</div>				
+		            </form>
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+		          <button type="button" class="btn btn-primary">Guardar</button>
+		        </div>
+		      </div><!-- /.modal-content -->
+		    </div><!-- /.modal-dialog -->
+		  </div><!-- /.modal -->
 		
 		<!-- <![endif]-->
 
@@ -386,17 +497,8 @@
 		<!-- ace scripts -->
 		<script src="../../dist/js/ace-elements.min.js"></script>
 		<script src="../../dist/js/ace.min.js"></script>
-
+		<script src="productos.js"></script>
 		<!-- inline scripts related to this page -->
-		<script type="text/javascript">
-			$(function(){
-
-				// dar valor inicial para convertir input en spinner o seleccion
-				$('#txt_h').ace_spinner({value:0,min:0,step:1, btn_up_class:'btn-info' , btn_down_class:'btn-info'})
-				$('#txt_mi').ace_spinner({value:0,min:0,step:1, btn_up_class:'btn-info' , btn_down_class:'btn-info'})
-				$('#txt_ma').ace_spinner({value:0,min:0,step:1, btn_up_class:'btn-info' , btn_down_class:'btn-info'})
-				// fin dar valor inicial a los espinner
-			});
-		</script>
+		
 	</body>
 </html>
