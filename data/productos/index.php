@@ -107,7 +107,7 @@
 																	</ul>
 
 																	<div class="tab-content">
-																		<div id="info_pro" class="tab-pane fade">
+																		<div id="info_pro" class="tab-pane fade in active">
 																			<div class="col-sm-6">
 																				<div class="form-group has-error">
 																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Código:</label>
@@ -230,7 +230,7 @@
 																				</div>
 																			</div>
 																		</div>
-																		<div id="deta_adici" class="tab-pane fade in active">
+																		<div id="deta_adici" class="tab-pane fade ">
 																			<div class="col-xs-12">
 																				<div class="row-fluid">
 																					<div class="col-xs-2">
