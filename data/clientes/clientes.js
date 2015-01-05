@@ -151,6 +151,8 @@ function inicio (){
 			alert("Sin registros anteriores");
 		}		
 	    comprobarCamposRequired("form_cliente");		    	            
+	    $("#btn_0").text("");
+	    $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> Modificar");     	            
         /**/
 	});
 	$("#btn_5").on("click",function (){		
@@ -245,6 +247,8 @@ function inicio (){
 			alert("Sin registros superiores");
 		}		
 	    comprobarCamposRequired("form_cliente");		    	            
+	    $("#btn_0").text("");
+	    $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> Modificar");     	            
         /**/
 	});
     /*------*/

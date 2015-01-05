@@ -59,6 +59,211 @@ function inicio (){
 	$("#btn_0").on("click",guardar_proveedores);
 	$("#btn_1").on("click",limpiar_form);
 	$("#btn_2").on("click",actualizar_form);
+	$("#btn_4").on("click",function (){		
+		var resp = "";		
+		resp =atras($("#txt_0").val(),"proveedores","secuencia.php");		
+		if(resp[0] != false){			
+			$("#txt_0").val(resp[0][0]);
+			$("#txt_1").val(resp[0][1]);
+			$("#txt_2").val(resp[0][2]);
+			$("#txt_12").val(resp[0][3]);
+			$("#txt_18").val(resp[0][4]);		
+			$("#txt_18").trigger("chosen:updated"); 			
+			$("#txt_5").val(resp[0][5]);		
+			$("#txt_6").val(resp[0][6]);								
+			$("#txt_3").val(resp[0][9]);		
+			$("#txt_4").val(resp[0][10]);		
+			$("#txt_16").val(resp[0][11]);		
+			$("#txt_16").trigger("chosen:updated"); 
+			$("#txt_17").val(resp[0][12]);		
+			$("#txt_13").val(resp[0][13]);		
+			$("#txt_7").val(resp[0][14]);		
+			$("#txt_8").val(resp[0][15]);		
+		    $("#txt_8").trigger("chosen:updated"); 
+		    $("#txt_15").val(resp[0][16]);		
+
+		    /**/
+	        var prov = 0;
+	        var pais = 0;
+	        $.ajax({/*obtnengo el id de provincia*/
+		        type: "POST",		        
+		        url: "../carga_ubicaciones.php?tipo=0&id="+resp[0][7]+"&fun=5",        
+		        success: function(response) {         
+		        	prov = response;
+		        	$.ajax({/*obtnengo el id del pais*/
+				        type: "POST",			        
+				        url: "../carga_ubicaciones.php?tipo=0&id="+prov+"&fun=6",        
+				        success: function(response) {         
+				        	pais = response;						        	
+				        	/*cambio los combos*/
+						    $.ajax({        
+						        type: "POST",
+						        dataType: 'json',        
+						        url: "../carga_ubicaciones.php?tipo=0&id=0&fun=1",        
+						        success: function(response) {         			        	
+						        	$("#txt_9").html("");
+						            for (var i = 0; i < response.length; i=i+2) {            				            	
+						            	if(response[i] == pais){
+											$("#txt_9").append("<option value ="+response[i]+" selected>"+response[i+1]+"</option>");            																																
+						            	}
+										else{
+											$("#txt_9").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
+										}
+						            }   
+						            $("#txt_9").trigger("chosen:updated"); 
+						            $.ajax({        
+								        type: "POST",
+								        dataType: 'json',        
+								        url: "../carga_ubicaciones.php?tipo=0&id="+pais+"&fun=2",        
+								        success: function(response) {         			        	
+								        	$("#txt_10").html("");
+								            for (var i = 0; i < response.length; i=i+2) {            				            	
+								            	if(response[i] == prov){
+													$("#txt_10").append("<option value ="+response[i]+" selected>"+response[i+1]+"</option>");            																																
+								            	}
+												else{
+													$("#txt_10").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
+												}
+								            }   
+								            $("#txt_10").trigger("chosen:updated"); 
+								            $.ajax({        
+										        type: "POST",
+										        dataType: 'json',        
+										        url: "../carga_ubicaciones.php?tipo=0&id="+prov+"&fun=3",        
+										        success: function(response) {         			        	
+										        	$("#txt_11").html("");
+										            for (var i = 0; i < response.length; i=i+2) {            				            	
+										            	if(response[i] == resp[0][7]){
+															$("#txt_11").append("<option value ="+response[i]+" selected>"+response[i+1]+"</option>");            																																
+										            	}
+														else{
+															$("#txt_11").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
+														}
+										            }   
+										            $("#txt_11").trigger("chosen:updated"); 
+										                                         
+										        }
+										    });	      
+								                                         
+								        }
+								    });/**/		                            
+						        }
+						    });/**/							    
+				        }                   
+				    });
+		        }                   
+		    });	
+		}else{
+			alert("Sin registros anteriores");
+		}		
+	    comprobarCamposRequired("form_proveedores");		    	            
+	    $("#btn_0").text("");
+        $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> Modificar");     	            
+        /**/
+	});
+	$("#btn_5").on("click",function (){		
+		var resp = "";		
+		resp =adelante($("#txt_0").val(),"proveedores","secuencia.php");		
+		if(resp[0] != false){
+			$("#txt_0").val(resp[0][0]);
+			$("#txt_1").val(resp[0][1]);
+			$("#txt_2").val(resp[0][2]);
+			$("#txt_12").val(resp[0][3]);
+			$("#txt_18").val(resp[0][4]);		
+			$("#txt_18").trigger("chosen:updated"); 			
+			$("#txt_5").val(resp[0][5]);		
+			$("#txt_6").val(resp[0][6]);								
+			$("#txt_3").val(resp[0][9]);		
+			$("#txt_4").val(resp[0][10]);		
+			$("#txt_16").val(resp[0][11]);		
+			$("#txt_16").trigger("chosen:updated"); 
+			$("#txt_17").val(resp[0][12]);		
+			$("#txt_13").val(resp[0][13]);		
+			$("#txt_7").val(resp[0][14]);		
+			$("#txt_8").val(resp[0][15]);		
+		    $("#txt_8").trigger("chosen:updated"); 
+		    $("#txt_15").val(resp[0][16]);		
+
+		    
+		    /**/
+	        var prov = 0;
+	        var pais = 0;
+	        $.ajax({/*obtnengo el id de provincia*/
+		        type: "POST",		        
+		        url: "../carga_ubicaciones.php?tipo=0&id="+resp[0][7]+"&fun=5",        
+		        success: function(response) {         
+		        	prov = response;
+		        	$.ajax({/*obtnengo el id del pais*/
+				        type: "POST",			        
+				        url: "../carga_ubicaciones.php?tipo=0&id="+prov+"&fun=6",        
+				        success: function(response) {         
+				        	pais = response;						        	
+				        	/*cambio los combos*/
+						    $.ajax({        
+						        type: "POST",
+						        dataType: 'json',        
+						        url: "../carga_ubicaciones.php?tipo=0&id=0&fun=1",        
+						        success: function(response) {         			        	
+						        	$("#txt_9").html("");
+						            for (var i = 0; i < response.length; i=i+2) {            				            	
+						            	if(response[i] == pais){
+											$("#txt_9").append("<option value ="+response[i]+" selected>"+response[i+1]+"</option>");            																																
+						            	}
+										else{
+											$("#txt_9").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
+										}
+						            }   
+						            $("#txt_9").trigger("chosen:updated"); 
+						            $.ajax({        
+								        type: "POST",
+								        dataType: 'json',        
+								        url: "../carga_ubicaciones.php?tipo=0&id="+pais+"&fun=2",        
+								        success: function(response) {         			        	
+								        	$("#txt_10").html("");
+								            for (var i = 0; i < response.length; i=i+2) {            				            	
+								            	if(response[i] == prov){
+													$("#txt_10").append("<option value ="+response[i]+" selected>"+response[i+1]+"</option>");            																																
+								            	}
+												else{
+													$("#txt_10").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
+												}
+								            }   
+								            $("#txt_10").trigger("chosen:updated"); 
+								            $.ajax({        
+										        type: "POST",
+										        dataType: 'json',        
+										        url: "../carga_ubicaciones.php?tipo=0&id="+prov+"&fun=3",        
+										        success: function(response) {         			        	
+										        	$("#txt_11").html("");
+										            for (var i = 0; i < response.length; i=i+2) {            				            	
+										            	if(response[i] == resp[0][7]){
+															$("#txt_11").append("<option value ="+response[i]+" selected>"+response[i+1]+"</option>");            																																
+										            	}
+														else{
+															$("#txt_11").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
+														}
+										            }   
+										            $("#txt_11").trigger("chosen:updated"); 
+										                                         
+										        }
+										    });	      
+								                                         
+								        }
+								    });/**/		                            
+						        }
+						    });/**/							    
+				        }                   
+				    });
+		        }                   
+		    });	
+		}else{
+			alert("Sin registros superiores");
+		}		
+	    comprobarCamposRequired("form_proveedores");		    	            
+	    $("#btn_0").text("");
+	    $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> Modificar");     	            
+        /**/
+	});
     /*------*/
     jQuery(function($) {
 	    var grid_selector = "#table";
