@@ -71,8 +71,6 @@
 											<a href="#" data-action="reload">
 												<i class="ace-icon fa fa-refresh"></i>
 											</a>
-
-											
 										</div>
 									</div>
 
