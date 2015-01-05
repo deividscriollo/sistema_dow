@@ -195,10 +195,8 @@
 																</div>
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Otros: </label>
-																	<div class="col-sm-9">																		
-																		<textarea placeholder="otros" rows="3" id="txt_13" name="txt_13" class="form-control" >
-																			
-																		</textarea>
+																	<div class="col-sm-9">	
+																		<textarea id="txt_13" name="txt_13" placeholder="Otros" class="col-sm-12"></textarea>
 																	</div>
 																</div>
 
