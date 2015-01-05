@@ -99,8 +99,8 @@
 
 																		<li>
 																			<a data-toggle="tab" href="#deta_adici">
+																			<i class="purple ace-icon fa fa-cubes bigger-120"></i>
 																				Detalles Adicionales
-																				<span class="badge badge-danger">4</span>
 																			</a>
 																		</li>
 																		
@@ -148,7 +148,7 @@
 																						</select>						
 																						<input type="hidden" id="txt_0" name="txt_0" />											
 																					</div>
-																					<div class="col-sm-2 btn">agregar</div>
+																					<div class="col-sm-2 btn btn-sm btn-success"> Agregar</div>
 																				</div>	
 																				<div class="form-group has-error">
 																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Asignado a: </label>
@@ -157,7 +157,7 @@
 																						</select>						
 																						<input type="hidden" id="txt_0" name="txt_0" />											
 																					</div>
-																					<div class="col-sm-2 btn">agregar</div>
+																					<div class="col-sm-2 btn btn-sm btn-success"> Agregar</div>
 																				</div>
 																				<div class="form-group">
 																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Facturar sin existencia: </label>
@@ -209,7 +209,7 @@
 																						</select>						
 																						<input type="hidden" id="txt_0" name="txt_0" />											
 																					</div>
-																					<div class="col-sm-2 btn">agregar</div>
+																					<div class="col-sm-2 btn btn-sm btn-success"> Agregar</div>
 																				</div>
 																				<div class="form-group has-error">
 																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Se vender por: </label>
@@ -218,7 +218,7 @@
 																						</select>						
 																						<input type="hidden" id="txt_0" name="txt_0" />											
 																					</div>
-																					<div class="col-sm-2 btn">agregar</div>
+																					<div class="col-sm-2 btn btn-sm btn-success"> Agregar</div>
 																				</div>
 																				<div class="form-group">
 																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1">y contiene.!:</label>
@@ -266,7 +266,7 @@
 																										<span class="lbl"></span>
 																									</label>
 																								</div>	
-																							<div class="col-sm-2 btn">Asignar lotes</div>
+																							<div class="col-sm-3 btn btn-sm btn-success"> Asignar lotes</div>
 																						</div>																																																																	
 																					</div>
 																					<div class="col-xs-5">
@@ -277,17 +277,17 @@
 																							</div>
 																						</div>
 																						<div class="form-group">
-																							<label class="col-sm-5 control-label no-padding-right" for="form-field-1">Producto series:</label>
+																							<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Producto series:</label>
 																								<div class="col-xs-3">
 																									<label>
 																										<input name="switch-field-1" class="ace ace-switch ace-switch-5" type="checkbox">
 																										<span class="lbl"></span>
 																									</label>
 																								</div>	
-																							<div class="col-sm-2 btn">Asignar series</div>
+																							<div class="col-sm-3 btn btn-sm btn-success"> Asignar series</div>																							
 																						</div>
 																						<div class="form-group has-error">
-																							<label class="col-sm-5 control-label no-padding-right" for="form-field-1">Detalle producto:</label>
+																							<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Detalle producto:</label>
 																							<div class=" col-xs-7">
 																								<textarea class="input-xlarge" name="txt_0" id="txt_0" placeholder="Comentario"></textarea>
 																							</div>
