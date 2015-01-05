@@ -37,6 +37,14 @@ function id($conexion, $sql) { //retorna el id de una consulta con solo un param
     }
     echo $id;
 }
+function id_unique($conexion, $sql) { //retorna el id de una consulta con solo un parametro de retorno en el sql
+    $id = 0;
+    $sql = pg_query($conexion, $sql);
+    while ($row = pg_fetch_row($sql)) {
+        $id = $row[0];
+    }
+    return $id;
+}
 
 function repetidos($conexion, $campo, $valor, $tabla, $tipo, $id, $id_campo) {///conexion,campo a comparar,valor campo,tabla,tipo g o m id si tiene, id campo si tiene
     $repetidos = 'true';
@@ -83,5 +91,10 @@ function repetidos_1($conexion, $campo, $valor, $tabla, $tipo, $id, $id_campo ,$
         }
     }
     return $repetidos;
+}
+function atras_adelente($conexion,$sql){     
+    $sql = pg_query($sql);
+    $sql = pg_fetch_row($sql);
+    return $sql;
 }
 ?>

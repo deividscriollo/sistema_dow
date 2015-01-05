@@ -32,7 +32,7 @@
 				}else{
 					$foto = $id . '.' . $extension;
 					move_uploaded_file($_FILES["txt_0"]["tmp_name"], "img/" . $foto);	
-					$sql ="insert into usuario values ('$id','$_POST[txt_1]','$_POST[txt_2]','$_POST[txt_3]','$_POST[txt_7]','$_POST[txt_11]','$_POST[txt_12]','$_POST[txt_8]','$_POST[txt_13]','$_POST[txt_4]','0','$foto','$check')";						
+					$sql ="insert into usuario values ('$id','$_POST[txt_1]','$_POST[txt_2]','$_POST[txt_3]','$_POST[txt_7]','$_POST[txt_11]','$_POST[txt_12]','$_POST[txt_8]','$_POST[txt_13]','$_POST[txt_4]','0','$foto','$check','$fecha')";						
 				}	
 				$guardar = guardarSql($conexion,$sql);
 				if( $guardar == 'true'){

@@ -66,12 +66,20 @@ function limpiar_form(e){
         if(form == "form_usuario"){
             $("#btn_0").text("");
             $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> Guardar");
+            $("#imagen").prop("src","img/default.png");
+            $(".remove").trigger('click');
             $("#table").trigger('reloadGrid');     
         }else{
             if(form == "form_cliente"){
                 $("#btn_0").text("");
                 $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> Guardar");
                 $("#table").trigger('reloadGrid');     
+            }else{
+                if(form == "form_proveedores"){
+                    $("#btn_0").text("");
+                    $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> Guardar");
+                    $("#table").trigger('reloadGrid');     
+                }   
             }    
         }           
         $("input:not([readonly='readonly']):text:visible:first").focus();   
@@ -398,4 +406,36 @@ function ci_ruc_pass(campo,valor,documento){
 
         }                    
     }         
+}
+function atras(id,carpeta,archivo){
+    var url = '';    
+    //url = "../secuencia.php?id="+id+"&fn=0";    
+    url = "../"+carpeta+"/"+archivo+"?id="+id+"&fn=0"; 
+    var resp = "";    
+    $.ajax({                
+        type: "POST",
+        dataType: 'json',       
+        url: url, 
+        async:false,          
+        success: function(data) {               
+            resp = data;
+        }
+    });     
+    return resp;
+}
+function adelante(id,carpeta,archivo){
+    var url = '';    
+    //url = "../secuencia.php?id="+id+"&fn=1";    
+    url = "../"+carpeta+"/"+archivo+"?id="+id+"&fn=1"; 
+    var resp = "";    
+    $.ajax({                
+        type: "POST",
+        dataType: 'json',       
+        url: url, 
+        async:false,          
+        success: function(data) {               
+            resp = data;
+        }
+    });     
+    return resp;
 }

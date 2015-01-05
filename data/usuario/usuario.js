@@ -116,6 +116,207 @@ function inicio (){
 	$("#btn_0").on("click",guardar);	
 	$("#btn_1").on("click",limpiar_form);
 	$("#btn_2").on("click",actualizar_form);	
+	$("#btn_4").on("click",function (){		
+		var resp = "";		
+		resp =atras($("#txt_o").val(),"usuario","secuencia.php");		
+		if(resp[0] != false){
+			$("#txt_o").val(resp[0][0]);
+			$("#txt_1").val(resp[0][1]);
+			$("#txt_2").val(resp[0][2]);
+			$("#txt_3").val(resp[0][3]);
+			$("#txt_7").val(resp[0][4]);		
+			$("#txt_12").val(resp[0][7]);
+			$("#txt_8").val(resp[0][8]);
+			$("#txt_13").val(resp[0][9]);		
+			$("#txt_13").val(resp[0][9]);
+			$("#imagen").attr("src","img/"+resp[0][13]);	
+			if(resp[0][14] == "ON"){
+		    	$("#form-field-checkbox").prop("checked",true);
+		    }else{
+		    	$("#form-field-checkbox").prop("checked",false);
+		    }	    
+		    $("#txt_5").val(resp[0][15]);
+		    $("#txt_6").val(resp[0][15]);
+		    $("#txt_4").val(resp[0][10]);
+		    $("#txt_4").trigger("chosen:updated");
+		    /**/
+	        var prov = 0;
+	        var pais = 0;
+	        $.ajax({/*obtnengo el id de provincia*/
+		        type: "POST",		        
+		        url: "../carga_ubicaciones.php?tipo=0&id="+resp[0][5]+"&fun=5",        
+		        success: function(response) {         
+		        	prov = response;
+		        	$.ajax({/*obtnengo el id del pais*/
+				        type: "POST",			        
+				        url: "../carga_ubicaciones.php?tipo=0&id="+prov+"&fun=6",        
+				        success: function(response) {         
+				        	pais = response;						        	
+				        	/*cambio los combos*/
+						    $.ajax({        
+						        type: "POST",
+						        dataType: 'json',        
+						        url: "../carga_ubicaciones.php?tipo=0&id=0&fun=1",        
+						        success: function(response) {         			        	
+						        	$("#txt_9").html("");
+						            for (var i = 0; i < response.length; i=i+2) {            				            	
+						            	if(response[i] == pais){
+											$("#txt_9").append("<option value ="+response[i]+" selected>"+response[i+1]+"</option>");            																																
+						            	}
+										else{
+											$("#txt_9").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
+										}
+						            }   
+						            $("#txt_9").trigger("chosen:updated"); 
+						            $.ajax({        
+								        type: "POST",
+								        dataType: 'json',        
+								        url: "../carga_ubicaciones.php?tipo=0&id="+pais+"&fun=2",        
+								        success: function(response) {         			        	
+								        	$("#txt_10").html("");
+								            for (var i = 0; i < response.length; i=i+2) {            				            	
+								            	if(response[i] == prov){
+													$("#txt_10").append("<option value ="+response[i]+" selected>"+response[i+1]+"</option>");            																																
+								            	}
+												else{
+													$("#txt_10").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
+												}
+								            }   
+								            $("#txt_10").trigger("chosen:updated"); 
+								            $.ajax({        
+										        type: "POST",
+										        dataType: 'json',        
+										        url: "../carga_ubicaciones.php?tipo=0&id="+prov+"&fun=3",        
+										        success: function(response) {         			        	
+										        	$("#txt_11").html("");
+										            for (var i = 0; i < response.length; i=i+2) {            				            	
+										            	if(response[i] == resp[0][5]){
+															$("#txt_11").append("<option value ="+response[i]+" selected>"+response[i+1]+"</option>");            																																
+										            	}
+														else{
+															$("#txt_11").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
+														}
+										            }   
+										            $("#txt_11").trigger("chosen:updated"); 
+										                                         
+										        }
+										    });	      
+								                                         
+								        }
+								    });/**/		                            
+						        }
+						    });/**/							    
+				        }                   
+				    });
+		        }                   
+		    });	
+		}else{
+			alert("Sin registros anteriores");
+		}		
+	    comprobarCamposRequired("form_usuario");		    	            
+        /**/
+	});
+	$("#btn_5").on("click",function (){		
+		var resp = "";		
+		resp =adelante($("#txt_o").val(),"usuario","secuencia.php");		
+		if(resp[0] != false){
+			$("#txt_o").val(resp[0][0]);
+			$("#txt_1").val(resp[0][1]);
+			$("#txt_2").val(resp[0][2]);
+			$("#txt_3").val(resp[0][3]);
+			$("#txt_7").val(resp[0][4]);		
+			$("#txt_12").val(resp[0][7]);
+			$("#txt_8").val(resp[0][8]);
+			$("#txt_13").val(resp[0][9]);		
+			$("#txt_13").val(resp[0][9]);
+			$("#imagen").attr("src","img/"+resp[0][13]);	
+			if(resp[0][14] == "ON"){
+		    	$("#form-field-checkbox").prop("checked",true);
+		    }else{
+		    	$("#form-field-checkbox").prop("checked",false);
+		    }	    
+		    $("#txt_5").val(resp[0][15]);
+		    $("#txt_6").val(resp[0][15]);
+		    $("#txt_4").val(resp[0][10]);
+		    $("#txt_4").trigger("chosen:updated");
+		    /**/
+	        var prov = 0;
+	        var pais = 0;
+	        $.ajax({/*obtnengo el id de provincia*/
+		        type: "POST",		        
+		        url: "../carga_ubicaciones.php?tipo=0&id="+resp[0][5]+"&fun=5",        
+		        success: function(response) {         
+		        	prov = response;
+		        	$.ajax({/*obtnengo el id del pais*/
+				        type: "POST",			        
+				        url: "../carga_ubicaciones.php?tipo=0&id="+prov+"&fun=6",        
+				        success: function(response) {         
+				        	pais = response;						        	
+				        	/*cambio los combos*/
+						    $.ajax({        
+						        type: "POST",
+						        dataType: 'json',        
+						        url: "../carga_ubicaciones.php?tipo=0&id=0&fun=1",        
+						        success: function(response) {         			        	
+						        	$("#txt_9").html("");
+						            for (var i = 0; i < response.length; i=i+2) {            				            	
+						            	if(response[i] == pais){
+											$("#txt_9").append("<option value ="+response[i]+" selected>"+response[i+1]+"</option>");            																																
+						            	}
+										else{
+											$("#txt_9").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
+										}
+						            }   
+						            $("#txt_9").trigger("chosen:updated"); 
+						            $.ajax({        
+								        type: "POST",
+								        dataType: 'json',        
+								        url: "../carga_ubicaciones.php?tipo=0&id="+pais+"&fun=2",        
+								        success: function(response) {         			        	
+								        	$("#txt_10").html("");
+								            for (var i = 0; i < response.length; i=i+2) {            				            	
+								            	if(response[i] == prov){
+													$("#txt_10").append("<option value ="+response[i]+" selected>"+response[i+1]+"</option>");            																																
+								            	}
+												else{
+													$("#txt_10").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
+												}
+								            }   
+								            $("#txt_10").trigger("chosen:updated"); 
+								            $.ajax({        
+										        type: "POST",
+										        dataType: 'json',        
+										        url: "../carga_ubicaciones.php?tipo=0&id="+prov+"&fun=3",        
+										        success: function(response) {         			        	
+										        	$("#txt_11").html("");
+										            for (var i = 0; i < response.length; i=i+2) {            				            	
+										            	if(response[i] == resp[0][5]){
+															$("#txt_11").append("<option value ="+response[i]+" selected>"+response[i+1]+"</option>");            																																
+										            	}
+														else{
+															$("#txt_11").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
+														}
+										            }   
+										            $("#txt_11").trigger("chosen:updated"); 
+										                                         
+										        }
+										    });	      
+								                                         
+								        }
+								    });/**/		                            
+						        }
+						    });/**/							    
+				        }                   
+				    });
+		        }                   
+		    });	
+		}else{
+			alert("Sin registros superiores");
+		}		
+	    comprobarCamposRequired("form_usuario");		    	            
+        /**/
+	});
+
 	/*-----*/    
 	
     /*jqgrid*/    
