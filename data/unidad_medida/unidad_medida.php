@@ -14,7 +14,7 @@ if ($_POST['oper'] == "add") {
     if ($repetidos == 'true') {
         $data = "1"; /// este dato ya existe;
     } else {
-        $sql = "insert into unidades_medida values ('$id','" . strtoupper($_POST['descripcion']) . "','" . strtoupper($_POST['abreviatura']) . "','$fecha','1')";
+        $sql = "insert into unidades_medida values ('$id','" . strtoupper($_POST['descripcion']) . "','" . strtoupper($_POST['abreviatura']) . "','$_POST[cantidad]','$fecha','1')";
         $guardar = guardarSql($conexion, $sql);
         $data = "2";
     }
@@ -24,7 +24,7 @@ if ($_POST['oper'] == "add") {
         if ($repetidos == 'true') {
             $data = "1"; /// este dato ya existe;
         } else {
-            $sql = "update unidades_medida set descripcion = '" . strtoupper($_POST['descripcion']) . "', abreviatura= '" . strtoupper($_POST['abreviatura']) . "' where id_unidad = '$_POST[id]'";
+            $sql = "update unidades_medida set descripcion = '" . strtoupper($_POST['descripcion']) . "', abreviatura= '" . strtoupper($_POST['abreviatura']) . "', cantidad = '$_POST[cantidad]'  where id_unidad = '$_POST[id]'";
             $guardar = guardarSql($conexion, $sql);
             $data = "3";
         }

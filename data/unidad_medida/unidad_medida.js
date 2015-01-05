@@ -31,11 +31,12 @@
 	        url: 'xml_unidad_medida.php',
 	        datatype: "xml",
 	        height: 250,
-	        colNames:['ID','DESCRIPCIÓN','ABREVIATURA','FECHA'],
+	        colNames:['ID','DESCRIPCIÓN','ABREVIATURA','CANTIDAD','FECHA'],
 	        colModel:[
 	            {name:'id_unidad',index:'id_unidad', width:50, sorttype:"int", editable: false, hidden: true, editoptions: {readonly: 'readonly'}},
 	            {name:'descripcion',index:'descripcion',width:90, editable:true, editoptions:{size:"20",maxlength:"30"}, editrules: {required: true}},
 	            {name:'abreviatura',index:'abreviatura', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
+	            {name:'cantidad',index:'cantidad', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
 	            {name:'fecha_creacion',index:'fecha_creacion', width:150,editable: true,editoptions:{size:"20",maxlength:"30",readonly: 'readonly'}}
 	        ], 
 	        rowNum:10,
