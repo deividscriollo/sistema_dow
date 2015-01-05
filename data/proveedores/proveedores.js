@@ -1,57 +1,6 @@
 $(document).on("ready",inicio);
-
-$(function(){
-    Test = {
-        UpdatePreview: function(obj){
-            // if IE < 10 doesn't support FileReader
-            if(!window.FileReader){
-            // don't know how to proceed to assign src to image tag
-            } else {
-                var reader = new FileReader();
-                var target = null;
-             
-                reader.onload = function(e) {
-                    target =  e.target || e.srcElement;
-                    $("#imagen").prop("src", target.result);
-                };
-                reader.readAsDataURL(obj.files[0]);
-            }
-        }
-    };
-});
-/*--*/
-function inicio (){
-	/*----para la imagen----*/
-	function getDoc(frame) {
-    	var doc = null;     
-     	
-     	try {
-        	if (frame.contentWindow) {
-            	doc = frame.contentWindow.document;
-         	}
-     	} catch(err) {
-    	}
-	    if (doc) { 
-	         return doc;
-	    }
-	    try { 
-	         doc = frame.contentDocument ? frame.contentDocument : frame.document;
-	    } catch(err) {
-	       
-	         doc = frame.document;
-	    }
-	    return doc;
- 	}
- 	/*------------*/
-	/*funcion inicial de la imagen y  buscadores del select no topar plz*/
-	$('#txt_0').ace_file_input({
-		style:'well',
-		btn_choose:'Seleccionar',
-		btn_change:null,
-		no_icon:'ace-icon fa fa-image',
-		droppable:true,
-		thumbnail:'small'
-	});
+function inicio (){	
+	/*funcion inicial de la imagen y  buscadores del select no topar plz*/	
 	$('.chosen-select').chosen({allow_single_deselect:true}); 
 	$(window)
 	.off('resize.chosen')
@@ -74,19 +23,30 @@ function inicio (){
 		comprobarCamposRequired(e.currentTarget.form.id)
 
 	});	
-	/*cargar el select de cargos*/
-    $.ajax({          
-        type: "POST",
-        dataType: 'json',        
-        url: "../carga_ubicaciones.php?tipo=0&id=0&fun=4",        
-        success: function(response) {         
-            for (var i = 0; i < response.length; i=i+2) {            	
-				$("#txt_4").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
-            }   
-            $("#txt_4").trigger("chosen:updated");                              
-        }                   
-    }); 
-    /*---*/
+	/*----procesos ci ruc pass-----*/
+	$("#txt_1").change(function (){
+		$("#txt_2").val("");
+		$("#txt_2").focus();
+		if($(this).val() == "Cedula"){						
+			$("#txt_2").prop("maxlength",10);
+			$("#txt_2").attr("minlength",10);
+			$("#txt_2").prop("pattern","[0-9]{10,10}");
+		}else{
+			if($(this).val() == "RUC"){								
+				$("#txt_2").prop("maxlength",13);
+				$("#txt_2").attr("minlength",13);
+				$("#txt_2").prop("pattern","[0-9]{13,13}");
+			}else{			
+				$("#txt_2").removeAttr("maxlength");			
+				$("#txt_2").attr("minlength",1);
+				$("#txt_2").prop("pattern","[0-9]{1,}");
+			}
+		}
+	});
+	$("#txt_2").keyup(function(){
+		ci_ruc_pass("txt_2",$("#txt_2").val(),$("#txt_1").val())
+	});
+	/*--cargar combos dependientes--*/    
 	carga_ubicaciones("txt_9","txt_10","txt_11");//pais provincia ciudad
 	$("#txt_9").change(function(){
 		change_pais("txt_9","txt_10","txt_11");
@@ -94,32 +54,13 @@ function inicio (){
 	$("#txt_10").change(function(){
 		change_provincia("txt_9","txt_10","txt_11");
 	});
-	$("#txt_1").on("keyup",function(){		
-		if($("#form-field-checkbox").prop("checked"))
-			ci("txt_1","ON");
-		else
-			ci("txt_1","OFF");
-	});	
-	$("#form-field-checkbox").click(function(){
-		if($("#form-field-checkbox").prop("checked")){
-			$("#txt_1").val("");
-			$("#txt_1").focus();
-			$("#txt_1").prop("maxlength","30");
-		}
-		else{
-			$("#txt_1").val("");
-			$("#txt_1").focus();
-			$("#txt_1").prop("maxlength","10");
-		}
-	})
-	/*-----*/
-	$("#btn_0").on("click",guardar);	
+    
+    /*procesos de guardar buscar modificar limpiar actualizar*/    		
+	$("#btn_0").on("click",guardar_proveedores);
 	$("#btn_1").on("click",limpiar_form);
-	$("#btn_2").on("click",actualizar_form);	
-	/*-----*/    
-	
-    /*jqgrid*/    
-	jQuery(function($) {
+	$("#btn_2").on("click",actualizar_form);
+    /*------*/
+    jQuery(function($) {
 	    var grid_selector = "#table";
 	    var pager_selector = "#pager";
 	    
@@ -142,26 +83,26 @@ function inicio (){
 
 	    jQuery(grid_selector).jqGrid({	        
 	        datatype: "xml",
-	        url: 'xml_usuario.php',        
-	        colNames: ['ID','CI','NOMBRES','TELÉFONO','CELULAR','id_ciudad','CIUDAD','DIRECCIÓN','CORREO','USUARIO','id_cargo','CARGO','estado','imagen','extranjero','clave'],
+	        url: 'xml_proveedores.php',        
+	        colNames: ['ID','DOCUMENTO','CI','NOMBRES','TIPO PROVEEDOR','TELÉFONO','CELULAR','id_ciudad','CIUDAD','DIRECCIÓN','EMPRESA','VISITADOR','PRINCIPAL','COMENTARIO','FAX','CORREO','FORMA PAGO'],
 	        colModel:[      
-	            {name:'txt_o',index:'txt_o',frozen:true,align:'left',search:false},
-	            {name:'txt_1',index:'identificacion',frozen : true,align:'left',search:true},
-	            {name:'txt_2',index:'nombres_completos',frozen : true,align:'left',search:true},
-	            {name:'txt_3',index:'txt_3',frozen : true,align:'left',search:false},
-	            {name:'txt_7',index:'txt_7',frozen : true,align:'left',search:false},
-	            {name:'txt_11',index:'txt_11',frozen : true,align:'left',search:false},            
-	            {name:'nombre_ciudad',index:'nombre_ciudad',frozen : true,align:'left',search:false},
-	            {name:'txt_12',index:'txt_12',frozen : true,align:'left',search:false},
-	            {name:'txt_8',index:'txt_8',frozen : true,align:'left',search:false},
-	            {name:'txt_13',index:'usuario',frozen : true,align:'left',search:true},
-	            {name:'txt_4',index:'txt_4',frozen : true,align:'left',search:false},
-	            {name:'nombre_cargo',index:'nombre_cargo',frozen : true,align:'left',search:false},
-	            {name:'estado',index:'estado',frozen : true,align:'left',search:false},
-	            {name:'imagen',index:'imagen',frozen : true,align:'left',search:false},
-	            {name:'extranjero',index:'extranjero',frozen : true,align:'left',search:false},
-	            {name:'txt_5',index:'txt_5',frozen : true,align:'left',search:false},
-	            
+	            {name:'txt_0',index:'id_proveedor',frozen:true,align:'left',search:false},
+	            {name:'txt_1',index:'tipo_documento',frozen : true,align:'left',search:true},
+	            {name:'txt_2',index:'identificacion',frozen : true,align:'left',search:true},
+	            {name:'txt_12',index:'nombres_completos',frozen : true,align:'left',search:false},
+	            {name:'txt_18',index:'tipo',frozen : true,align:'left',search:false},
+	            {name:'txt_5',index:'telefono1',frozen : true,align:'left',search:false},            
+	            {name:'txt_6',index:'telefono2',frozen : true,align:'left',search:false},
+				{name:'txt_11',index:'id_ciudad',frozen : true,align:'left',search:false},	            
+	            {name:'descripcion',index:'descripcion',frozen : true,align:'left',search:false},
+	            {name:'txt_15',index:'direccion',frozen : true,align:'left',search:false},
+	            {name:'txt_3',index:'empresa',frozen : true,align:'left',search:false},
+	            {name:'txt_4',index:'visitador',frozen : true,align:'left',search:false},
+	            {name:'txt_16',index:'proveedor_principal',frozen : true,align:'left',search:false},
+	            {name:'txt_17',index:'comentario',frozen : true,align:'left',search:false},
+	            {name:'txt_13',index:'fax',frozen : true,align:'left',search:false},
+	            {name:'txt_7',index:'correo_proveedor',frozen : true,align:'left',search:false},
+	            {name:'txt_8',index:'forma_pago',frozen : true,align:'left',search:false},	            	            
 
 	        ],          
 	        rowNum: 10,       
@@ -170,9 +111,9 @@ function inicio (){
 	        height:200,
 	        rowList: [10,20,30],
 	        pager: pager_selector,        
-	        sortname: 'id_usuario',
+	        sortname: 'id_proveedor',
 	        sortorder: 'asc',
-	        caption: 'LISTA DE USUARIOS',	        
+	        caption: 'LISTA DE PROVEEDORES',	        
 	        
 	        altRows: true,
 	        multiselect: false,
@@ -190,24 +131,25 @@ function inicio (){
 	        ondblClickRow: function(rowid) {     	            	            
 	            var gsr = jQuery(grid_selector).jqGrid('getGridParam','selrow');                                              
             	var ret = jQuery(grid_selector).jqGrid('getRowData',gsr);       	            
-	            $("#txt_o").val(ret.txt_o);
+            	console.log(ret)
+	            $("#txt_0").val(ret.txt_0);
 	            $("#txt_1").val(ret.txt_1);
 	            $("#txt_2").val(ret.txt_2);
 	            $("#txt_3").val(ret.txt_3);
-	            $("#txt_4").val(ret.txt_4);
-	            $("#txt_4").trigger("chosen:updated");            
+	            $("#txt_4").val(ret.txt_4);	            
 	            $("#txt_5").val(ret.txt_5);
-	            $("#txt_6").val(ret.txt_5);
+	            $("#txt_6").val(ret.txt_6);
 	            $("#txt_7").val(ret.txt_7);
 	            $("#txt_8").val(ret.txt_8);	            
 	            $("#txt_12").val(ret.txt_12);
-	            $("#txt_13").val(ret.txt_13);	            
-	            if(ret.extranjero == "ON"){
-	            	$("#form-field-checkbox").prop("checked",true);
-	            }else{
-	            	$("#form-field-checkbox").prop("checked",false);
-	            }
-	            $("#imagen").attr("src","img/"+ret.imagen);	
+	            $("#txt_13").val(ret.txt_13);	            	            
+	            $("#txt_15").val(ret.txt_15);	            	            
+	            $("#txt_16").val(ret.txt_16);	            	            
+	            $("#txt_17").val(ret.txt_17);	            	            
+	            $("#txt_18").val(ret.txt_18);	   
+	            $("#txt_16").trigger("chosen:updated");          	            	            	            
+	            $("#txt_8").trigger("chosen:updated");          	            	            	            
+	            $("#txt_18").trigger("chosen:updated");          	            	            	            
 	            /**/
 	            var prov = 0;
 	            var pais = 0;
@@ -281,20 +223,16 @@ function inicio (){
 			    });			    	            
 	            /**/
 	            $('#myModal').modal('hide');
-	            comprobarCamposRequired("form_usuario");  
+	            comprobarCamposRequired("form_proveedores");  
 	            $("#btn_0").text("");
 	            $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> Modificar");     	            
 	        },
 	        
-	        caption: "LISTA DE USUARIOS"
+	        caption: "LISTA PROVEEDORES"
 	    });
-		jQuery(grid_selector).jqGrid('hideCol', "txt_o");
-		jQuery(grid_selector).jqGrid('hideCol', "txt_11");
-		jQuery(grid_selector).jqGrid('hideCol', "txt_4");
-		jQuery(grid_selector).jqGrid('hideCol', "estado");
-		jQuery(grid_selector).jqGrid('hideCol', "imagen");
-		jQuery(grid_selector).jqGrid('hideCol', "extranjero");		
-		jQuery(grid_selector).jqGrid('hideCol', "txt_5");		
+		jQuery(grid_selector).jqGrid('hideCol', "txt_0");
+		jQuery(grid_selector).jqGrid('hideCol', "txt_11");		
+
 	    $(window).triggerHandler('resize.jqGrid');//cambiar el tamaño para hacer la rejilla conseguir el tamaño correcto
 
 	    function aceSwitch( cellvalue, options, cell ) {
@@ -505,93 +443,53 @@ function inicio (){
 	        $(grid_selector).jqGrid('GridUnload');
 	        $('.ui-jqdialog').remove();
 	    });
-	});
-    /**/    
-}
-function guardar(){///funcion para guardar datos
-	var resp=comprobarCamposRequired("form_usuario");	    
-	if(resp==true){    		
-		$("#form_usuario").on("submit",function (e){				
-			var texto=($("#btn_0").text()).trim();					
-			var formObj = $(this);		
-			if(window.FormData !== undefined) {	
-				var formData = new FormData(this); 		    					
-				if(texto=="Guardar"){ 
-					if($("#txt_11").val() != null){
-						if($("#txt_5").val() == $("#txt_6").val()){
-							guardar_datos(formData,"g",e);		
-						}else{
-							alert("Repita la contraseña correctamente");	
-							$("#txt_6").val("");
-							$("#txt_6").focus();
-						}						
-					}else{
-						alert("Indique una ciudad antes de continuar");
-					}     					                	
-	            }else{
-	                if($("#txt_11").val() != null){
-						if($("#txt_5").val() == $("#txt_6").val()){
-							guardar_datos(formData,"m",e);		
-						}else{
-							alert("Repita la contraseña correctamente");	
-							$("#txt_6").val("");
-							$("#txt_6").focus();
-						}						
-					}else{
-						alert("Indique una ciudad antes de continuar");
-					}     		 					                	
-	            }	
-	            e.preventDefault();
-    			$(this).unbind("submit")			    			            
-			}else{
-			    var  iframeId = "unique" + (new Date().getTime());
-			    var iframe = $('<iframe src="javascript:false;" name="'+iframeId+'" />');
-			    iframe.hide();
-			    formObj.attr("target",iframeId);
-			    iframe.appendTo("body");
-		    	iframe.load(function(e) {
-		        	var doc = getDoc(iframe[0]);
-			        var docRoot = doc.body ? doc.body : doc.documentElement;
-			        var data = docRoot.innerHTML;
-			    });			
-			}			
-		});	
-		
-	}				 
-}
-function guardar_datos(formData,tipo,p){
-	$.ajax({
-	    url: "usuario.php?tipo="+tipo,				    
-	    type: "POST",
-	    data:  formData,
-	    mimeType:"multipart/form-data",
-	    contentType: false,
-	    cache: false,
-	    processData:false,
-	    success: function(data, textStatus, jqXHR)
-	    {				    
-	    	if( data == 0 ){
-	    		alert('Datos Agregados Correctamente');	
-	    		limpiar_form(p);	
-	    		$('#table').trigger('reloadGrid');					
-	    	}else{
-	    		if( data == 1 ){	    		
-	    			alert('Este usuario ya existe. Ingrese otro')	;
-	    			$("#txt_13").val("");
-	    			$("#txt_13").focus();
-	    		}else{	    			
-	    			if(data == 2){
-	    				alert('Este nro de cédula ya existe ingrese otro')	;
-	    				$("#txt_1").val("");
-	    				$("#txt_1").focus();
-	    			}
-	    		}
-	    	}
-
-		},
-		error: function(jqXHR, textStatus, errorThrown) 
-	    {
-	    } 	
 	}); 
 }
-
+function guardar_proveedores(){
+	var resp=comprobarCamposRequired("form_proveedores");
+	if(resp==true){
+		$("#form_proveedores").on("submit",function (e){				
+			var valores = $("#form_proveedores").serialize();
+			var texto=($("#btn_0").text()).trim();	
+			if(texto=="Guardar"){		
+				if($("#txt_11").val() != null){
+					datos_proveedor(valores,"g",e);	
+				}else{
+					alert("Seleccione una ciudad antes de continuar");
+				}				
+			}else{
+				if($("#txt_11").val() != null){
+					datos_proveedor(valores,"m",e);	
+				}else{
+					alert("Seleccione una ciudad antes de continuar");
+				}
+			}
+			e.preventDefault();
+    		$(this).unbind("submit")
+		});
+	}
+}
+function datos_proveedor(valores,tipo,p){	
+	$.ajax({				
+		type: "POST",
+		data: valores+"&tipo="+tipo,		
+		url: "proveedores.php",			
+	    success: function(data) {	
+	    	if( data == 0 ){
+	    		alert('Datos Agregados Correctamente');			
+	    		limpiar_form(p);
+	    		$('#table').trigger('reloadGrid');				
+	    	}else{
+	    		if( data == 1 ){
+	    			alert('Este nro de ' +$("#txt_1").val()+  ' ya existe ingrese otro');	
+	    			$("#txt_2").val("");
+	    			$("#txt_2").focus();	    			
+	    		}else{
+	    			alert("Error al momento de enviar los datos la página se recargara");	    			
+	    			actualizar_form();
+	    		}
+	    	}
+		}
+	}); 
+}
+/*---------------------------------*/

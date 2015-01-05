@@ -1,10 +1,10 @@
 <?php
 	include '../conexion.php';
 	include '../funciones_generales.php';		
-	$conexion = conectarse();
-	date_default_timezone_set('America/Guayaquil');
-    $fecha=date('Y-m-d H:i:s', time()); 
-    $fecha_larga = date('His', time()); 
+	$conexion = conectarse();	
+    date_default_timezone_set('America/Guayaquil');
+	$fecha = date('Y-m-d H:i:s', time());
+	$fecha_larga = date('His', time());
 	$sql = "";	
 	$id = unique($fecha_larga);	
 	$id_c = unique($fecha_larga);	
@@ -28,7 +28,7 @@
 				$data = 2; /// este nro de cedula ya existe;
 			}else{		
 				if ($img == "") {
-				$sql ="insert into usuario values ('$id','$_POST[txt_1]','$_POST[txt_2]','$_POST[txt_3]','$_POST[txt_7]','$_POST[txt_11]','$_POST[txt_12]','$_POST[txt_8]','$_POST[txt_13]','$_POST[txt_4]','0','default.png','$check')";					
+				$sql ="insert into usuario values ('$id','$_POST[txt_1]','$_POST[txt_2]','$_POST[txt_3]','$_POST[txt_7]','$_POST[txt_11]','$_POST[txt_12]','$_POST[txt_8]','$_POST[txt_13]','$_POST[txt_4]','0','default.png','$check','$fecha')";					
 				}else{
 					$foto = $id . '.' . $extension;
 					move_uploaded_file($_FILES["txt_0"]["tmp_name"], "img/" . $foto);	

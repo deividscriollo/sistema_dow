@@ -1,6 +1,6 @@
 <?php
-	include '../conexion.php';
-	include '../funciones_generales.php';		
+	include 'conexion.php';
+	include 'funciones_generales.php';		
 	$conexion = conectarse();
 	$sql = "";
 	if($_GET['fun'] == "1"){//para paises

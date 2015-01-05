@@ -20,88 +20,45 @@ function inicio (){
 	});
 	/*-----------------------*/
 	$("input").on("keyup click",function (e){//campos requeridos		
-		comprobarCamposRequired1(e.currentTarget.form.id)
+		comprobarCamposRequired(e.currentTarget.form.id)
 
 	});	
-	/*cargar el select pais*/
-	$.ajax({        
-        type: "POST",
-        dataType: 'json',        
-        url: "../usuario/carga_ubicaciones.php?tipo=0&id=0&fun=1",        
-        success: function(response) {         
-            for (var i = 0; i < response.length; i=i+2) {            	
-				$("#txt_9").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
-            }   
-            $("#txt_9").trigger("chosen:updated");                              
-            $.ajax({       /*cargar el select provincia*/        
-		        type: "POST",
-		        dataType: 'json',        
-		        url: "../usuario/carga_ubicaciones.php?tipo=0&id="+$("#txt_9").val()+"&fun=2",        
-		        success: function(response) {         
-		            for (var i = 0; i < response.length; i=i+2) {            	
-						$("#txt_10").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
-		            }   
-		            $("#txt_10").trigger("chosen:updated");      
-		            $.ajax({      /*cargar el select ciudades*/         
-				        type: "POST",
-				        dataType: 'json',        
-				        url: "../usuario/carga_ubicaciones.php?tipo=0&id="+$("#txt_10").val()+"&fun=3",        
-				        success: function(response) {         
-				            for (var i = 0; i < response.length; i=i+2) {            	
-								$("#txt_11").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
-				            }   
-				            $("#txt_11").trigger("chosen:updated");                              
-				        }                   
-				    });                        
-		        }                   
-		    });
-        }                   
-    });    
-    /*----------------*/     
-    $("#txt_9").change(function (){
-    	$.ajax({       /*cargar el select provincia*/        
-	        type: "POST",
-	        dataType: 'json',        
-	        url: "../usuario/carga_ubicaciones.php?tipo=0&id="+$("#txt_9").val()+"&fun=2",        
-	        success: function(response) {         
-	        	$("#txt_10").html("");
-	            for (var i = 0; i < response.length; i=i+2) {            	
-					$("#txt_10").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
-	            }   
-	            $("#txt_10").trigger("chosen:updated");      
-	            $.ajax({      /*cargar el select ciudades*/         
-			        type: "POST",
-			        dataType: 'json',        
-			        url: "../usuario/carga_ubicaciones.php?tipo=0&id="+$("#txt_10").val()+"&fun=3",        
-			        success: function(response) {  
-			        	$("#txt_11").html("");       
-			            for (var i = 0; i < response.length; i=i+2) {            	
-							$("#txt_11").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
-			            }   
-			            $("#txt_11").trigger("chosen:updated");                              
-			        }                   
-			    });                        
-	        }                   
-	    });
-    });
-	$("#txt_10").change(function (){
-    	$.ajax({       /*cargar el select provincia*/        
-	        type: "POST",
-	        dataType: 'json',        
-	        url: "../usuario/carga_ubicaciones.php?tipo=0&id="+$("#txt_10").val()+"&fun=3",        
-	        success: function(response) {         
-	        	$("#txt_11").html("");
-	            for (var i = 0; i < response.length; i=i+2) {            	
-					$("#txt_11").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
-	            }   
-	            $("#txt_11").trigger("chosen:updated");      	                             
-	        }                   
-	    });
-    });
+	/*----procesos ci ruc pass-----*/
+	$("#txt_1").change(function (){
+		$("#txt_2").val("");
+		$("#txt_2").focus();
+		if($(this).val() == "Cedula"){						
+			$("#txt_2").prop("maxlength",10);
+			$("#txt_2").attr("minlength",10);
+			$("#txt_2").prop("pattern","[0-9]{10,10}");
+		}else{
+			if($(this).val() == "RUC"){								
+				$("#txt_2").prop("maxlength",13);
+				$("#txt_2").attr("minlength",13);
+				$("#txt_2").prop("pattern","[0-9]{13,13}");
+			}else{			
+				$("#txt_2").removeAttr("maxlength");			
+				$("#txt_2").attr("minlength",1);
+				$("#txt_2").prop("pattern","[0-9]{1,}");
+			}
+		}
+	});
+	$("#txt_2").keyup(function(){
+		ci_ruc_pass("txt_2",$("#txt_2").val(),$("#txt_1").val())
+	});
+	/*--cargar combos dependientes--*/    
+	carga_ubicaciones("txt_9","txt_10","txt_11");//pais provincia ciudad
+	$("#txt_9").change(function(){
+		change_pais("txt_9","txt_10","txt_11");
+	});
+	$("#txt_10").change(function(){
+		change_provincia("txt_9","txt_10","txt_11");
+	});
     
-    /*procesos de guardar buscar modificar*/    	
-	$("#btn_1").on("click",limpiar);	
+    /*procesos de guardar buscar modificar limpiar actualizar*/    		
 	$("#btn_0").on("click",guardar_clientes);
+	$("#btn_1").on("click",limpiar_form);
+	$("#btn_2").on("click",actualizar_form);
     /*------*/
     jQuery(function($) {
 	    var grid_selector = "#table";
@@ -187,19 +144,19 @@ function inicio (){
 	            var pais = 0;
 	            $.ajax({/*obtnengo el id de provincia*/
 			        type: "POST",			        
-			        url: "../usuario/carga_ubicaciones.php?tipo=0&id="+ret.txt_11+"&fun=5",        
+			        url: "../carga_ubicaciones.php?tipo=0&id="+ret.txt_11+"&fun=5",        
 			        success: function(response) {         
 			        	prov = response;
 			        	$.ajax({/*obtnengo el id del pais*/
 					        type: "POST",			        
-					        url: "../usuario/carga_ubicaciones.php?tipo=0&id="+prov+"&fun=6",        
+					        url: "../carga_ubicaciones.php?tipo=0&id="+prov+"&fun=6",        
 					        success: function(response) {         
 					        	pais = response;						        	
 					        	/*cambio los combos*/
 							    $.ajax({        
 							        type: "POST",
 							        dataType: 'json',        
-							        url: "../usuario/carga_ubicaciones.php?tipo=0&id=0&fun=1",        
+							        url: "../carga_ubicaciones.php?tipo=0&id=0&fun=1",        
 							        success: function(response) {         			        	
 							        	$("#txt_9").html("");
 							            for (var i = 0; i < response.length; i=i+2) {            				            	
@@ -214,7 +171,7 @@ function inicio (){
 							            $.ajax({        
 									        type: "POST",
 									        dataType: 'json',        
-									        url: "../usuario/carga_ubicaciones.php?tipo=0&id="+pais+"&fun=2",        
+									        url: "../carga_ubicaciones.php?tipo=0&id="+pais+"&fun=2",        
 									        success: function(response) {         			        	
 									        	$("#txt_10").html("");
 									            for (var i = 0; i < response.length; i=i+2) {            				            	
@@ -229,7 +186,7 @@ function inicio (){
 									            $.ajax({        
 											        type: "POST",
 											        dataType: 'json',        
-											        url: "../usuario/carga_ubicaciones.php?tipo=0&id="+prov+"&fun=3",        
+											        url: "../carga_ubicaciones.php?tipo=0&id="+prov+"&fun=3",        
 											        success: function(response) {         			        	
 											        	$("#txt_11").html("");
 											            for (var i = 0; i < response.length; i=i+2) {            				            	
@@ -255,7 +212,7 @@ function inicio (){
 			    });			    	            
 	            /**/
 	            $('#myModal').modal('hide');
-	            comprobarCamposRequired1("form_cliente");  
+	            comprobarCamposRequired("form_cliente");  
 	            $("#btn_0").text("");
 	            $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> Modificar");     	            
 	        },
@@ -479,15 +436,23 @@ function inicio (){
 }
 /*Formularios Servicios Administrativos*/
 function guardar_clientes(){
-	var resp=comprobarCamposRequired1("form_cliente");
+	var resp=comprobarCamposRequired("form_cliente");
 	if(resp==true){
-		$("#form_cliente").on("submit",function (e){	
+		$("#form_cliente").on("submit",function (e){				
 			var valores = $("#form_cliente").serialize();
 			var texto=($("#btn_0").text()).trim();	
 			if(texto=="Guardar"){		
-				datos_usuarios(valores,"g",e);
+				if($("#txt_11").val() != null){
+					datos_usuarios(valores,"g",e);	
+				}else{
+					alert("Seleccione una ciudad antes de continuar");
+				}				
 			}else{
-				datos_usuarios(valores,"m",e);
+				if($("#txt_11").val() != null){
+					datos_usuarios(valores,"m",e);	
+				}else{
+					alert("Seleccione una ciudad antes de continuar");
+				}
 			}
 			e.preventDefault();
     		$(this).unbind("submit")
@@ -502,19 +467,19 @@ function datos_usuarios(valores,tipo,p){
 		url: "clientes.php",			
 	    success: function(data) {	
 	    	if( data == 0 ){
-	    		alert('Datos Agregados Correctamente');	
-				limpiar();				
+	    		alert('Datos Agregados Correctamente');			
+	    		limpiar_form(p);	
+	    		$('#table').trigger('reloadGrid');							
 	    	}else{
 	    		if( data == 1 ){
-	    			alert('Este nro de CI/RUC/PASAPORTE ya existe ingrese otro');	
+	    			alert('Este nro de ' +$("#txt_1").val()+  ' ya existe ingrese otro');	
 	    			$("#txt_2").val("");
 	    			$("#txt_2").focus();	    			
 	    		}else{
-	    			alert("Error al momento de enviar los datos la página se recargara");
-	    			//limpiar();
+	    			alert("Error al momento de enviar los datos la página se recargara");	    			
+	    			actualizar_form();
 	    		}
 	    	}
-
 		}
 	}); 
 }

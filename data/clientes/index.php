@@ -91,7 +91,7 @@
 
 																	<div class="col-sm-9">
 																		<select class="chosen-select form-control" id="txt_1" name="txt_1" data-placeholder="País">
-																			<option value="Cédula">Cédula</option>	
+																			<option value="Cedula">Cédula</option>	
 																			<option value="RUC">RUC</option>	
 																			<option value="Pasaporte">Pasaporte</option>																				
 																		</select>						
@@ -101,26 +101,26 @@
 																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> C.I.:</label>
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_2" name="txt_2"  placeholder="Cedula" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+																		<input type="text" id="txt_2" name="txt_2"  placeholder="Cedula" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
 																	</div>
 																</div>
 																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Nombres : </label>
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_3" name="txt_3" placeholder="Nombre Completo" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Nombres completos"  />
+																		<input type="text" id="txt_3" name="txt_3" placeholder="Nombre Completo" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" data-toggle="tooltip" data-original-title="Nombres completos"  />
 																	</div>
 																</div>
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Teléfono: </label>
 
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_4" name="txt_4" placeholder="Teléfono" class="form-control" />
+																		<input type="text" id="txt_4" name="txt_4" placeholder="Teléfono" class="form-control" onkeydown="return validarNumeros(event)" />
 																	</div>
 																</div>
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Celular: </label>
 																	<div class="col-sm-9">																																				
-																			<input type="text" id="txt_5" name="txt_5" placeholder="Celular" class="form-control" />																																		
+																			<input type="text" id="txt_5" name="txt_5" placeholder="Celular" class="form-control" onkeydown="return validarNumeros(event)"/>																																		
 																	</div>
 																</div>
 																<div class="form-group">
@@ -139,7 +139,7 @@
 																				<i class="ace-icon fa fa-money"></i>
 																			</span>
 
-																			<input type="text" id="txt_7" name="txt_7" class="form-control" placeholder="Cupo de Credito" />
+																			<input type="text" id="txt_7" name="txt_7" class="form-control" placeholder="Cupo de Credito" onkeydown="return validarNumeros(event)" />
 																			
 																		</div>
 																	</div>
@@ -154,7 +154,7 @@
 																	<div class="col-sm-9">
 																		<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Tipo cliente">																			
 																		<option value="Natural">Natural</option>	
-																			<option value="Jurídico">Jurídico</option>	
+																			<option value="Juridico">Jurídico</option>	
 																		</select>
 																	</div>
 																</div>											

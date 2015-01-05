@@ -20,7 +20,7 @@ function unique($fecha_larga) {
 }
 
 function guardarSql($conexion, $sql) {
-    $resp = true;
+    $resp = true;    
     if (pg_query($conexion, $sql)) {
         $resp = 'true';
     } else {
@@ -50,6 +50,29 @@ function repetidos($conexion, $campo, $valor, $tabla, $tipo, $id, $id_campo) {//
     } else {
         if ($tipo == "m") {
             $sql = "select " . $campo . " from " . $tabla . " where " . $campo . " = '" . $valor . "' and " . $id_campo . " not in ('$id') ";
+            if (pg_num_rows(pg_query($conexion, $sql))) {
+                $repetidos = 'true';
+            } else {
+                $repetidos = 'false';
+            }
+        } else {
+            
+        }
+    }
+    return $repetidos;
+}
+function repetidos_1($conexion, $campo, $valor, $tabla, $tipo, $id, $id_campo ,$extra_campo,$extra_campo_1) {///conexion,campo a comparar,valor campo,tabla,tipo g o m id si tiene, id campo si tiene
+    $repetidos = 'true';
+    if ($tipo == "g") {
+        $sql = "select " . $campo . " from " . $tabla . " where " . $campo . " = '" . $valor . "' and " . $extra_campo . " = '" .$extra_campo_1. "'";        
+        if (pg_num_rows(pg_query($conexion, $sql))) {
+            $repetidos = 'true';
+        } else {
+            $repetidos = 'false';
+        }
+    } else {
+        if ($tipo == "m") {
+            $sql = "select " . $campo . " from " . $tabla . " where " . $campo . " = '" . $valor . "' and " . $extra_campo . " = '" .$extra_campo_1. "'  and " . $id_campo . " not in ('$id') ";            
             if (pg_num_rows(pg_query($conexion, $sql))) {
                 $repetidos = 'true';
             } else {
