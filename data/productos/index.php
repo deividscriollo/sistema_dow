@@ -46,22 +46,7 @@
 									<div class="widget-header">
 										<h5 class="widget-title">Proceso</h5>
 
-										<div class="widget-toolbar">
-											<div class="widget-menu">
-												<a href="#" data-action="settings" data-toggle="dropdown">
-													<i class="ace-icon fa fa-bars"></i>
-												</a>
-
-												<ul class="dropdown-menu dropdown-menu-right dropdown-light-blue dropdown-caret dropdown-closer">
-													<li>
-														<a data-toggle="tab" href="#dropdown1">Opcion 1</a>
-													</li>
-
-													<li>
-														<a data-toggle="tab" href="#dropdown2">Opcion 2</a>
-													</li>
-												</ul>
-											</div>
+										<div class="widget-toolbar">										
 
 											<a href="#" data-action="fullscreen" class="orange2">
 												<i class="ace-icon fa fa-expand"></i>
@@ -285,6 +270,15 @@
 																									</label>
 																								</div>	
 																							<div class="col-sm-3 btn btn-sm btn-success"> Asignar series</div>																							
+																						</div>
+																						<div class="form-group">
+																							<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Producto Activo:</label>
+																								<div class="col-xs-3">
+																									<label>
+																										<input name="switch-field-1" class="ace ace-switch ace-switch-5" type="checkbox" checked>
+																										<span class="lbl"></span>
+																									</label>
+																								</div>	
 																						</div>
 																						<div class="form-group has-error">
 																							<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Detalle producto:</label>
