@@ -19,7 +19,6 @@
         <link rel="stylesheet" href="../../dist/css/datepicker.min.css" />
         <link rel="stylesheet" href="../../dist/css/ui.jqgrid.min.css" />
         <link rel="stylesheet" href="../../dist/css/jquery.gritter.min.css" />
-
         <!-- text fonts -->
         <link rel="stylesheet" href="../../dist/css/fontdc.css" />
 
@@ -68,9 +67,7 @@
                     </div>
                 </div>
             </div>
-
             <?php footer(); ?>
-
             <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
                 <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
             </a>

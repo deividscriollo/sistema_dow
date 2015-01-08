@@ -88,7 +88,7 @@ function menu_lateral(){
 	$acus = split ('/', $acus);
 	
 	print'
-		<div id="sidebar" class="sidebar responsive">
+		<div id="sidebar" class="sidebar responsive sidebar-fixed compact">
 				<script type="text/javascript">
 					try{ace.settings.check("sidebar" , "fixed")}catch(e){}
 				</script>
@@ -110,7 +110,7 @@ function menu_lateral(){
 								Ingresos
 							</span>
 
-							<b class="arrow fa fa-angle-down"></b>
+							<b class="arrow fa fa-angle-down red"></b>
 						</a>
 
 						<b class="arrow"></b>
@@ -234,8 +234,169 @@ function menu_lateral(){
 
 								<b class="arrow"></b>
 							</li>
-							
-							
+						</ul>
+					</li>
+					<li ';if ($acus[3]=='categorias' || $acus[3]=='bodegas' || $acus[3]=='clientes' || $acus[3]=='marcas' || $acus[3]=='unidad_medida'|| $acus[3]=='usuario'|| $acus[3]=='empresa'|| $acus[3]=='tipo_producto'|| $acus[3]=='proveedores'|| $acus[3]=='productos') {
+								print('class="active open"');
+							}print'>
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-cubes ranger"></i>
+							<span class="menu-text">
+								Procesos
+							</span>
+
+							<b class="arrow fa fa-angle-down red"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							<li ';if ($acus[3]=='inventario') {
+									print('class="active"');
+								}print'>
+								<a href="../empresa/">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Inventario
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							<li ';if ($acus[3]=='proformas') {
+									print('class="active"');
+								}print'>
+								<a href="../empresa/">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Proformas
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							<li ';if ($acus[3]=='bodegas'||$acus[3]=='unidad_medida'||$acus[3]=='tipo_producto') {
+									print('class="active open"');
+								}print'>
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Compras
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li ';if ($acus[3]=='bodegas') {
+									print('class="active"');
+								}print'>
+										<a href="../factura_compra/">
+											<i class="menu-icon fa fa-caret-right"></i>
+											Productos Bodega
+										</a>
+
+										<b class="arrow"></b>
+									</li>									
+
+									<li ';if ($acus[3]=='categorias') {
+									print('class="active"');
+								}print'>
+										<a href="../categorias/">
+											<i class="menu-icon fa fa-caret-right"></i>
+											Devolución
+										</a>
+
+										<b class="arrow"></b>
+									</li>																	
+								</ul>
+							</li>
+							<li ';if ($acus[3]=='bodegas'||$acus[3]=='categorias'||$acus[3]=='marcas'||$acus[3]=='unidad_medida'||$acus[3]=='tipo_producto') {
+									print('class="active open"');
+								}print'>
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Ventas
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li ';if ($acus[3]=='bodegas') {
+									print('class="active"');
+								}print'>
+										<a href="../bodegas/">
+											<i class="menu-icon fa fa-caret-right"></i>
+											Ventas Facturación
+										</a>
+
+										<b class="arrow"></b>
+									</li>									
+
+									<li ';if ($acus[3]=='categorias') {
+									print('class="active"');
+								}print'>
+										<a href="../categorias/">
+											<i class="menu-icon fa fa-caret-right"></i>
+											Notas de Crédito
+										</a>
+
+										<b class="arrow"></b>
+									</li>																	
+								</ul>
+							</li>
+							<li ';if ($acus[3]=='bodegas'||$acus[3]=='categorias'||$acus[3]=='marcas'||$acus[3]=='unidad_medida'||$acus[3]=='tipo_producto') {
+									print('class="active open"');
+								}print'>
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Cartera
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li ';if ($acus[3]=='bodegas') {
+									print('class="active"');
+								}print'>
+										<a href="../bodegas/">
+											<i class="menu-icon fa fa-caret-right"></i>
+											Cuentas por Cobrar
+										</a>
+
+										<b class="arrow"></b>
+									</li>									
+
+									<li ';if ($acus[3]=='categorias') {
+									print('class="active"');
+								}print'>
+										<a href="../categorias/">
+											<i class="menu-icon fa fa-caret-right"></i>
+											Cuentas por Pagar
+										</a>
+
+										<b class="arrow"></b>
+									</li>																	
+								</ul>
+							</li>
+
+							<li ';if ($acus[3]=='empresa') {
+									print('class="active"');
+								}print'>
+								<a href="../empresa/">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Registro Gastos
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							<li ';if ($acus[3]=='usuario') {
+									print('class="active"');
+								}print'>
+								<a href="../usuario/">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Gastos Internos
+								</a>
+
+								<b class="arrow"></b>
+							</li>
 						</ul>
 					</li>
 				</ul><!-- /.nav-list -->
