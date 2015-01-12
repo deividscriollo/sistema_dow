@@ -108,9 +108,12 @@
 																</div>																
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Teléfono: </label>
-
 																	<div class="col-sm-8">
-																		<input type="text" id="txt_5" name="txt_5" placeholder="Teléfono" class="form-control" />
+																	<span class="input-icon input-icon-right">
+                                                                    	<input type="text" id="form-field-phone" name="txt_5" placeholder="Teléfono" class="input-medium input-mask-phone" />
+                                                                    	<i class="ace-icon fa fa-phone fa-flip-horizontal"></i>
+                                                                    </span>
+																		
 																	</div>
 																</div>
 																<div class="form-group">
@@ -123,7 +126,10 @@
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Correo: </label>
 
 																	<div class="col-sm-8">
-																		<input type="mail" id="txt_7" name="txt_7" placeholder="Correo" class="form-control" />
+																	  <span class="input-icon input-icon-right">
+																	  	<input type="mail" id="txt_7" name="txt_7" placeholder="Correo" class="form-control" />
+																	  	<i class="ace-icon fa fa-envelope"></i>
+																	  </span>
 																	</div>
 																</div>		
 																<div class="form-group">
