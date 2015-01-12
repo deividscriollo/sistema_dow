@@ -109,17 +109,19 @@
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Teléfono: </label>
 																	<div class="col-sm-8">
-																	<span class="input-icon input-icon-right">
-                                                                    	<input type="text" id="form-field-phone" name="txt_5" placeholder="Teléfono" class="input-medium input-mask-phone" />
-                                                                    	<i class="ace-icon fa fa-phone fa-flip-horizontal"></i>
-                                                                    </span>
-																		
+																		<span class="input-icon input-icon-right">
+	                                                                    	<input type="text" id="txt_5" name="txt_5" placeholder="Teléfono" class="form-control" />
+	                                                                    	<i class="ace-icon fa fa-phone fa-flip-horizontal"></i>
+	                                                                    </span>																		
 																	</div>
 																</div>
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Celular: </label>
-																	<div class="col-sm-8">																																				
-																			<input type="text" id="txt_6" name="txt_6" placeholder="Celular" class="form-control" />																																		
+																	<div class="col-sm-8">	
+																		<span class="input-icon input-icon-right">
+																			<input type="text" id="txt_6" name="txt_6" placeholder="Celular" class="form-control" />
+																			<i class="ace-icon fa fa-mobile fa-flip-horizontal"></i>					
+																		</span>																																																						
 																	</div>
 																</div>
 																<div class="form-group">
@@ -316,6 +318,7 @@
 		<script src="../../dist/js/flot/jquery.flot.pie.min.js"></script>
 		<script src="../../dist/js/flot/jquery.flot.resize.min.js"></script>
 		<script src="../../dist/js/chosen.jquery.min.js"></script>
+		<script src="../../dist/js/jquery.maskedinput.min.js"></script>
 
 
 

@@ -1,5 +1,8 @@
 $(document).on("ready",inicio);
 function inicio (){	
+	// inicializacion de formato txt_ telefono1
+	$('#txt_5').mask('(999) 999-999');
+	$('#txt_6').mask('(999) 999-9999');
 	/*funcion inicial de la imagen y  buscadores del select no topar plz*/	
 	$('.chosen-select').chosen({allow_single_deselect:true}); 
 	$(window)

@@ -15,6 +15,8 @@
 
 		<!-- text fonts -->
 		<link rel="stylesheet" href="dist/css/fontdc.css" />
+		<link rel="stylesheet" href="dist/css/jquery.gritter.min.css" />
+
 
 		<!-- ace styles -->
 		<link rel="stylesheet" href="dist/css/ace.min.css" />
@@ -55,18 +57,19 @@
 
 											<div class="space-6"></div>
 
-											<form>
-												<fieldset>
-													<label class="block clearfix">
+											<form id="form_proceso">
+												<fieldset>													
+
+													<label class="form-group block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="Nombre de Usuario" />
+															<input type="text" id="txt_1" name="txt_1" class="form-control" placeholder="Nombre de Usuario" />
 															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>
 
-													<label class="block clearfix">
+													<label class="form-group block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Password" />
+															<input type="password" id="txt_2" name="txt_2" class="form-control" placeholder="Password" />
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>
@@ -79,7 +82,7 @@
 															<span class="lbl"> Hacerme acuerdo</span>
 														</label>
 
-														<button type="button" class="width-35 pull-right btn btn-sm btn-primary">
+														<button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
 															<i class="ace-icon fa fa-key"></i>
 															<span class="bigger-110">Enviar</span>
 														</button>
@@ -243,7 +246,8 @@
 		<!-- basic scripts -->
 
 		<!--[if !IE]> -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		
+
 
 		<!-- <![endif]-->
 
@@ -253,8 +257,8 @@
 
 		<!--[if !IE]> -->
 		<script type="text/javascript">
-			window.jQuery || document.write("<script src='dist/js/jquery.min.js'>"+"<"+"/script>");
-		</script>
+            window.jQuery || document.write("<script src='dist/js/jquery.min.js'>"+"<"+"/script>");
+        </script>
 
 		<!-- <![endif]-->
 
@@ -267,9 +271,15 @@
 			if('ontouchstart' in document.documentElement) document.write("<script src='dist/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 		</script>
 
+		<script src="dist/js/jquery.validate.min.js"></script>
+		<script src="dist/js/additional-methods.min.js"></script>
+		<script type="text/javascript" src="index/index.js"></script>
+		<script src="dist/js/jquery.gritter.min.js"></script>
+
+
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
-			jQuery(function($) {
+			jQuery(function($) {				
 			 $(document).on('click', '.toolbar a[data-target]', function(e) {
 				e.preventDefault();
 				var target = $(this).data('target');
