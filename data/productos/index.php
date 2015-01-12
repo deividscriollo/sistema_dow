@@ -71,7 +71,7 @@
 																	<ul class="nav nav-tabs" id="myTab">
 																		<li class="active">
 																			<a data-toggle="tab" href="#info_pro">
-																				<i class="green ace-icon fa fa-cube bigger-120"></i>
+																				<i class="green ace-icon fa fa-pencil-square-o bigger-125"></i>
 																				Información Producto
 																			</a>
 																		</li>
