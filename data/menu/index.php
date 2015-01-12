@@ -4,6 +4,10 @@
 if(!isset($_SESSION)){
 	session_start();
 }
+if(!isset($_SESSION))
+	{
+		session_start();		
+	}
 //informacion empresa
 function empresa(){
 	print'DOW';
@@ -40,10 +44,10 @@ function menu_arriba(){
 					<ul class="nav ace-nav">
 						<li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="../../dist/avatars/user.jpg" alt="Jasons Photo" />
+								<img class="nav-user-photo" src="../../dist/avatars/user.jpg" alt="'.$_SESSION['nombrescompletosdow'].'" />
 								<span class="user-info">
 									<small>Bienvenido,</small>
-									Jason
+									'.$_SESSION['nombrescompletosdow'].'
 								</span>
 
 								<i class="ace-icon fa fa-caret-down"></i>
@@ -67,7 +71,7 @@ function menu_arriba(){
 								<li class="divider"></li>
 
 								<li>
-									<a href="#">
+									<a href="../salir/">
 										<i class="ace-icon fa fa-power-off"></i>
 										Salir
 									</a>

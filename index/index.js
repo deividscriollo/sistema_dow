@@ -46,32 +46,28 @@ $(function(){
 		},
 
 		submitHandler: function (form) {
-			console.log('proceso valido'+form)
 			var form=$("#form_proceso");
 			$.ajax({
-				ul:'proceso.php',
+				url:'index/proceso.php',
 				type:'POST',
-				data:form.serialize(),
+				data:{g:'ok',txt_1:$('#txt_1').val(),txt_2:$('#txt_2').val()},
 				success:function(data){					
 					console.log(data)
-					if (data==0) {
+					if (data==1) {
 						$.gritter.add({
 							title: 'Información Mensaje',
 							text: '	<span class="fa fa-shield"></span>'
 										+' Bienvenido: <span class="text-success">'+$('#txt_1').val().toUpperCase()
-									+'</span><br><span class="fa fa-paw"></span> Dame unos segundos para acceder a la aplicación<span class="text-succes fa fa-spinner fa-spin"></span>'
-									+'<span class="fa fa-ban fa-stack-2x text-danger"></span>.',
+									+'</span><br><span class="fa fa-paw"></span> Dame unos segundos para acceder a la aplicación <span class="text-succes fa fa-spinner fa-spin"></span>'
+									,
 							image: 'dist/avatars/avatar1.png', //in Ace demo dist will be replaced by correct assets path
 							sticky: false,
 							time: 3000,												
-						},cam());
-						function cam(){
-							setTimeout(function() {      			
-							alert("as");			
-							}, 4000);
-						}	
+						});						  			
+						redireccionar();
+						
 					};
-					if (data==1) {
+					if (data==0) {
 						$.gritter.add({
 							title: '<span>Información Mensaje</span>',
 							text: '	<span class="fa fa-shield"></span>'
@@ -81,7 +77,23 @@ $(function(){
 							sticky: false,
 							time: 3000,												
 						});	
+						//Limpiar formulario
+						$('#form_proceso').each (function(){
+						  this.reset();
+						});
 					};
+					if (data!=0&&data!=1) {
+						$.gritter.add({
+							title: '<span>Información Mensaje</span>',
+							text: '	<span class="fa fa-shield"></span>'
+										+' <span class="text-danger">ERROR PROCESO AUTENTIFICACIÓN<BR></span>'
+									+'<span class="fa fa-ban fa-stack-2x text-danger"></span>',
+							image: 'dist/avatars/avatar1.png', //in Ace demo dist will be replaced by correct assets path
+							sticky: false,
+							time: 3000,												
+						});	
+					};
+
 					
 					
 				}
@@ -93,3 +105,7 @@ $(function(){
 	});
 
 });
+// redireccion
+function redireccionar() {
+	setTimeout("location.href='data/inicio/'", 4000);
+}

@@ -1,4 +1,14 @@
 <?php include('../menu/index.php'); ?>
+<?php
+if(!isset($_SESSION))
+	{
+		session_start();		
+	}
+	if(!isset($_SESSION["iddow"])) {
+
+		header('Location: ../../');
+	}
+?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>

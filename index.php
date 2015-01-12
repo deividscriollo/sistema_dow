@@ -1,3 +1,13 @@
+<?php
+if(!isset($_SESSION))
+	{
+		session_start();		
+	}
+	if(isset($_SESSION["iddow"])) {
+		header('Location: data/inicio');
+	}
+	
+?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
