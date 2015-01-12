@@ -88,7 +88,7 @@ function menu_lateral(){
 	$acus = split ('/', $acus);
 	
 	print'
-		<div id="sidebar" class="sidebar responsive sidebar-fixed compact">
+		<div id="sidebar" class="sidebar responsive">
 				<script type="text/javascript">
 					try{ace.settings.check("sidebar" , "fixed")}catch(e){}
 				</script>
