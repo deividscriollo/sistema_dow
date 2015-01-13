@@ -84,7 +84,6 @@
 															<div class="col-sm-6">
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Tipo Documento: </label>
-
 																	<div class="col-sm-8">
 																		<select class="chosen-select form-control" id="txt_1" name="txt_1" data-placeholder="País">
 																			<option value="Cedula">Cédula</option>	
@@ -94,136 +93,141 @@
 																		<input type="hidden" id="txt_0" name="txt_0" />											
 																	</div>
 																</div>
+
 																<div class="form-group has-error">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> C.I.:</label>
+																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> RUC/C.I.:</label>
 																	<div class="col-sm-8">
 																		<input type="text" id="txt_2" name="txt_2"  placeholder="Cedula" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
 																	</div>
 																</div>
+
 																<div class="form-group has-error">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Nombres : </label>
 																	<div class="col-sm-8">
 																		<input type="text" id="txt_3" name="txt_3" placeholder="Nombre Completo" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" data-toggle="tooltip" data-original-title="Nombres completos"  />
 																	</div>
 																</div>
+
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Teléfono: </label>
-
 																	<div class="col-sm-8">
-																		<input type="text" id="txt_4" name="txt_4" placeholder="Teléfono" class="form-control" onkeydown="return validarNumeros(event)" />
+																		<span class="input-icon input-icon-right">
+																			<input type="text" id="txt_4" name="txt_4" placeholder="Teléfono" class="form-control" onkeydown="return validarNumeros(event)" />
+																			<i class="ace-icon fa fa-phone fa-flip-horizontal"></i>
+	                                                                    </span>
 																	</div>
 																</div>
+
 																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Celular: </label>
-																	<div class="col-sm-8">																																				
-																			<input type="text" id="txt_5" name="txt_5" placeholder="Celular" class="form-control" onkeydown="return validarNumeros(event)"/>																																		
+																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Celular: </label>																	
+																	<div class="col-sm-8">
+																		<span class="input-icon input-icon-right">
+																			<input type="text" id="txt_5" name="txt_5" placeholder="Celular" class="form-control" onkeydown="return validarNumeros(event)"/>
+																			<i class="ace-icon fa fa-mobile fa-flip-horizontal"></i>
+	                                                                    </span>
 																	</div>
 																</div>
+
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Correo: </label>
-
 																	<div class="col-sm-8">
-																		<input type="mail" id="txt_6" name="txt_6" placeholder="Correo" class="form-control" />
+																		<span class="input-icon input-icon-right">
+																			<input type="mail" id="txt_6" name="txt_6" placeholder="Correo" class="form-control" />
+																			<i class="ace-icon fa fa-envelope fa-flip-horizontal"></i>
+	                                                                    </span>
 																	</div>
 																</div>
+
 																<div class="form-group">
 																	<label class="control-label col-sm-4 no-padding-right">Cupo de Credito:</label>
-
 																	<div class="col-xs-12 col-sm-8">
 																		<div class="input-group">
 																			<span class="input-group-addon">
 																				<i class="ace-icon fa fa-money"></i>
 																			</span>
-
 																			<input type="text" id="txt_7" name="txt_7" class="form-control" placeholder="Cupo de Credito" onkeydown="return validarNumeros(event)" />
-																			
 																		</div>
-																	</div>
+
+																	</div>																	
 																</div>													
 															</div>
+
 															<div class="col-sm-6">
-																
-																
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Tipo Cliente: </label>
-
 																	<div class="col-sm-8">
 																		<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Tipo cliente">																			
 																		<option value="Natural">Natural</option>	
 																			<option value="Juridico">Jurídico</option>	
 																		</select>
 																	</div>
-																</div>											
+																</div>	
+
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> País: </label>
-
 																	<div class="col-sm-8">																	
 																		<select class="chosen-select form-control" id="txt_9" name="txt_9" data-placeholder="País">
-																			
-																			
 																		</select>																	
 																	</div>
 																</div>
+
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Provincia: </label>
-
 																	<div class="col-sm-8">
 																		<select class="chosen-select form-control" id="txt_10" name="txt_10" data-placeholder="Provincia">
-																															
 																		</select>
 																	</div>
 																</div>
+
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Ciudad: </label>
-
 																	<div class="col-sm-8">
 																		<select class="chosen-select form-control" id="txt_11" name="txt_11" data-placeholder="Ciudad">
-																															
 																		</select>
 																	</div>
 																</div>
+
 																<div class="form-group has-error">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Dirección: </label>
-
 																	<div class="col-sm-8">
 																		<input type="text" id="txt_12" name="txt_12" placeholder="Dirección" class="form-control"  required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Ingrese la dirección del cliente" />
 																	</div>
 																</div>
+
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Otros: </label>
 																	<div class="col-sm-8">	
 																		<textarea id="txt_13" name="txt_13" placeholder="Otros" class="col-sm-12"></textarea>
 																	</div>
 																</div>
-
-																
 															</div>
 														</div>
 													</div>
+
 													<h3 class="header smaller lighter green"></h3>
 													<div class="center">
-														<button type="submit" class="btn btn-white btn-info btn-bold" id="btn_0">
-															<i class="ace-icon fa fa-floppy-o bigger-120 blue"></i>
+														<button type="submit" class="btn btn-primary" id="btn_0">
+															<i class="ace-icon fa fa-floppy-o bigger-120 white"></i>
 															Guardar
 														</button>
-														<button type="button" id="btn_1" class="btn btn-white btn-info btn-bold">
-															<i class="ace-icon fa fa-file-o bigger-120 blue"></i>
+														<button type="button" id="btn_1" class="btn btn-primary">
+															<i class="ace-icon fa fa-file-o bigger-120 white"></i>
 															Limpiar
 														</button>
-														<button type="button" id="btn_2" class="btn btn-white btn-info btn-bold">
-															<i class="ace-icon fa fa-refresh bigger-120 blue"></i>
+														<button type="button" id="btn_2" class="btn btn-primary">
+															<i class="ace-icon fa fa-refresh bigger-120 white"></i>
 															Actualizar
 														</button>														
-														<button data-toggle="modal" href="#myModal" type="button" id="btn_3" class="btn btn-white btn-info btn-bold">
-															<i class="ace-icon fa fa-search bigger-120 blue"></i>
+														<button data-toggle="modal" href="#myModal" type="button" id="btn_3" class="btn btn-primary">
+															<i class="ace-icon fa fa-search bigger-120 white"></i>
 															Buscar
 														</button>
-														<button type="button" id="btn_4" class="btn btn-white btn-info btn-bold">
-															<i class="ace-icon fa fa-arrow-circle-left bigger-120 blue"></i>
+														<button type="button" id="btn_4" class="btn btn-primary">
+															<i class="ace-icon fa fa-arrow-circle-left bigger-120 white"></i>
 															Atras
 														</button>
-														<button type="button" id="btn_5" class="btn btn-white btn-info btn-bold">
-															<i class="ace-icon fa fa fa-arrow-circle-right bigger-120 blue"></i>
+														<button type="button" id="btn_5" class="btn btn-primary">
+															<i class="ace-icon fa fa fa-arrow-circle-right bigger-120 white"></i>
 															Adelante
 														</button>
 													</div>
@@ -281,6 +285,8 @@
 		<script src="../../dist/js/flot/jquery.flot.pie.min.js"></script>
 		<script src="../../dist/js/flot/jquery.flot.resize.min.js"></script>
 		<script src="../../dist/js/chosen.jquery.min.js"></script>
+		<script src="../../dist/js/jquery.maskedinput.min.js"></script>
+
 
 		<!-- ace scripts -->
 		<script src="../../dist/js/ace-elements.min.js"></script>

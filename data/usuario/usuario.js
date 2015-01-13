@@ -1,5 +1,7 @@
 $(document).on("ready",inicio);
 
+
+
 $(function(){
     Test = {
         UpdatePreview: function(obj){

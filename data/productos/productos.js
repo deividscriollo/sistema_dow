@@ -5,157 +5,7 @@ function inicio (){
 				$.fn.editable.defaults.mode = 'inline';
 				$.fn.editableform.loading = "<div class='editableform-loading'><i class='ace-icon fa fa-spinner fa-spin fa-2x light-blue'></i></div>";
 			    $.fn.editableform.buttons = '<button type="submit" class="btn btn-info editable-submit"><i class="ace-icon fa fa-check"></i></button>'+
-			                                '<button type="button" class="btn editable-cancel"><i class="ace-icon fa fa-times"></i></button>';    
-				
-				//editables 
-				
-				//text editable
-			    $('#username')
-				.editable({
-					type: 'text',
-					name: 'username'
-			    });
-			
-			
-				
-				//select2 editable
-				var countries = [];
-			    $.each({ "CA": "Canada", "IN": "India", "NL": "Netherlands", "TR": "Turkey", "US": "United States"}, function(k, v) {
-			        countries.push({id: k, text: v});
-			    });
-			
-				var cities = [];
-				cities["CA"] = [];
-				$.each(["Toronto", "Ottawa", "Calgary", "Vancouver"] , function(k, v){
-					cities["CA"].push({id: v, text: v});
-				});
-				cities["IN"] = [];
-				$.each(["Delhi", "Mumbai", "Bangalore"] , function(k, v){
-					cities["IN"].push({id: v, text: v});
-				});
-				cities["NL"] = [];
-				$.each(["Amsterdam", "Rotterdam", "The Hague"] , function(k, v){
-					cities["NL"].push({id: v, text: v});
-				});
-				cities["TR"] = [];
-				$.each(["Ankara", "Istanbul", "Izmir"] , function(k, v){
-					cities["TR"].push({id: v, text: v});
-				});
-				cities["US"] = [];
-				$.each(["New York", "Miami", "Los Angeles", "Chicago", "Wysconsin"] , function(k, v){
-					cities["US"].push({id: v, text: v});
-				});
-				
-				var currentValue = "NL";
-			    $('#country').editable({
-					type: 'select2',
-					value : 'NL',
-					//onblur:'ignore',
-			        source: countries,
-					select2: {
-						'width': 140
-					},		
-					success: function(response, newValue) {
-						if(currentValue == newValue) return;
-						currentValue = newValue;
-						
-						var new_source = (!newValue || newValue == "") ? [] : cities[newValue];
-						
-						//the destroy method is causing errors in x-editable v1.4.6+
-						//it worked fine in v1.4.5
-						/**			
-						$('#city').editable('destroy').editable({
-							type: 'select2',
-							source: new_source
-						}).editable('setValue', null);
-						*/
-						
-						//so we remove it altogether and create a new element
-						var city = $('#city').removeAttr('id').get(0);
-						$(city).clone().attr('id', 'city').text('Select City').editable({
-							type: 'select2',
-							value : null,
-							//onblur:'ignore',
-							source: new_source,
-							select2: {
-								'width': 140
-							}
-						}).insertAfter(city);//insert it after previous instance
-						$(city).remove();//remove previous instance
-						
-					}
-			    });
-			
-				$('#city').editable({
-					type: 'select2',
-					value : 'Amsterdam',
-					//onblur:'ignore',
-			        source: cities[currentValue],
-					select2: {
-						'width': 140
-					}
-			    });
-			
-			
-				
-				//custom date editable
-				$('#signup').editable({
-					type: 'adate',
-					date: {
-						//datepicker plugin options
-						    format: 'yyyy/mm/dd',
-						viewformat: 'yyyy/mm/dd',
-						 weekStart: 1
-						 
-						//,nativeUI: true//if true and browser support input[type=date], native browser control will be used
-						//,format: 'yyyy-mm-dd',
-						//viewformat: 'yyyy-mm-dd'
-					}
-				})
-			
-			    $('#age').editable({
-			        type: 'spinner',
-					name : 'age',
-					spinner : {
-						min : 16,
-						max : 99,
-						step: 1,
-						on_sides: true
-						//,nativeUI: true//if true and browser support input[type=number], native browser control will be used
-					}
-				});
-				
-			
-			    $('#login').editable({
-			        type: 'slider',
-					name : 'login',
-					
-					slider : {
-						 min : 1,
-						  max: 50,
-						width: 100
-						//,nativeUI: true//if true and browser support input[type=range], native browser control will be used
-					},
-					success: function(response, newValue) {
-						if(parseInt(newValue) == 1)
-							$(this).html(newValue + " hour ago");
-						else $(this).html(newValue + " hours ago");
-					}
-				});
-			
-				$('#about').editable({
-					mode: 'inline',
-			        type: 'wysiwyg',
-					name : 'about',
-			
-					wysiwyg : {
-						//css : {'max-width':'300px'}
-					},
-					success: function(response, newValue) {
-					}
-				});
-				
-				
+			                                '<button type="button" class="btn editable-cancel"><i class="ace-icon fa fa-times"></i></button>';    				
 				
 				// *** editable avatar *** //
 				try {//ie8 throws some harmless exceptions, so let's catch'em
@@ -185,14 +35,14 @@ function inicio (){
 								if(last_gritter) $.gritter.remove(last_gritter);
 								if(error_type == 1) {//file format error
 									last_gritter = $.gritter.add({
-										title: 'File is not an image!',
-										text: 'Please choose a jpg|gif|png image!',
+										title: 'El archivo no es una imagen!',
+										text: 'Por favor, elija un jpg | jpeg | imagen png!',
 										class_name: 'gritter-error gritter-center'
 									});
 								} else if(error_type == 2) {//file size rror
 									last_gritter = $.gritter.add({
-										title: 'File too big!',
-										text: 'Image size should not exceed 100Kb!',
+										title: 'Archivo muy grande!',
+										text: 'Tamaño de la imagen no debe superar los 100Kb!',
 										class_name: 'gritter-error gritter-center'
 									});
 								}
@@ -229,8 +79,8 @@ function inicio (){
 			
 								if(last_gritter) $.gritter.remove(last_gritter);
 								last_gritter = $.gritter.add({
-									title: 'Avatar Updated!',
-									text: 'Uploading to server can be easily implemented. A working example is included with the template.',
+									title: 'Imagen Actualizada!',
+									text: 'Carga en servidor puede ser fácilmente implementado . Un ejemplo de trabajo se incluye con la plantilla.',
 									class_name: 'gritter-info gritter-center'
 								});
 								
@@ -246,23 +96,6 @@ function inicio (){
 					})
 				}catch(e) {}
 				
-				/**
-				//let's display edit mode by default?
-				var blank_image = true;//somehow you determine if image is initially blank or not, or you just want to display file input at first
-				if(blank_image) {
-					$('#avatar').editable('show').on('hidden', function(e, reason) {
-						if(reason == 'onblur') {
-							$('#avatar').editable('show');
-							return;
-						}
-						$('#avatar').off('hidden');
-					})
-				}
-				*/
-			
-								
-			
-				
 			
 				///////////////////////////////////////////
 				$('#user-profile-3')
@@ -275,7 +108,7 @@ function inicio (){
 					droppable:true,
 					
 					allowExt: ['jpg', 'jpeg', 'png', 'gif'],
-					allowMime: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
+					allowMime: ['image/jpg', 'image/jpeg', 'image/png']
 				})
 				.end().find('button[type=reset]').on(ace.click_event, function(){
 					$('#user-profile-3 input[type=file]').ace_file_input('reset_input');

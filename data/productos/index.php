@@ -15,8 +15,10 @@
 		<link rel="stylesheet" href="../../dist/css/font-awesome.min.css" />
 		<link rel="stylesheet" href="../../dist/css/bootstrap-editable.min.css" />
 
+
 		<!-- Select -->
 		<link rel="stylesheet" href="../../dist/css/chosen.min.css" />
+		<link rel="stylesheet" href="../../dist/css/jquery.gritter.min.css" />
 
 
 		<!-- page specific plugin styles -->
@@ -498,6 +500,7 @@
 		<script src="../../dist/js/fuelux/fuelux.spinner.min.js"></script>
 		<script src="../../dist/js/x-editable/bootstrap-editable.min.js"></script>
 		<script src="../../dist/js/x-editable/ace-editable.min.js"></script>
+		<script src="../../dist/js/jquery.gritter.min.js"></script>
 
 		<!-- ace scripts -->
 		<script src="../../dist/js/ace-elements.min.js"></script>

@@ -231,34 +231,35 @@
 															</div>
 														</div>
 													</div>
+												
+													<h3 class="header smaller lighter green"></h3>
+													<div class="center">
+														<button type="submit" class="btn btn-primary" id="btn_0">
+															<i class="ace-icon fa fa-floppy-o bigger-120 white"></i>
+															Guardar
+														</button>
+														<button type="button" id="btn_1" class="btn btn-primary">
+															<i class="ace-icon fa fa-file-o bigger-120 white"></i>
+															Limpiar
+														</button>
+														<button type="button" id="btn_2" class="btn btn-primary">
+															<i class="ace-icon fa fa-refresh bigger-120 white"></i>
+															Actualizar
+														</button>														
+														<button data-toggle="modal" href="#myModal" type="button" id="btn_3" class="btn btn-primary">
+															<i class="ace-icon fa fa-search bigger-120 white"></i>
+															Buscar
+														</button>
+														<button type="button" id="btn_4" class="btn btn-primary">
+															<i class="ace-icon fa fa-arrow-circle-left bigger-120 white"></i>
+															Atras
+														</button>
+														<button type="button" id="btn_5" class="btn btn-primary">
+															<i class="ace-icon fa fa fa-arrow-circle-right bigger-120 white"></i>
+															Adelante
+														</button>
+													</div>
 												</form>
-												<h3 class="header smaller lighter green"></h3>
-												<div class="center">
-													<button type="submit" class="btn btn-white btn-info btn-bold" id="btn_0">
-														<i class="ace-icon fa fa-floppy-o bigger-120 blue"></i>
-														Guardar
-													</button>
-													<button type="button" id="btn_1" class="btn btn-white btn-info btn-bold">
-														<i class="ace-icon fa fa-file-o bigger-120 blue"></i>
-														Limpiar
-													</button>
-													<button type="button" id="btn_2" class="btn btn-white btn-info btn-bold">
-														<i class="ace-icon fa fa-refresh bigger-120 blue"></i>
-														Actualizar
-													</button>														
-													<button data-toggle="modal" href="#myModal" type="button" id="btn_3" class="btn btn-white btn-info btn-bold">
-														<i class="ace-icon fa fa-search bigger-120 blue"></i>
-														Buscar
-													</button>
-													<button type="button" id="btn_4" class="btn btn-white btn-info btn-bold">
-														<i class="ace-icon fa fa-arrow-circle-left bigger-120 blue"></i>
-														Atras
-													</button>
-													<button type="button" id="btn_5" class="btn btn-white btn-info btn-bold">
-														<i class="ace-icon fa fa fa-arrow-circle-right bigger-120 blue"></i>
-														Adelante
-													</button>
-												</div>
 											</div>		
 										</div>
 									</div>

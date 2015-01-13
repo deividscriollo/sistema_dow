@@ -1,6 +1,8 @@
 $(document).on("ready",inicio);
 function inicio (){	
 	/*funcion inicial de la imagen y  buscadores del select no topar plz*/	
+	$('#txt_4').mask('(999) 999-999');
+	$('#txt_5').mask('(999) 999-9999');
 	$('.chosen-select').chosen({allow_single_deselect:true}); 
 	$(window)
 	.off('resize.chosen')
