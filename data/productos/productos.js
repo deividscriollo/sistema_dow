@@ -97,51 +97,7 @@ function inicio (){
 				}catch(e) {}
 				
 			
-				///////////////////////////////////////////
-				$('#user-profile-3')
-				.find('input[type=file]').ace_file_input({
-					style:'well',
-					btn_choose:'Change avatar',
-					btn_change:null,
-					no_icon:'ace-icon fa fa-picture-o',
-					thumbnail:'large',
-					droppable:true,
-					
-					allowExt: ['jpg', 'jpeg', 'png', 'gif'],
-					allowMime: ['image/jpg', 'image/jpeg', 'image/png']
-				})
-				.end().find('button[type=reset]').on(ace.click_event, function(){
-					$('#user-profile-3 input[type=file]').ace_file_input('reset_input');
-				})
-				/////no va aun /////////////
-				//.end().find('.date-picker').datepicker().next().on(ace.click_event, function(){
-				//	$(this).prev().focus();
-				//})
-				//$('.input-mask-phone').mask('(999) 999-9999');
-			    /////////////////////////
-
-				$('#user-profile-3').find('input[type=file]').ace_file_input('show_file_list', [{type: 'image', name: $('#avatar').attr('src')}]);
-			
-			
-				////////////////////
-				//change profile
-				$('[data-toggle="buttons"] .btn').on('click', function(e){
-					var target = $(this).find('input[type=radio]');
-					var which = parseInt(target.val());
-					$('.user-profile').parent().addClass('hide');
-					$('#user-profile-'+which).parent().removeClass('hide');
-				});
 				
-				
-				
-				/////////////////////////////////////
-				$(document).one('ajaxloadstart.page', function(e) {
-					//in ajax mode, remove remaining elements before leaving page
-					try {
-						$('.editable').editable('destroy');
-					} catch(e) {}
-					$('[class*=select2]').remove();
-				});
 	////////////////////////////////////////////			
 
 	// dar valor inicial para convertir input en spinner o seleccion
