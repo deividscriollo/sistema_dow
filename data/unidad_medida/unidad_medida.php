@@ -24,7 +24,7 @@ if ($_POST['oper'] == "add") {
         if ($repetidos == 'true') {
             $data = "1"; /// este dato ya existe;
         } else {
-            $sql = "update unidades_medida set descripcion = '" . strtoupper($_POST['descripcion']) . "', abreviatura= '" . strtoupper($_POST['abreviatura']) . "', cantidad = '$_POST[cantidad]'  where id_unidad = '$_POST[id]'";
+            $sql = "update unidades_medida set descripcion = '" . strtoupper($_POST['descripcion']) . "', abreviatura= '" . strtoupper($_POST['abreviatura']) . "', cantidad = '$_POST[cantidad]', fecha_creacion = '$fecha'  where id_unidad = '$_POST[id]'";
             $guardar = guardarSql($conexion, $sql);
             $data = "3";
         }
