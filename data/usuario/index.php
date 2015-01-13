@@ -82,30 +82,16 @@
 												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_usuario">												
 													<div class="row">
 														<div class="col-xs-12">
-															<div class="col-sm-2">
-																<div class="widget-box">
-																	<div class="widget-header">
-																		<h4 class="widget-title">Imagén</h4>
-																	</div>
-
-																	<div class="widget-body">
-																		<div class="widget-main">
-																			<div class="col-xs-2">
-																				<div class="form-group">
-																					<div class="col-xs-12">
-																						<div class="col-xs-12">																									
-																							<span class="profile-picture">
-																								<img id="avatar" class="editable img-responsive" alt="Empresa x" src="img/default.png" accept="image/*"/>
-																							</span>
-
-																						</div>																																														
-																					</div>
-																				</div>	
-																			</div>
-																		</div>
+															<div class="col-xs-2">
+																<div class="form-group">
+																	<div class="col-xs-12">
+																		<div class="col-xs-12">																									
+																			<span class="profile-picture">
+																				<img id="avatar" class="editable img-responsive" alt="Empresa x" src="img/default.png" accept="image/*"/>
+																			</span>
+																		</div>																																														
 																	</div>
 																</div>
-
 															</div>
 															<div class="col-sm-5">
 																<div class="form-group has-error">
@@ -135,7 +121,10 @@
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Teléfono: </label>
 
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_3" name="txt_3" placeholder="Teléfono" class="form-control" onkeydown="return validarNumeros(event)" />
+																		<span class="input-icon input-icon-right">
+	                                                                    	<input type="text" id="txt_3" name="txt_3" placeholder="Teléfono" class="form-control" onkeydown="return validarNumeros(event)" />
+	                                                                    	<i class="ace-icon fa fa-phone fa-flip-horizontal"></i>
+	                                                                    </span>																		
 																	</div>
 																</div>
 																<div class="form-group has-error">
@@ -161,16 +150,21 @@
 															</div>
 															<div class="col-sm-5">
 																<div class="form-group">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Celular: </label>
-																	<div class="col-sm-9">																																				
-																			<input type="text" id="txt_7" name="txt_7" placeholder="Celular" class="form-control" onkeydown="return validarNumeros(event)" />																																		
+																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Celular: </label>																	
+																	<div class="col-sm-9">	
+																		<span class="input-icon input-icon-right">
+																			<input type="text" id="txt_7" name="txt_7" placeholder="Celular" class="form-control" onkeydown="return validarNumeros(event)" />
+																			<i class="ace-icon fa fa-mobile fa-flip-horizontal"></i>					
+																		</span>																																																						
 																	</div>
 																</div>
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Correo: </label>
-
 																	<div class="col-sm-9">
-																		<input type="mail" id="txt_8" name="txt_8" placeholder="Correo" class="form-control" />
+																	  <span class="input-icon input-icon-right">
+																	  	<input type="mail" id="txt_8" name="txt_8" placeholder="Correo" class="form-control" />
+																	  	<i class="ace-icon fa fa-envelope"></i>
+																	  </span>
 																	</div>
 																</div>
 																<div class="form-group">
@@ -310,6 +304,8 @@
 		<script src="../../dist/js/x-editable/bootstrap-editable.min.js"></script>
 		<script src="../../dist/js/x-editable/ace-editable.min.js"></script>
 		<script src="../../dist/js/jquery.gritter.min.js"></script>
+		<script src="../../dist/js/jquery.maskedinput.min.js"></script>
+
 
 		<!-- ace scripts -->
 		<script src="../../dist/js/ace-elements.min.js"></script>
@@ -345,167 +341,3 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 
-<script type="text/javascript">
-	///////////varias validaciones//////////////}
-					//editables on first profile page
-				$.fn.editable.defaults.mode = 'inline';
-				$.fn.editableform.loading = "<div class='editableform-loading'><i class='ace-icon fa fa-spinner fa-spin fa-2x light-blue'></i></div>";
-			    $.fn.editableform.buttons = '<button type="submit" class="btn btn-info editable-submit"><i class="ace-icon fa fa-check"></i></button>'+
-			                                '<button type="button" class="btn editable-cancel"><i class="ace-icon fa fa-times"></i></button>';    
-				
-			
-				
-				// *** editable avatar *** //
-				try {//ie8 throws some harmless exceptions, so let's catch'em
-			
-					//first let's add a fake appendChild method for Image element for browsers that have a problem with this
-					//because editable plugin calls appendChild, and it causes errors on IE at unpredicted points
-					try {
-						document.createElement('IMG').appendChild(document.createElement('B'));
-					} catch(e) {
-						Image.prototype.appendChild = function(el){}
-					}
-			
-					var last_gritter
-					$('#avatar').editable({
-						type: 'image',
-						name: 'avatar',
-						value: null,
-						image: {
-							//specify ace file input plugin's options here
-							btn_choose: 'Cambiar Imagen',
-							droppable: true,
-							maxSize: 110000,//~100Kb
-			
-							//and a few extra ones here
-							name: 'avatar',//put the field name here as well, will be used inside the custom plugin
-							on_error : function(error_type) {//on_error function will be called when the selected file has a problem
-								if(last_gritter) $.gritter.remove(last_gritter);
-								if(error_type == 1) {//file format error
-									last_gritter = $.gritter.add({
-										title: 'File is not an image!',
-										text: 'Please choose a jpg|gif|png image!',
-										class_name: 'gritter-error gritter-center'
-									});
-								} else if(error_type == 2) {//file size rror
-									last_gritter = $.gritter.add({
-										title: 'File too big!',
-										text: 'Image size should not exceed 100Kb!',
-										class_name: 'gritter-error gritter-center'
-									});
-								}
-								else {//other error
-								}
-							},
-							on_success : function() {
-								$.gritter.removeAll();
-							}
-						},
-					    url: function(params) {
-							// ***UPDATE AVATAR HERE*** //
-							//for a working upload example you can replace the contents of this function with 
-							//examples/profile-avatar-update.js
-			
-							var deferred = new $.Deferred
-			
-							var value = $('#avatar').next().find('input[type=hidden]:eq(0)').val();
-							if(!value || value.length == 0) {
-								deferred.resolve();
-								return deferred.promise();
-							}
-			
-			
-							//dummy upload
-							setTimeout(function(){
-								if("FileReader" in window) {
-									//for browsers that have a thumbnail of selected image
-									var thumb = $('#avatar').next().find('img').data('thumb');
-									if(thumb) $('#avatar').get(0).src = thumb;
-								}
-								
-								deferred.resolve({'status':'OK'});
-			
-								if(last_gritter) $.gritter.remove(last_gritter);
-								last_gritter = $.gritter.add({
-									title: 'Avatar Updated!',
-									text: 'Uploading to server can be easily implemented. A working example is included with the template.',
-									class_name: 'gritter-info gritter-center'
-								});
-								
-							 } , parseInt(Math.random() * 800 + 800))
-			
-							return deferred.promise();
-							
-							// ***END OF UPDATE AVATAR HERE*** //
-						},
-						
-						success: function(response, newValue) {
-						}
-					})
-				}catch(e) {}
-				
-				/**
-				//let's display edit mode by default?
-				var blank_image = true;//somehow you determine if image is initially blank or not, or you just want to display file input at first
-				if(blank_image) {
-					$('#avatar').editable('show').on('hidden', function(e, reason) {
-						if(reason == 'onblur') {
-							$('#avatar').editable('show');
-							return;
-						}
-						$('#avatar').off('hidden');
-					})
-				}
-				*/
-			
-								
-			
-				
-			
-				///////////////////////////////////////////
-				$('#user-profile-3')
-				.find('input[type=file]').ace_file_input({
-					style:'well',
-					btn_choose:'Change avatar',
-					btn_change:null,
-					no_icon:'ace-icon fa fa-picture-o',
-					thumbnail:'large',
-					droppable:true,
-					
-					allowExt: ['jpg', 'jpeg', 'png', 'gif'],
-					allowMime: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
-				})
-				.end().find('button[type=reset]').on(ace.click_event, function(){
-					$('#user-profile-3 input[type=file]').ace_file_input('reset_input');
-				})
-				/////no va aun /////////////
-				//.end().find('.date-picker').datepicker().next().on(ace.click_event, function(){
-				//	$(this).prev().focus();
-				//})
-				//$('.input-mask-phone').mask('(999) 999-9999');
-			    /////////////////////////
-
-				$('#user-profile-3').find('input[type=file]').ace_file_input('show_file_list', [{type: 'image', name: $('#avatar').attr('src')}]);
-			
-			
-				////////////////////
-				//change profile
-				$('[data-toggle="buttons"] .btn').on('click', function(e){
-					var target = $(this).find('input[type=radio]');
-					var which = parseInt(target.val());
-					$('.user-profile').parent().addClass('hide');
-					$('#user-profile-'+which).parent().removeClass('hide');
-				});
-				
-				
-				
-				/////////////////////////////////////
-				$(document).one('ajaxloadstart.page', function(e) {
-					//in ajax mode, remove remaining elements before leaving page
-					try {
-						$('.editable').editable('destroy');
-					} catch(e) {}
-					$('[class*=select2]').remove();
-				});
-	///////////////////////////////////////////
-</script>
