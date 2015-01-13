@@ -64,8 +64,6 @@
 										<h5 class="widget-title"><i class="ace-icon fa fa-user"></i> Usuarios</h5>
 
 										<div class="widget-toolbar">
-											
-
 											<a href="#" data-action="fullscreen" class="orange2">
 												<i class="ace-icon fa fa-expand"></i>
 											</a>
@@ -87,12 +85,13 @@
 																	<div class="col-xs-12">
 																		<div class="col-xs-12">																									
 																			<span class="profile-picture">
-																				<img id="avatar" class="editable img-responsive" alt="Empresa x" src="img/default.png" accept="image/*"/>
+																				<img id="avatar" name="avatar" class="editable img-responsive" alt="Empresa x" src="img/default.png" accept="image/*"/>
 																			</span>
 																		</div>																																														
 																	</div>
 																</div>
 															</div>
+
 															<div class="col-sm-5">
 																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> C.I./RUC:</label>
@@ -117,9 +116,9 @@
 																		<input type="text" id="txt_2" name="txt_2" placeholder="Nombre Completo" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" data-toggle="tooltip" data-original-title="Nombres completos"  />
 																	</div>
 																</div>
+
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Teléfono: </label>
-
 																	<div class="col-sm-9">
 																		<span class="input-icon input-icon-right">
 	                                                                    	<input type="text" id="txt_3" name="txt_3" placeholder="Teléfono" class="form-control" onkeydown="return validarNumeros(event)" />
@@ -127,27 +126,29 @@
 	                                                                    </span>																		
 																	</div>
 																</div>
+
 																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Usuario: </label>
 																	<div class="col-sm-9">
 																		<input type="text" id="txt_13" name="txt_13" placeholder="Nombre de usuario" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Nombres de usuario"  />
 																	</div>
-																</div>																
+																</div>	
+
 																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Password: </label>
-
 																	<div class="col-sm-9">
 																		<input type="password" id="txt_5" name="txt_5" placeholder="Password" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{6,}" data-toggle="tooltip" data-original-title="Digite la contraseña del usuario mínimo 5 carácteres"/>
 																	</div>
 																</div>
+
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Repetir: </label>
-
 																	<div class="col-sm-9">
 																		<input type="password" id="txt_6" name="txt_6" placeholder="Repetir Password" class="form-control" data-toggle="tooltip" data-original-title="Repita la contraseña ingresada"/>
 																	</div>
 																</div>
 															</div>
+
 															<div class="col-sm-5">
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Celular: </label>																	
@@ -158,6 +159,7 @@
 																		</span>																																																						
 																	</div>
 																</div>
+
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Correo: </label>
 																	<div class="col-sm-9">
@@ -167,53 +169,49 @@
 																	  </span>
 																	</div>
 																</div>
+
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Cargo: </label>
-
 																	<div class="col-sm-9">
 																		<select class="chosen-select form-control" id="txt_4" name="txt_4" data-placeholder="Pais">																			
 																		</select>
 																	</div>
-																</div>											
+																</div>	
+
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> País: </label>
-
 																	<div class="col-sm-9">
 																		<select class="chosen-select form-control" id="txt_9" name="txt_9" data-placeholder="País">
-																			
-																			
 																		</select>																	
 																	</div>
 																</div>
+
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Provincia: </label>
-
 																	<div class="col-sm-9">
 																		<select class="chosen-select form-control" id="txt_10" name="txt_10" data-placeholder="Provincia">
-																															
 																		</select>
 																	</div>
 																</div>
+
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Ciudad: </label>
-
 																	<div class="col-sm-9">
 																		<select class="chosen-select form-control" id="txt_11" name="txt_11" data-placeholder="Ciudad" >
-																															
 																		</select>
 																	</div>
 																</div>
+
 																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Dirección: </label>
-
 																	<div class="col-sm-9">
 																		<input type="text" id="txt_12" name="txt_12" placeholder="Dirección" class="form-control"  required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Ingrese la dirección del usuario a crear" />
 																	</div>
 																</div>
-																
 															</div>
 														</div>
 													</div>
+
 													<h3 class="header smaller lighter green"></h3>
 													<div class="center">													 
 														<button type="submit" class="btn btn-primary" id="btn_0">
@@ -242,10 +240,7 @@
 														</button>
 													</div>
 												</form>
-											</div>									
-											
-
-											
+											</div>
 										</div>
 									</div>
 								</div>
@@ -262,37 +257,36 @@
 			</a>
 		</div><!-- /.main-container -->
 
-		<!-- basic scripts -->
+		 <!-- Modal -->
+		  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    <div class="modal-dialog">
+		      <div class="modal-content">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		          <h4 class="modal-title">BUSCAR USUARIOS</h4>
+		        </div>
+		        <div class="modal-body">
+		            <table id="table"></table>
+					<div id="pager"></div>
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		          <button type="button" class="btn btn-primary">Save changes</button>
+		        </div>
+		      </div><!-- /.modal-content -->
+		    </div><!-- /.modal-dialog -->
+		  </div><!-- /.modal -->
 
-		
-		<!-- <![endif]-->
 
-		<!--[if IE]>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<![endif]-->
-
-		<!--[if !IE]> -->
 		<script type="text/javascript">
 			window.jQuery || document.write("<script src='../../dist/js/jquery.min.js'>"+"<"+"/script>");
 		</script>
 
-		<!-- <![endif]-->
-
-		<!--[if IE]>
-<script type="text/javascript">
- window.jQuery || document.write("<script src='../../dist/js/jquery1x.min.js'>"+"<"+"/script>");
-</script>
-<![endif]-->
 		<script type="text/javascript">
 			if('ontouchstart' in document.documentElement) document.write("<script src='../../dist/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 		</script>
+
 		<script src="../../dist/js/bootstrap.min.js"></script>
-
-		<!-- page specific plugin scripts -->
-
-		<!--[if lte IE 8]>
-		  <script src="../../dist/js/excanvas.min.js"></script>
-		<![endif]-->
 		<script src="../../dist/js/jquery-ui.custom.min.js"></script>
 		<script src="../../dist/js/jquery.ui.touch-punch.min.js"></script>
 		<script src="../../dist/js/jquery.easypiechart.min.js"></script>
@@ -317,27 +311,7 @@
 
 		<!-- inline scripts related to this page -->
 
-	
-
 	</body>
 </html>  
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">BUSCAR USUARIOS</h4>
-        </div>
-        <div class="modal-body">
-            <table id="table"></table>
-			<div id="pager"></div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
+ 
 

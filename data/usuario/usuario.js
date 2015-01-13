@@ -126,9 +126,6 @@ function inicio (){
 
 	
 ////////////////////////////////////////////
-
-
-
 	/*----para la imagen----*/
 	function getDoc(frame) {
     	var doc = null;     
@@ -152,14 +149,15 @@ function inicio (){
  	}
  	/*------------*/
 	/*funcion inicial de la imagen y  buscadores del select no topar plz*/
-	$('#txt_0').ace_file_input({
-		style:'well',
-		btn_choose:'Seleccionar',
-		btn_change:null,
-		no_icon:'ace-icon fa fa-image',
-		droppable:true,
-		thumbnail:'small'
-	});
+	// $('#txt_0').ace_file_input({
+	// 	style:'well',
+	// 	btn_choose:'Seleccionar',
+	// 	btn_change:null,
+	// 	no_icon:'ace-icon fa fa-image',
+	// 	droppable:true,
+	// 	thumbnail:'small'
+	// });
+
 	$('.chosen-select').chosen({allow_single_deselect:true}); 
 	$(window)
 	.off('resize.chosen')
@@ -177,6 +175,7 @@ function inicio (){
 			 $this.next().css({'width': $this.parent().width()});
 		})
 	});
+
 	/*-----------------------*/
 	$("input").on("keyup click",function (e){//campos requeridos		
 		comprobarCamposRequired(e.currentTarget.form.id)

@@ -9,12 +9,12 @@
 	$id = unique($fecha_larga);	
 	$id_c = unique($fecha_larga);	
 	$check = "OFF";
-	$extension = explode(".", $_FILES["txt_0"]["name"]);
+	$extension = explode(".", $_FILES["avatar"]["name"]);
 	$extension = end($extension);
-	$type = $_FILES["txt_0"]["type"];
-	$tmp_name = $_FILES["txt_0"]["tmp_name"];
-	$size = $_FILES["txt_0"]["size"];	
-	$img = basename($_FILES["txt_0"]["name"], "." . $extension);		
+	$type = $_FILES["avatar"]["type"];
+	$tmp_name = $_FILES["avatar"]["tmp_name"];
+	$size = $_FILES["avatar"]["size"];	
+	$img = basename($_FILES["avatar"]["name"], "." . $extension);		
 	if(isset($_POST["form-field-checkbox"]))
 		$check = "ON";		
 	
