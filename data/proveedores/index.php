@@ -83,7 +83,6 @@
 															<div class="col-sm-6">
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Tipo Documento: </label>
-
 																	<div class="col-sm-8">
 																		<select class="chosen-select form-control" id="txt_1" name="txt_1" data-placeholder="País">
 																			<option value="Cedula">Cédula</option>	
@@ -93,19 +92,21 @@
 																		<input type="hidden" id="txt_0" name="txt_0" />																
 																	</div>
 																</div>
+
 																<div class="form-group has-error">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Nro. de documento:</label>
+																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> RUC/CI.:</label>
 																	<div class="col-sm-8">
 																		<input type="text" id="txt_2" name="txt_2"  placeholder="Cedula" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />
-																																				
 																	</div>
 																</div>
+
 																<div class="form-group has-error">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Empresa : </label>
+																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Empresa: </label>
 																	<div class="col-sm-8">
 																		<input type="text" id="txt_3" name="txt_3" placeholder="Empresa" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Empresa"  />
 																	</div>
-																</div>																
+																</div>	
+
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Teléfono: </label>
 																	<div class="col-sm-8">
@@ -115,6 +116,7 @@
 	                                                                    </span>																		
 																	</div>
 																</div>
+
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Celular: </label>
 																	<div class="col-sm-8">	
@@ -124,25 +126,26 @@
 																		</span>																																																						
 																	</div>
 																</div>
+
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Correo: </label>
-
 																	<div class="col-sm-8">
 																	  <span class="input-icon input-icon-right">
 																	  	<input type="mail" id="txt_7" name="txt_7" placeholder="Correo" class="form-control" />
 																	  	<i class="ace-icon fa fa-envelope"></i>
 																	  </span>
 																	</div>
-																</div>		
+																</div>	
+
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Fax: </label>
 																	<div class="col-sm-8">
 																		<input type="text" id="txt_13" name="txt_13" placeholder="Fax:" class="form-control" />
 																	</div>
-																</div>												
+																</div>			
+
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Forma de Pago: </label>
-
 																	<div class="col-sm-8">
 																		<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Forma de Pago">
 																		<option value="Contado">CONTADO</option>
@@ -150,58 +153,57 @@
 																		</select>
 																	</div>
 																</div>	
-												
 															</div>
+
 															<div class="col-sm-6">
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Representante Legal: </label>
-
 																	<div class="col-sm-8">
 																		<input type="text" id="txt_12" name="txt_12" placeholder="Representante Legal" class="form-control" />
 																	</div>
 																</div>
+
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Visitador : </label>
 																	<div class="col-sm-8">
 																		<input type="text" id="txt_4" name="txt_4" placeholder="Visitador" class="form-control" data-toggle="tooltip" data-original-title="Visitador"  />
 																	</div>
-																</div>																																
+																</div>	
+
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Tipo Proveedor: </label>
-
 																	<div class="col-sm-8">
 																		<select class="chosen-select form-control" id="txt_18" name="txt_18" data-placeholder="Tipo Proveedor">																			
 																			<option value="Natural">Natural</option>	
 																			<option value="Juridico">Jurídico</option>	
 																		</select>
 																	</div>
-																</div>																																																					
+																</div>	
+
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> País: </label>
-
 																	<div class="col-sm-8">
 																		<select class="chosen-select form-control" id="txt_9" name="txt_9" data-placeholder="País">
 																		</select>																	
 																	</div>
 																</div>
+
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Provincia: </label>
-
 																	<div class="col-sm-8">
 																		<select class="chosen-select form-control" id="txt_10" name="txt_10" data-placeholder="Provincia">
-																															
 																		</select>
 																	</div>
 																</div>
+
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Ciudad: </label>
-
 																	<div class="col-sm-8">
 																		<select class="chosen-select form-control" id="txt_11" name="txt_11" data-placeholder="Ciudad">
-																															
 																		</select>
 																	</div>
 																</div>
+
 																<div class="form-group has-error">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Dirección: </label>
 
@@ -209,9 +211,9 @@
 																		<input type="text" id="txt_15" name="txt_15" placeholder="Dirección" class="form-control"  required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Ingrese la dirección del proveedor" />
 																	</div>
 																</div>
+
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Proveedor principal: </label>
-
 																	<div class="col-sm-8">
 																		<select class="chosen-select form-control" id="txt_16" name="txt_16" data-placeholder="Proveedor principal">																		
 																		<option value="SI">SI</option>
@@ -219,50 +221,45 @@
 																		</select>
 																	</div>
 																</div>	
+
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Observacion: </label>
 																	<div class="col-sm-8">																	
-																	
 																		<textarea class="col-sm-12"  id="txt_17" name="txt_17" placeholder="Observacion"></textarea>
 																	</div>
 																</div>
-
-																
 															</div>
 														</div>
 													</div>
-													<h3 class="header smaller lighter green"></h3>
-													<div class="center">
-														<button type="submit" class="btn btn-white btn-info btn-bold" id="btn_0">
-															<i class="ace-icon fa fa-floppy-o bigger-120 blue"></i>
-															Guardar
-														</button>
-														<button type="button" id="btn_1" class="btn btn-white btn-info btn-bold">
-															<i class="ace-icon fa fa-file-o bigger-120 blue"></i>
-															Limpiar
-														</button>
-														<button type="button" id="btn_2" class="btn btn-white btn-info btn-bold">
-															<i class="ace-icon fa fa-refresh bigger-120 blue"></i>
-															Actualizar
-														</button>														
-														<button data-toggle="modal" href="#myModal" type="button" id="btn_3" class="btn btn-white btn-info btn-bold">
-															<i class="ace-icon fa fa-search bigger-120 blue"></i>
-															Buscar
-														</button>
-														<button type="button" id="btn_4" class="btn btn-white btn-info btn-bold">
-															<i class="ace-icon fa fa-arrow-circle-left bigger-120 blue"></i>
-															Atras
-														</button>
-														<button type="button" id="btn_5" class="btn btn-white btn-info btn-bold">
-															<i class="ace-icon fa fa fa-arrow-circle-right bigger-120 blue"></i>
-															Adelante
-														</button>
-													</div>
 												</form>
-											</div>									
-											
-
-											
+												<h3 class="header smaller lighter green"></h3>
+												<div class="center">
+													<button type="submit" class="btn btn-white btn-info btn-bold" id="btn_0">
+														<i class="ace-icon fa fa-floppy-o bigger-120 blue"></i>
+														Guardar
+													</button>
+													<button type="button" id="btn_1" class="btn btn-white btn-info btn-bold">
+														<i class="ace-icon fa fa-file-o bigger-120 blue"></i>
+														Limpiar
+													</button>
+													<button type="button" id="btn_2" class="btn btn-white btn-info btn-bold">
+														<i class="ace-icon fa fa-refresh bigger-120 blue"></i>
+														Actualizar
+													</button>														
+													<button data-toggle="modal" href="#myModal" type="button" id="btn_3" class="btn btn-white btn-info btn-bold">
+														<i class="ace-icon fa fa-search bigger-120 blue"></i>
+														Buscar
+													</button>
+													<button type="button" id="btn_4" class="btn btn-white btn-info btn-bold">
+														<i class="ace-icon fa fa-arrow-circle-left bigger-120 blue"></i>
+														Atras
+													</button>
+													<button type="button" id="btn_5" class="btn btn-white btn-info btn-bold">
+														<i class="ace-icon fa fa fa-arrow-circle-right bigger-120 blue"></i>
+														Adelante
+													</button>
+												</div>
+											</div>		
 										</div>
 									</div>
 								</div>
@@ -279,37 +276,35 @@
 			</a>
 		</div><!-- /.main-container -->
 
-		<!-- basic scripts -->
+		<!-- Modal -->
+		  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    <div class="modal-dialog">
+		      <div class="modal-content">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		          <h4 class="modal-title">BUSCAR PROVEEDORES</h4>
+		        </div>
+		        <div class="modal-body">
+		            <table id="table"></table>
+					<div id="pager"></div>
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-primary">Cancelar</button>
+		        </div>
+		      </div><!-- /.modal-content -->
+		    </div><!-- /.modal-dialog -->
+		  </div><!-- /.modal -->
 
-		
-		<!-- <![endif]-->
 
-		<!--[if IE]>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<![endif]-->
-
-		<!--[if !IE]> -->
 		<script type="text/javascript">
 			window.jQuery || document.write("<script src='../../dist/js/jquery.min.js'>"+"<"+"/script>");
 		</script>
 
-		<!-- <![endif]-->
-
-		<!--[if IE]>
-<script type="text/javascript">
- window.jQuery || document.write("<script src='../../dist/js/jquery1x.min.js'>"+"<"+"/script>");
-</script>
-<![endif]-->
 		<script type="text/javascript">
 			if('ontouchstart' in document.documentElement) document.write("<script src='../../dist/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 		</script>
 		<script src="../../dist/js/bootstrap.min.js"></script>
 
-		<!-- page specific plugin scripts -->
-
-		<!--[if lte IE 8]>
-		  <script src="../../dist/js/excanvas.min.js"></script>
-		<![endif]-->
 		<script src="../../dist/js/jquery-ui.custom.min.js"></script>
 		<script src="../../dist/js/jquery.ui.touch-punch.min.js"></script>
 		<script src="../../dist/js/jquery.easypiechart.min.js"></script>
@@ -319,8 +314,6 @@
 		<script src="../../dist/js/flot/jquery.flot.resize.min.js"></script>
 		<script src="../../dist/js/chosen.jquery.min.js"></script>
 		<script src="../../dist/js/jquery.maskedinput.min.js"></script>
-
-
 
 		<!-- ace scripts -->
 		<script src="../../dist/js/ace-elements.min.js"></script>
@@ -332,31 +325,6 @@
 		<script src="proveedores.js"></script>
 
 		<!-- inline scripts related to this page -->
-
-	
-
 	</body>
 </html>  
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">BUSCAR USUARIOS</h4>
-        </div>
-        <div class="modal-body">
-            <table id="table"></table>
-			<div id="pager"></div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
-
-<script type="text/javascript">
-	
-</script>
+  

@@ -25,7 +25,7 @@ if ($_POST['oper'] == "add") {
         if ($repetidos == 'true') {
             $data = "1"; /// este dato ya existe;
         } else {
-            $sql = "update tipo_producto set descripcion = '" . strtoupper($_POST['descripcion']) . "' where id_tipo = '$_POST[id]'";
+            $sql = "update tipo_producto set descripcion = '" . strtoupper($_POST['descripcion']) . "', fecha_creacion = '$fecha' where id_tipo = '$_POST[id]'";
             $guardar = guardarSql($conexion, $sql);
             $data = "3";
         }
