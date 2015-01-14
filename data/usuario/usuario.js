@@ -2,7 +2,10 @@ $(document).on("ready",inicio);
 
 /*--*/
 function inicio (){
-
+	$("#reload").click(function (){
+		actualizar_form();
+	});
+	$("input:not([readonly='readonly']):text:visible:first").focus();   
 	// inicializacion de formato txt_ telefono1
 	$('#txt_3').mask('(999) 999-999');
 	$('#txt_7').mask('(999) 999-9999');

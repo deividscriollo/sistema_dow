@@ -68,7 +68,7 @@
 												<i class="ace-icon fa fa-expand"></i>
 											</a>
 
-											<a href="#" data-action="reload">
+											<a href="#" id="reload" data-action="reload">
 												<i class="ace-icon fa fa-refresh"></i>
 											</a>
 										</div>
@@ -115,13 +115,12 @@
 																	<div class="col-sm-9">
 																		<input type="text" id="txt_2" name="txt_2" placeholder="Nombre Completo" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" data-toggle="tooltip" data-original-title="Nombres completos"  />
 																	</div>
-																</div>
-
+																</div>																								
 																<div class="form-group">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Teléfono: </label>
-																	<div class="col-sm-9">
-																		<span class="input-icon input-icon-right">
-	                                                                    	<input type="text" id="txt_3" name="txt_3" placeholder="Teléfono" class="form-control" onkeydown="return validarNumeros(event)" />
+																	<label class="col-xs-12 col-sm-3 control-label no-padding-right" for="txt_3"> Teléfono: </label>
+																	<div class="col-xs-12 col-sm-9">
+																		<span class="block input-icon input-icon-right">
+	                                                                    	<input type="text" id="txt_3"  name="txt_3" placeholder="Teléfono" class="form-control " onkeydown="return validarNumeros(event)" />
 	                                                                    	<i class="ace-icon fa fa-phone fa-flip-horizontal"></i>
 	                                                                    </span>																		
 																	</div>
@@ -153,7 +152,7 @@
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Celular: </label>																	
 																	<div class="col-sm-9">	
-																		<span class="input-icon input-icon-right">
+																		<span class="block input-icon input-icon-right">
 																			<input type="text" id="txt_7" name="txt_7" placeholder="Celular" class="form-control" onkeydown="return validarNumeros(event)" />
 																			<i class="ace-icon fa fa-mobile fa-flip-horizontal"></i>					
 																		</span>																																																						
@@ -163,7 +162,7 @@
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Correo: </label>
 																	<div class="col-sm-9">
-																	  <span class="input-icon input-icon-right">
+																	  <span class="block input-icon input-icon-right">
 																	  	<input type="mail" id="txt_8" name="txt_8" placeholder="Correo" class="form-control" />
 																	  	<i class="ace-icon fa fa-envelope"></i>
 																	  </span>
