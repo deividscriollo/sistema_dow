@@ -1,26 +1,5 @@
 $(document).on("ready",inicio);
 
-
-
-$(function(){
-    Test = {
-        UpdatePreview: function(obj){
-            // if IE < 10 doesn't support FileReader
-            if(!window.FileReader){
-            // don't know how to proceed to assign src to image tag
-            } else {
-                var reader = new FileReader();
-                var target = null;
-             
-                reader.onload = function(e) {
-                    target =  e.target || e.srcElement;
-                    $("#imagen").prop("src", target.result);
-                };
-                reader.readAsDataURL(obj.files[0]);
-            }
-        }
-    };
-});
 /*--*/
 function inicio (){
 
@@ -54,7 +33,7 @@ function inicio (){
 				//specify ace file input plugin's options here
 				btn_choose: 'Cambiar Imagen',
 				droppable: true,
-				maxSize: 110000,//~100Kb
+				maxSize: 510000,//~100Kb
 
 				//and a few extra ones here
 				name: 'avatar',//put the field name here as well, will be used inside the custom plugin
@@ -88,6 +67,7 @@ function inicio (){
 				var deferred = new $.Deferred
 
 				var value = $('#avatar').next().find('input[type=hidden]:eq(0)').val();
+
 				if(!value || value.length == 0) {
 					deferred.resolve();
 					return deferred.promise();
@@ -97,8 +77,9 @@ function inicio (){
 				//dummy upload
 				setTimeout(function(){
 					if("FileReader" in window) {
-						//for browsers that have a thumbnail of selected image
+						//for browsers that have a thumbnail of selected image						
 						var thumb = $('#avatar').next().find('img').data('thumb');
+
 						if(thumb) $('#avatar').get(0).src = thumb;
 					}
 					
@@ -118,46 +99,16 @@ function inicio (){
 				// ***END OF UPDATE AVATAR HERE*** //
 			},
 			
-			success: function(response, newValue) {
+			success: function(response, newValue) {				
 			}
 		})
 	}catch(e) {}
 	
 
 	
-////////////////////////////////////////////
-	/*----para la imagen----*/
-	function getDoc(frame) {
-    	var doc = null;     
-     	
-     	try {
-        	if (frame.contentWindow) {
-            	doc = frame.contentWindow.document;
-         	}
-     	} catch(err) {
-    	}
-	    if (doc) { 
-	         return doc;
-	    }
-	    try { 
-	         doc = frame.contentDocument ? frame.contentDocument : frame.document;
-	    } catch(err) {
-	       
-	         doc = frame.document;
-	    }
-	    return doc;
- 	}
- 	/*------------*/
-	/*funcion inicial de la imagen y  buscadores del select no topar plz*/
-	// $('#txt_0').ace_file_input({
-	// 	style:'well',
-	// 	btn_choose:'Seleccionar',
-	// 	btn_change:null,
-	// 	no_icon:'ace-icon fa fa-image',
-	// 	droppable:true,
-	// 	thumbnail:'small'
-	// });
-
+////////////////////////////////////////////	
+	
+ 	/*------------*/	
 	$('.chosen-select').chosen({allow_single_deselect:true}); 
 	$(window)
 	.off('resize.chosen')
@@ -236,7 +187,7 @@ function inicio (){
 			$("#txt_8").val(resp[0][8]);
 			$("#txt_13").val(resp[0][9]);		
 			$("#txt_13").val(resp[0][9]);
-			$("#imagen").attr("src","img/"+resp[0][13]);	
+			$("#avatar").attr("src","img/"+resp[0][13]);	
 			if(resp[0][14] == "ON"){
 		    	$("#form-field-checkbox").prop("checked",true);
 		    }else{
@@ -338,7 +289,7 @@ function inicio (){
 			$("#txt_8").val(resp[0][8]);
 			$("#txt_13").val(resp[0][9]);		
 			$("#txt_13").val(resp[0][9]);
-			$("#imagen").attr("src","img/"+resp[0][13]);	
+			$("#avatar").attr("src","img/"+resp[0][13]);	
 			if(resp[0][14] == "ON"){
 		    	$("#form-field-checkbox").prop("checked",true);
 		    }else{
@@ -519,7 +470,7 @@ function inicio (){
 	            }else{
 	            	$("#form-field-checkbox").prop("checked",false);
 	            }
-	            $("#imagen").attr("src","img/"+ret.imagen);	
+	            $("#avatar").attr("src","img/"+ret.imagen);	
 	            /**/
 	            var prov = 0;
 	            var pais = 0;
@@ -824,64 +775,45 @@ function guardar(){///funcion para guardar datos
 	var resp=comprobarCamposRequired("form_usuario");	    
 	if(resp==true){    		
 		$("#form_usuario").on("submit",function (e){				
-			var texto=($("#btn_0").text()).trim();					
-			var formObj = $(this);		
-			if(window.FormData !== undefined) {	
-				var formData = new FormData(this); 		    					
-				if(texto=="Guardar"){ 
-					if($("#txt_11").val() != null){
-						if($("#txt_5").val() == $("#txt_6").val()){
-							guardar_datos(formData,"g",e);		
-						}else{
-							alert("Repita la contraseña correctamente");	
-							$("#txt_6").val("");
-							$("#txt_6").focus();
-						}						
+			var texto=($("#btn_0").text()).trim();															
+			var valores = $("#form_usuario").serialize();
+			if(texto=="Guardar"){ 
+				if($("#txt_11").val() != null){
+					if($("#txt_5").val() == $("#txt_6").val()){
+						guardar_datos(valores,"g",e);		
 					}else{
-						alert("Indique una ciudad antes de continuar");
-					}     					                	
-	            }else{
-	                if($("#txt_11").val() != null){
-						if($("#txt_5").val() == $("#txt_6").val()){
-							guardar_datos(formData,"m",e);		
-						}else{
-							alert("Repita la contraseña correctamente");	
-							$("#txt_6").val("");
-							$("#txt_6").focus();
-						}						
+						alert("Repita la contraseña correctamente");	
+						$("#txt_6").val("");
+						$("#txt_6").focus();
+					}						
+				}else{
+					alert("Indique una ciudad antes de continuar");
+				}     					                	
+	        }else{
+	            if($("#txt_11").val() != null){
+					if($("#txt_5").val() == $("#txt_6").val()){
+						guardar_datos(valores,"m",e);		
 					}else{
-						alert("Indique una ciudad antes de continuar");
-					}     		 					                	
-	            }	
-	            e.preventDefault();
-    			$(this).unbind("submit")			    			            
-			}else{
-			    var  iframeId = "unique" + (new Date().getTime());
-			    var iframe = $('<iframe src="javascript:false;" name="'+iframeId+'" />');
-			    iframe.hide();
-			    formObj.attr("target",iframeId);
-			    iframe.appendTo("body");
-		    	iframe.load(function(e) {
-		        	var doc = getDoc(iframe[0]);
-			        var docRoot = doc.body ? doc.body : doc.documentElement;
-			        var data = docRoot.innerHTML;
-			    });			
-			}			
+						alert("Repita la contraseña correctamente");	
+						$("#txt_6").val("");
+						$("#txt_6").focus();
+					}						
+				}else{
+					alert("Indique una ciudad antes de continuar");
+				}     		 					                	
+	        }	
+	        e.preventDefault();
+    		$(this).unbind("submit")		    			            			
 		});	
 		
 	}				 
 }
-function guardar_datos(formData,tipo,p){
+function guardar_datos(valores,tipo,p){		
 	$.ajax({
-	    url: "usuario.php?tipo="+tipo,				    
-	    type: "POST",
-	    data:  formData,
-	    mimeType:"multipart/form-data",
-	    contentType: false,
-	    cache: false,
-	    processData:false,
-	    success: function(data, textStatus, jqXHR)
-	    {				    
+	    url: "usuario.php", 	    				    	    
+	    data:  valores + "&img="+$("#avatar")[0].src + "&tipo="+tipo, 	    	    
+	    type: "POST",				
+	    success: function(data){				    
 	    	if( data == 0 ){
 	    		alert('Datos Agregados Correctamente');	
 	    		limpiar_form(p);	
@@ -899,11 +831,7 @@ function guardar_datos(formData,tipo,p){
 	    			}
 	    		}
 	    	}
-
-		},
-		error: function(jqXHR, textStatus, errorThrown) 
-	    {
-	    } 	
+		},		
 	}); 
 }
 

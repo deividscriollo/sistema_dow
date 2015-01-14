@@ -66,8 +66,7 @@ function limpiar_form(e){
         if(form == "form_usuario"){
             $("#btn_0").text("");
             $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> Guardar");
-            $("#imagen").prop("src","img/default.png");
-            $(".remove").trigger('click');
+            $("#avatar").prop("src","img/default.png");            
             $("#table").trigger('reloadGrid');     
         }else{
             if(form == "form_cliente"){
