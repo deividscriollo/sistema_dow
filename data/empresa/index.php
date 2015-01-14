@@ -80,19 +80,8 @@
 									<div class="tab-content">
 										<div id="empresa" class="tab-pane fade in active">
 											<div class="row">												
-												<div class="col-xs-12">
-													<div class="col-xs-2">
-														<div class="form-group">
-															<div class="col-xs-12">
-																<div class="col-xs-12">																									
-																	<span class="profile-picture">
-																		<img id="avatar" class="editable img-responsive" alt="Empresa x" src="img/default.png" accept="image/*"/>
-																	</span>
-																</div>																																														
-															</div>
-														</div>
-													</div>
-													<div class="col-sm-5">
+												<div class="col-xs-12">													
+													<div class="col-sm-6">
 														<div class="form-group has-error">
 															<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> RUC. Empresa:</label>
 															<div class="col-sm-8">
@@ -146,7 +135,7 @@
 															</div>
 														</div>
 													</div>
-													<div class="col-sm-5">
+													<div class="col-sm-6">
 														<div class="form-group has-error">
 															<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Autorizacion SRI:</label>
 															<div class="col-sm-8">
@@ -202,35 +191,47 @@
 
 										<div id="detal" class="tab-pane fade">
 											<div class="row">
-												<div class="col-sm-8">																																
-												<div class="form-group has-error">
-													<label class="col-sm-5 control-label ">Inicio Factura Pre-impresa</label>
-													<div class="col-sm-7">
-														<input type="text" id="spinner1"  />	
+												<div class="col-xs-2">
+													<div class="form-group">
+														<div class="col-xs-12">
+															<div class="col-xs-12">																									
+																<span class="profile-picture">
+																	<img id="avatar" class="editable img-responsive" alt="Empresa x" src="img/default.png" accept="image/*"/>
+																</span>
+															</div>																																														
+														</div>
 													</div>
 												</div>
-												<div class="form-group has-error">
-													<label class="col-sm-5 control-label ">Item´s factura</label>
-													<div class="col-sm-7">
-														<input type="text" id="spinner2"  name="txt_1" class="form-control" data-toggle="tooltip" data-original-title="Item´s factura" required pattern="[0-9]{1,}" />																		
+												<div class="col-sm-5">																																
+													<div class="form-group has-error">
+														<label class="col-sm-5 control-label ">Inicio Factura Pre-impresa</label>
+														<div class="col-sm-7">
+															<input type="text" id="spinner1"  />	
+														</div>
 													</div>
-												</div>
-												<div class="form-group has-error">
-													<label class="col-sm-5 control-label ">Nombre Empresa</label>
-													<div class="col-sm-7">
-														<input type="text" id="txt_1" name="txt_1"  placeholder="Nombre Empresa" class="form-control" data-toggle="tooltip" data-original-title="Nombre Empresa" required pattern="[0-9]{1,}" />
+													<div class="form-group has-error">
+														<label class="col-sm-5 control-label ">Item´s factura</label>
+														<div class="col-sm-7">
+															<input type="text" id="spinner2"  name="txt_1" class="form-control" data-toggle="tooltip" data-original-title="Item´s factura" required pattern="[0-9]{1,}" />																		
+														</div>
 													</div>
-												</div>																
-												<div class="form-group has-error">
-													<label class="col-sm-5 control-label ">Año Contable</label>
-													<div class="col-sm-7">
-														<input type="text" id="spinner3" name="txt_1"  class="form-control input-Slarge" data-toggle="tooltip" data-original-title="Año Contable" required pattern="[0-9]{1,}" />
+													<div class="form-group has-error">
+														<label class="col-sm-5 control-label ">Nombre Empresa</label>
+														<div class="col-sm-7">
+															<input type="text" id="txt_1" name="txt_1"  placeholder="Nombre Empresa" class="form-control" data-toggle="tooltip" data-original-title="Nombre Empresa" required pattern="[0-9]{1,}" />
+														</div>
+													</div>																
+													<div class="form-group has-error">
+														<label class="col-sm-5 control-label ">Año Contable</label>
+														<div class="col-sm-7">
+															<input type="text" id="spinner3" name="txt_1"  class="form-control input-Slarge" data-toggle="tooltip" data-original-title="Año Contable" required pattern="[0-9]{1,}" />
+														</div>
 													</div>
-												</div>
-												<div class="form-group has-error">
-													<label class="col-sm-5 control-label ">Comentario</label>
-													<div class="col-sm-7">
-														<textarea class="input-xlarge" name="txt_0" id="txt_0" placeholder="Comentario"></textarea>
+													<div class="form-group has-error">
+														<label class="col-sm-5 control-label ">Comentario</label>
+														<div class="col-sm-7">
+															<textarea class="input-xlarge" name="txt_0" id="txt_0" placeholder="Comentario"></textarea>
+														</div>
 													</div>
 												</div>
 											</div>	
