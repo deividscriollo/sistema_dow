@@ -21,6 +21,8 @@
 		<link rel="stylesheet" href="../../dist/css/daterangepicker.min.css" />
 		<link rel="stylesheet" href="../../dist/css/bootstrap-datetimepicker.min.css" />
 		<link rel="stylesheet" href="../../dist/css/colorpicker.min.css" />
+		<link rel="stylesheet" href="../../dist/css/bootstrap-editable.min.css" />
+
 
 		<!-- page specific plugin styles -->
 
@@ -37,8 +39,7 @@
 	<body class="no-skin">
 		<?php menu_arriba(); ?>
 
-		<div class="main-container" id="main-container">
-			
+		<div class="main-container" id="main-container">			
 
 			<?php menu_lateral(); ?>
 
@@ -48,15 +49,13 @@
                         <script type="text/javascript">
                             try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
                         </script>
-
                         <ul class="breadcrumb">
                             <li>
                                 <i class="ace-icon fa fa-home home-icon"></i>
                                 <a href="../inicio/">Inicio</a>
                             </li>
                             <li class="active">Ingresos</li>
-                            <li class="active">Empresa</li>
-                            
+                            <li class="active">Empresa</li>                            
                         </ul>
                     </div>
 					<div class="page-content">
@@ -71,7 +70,6 @@
 												Información Empresa
 											</a>
 										</li>
-
 										<li>
 											<a data-toggle="tab" href="#detal">
 												<span class="warning ace-icon fa fa-building-o bigger-120"></span>
@@ -204,7 +202,7 @@
 
 										<div id="detal" class="tab-pane fade">
 											<div class="row">
-												<div class="col-sm-6">																																
+												<div class="col-sm-8">																																
 												<div class="form-group has-error">
 													<label class="col-sm-5 control-label ">Inicio Factura Pre-impresa</label>
 													<div class="col-sm-7">
@@ -219,18 +217,19 @@
 												</div>
 												<div class="form-group has-error">
 													<label class="col-sm-5 control-label ">Nombre Empresa</label>
-													<div class="col-sm-9">
+													<div class="col-sm-7">
 														<input type="text" id="txt_1" name="txt_1"  placeholder="Nombre Empresa" class="form-control" data-toggle="tooltip" data-original-title="Nombre Empresa" required pattern="[0-9]{1,}" />
 													</div>
 												</div>																
 												<div class="form-group has-error">
-												<label class="col-sm-9 control-label ">Año Contable</label>
-													<div class="col-sm-9">
-														<input type="text" id="spinner3" name="txt_1"  class="form-control" data-toggle="tooltip" data-original-title="Año Contable" required pattern="[0-9]{1,}" />
+													<label class="col-sm-5 control-label ">Año Contable</label>
+													<div class="col-sm-7">
+														<input type="text" id="spinner3" name="txt_1"  class="form-control input-Slarge" data-toggle="tooltip" data-original-title="Año Contable" required pattern="[0-9]{1,}" />
 													</div>
-												</div>																
+												</div>
 												<div class="form-group has-error">
-													<div class="clearfix">
+													<label class="col-sm-5 control-label ">Comentario</label>
+													<div class="col-sm-7">
 														<textarea class="input-xlarge" name="txt_0" id="txt_0" placeholder="Comentario"></textarea>
 													</div>
 												</div>
@@ -238,6 +237,33 @@
 										</div>											
 									</div>
 								</div>							
+							</div>
+							<h3 class="header smaller lighter green"></h3>
+							<div class="center">													 
+								<button type="submit" class="btn btn-primary" id="btn_0">
+									<i class="ace-icon fa fa-floppy-o bigger-120 write"></i>
+									Guardar
+								</button>
+								<button type="button" id="btn_1" class="btn btn-primary">
+									<i class="ace-icon fa fa-file-o bigger-120 write"></i>
+									Limpiar
+								</button>
+								<button type="button" id="btn_2" class="btn btn-primary">
+									<i class="ace-icon fa fa-refresh bigger-120 write"></i>
+									Actualizar
+								</button>														
+								<button data-toggle="modal" href="#myModal" type="button" id="btn_3" class="btn btn-primary">
+									<i class="ace-icon fa fa-search bigger-120 write"></i>
+									Buscar
+								</button>
+								<button type="button" id="btn_4" class="btn btn-primary">
+									<i class="ace-icon fa fa-arrow-circle-left bigger-120 write"></i>
+									Atras
+								</button>
+								<button type="button" id="btn_5" class="btn btn-primary">
+									<i class="ace-icon fa fa fa-arrow-circle-right bigger-120 write"></i>
+									Adelante
+								</button>
 							</div>
 						</form>
 					</div>
@@ -297,7 +323,11 @@
 		<script src="../../dist/js/jquery.inputlimiter.1.3.1.min.js"></script>
 		<script src="../../dist/js/jquery.maskedinput.min.js"></script>
 		<script src="../../dist/js/bootstrap-tag.min.js"></script>
-
+		<script src="../../dist/js/x-editable/bootstrap-editable.min.js"></script>
+		<script src="../../dist/js/x-editable/ace-editable.min.js"></script>
+		<script src="../../dist/js/jquery.gritter.min.js"></script>
+		<script src="../../dist/js/jquery.maskedinput.min.js"></script>
+		<script src="empresa.js"></script>
 
 
 
