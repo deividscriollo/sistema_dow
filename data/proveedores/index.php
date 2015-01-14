@@ -110,7 +110,7 @@
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Teléfono: </label>
 																	<div class="col-sm-8">
-																		<span class="input-icon input-icon-right">
+																		<span class="block input-icon input-icon-right">
 	                                                                    	<input type="text" id="txt_5" name="txt_5" placeholder="Teléfono" class="form-control" />
 	                                                                    	<i class="ace-icon fa fa-phone fa-flip-horizontal"></i>
 	                                                                    </span>																		
@@ -120,7 +120,7 @@
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Celular: </label>
 																	<div class="col-sm-8">	
-																		<span class="input-icon input-icon-right">
+																		<span class="block input-icon input-icon-right">
 																			<input type="text" id="txt_6" name="txt_6" placeholder="Celular" class="form-control" />
 																			<i class="ace-icon fa fa-mobile fa-flip-horizontal"></i>					
 																		</span>																																																						
@@ -130,7 +130,7 @@
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Correo: </label>
 																	<div class="col-sm-8">
-																	  <span class="input-icon input-icon-right">
+																	  <span class="block input-icon input-icon-right">
 																	  	<input type="mail" id="txt_7" name="txt_7" placeholder="Correo" class="form-control" />
 																	  	<i class="ace-icon fa fa-envelope"></i>
 																	  </span>

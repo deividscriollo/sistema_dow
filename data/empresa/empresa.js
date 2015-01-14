@@ -1,27 +1,5 @@
 $(document).on("ready",inicio);
 
-
-
-$(function(){
-    Test = {
-        UpdatePreview: function(obj){
-            // if IE < 10 doesn't support FileReader
-            if(!window.FileReader){
-            // don't know how to proceed to assign src to image tag
-            } else {
-                var reader = new FileReader();
-                var target = null;
-             
-                reader.onload = function(e) {
-                    target =  e.target || e.srcElement;
-                    $("#imagen").prop("src", target.result);
-                };
-                reader.readAsDataURL(obj.files[0]);
-            }
-        }
-    };
-});
-/*--*/
 function inicio (){
 
 	// inicializacion de formato txt_ telefono1
@@ -123,41 +101,6 @@ function inicio (){
 		})
 	}catch(e) {}
 	
-
-	
-////////////////////////////////////////////
-	/*----para la imagen----*/
-	function getDoc(frame) {
-    	var doc = null;     
-     	
-     	try {
-        	if (frame.contentWindow) {
-            	doc = frame.contentWindow.document;
-         	}
-     	} catch(err) {
-    	}
-	    if (doc) { 
-	         return doc;
-	    }
-	    try { 
-	         doc = frame.contentDocument ? frame.contentDocument : frame.document;
-	    } catch(err) {
-	       
-	         doc = frame.document;
-	    }
-	    return doc;
- 	}
- 	/*------------*/
-	/*funcion inicial de la imagen y  buscadores del select no topar plz*/
-	// $('#txt_0').ace_file_input({
-	// 	style:'well',
-	// 	btn_choose:'Seleccionar',
-	// 	btn_change:null,
-	// 	no_icon:'ace-icon fa fa-image',
-	// 	droppable:true,
-	// 	thumbnail:'small'
-	// });
-
 	$('.chosen-select').chosen({allow_single_deselect:true}); 
 	$(window)
 	.off('resize.chosen')
@@ -180,166 +123,60 @@ function inicio (){
 	$("input").on("keyup click",function (e){//campos requeridos		
 		comprobarCamposRequired(e.currentTarget.form.id);
 	});		
-	
+	$("#txt_1").on("keyup",function (e){//validar ruc		
+		if($("#txt_1").val().length == 13){
+			ci_ruc_pass("txt_1",$("#txt_1").val(),"RUC");
+		}
+	});		
+	carga_ubicaciones("txt_9","txt_10","txt_11");//pais provincia ciudad
 	$("#txt_9").change(function(){
 		change_pais("txt_9","txt_10","txt_11");
 	});
 	$("#txt_10").change(function(){
 		change_provincia("txt_9","txt_10","txt_11");
-	});
-	$("#txt_1").on("keyup",function(){		
-		if($("#form-field-checkbox").prop("checked"))
-			ci("txt_1","ON");
-		else
-			ci("txt_1","OFF");
 	});	
-	$("#form-field-checkbox").click(function(){
-		if($("#form-field-checkbox").prop("checked")){
-			$("#txt_1").val("");
-			$("#txt_1").focus();
-			$("#txt_1").prop("maxlength","30");
-		}
-		else{
-			$("#txt_1").val("");
-			$("#txt_1").focus();
-			$("#txt_1").prop("maxlength","10");
-		}
-	})
 	/*-----*/
-	// $("#btn_0").on("click",guardar);	
-	// $("#btn_1").on("click",limpiar_form);
-	// $("#btn_2").on("click",actualizar_form);	
-	// $("#btn_4").on("click",function (){		
-	// 	var resp = "";		
-	// 	resp =atras($("#txt_o").val(),"usuario","secuencia.php");		
-	// 	if(resp[0] != false){
-	// 		$("#txt_o").val(resp[0][0]);
-	// 		$("#txt_1").val(resp[0][1]);
-	// 		$("#txt_2").val(resp[0][2]);
-	// 		$("#txt_3").val(resp[0][3]);
-	// 		$("#txt_7").val(resp[0][4]);		
-	// 		$("#txt_12").val(resp[0][7]);
-	// 		$("#txt_8").val(resp[0][8]);
-	// 		$("#txt_13").val(resp[0][9]);		
-	// 		$("#txt_13").val(resp[0][9]);
-	// 		$("#imagen").attr("src","img/"+resp[0][13]);	
-	// 		if(resp[0][14] == "ON"){
-	// 	    	$("#form-field-checkbox").prop("checked",true);
-	// 	    }else{
-	// 	    	$("#form-field-checkbox").prop("checked",false);
-	// 	    }	    
-	// 	    $("#txt_5").val(resp[0][15]);
-	// 	    $("#txt_6").val(resp[0][15]);
-	// 	    $("#txt_4").val(resp[0][10]);
-	// 	    $("#txt_4").trigger("chosen:updated");
-	// 	    /**/
-	//         var prov = 0;
-	//         var pais = 0;
-	//         $.ajax({/*obtnengo el id de provincia*/
-	// 	        type: "POST",		        
-	// 	        url: "../carga_ubicaciones.php?tipo=0&id="+resp[0][5]+"&fun=5",        
-	// 	        success: function(response) {         
-	// 	        	prov = response;
-	// 	        	$.ajax({/*obtnengo el id del pais*/
-	// 			        type: "POST",			        
-	// 			        url: "../carga_ubicaciones.php?tipo=0&id="+prov+"&fun=6",        
-	// 			        success: function(response) {         
-	// 			        	pais = response;						        	
-	// 			        	/*cambio los combos*/
-	// 					    $.ajax({        
-	// 					        type: "POST",
-	// 					        dataType: 'json',        
-	// 					        url: "../carga_ubicaciones.php?tipo=0&id=0&fun=1",        
-	// 					        success: function(response) {         			        	
-	// 					        	$("#txt_9").html("");
-	// 					            for (var i = 0; i < response.length; i=i+2) {            				            	
-	// 					            	if(response[i] == pais){
-	// 										$("#txt_9").append("<option value ="+response[i]+" selected>"+response[i+1]+"</option>");            																																
-	// 					            	}
-	// 									else{
-	// 										$("#txt_9").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
-	// 									}
-	// 					            }   
-	// 					            $("#txt_9").trigger("chosen:updated"); 
-	// 					            $.ajax({        
-	// 							        type: "POST",
-	// 							        dataType: 'json',        
-	// 							        url: "../carga_ubicaciones.php?tipo=0&id="+pais+"&fun=2",        
-	// 							        success: function(response) {         			        	
-	// 							        	$("#txt_10").html("");
-	// 							            for (var i = 0; i < response.length; i=i+2) {            				            	
-	// 							            	if(response[i] == prov){
-	// 												$("#txt_10").append("<option value ="+response[i]+" selected>"+response[i+1]+"</option>");            																																
-	// 							            	}
-	// 											else{
-	// 												$("#txt_10").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
-	// 											}
-	// 							            }   
-	// 							            $("#txt_10").trigger("chosen:updated"); 
-	// 							            $.ajax({        
-	// 									        type: "POST",
-	// 									        dataType: 'json',        
-	// 									        url: "../carga_ubicaciones.php?tipo=0&id="+prov+"&fun=3",        
-	// 									        success: function(response) {         			        	
-	// 									        	$("#txt_11").html("");
-	// 									            for (var i = 0; i < response.length; i=i+2) {            				            	
-	// 									            	if(response[i] == resp[0][5]){
-	// 														$("#txt_11").append("<option value ="+response[i]+" selected>"+response[i+1]+"</option>");            																																
-	// 									            	}
-	// 													else{
-	// 														$("#txt_11").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
-	// 													}
-	// 									            }   
-	// 									            $("#txt_11").trigger("chosen:updated"); 
-										                                         
-	// 									        }
-	// 									    });	      
-								                                         
-	// 							        }
-	// 							    });/**/		                            
-	// 					        }
-	// 					    });/**/							    
-	// 			        }                   
-	// 			    });
-	// 	        }                   
-	// 	    });	
-	// 	}else{
-	// 		alert("Sin registros anteriores");
-	// 	}		
-	//     comprobarCamposRequired("form_usuario");		    	            
-	//     $("#btn_0").text("");
- //        $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> Modificar");     	            
- //        /**/
-	// });
-	$("#btn_5").on("click",function (){		
+	$("#btn_0").on("click",guardar);
+	$("#btn_1").on("click",limpiar_form);
+	$("#btn_2").on("click",actualizar_form);	
+	$("#btn_4").on("click",function (){		
 		var resp = "";		
-		resp =adelante($("#txt_o").val(),"usuario","secuencia.php");		
+		resp =atras($("#txt_o").val(),"empresa","secuencia.php");		
 		if(resp[0] != false){
 			$("#txt_o").val(resp[0][0]);
 			$("#txt_1").val(resp[0][1]);
-			$("#txt_2").val(resp[0][2]);
-			$("#txt_3").val(resp[0][3]);
-			$("#txt_7").val(resp[0][4]);		
-			$("#txt_12").val(resp[0][7]);
-			$("#txt_8").val(resp[0][8]);
-			$("#txt_13").val(resp[0][9]);		
-			$("#txt_13").val(resp[0][9]);
-			$("#imagen").attr("src","img/"+resp[0][13]);	
-			if(resp[0][14] == "ON"){
-		    	$("#form-field-checkbox").prop("checked",true);
+			$("#txt_12").val(resp[0][2]);
+			$("#txt_2").val(resp[0][3]);
+			$("#txt_13").val(resp[0][4]);
+			$("#txt_3").val(resp[0][5]);
+			$("#txt_4").val(resp[0][6]);			
+			$("#txt_14").val(resp[0][9]);
+			$("#txt_5").val(resp[0][10]);
+			$("#txt_7").val(resp[0][11]);
+			$("#txt_6").val(resp[0][12]);
+			$("#txt_17").val(resp[0][13]);
+			$("#txt_18").val(resp[0][14]);
+			$("#txt_15").val(resp[0][15]);
+			$("#txt_8").val(resp[0][16]);
+			$("#txt_16").val(resp[0][17]);
+			$("#spinner1").val(resp[0][18]);
+			$("#spinner2").val(resp[0][19]);
+			$("#spinner3").val(resp[0][20]);
+			$("#txt_19").val(resp[0][21]);
+			$("#txt_20").val(resp[0][22]);			
+			
+			$("#avatar").attr("src","img/"+resp[0][23]);	
+			if(resp[0][24] == "on"){
+		    	$("#switch-field-1").prop("checked",true);
 		    }else{
-		    	$("#form-field-checkbox").prop("checked",false);
-		    }	    
-		    $("#txt_5").val(resp[0][15]);
-		    $("#txt_6").val(resp[0][15]);
-		    $("#txt_4").val(resp[0][10]);
-		    $("#txt_4").trigger("chosen:updated");
+		    	$("#switch-field-1").prop("checked",false);
+		    }	    		       
 		    /**/
 	        var prov = 0;
 	        var pais = 0;
 	        $.ajax({/*obtnengo el id de provincia*/
 		        type: "POST",		        
-		        url: "../carga_ubicaciones.php?tipo=0&id="+resp[0][5]+"&fun=5",        
+		        url: "../carga_ubicaciones.php?tipo=0&id="+resp[0][7]+"&fun=5",        
 		        success: function(response) {         
 		        	prov = response;
 		        	$.ajax({/*obtnengo el id del pais*/
@@ -385,7 +222,7 @@ function inicio (){
 										        success: function(response) {         			        	
 										        	$("#txt_11").html("");
 										            for (var i = 0; i < response.length; i=i+2) {            				            	
-										            	if(response[i] == resp[0][5]){
+										            	if(response[i] == resp[0][7]){
 															$("#txt_11").append("<option value ="+response[i]+" selected>"+response[i+1]+"</option>");            																																
 										            	}
 														else{
@@ -406,13 +243,124 @@ function inicio (){
 		        }                   
 		    });	
 		}else{
-			alert("Sin registros superiores");
+			alert("Sin registros anteriores");
 		}		
-	    comprobarCamposRequired("form_usuario");		    	            
+	    comprobarCamposRequired("form_empresa");		    	            
 	    $("#btn_0").text("");
         $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> Modificar");     	            
         /**/
-	});
+	});	
+	$("#btn_5").on("click",function (){		
+		var resp = "";		
+		resp =adelante($("#txt_o").val(),"empresa","secuencia.php");		
+		if(resp[0] != false){
+			$("#txt_o").val(resp[0][0]);
+			$("#txt_1").val(resp[0][1]);
+			$("#txt_12").val(resp[0][2]);
+			$("#txt_2").val(resp[0][3]);
+			$("#txt_13").val(resp[0][4]);
+			$("#txt_3").val(resp[0][5]);
+			$("#txt_4").val(resp[0][6]);			
+			$("#txt_14").val(resp[0][9]);
+			$("#txt_5").val(resp[0][10]);
+			$("#txt_7").val(resp[0][11]);
+			$("#txt_6").val(resp[0][12]);
+			$("#txt_17").val(resp[0][13]);
+			$("#txt_18").val(resp[0][14]);
+			$("#txt_15").val(resp[0][15]);
+			$("#txt_8").val(resp[0][16]);
+			$("#txt_16").val(resp[0][17]);
+			$("#spinner1").val(resp[0][18]);
+			$("#spinner2").val(resp[0][19]);
+			$("#spinner3").val(resp[0][20]);
+			$("#txt_19").val(resp[0][21]);
+			$("#txt_20").val(resp[0][22]);			
+			
+			$("#avatar").attr("src","img/"+resp[0][23]);	
+			if(resp[0][24] == "on"){
+		    	$("#switch-field-1").prop("checked",true);
+		    }else{
+		    	$("#switch-field-1").prop("checked",false);
+		    }	    		       
+		    /**/
+	        var prov = 0;
+	        var pais = 0;
+	        $.ajax({/*obtnengo el id de provincia*/
+		        type: "POST",		        
+		        url: "../carga_ubicaciones.php?tipo=0&id="+resp[0][7]+"&fun=5",        
+		        success: function(response) {         
+		        	prov = response;
+		        	$.ajax({/*obtnengo el id del pais*/
+				        type: "POST",			        
+				        url: "../carga_ubicaciones.php?tipo=0&id="+prov+"&fun=6",        
+				        success: function(response) {         
+				        	pais = response;						        	
+				        	/*cambio los combos*/
+						    $.ajax({        
+						        type: "POST",
+						        dataType: 'json',        
+						        url: "../carga_ubicaciones.php?tipo=0&id=0&fun=1",        
+						        success: function(response) {         			        	
+						        	$("#txt_9").html("");
+						            for (var i = 0; i < response.length; i=i+2) {            				            	
+						            	if(response[i] == pais){
+											$("#txt_9").append("<option value ="+response[i]+" selected>"+response[i+1]+"</option>");            																																
+						            	}
+										else{
+											$("#txt_9").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
+										}
+						            }   
+						            $("#txt_9").trigger("chosen:updated"); 
+						            $.ajax({        
+								        type: "POST",
+								        dataType: 'json',        
+								        url: "../carga_ubicaciones.php?tipo=0&id="+pais+"&fun=2",        
+								        success: function(response) {         			        	
+								        	$("#txt_10").html("");
+								            for (var i = 0; i < response.length; i=i+2) {            				            	
+								            	if(response[i] == prov){
+													$("#txt_10").append("<option value ="+response[i]+" selected>"+response[i+1]+"</option>");            																																
+								            	}
+												else{
+													$("#txt_10").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
+												}
+								            }   
+								            $("#txt_10").trigger("chosen:updated"); 
+								            $.ajax({        
+										        type: "POST",
+										        dataType: 'json',        
+										        url: "../carga_ubicaciones.php?tipo=0&id="+prov+"&fun=3",        
+										        success: function(response) {         			        	
+										        	$("#txt_11").html("");
+										            for (var i = 0; i < response.length; i=i+2) {            				            	
+										            	if(response[i] == resp[0][7]){
+															$("#txt_11").append("<option value ="+response[i]+" selected>"+response[i+1]+"</option>");            																																
+										            	}
+														else{
+															$("#txt_11").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
+														}
+										            }   
+										            $("#txt_11").trigger("chosen:updated"); 
+										                                         
+										        }
+										    });	      
+								                                         
+								        }
+								    });/**/		                            
+						        }
+						    });/**/							    
+				        }                   
+				    });
+		        }                   
+		    });	
+		}else{
+			alert("Sin registros anteriores");
+		}		
+	    comprobarCamposRequired("form_empresa");		    	            
+	    $("#btn_0").text("");
+        $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> Modificar");     	            
+        /**/
+		});	
 
 	/*-----*/    
 	
@@ -440,37 +388,43 @@ function inicio (){
 
 	    jQuery(grid_selector).jqGrid({	        
 	        datatype: "xml",
-	        url: 'xml_usuario.php',        
-	        colNames: ['ID','CI','NOMBRES','TELÉFONO','CELULAR','id_ciudad','CIUDAD','DIRECCIÓN','CORREO','USUARIO','id_cargo','CARGO','estado','imagen','extranjero','clave'],
+	        url: 'xml_empresa.php',        
+	        colNames: ['ID','RUC','EMPRESA','PROPIETARIO','SLOGAN','TELEFONO','CELULAR','id_ciudad','CIUDAD','DIRECCION','CORREO','FAX','WEB','CONTADOR','AUTORIZACION SRI','ASCESOR','REPRESENTANTE','CI REPRESENTANTE','NRO FACTURA','ITEM FACTURA','AÑO CONTABLE','COSTEO','COMENTARIO','IMAGEN','ESTADO'],
 	        colModel:[      
-	            {name:'txt_o',index:'txt_o',frozen:true,align:'left',search:false},
-	            {name:'txt_1',index:'identificacion',frozen : true,align:'left',search:true},
-	            {name:'txt_2',index:'nombres_completos',frozen : true,align:'left',search:true},
-	            {name:'txt_3',index:'txt_3',frozen : true,align:'left',search:false},
-	            {name:'txt_7',index:'txt_7',frozen : true,align:'left',search:false},
-	            {name:'txt_11',index:'txt_11',frozen : true,align:'left',search:false},            
-	            {name:'nombre_ciudad',index:'nombre_ciudad',frozen : true,align:'left',search:false},
-	            {name:'txt_12',index:'txt_12',frozen : true,align:'left',search:false},
-	            {name:'txt_8',index:'txt_8',frozen : true,align:'left',search:false},
-	            {name:'txt_13',index:'usuario',frozen : true,align:'left',search:true},
-	            {name:'txt_4',index:'txt_4',frozen : true,align:'left',search:false},
-	            {name:'nombre_cargo',index:'nombre_cargo',frozen : true,align:'left',search:false},
-	            {name:'estado',index:'estado',frozen : true,align:'left',search:false},
-	            {name:'imagen',index:'imagen',frozen : true,align:'left',search:false},
-	            {name:'extranjero',index:'extranjero',frozen : true,align:'left',search:false},
-	            {name:'txt_5',index:'txt_5',frozen : true,align:'left',search:false},
-	            
-
-	        ],          
+            	{name:'txt_o',index:'id_empresa',frozen:true,align:'left',search:false},
+            	{name:'txt_1',index:'ruc_empresa',frozen:true,align:'left',search:false},
+            	{name:'txt_12',index:'nombre_empresa',frozen:true,align:'left',search:false},
+            	{name:'txt_2',index:'propietario',frozen:true,align:'left',search:false},
+            	{name:'txt_13',index:'slogan',frozen:true,align:'left',search:false},
+            	{name:'txt_3',index:'telefono1',frozen:true,align:'left',search:false},
+            	{name:'txt_4',index:'telefono2',frozen:true,align:'left',search:false},
+            	{name:'txt_11',index:'ciudad ',frozen:true,align:'left',search:false},
+            	{name:'descripcion',index:'descripcion',frozen:true,align:'left',search:false},
+            	{name:'txt_14',index:'direccion',frozen:true,align:'left',search:false},
+            	{name:'txt_5',index:'correo',frozen:true,align:'left',search:false},
+            	{name:'txt_7',index:'fax',frozen:true,align:'left',search:false},
+            	{name:'txt_6',index:'sitio_web',frozen:true,align:'left',search:false},
+            	{name:'txt_17',index:'nombre_contador',frozen:true,align:'left',search:false},
+            	{name:'txt_18',index:'autorizacion_sri',frozen:true,align:'left',search:false},
+            	{name:'txt_15',index:'ascesor_legar',frozen:true,align:'left',search:false},
+            	{name:'txt_8',index:'representante_legal',frozen:true,align:'left',search:false},
+            	{name:'txt_16',index:'identificacion_repre',frozen:true,align:'left',search:false},
+            	{name:'spinner1',index:'inicio_fac_preimpresa',frozen:true,align:'left',search:false},
+            	{name:'spinner2',index:'item_factura',frozen:true,align:'left',search:false},
+            	{name:'spinner3',index:'anio_contable',frozen:true,align:'left',search:false},
+            	{name:'txt_19',index:'modo_costeo',frozen:true,align:'left',search:false},
+            	{name:'txt_20',index:'comentario',frozen:true,align:'left',search:false},
+            	{name:'avatar',index:'imagen',frozen:true,align:'left',search:false},
+            	{name:'estado',index:'estado',frozen:true,align:'left',search:false},            		        ],          
 	        rowNum: 10,       
 	        width:600,
 	        shrinkToFit: false,
 	        height:200,
 	        rowList: [10,20,30],
 	        pager: pager_selector,        
-	        sortname: 'id_usuario',
+	        sortname: 'id_empresa',
 	        sortorder: 'asc',
-	        caption: 'LISTA DE USUARIOS',	        
+	        caption: 'LISTA DE 	EMPRESAS',	        
 	        
 	        altRows: true,
 	        multiselect: false,
@@ -493,19 +447,29 @@ function inicio (){
 	            $("#txt_2").val(ret.txt_2);
 	            $("#txt_3").val(ret.txt_3);
 	            $("#txt_4").val(ret.txt_4);
-	            $("#txt_4").trigger("chosen:updated");            
 	            $("#txt_5").val(ret.txt_5);
-	            $("#txt_6").val(ret.txt_5);
+	            $("#txt_6").val(ret.txt_6);
 	            $("#txt_7").val(ret.txt_7);
-	            $("#txt_8").val(ret.txt_8);	            
+	            $("#txt_8").val(ret.txt_8);
 	            $("#txt_12").val(ret.txt_12);
-	            $("#txt_13").val(ret.txt_13);	            
-	            if(ret.extranjero == "ON"){
-	            	$("#form-field-checkbox").prop("checked",true);
+	            $("#txt_13").val(ret.txt_13);
+	            $("#txt_14").val(ret.txt_14);
+	            $("#txt_15").val(ret.txt_15);
+	            $("#txt_16").val(ret.txt_16);
+	            $("#txt_17").val(ret.txt_17);
+	            $("#txt_18").val(ret.txt_18);
+	            $("#txt_19").val(ret.txt_19);
+	            $("#txt_20").val(ret.txt_20);
+	            $("#spinner1").val(ret.spinner1);
+	            $("#spinner2").val(ret.spinner2);
+	            $("#spinner3").val(ret.spinner3);
+	            
+	            if(ret.estado == "on"){
+	            	$("#switch-field-1").prop("checked",true);
 	            }else{
-	            	$("#form-field-checkbox").prop("checked",false);
+	            	$("#switch-field-1").prop("checked",false);
 	            }
-	            $("#imagen").attr("src","img/"+ret.imagen);	
+	            $("#avatar").attr("src","img/"+ret.avatar);	
 	            /**/
 	            var prov = 0;
 	            var pais = 0;
@@ -579,7 +543,7 @@ function inicio (){
 			    });			    	            
 	            /**/
 	            $('#myModal').modal('hide');
-	            comprobarCamposRequired("form_usuario");  
+	            comprobarCamposRequired("form_empresa");  
 	            $("#btn_0").text("");
 	            $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> Modificar");     	            
 	        },
@@ -807,89 +771,43 @@ function inicio (){
     /**/    
 }
 function guardar(){///funcion para guardar datos
-	var resp=comprobarCamposRequired("form_usuario");	    
+	var resp=comprobarCamposRequired("form_empresa");	    
 	if(resp==true){    		
-		$("#form_usuario").on("submit",function (e){				
-			var texto=($("#btn_0").text()).trim();					
-			var formObj = $(this);		
-			if(window.FormData !== undefined) {	
-				var formData = new FormData(this); 		    					
-				if(texto=="Guardar"){ 
-					if($("#txt_11").val() != null){
-						if($("#txt_5").val() == $("#txt_6").val()){
-							guardar_datos(formData,"g",e);		
-						}else{
-							alert("Repita la contraseña correctamente");	
-							$("#txt_6").val("");
-							$("#txt_6").focus();
-						}						
-					}else{
-						alert("Indique una ciudad antes de continuar");
-					}     					                	
-	            }else{
-	                if($("#txt_11").val() != null){
-						if($("#txt_5").val() == $("#txt_6").val()){
-							guardar_datos(formData,"m",e);		
-						}else{
-							alert("Repita la contraseña correctamente");	
-							$("#txt_6").val("");
-							$("#txt_6").focus();
-						}						
-					}else{
-						alert("Indique una ciudad antes de continuar");
-					}     		 					                	
-	            }	
-	            e.preventDefault();
-    			$(this).unbind("submit")			    			            
-			}else{
-			    var  iframeId = "unique" + (new Date().getTime());
-			    var iframe = $('<iframe src="javascript:false;" name="'+iframeId+'" />');
-			    iframe.hide();
-			    formObj.attr("target",iframeId);
-			    iframe.appendTo("body");
-		    	iframe.load(function(e) {
-		        	var doc = getDoc(iframe[0]);
-			        var docRoot = doc.body ? doc.body : doc.documentElement;
-			        var data = docRoot.innerHTML;
-			    });			
-			}			
-		});	
-		
+		$("#form_empresa").on("submit",function (e){				
+			var texto=($("#btn_0").text()).trim();															
+			var valores = $("#form_empresa").serialize();
+			if(texto=="Guardar"){ 
+				if($("#txt_11").val() != null){					
+					guardar_datos(valores,"g",e);											
+				}else{
+					alert("Indique una ciudad antes de continuar");
+				}     					                	
+	        }else{
+	            if($("#txt_11").val() != null){					
+					guardar_datos(valores,"m",e);											
+				}else{
+					alert("Indique una ciudad antes de continuar");
+				}     		 					                	
+	        }	
+	        e.preventDefault();
+    		$(this).unbind("submit")		    			            			
+		});			
 	}				 
 }
-function guardar_datos(formData,tipo,p){
+function guardar_datos(valores,tipo,p){		
 	$.ajax({
-	    url: "usuario.php?tipo="+tipo,				    
-	    type: "POST",
-	    data:  formData,
-	    mimeType:"multipart/form-data",
-	    contentType: false,
-	    cache: false,
-	    processData:false,
-	    success: function(data, textStatus, jqXHR)
-	    {				    
+	    url: "empresa.php", 	    				    	    
+	    data:  valores + "&img="+$("#avatar")[0].src + "&tipo="+tipo, 	    	    
+	    type: "POST",				
+	    success: function(data){				    
 	    	if( data == 0 ){
 	    		alert('Datos Agregados Correctamente');	
 	    		limpiar_form(p);	
 	    		$('#table').trigger('reloadGrid');					
 	    	}else{
-	    		if( data == 1 ){	    		
-	    			alert('Este usuario ya existe. Ingrese otro')	;
-	    			$("#txt_13").val("");
-	    			$("#txt_13").focus();
-	    		}else{	    			
-	    			if(data == 2){
-	    				alert('Este nro de cédula ya existe ingrese otro')	;
-	    				$("#txt_1").val("");
-	    				$("#txt_1").focus();
-	    			}
-	    		}
+	    		alert('Error al momento de guardar. Intente nuevamente');	
+	    		//actualizar_form();
 	    	}
-
-		},
-		error: function(jqXHR, textStatus, errorThrown) 
-	    {
-	    } 	
+		},		
 	}); 
 }
-
