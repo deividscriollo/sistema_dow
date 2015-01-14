@@ -1,12 +1,13 @@
 <?php
 //verificacion si esta iniciada la variable se ssesion 
 //error_reporting(0);
-if(!isset($_SESSION)){
-	session_start();
-}
-if(!isset($_SESSION))
+		if(!isset($_SESSION))
 	{
 		session_start();		
+	}
+	if(!isset($_SESSION["iddow"])) {
+
+		header('Location: ../../');
 	}
 //informacion empresa
 function empresa(){
