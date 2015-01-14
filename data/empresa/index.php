@@ -97,7 +97,7 @@
 																		<li>
 																			<a data-toggle="tab" href="#detal">
 																				<span class="warning ace-icon fa fa-building-o bigger-120"></span>
-																				detals adicionales												
+																				Detalles Adicionales												
 																			</a>
 																		</li>										
 																	</ul>									
@@ -113,22 +113,72 @@
 																								<input type="hidden" id="txt_0" name="txt_0" />
 																							</div>
 																						</div>																
-																						<div class="form-group">
-																							<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Teléfono:</label>
+																						<div class="form-group has-error">
+																							<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Propietario:</label>
 																							<div class="col-sm-8">
-																								<input type="text" id="txt_3" name="txt_3" placeholder="Teléfono" class="form-control" />
+																								<input type="text" id="txt_" name="txt_" placeholder="Propietario" class="form-control" />
 																							</div>
 																						</div>
 																						<div class="form-group has-error">
+																							<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Teléfono:</label>
+																							<div class="col-sm-8">
+																								<span class="block input-icon input-icon-right">
+							                                                                    	<input type="text" id="txt_3" name="txt_3" placeholder="Teléfono" class="form-control" />
+							                                                                    	<i class="ace-icon fa fa-phone fa-flip-horizontal"></i>
+							                                                                    </span>																		
+																							</div>
+																						</div>
+																						<div class="form-group">
+																							<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Celular:</label>
+																							<div class="col-sm-8">	
+																								<span class="block input-icon input-icon-right">
+																									<input type="text" id="txt_7" name="txt_7" placeholder="Celular" class="form-control" />
+																									<i class="ace-icon fa fa-mobile fa-flip-horizontal"></i>					
+																								</span>																																																						
+																							</div>
+																						</div>
+																						<div class="form-group">
+																							<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Correo:</label>
+																							<div class="col-sm-8">
+																							  <span class="block input-icon input-icon-right ">
+																							  	<input type="mail" id="txt_7" name="txt_7" placeholder="Correo" class="form-control" />
+																							  	<i class="ace-icon fa fa-envelope"></i>
+																							  </span>
+																							</div>
+																						</div>																																													
+																						<div class="form-group">
+																							<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Sitio Web:</label>																							
+																							<div class="col-sm-8">
+																							  <span class="block input-icon input-icon-right ">
+																							  	<input type="url" id="txt_3" name="txt_3" placeholder="Sitio Web" class="form-control" />
+																							  	<i class="ace-icon fa fa-globe"></i>
+																							  </span>
+																							</div>
+																						</div>
+																						<div class="form-group">
 																							<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Fax:</label>
 																							<div class="col-sm-8">
 																								<input type="text" id="txt_13" name="txt_13" placeholder="Fax" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Nombres de usuario"  />
 																							</div>
-																						</div>																
-																						<div class="form-group has-error">
-																							<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Contador:</label>
+																						</div>
+																						<div class="form-group">
+																							<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Representante Legal:</label>
 																							<div class="col-sm-8">
-																								<input type="password" id="txt_5" name="txt_5" placeholder="Contador" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{5,}" data-toggle="tooltip" data-original-title="Digite la contraseña del usuario mínimo 5 carácteres"/>
+																								<input type="text" id="txt_2" name="txt_2" placeholder="Representante Legal" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Representante Legal"  />
+																							</div>
+																						</div>																				
+																					</div>
+																					<div class="col-sm-6">
+																						<div class="form-group has-error">
+																							<label class="col-sm-4 control-label ">Nombre Empresa</label>
+																							<div class="col-sm-8">
+																								<input type="text" id="txt_1" name="txt_1"  placeholder="Nombre Empresa" class="form-control" data-toggle="tooltip" data-original-title="Nombre Empresa" required pattern="[0-9]{1,}" />
+																							</div>
+																						</div>
+																						<div class="form-group has-error">
+																							<label class="col-sm-4 control-label ">Slogan</label>
+																							<div class="col-sm-8">
+																								<input type="text" id="txt_1" name="txt_1"  placeholder="Slogan" class="form-control" data-toggle="tooltip" data-original-title="Nombre Empresa" required pattern="[0-9]{1,}" />
 																							</div>
 																						</div>
 																						<div class="form-group">
@@ -145,7 +195,7 @@
 																								</select>
 																							</div>
 																						</div>
-																						<div class="form-group">
+																						<div class="form-group has-error">
 																							<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Ciudad:</label>
 																							<div class="col-sm-8">
 																								<select class="chosen-select form-control" id="txt_11" name="txt_11" data-placeholder="Ciudad">
@@ -157,52 +207,16 @@
 																							<div class="col-sm-8">
 																								<input type="text" id="txt_2" name="txt_2" placeholder="Dirección" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Nombres completos"  />
 																							</div>
-																						</div>
-																					</div>
-																					<div class="col-sm-6">
-																						<div class="form-group has-error">
-																							<label class="col-sm-4 control-label ">Nombre Empresa</label>
-																							<div class="col-sm-8">
-																								<input type="text" id="txt_1" name="txt_1"  placeholder="Nombre Empresa" class="form-control" data-toggle="tooltip" data-original-title="Nombre Empresa" required pattern="[0-9]{1,}" />
-																							</div>
-																						</div>
-																						<div class="form-group has-error">
-																							<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Autorizacion SRI:</label>
-																							<div class="col-sm-8">
-																								<input type="text" id="txt_2" name="txt_2" placeholder="Autorizacion SRI" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Autorizacion SRI"  />
-																							</div>
-																						</div>
-																						<div class="form-group has-error">
-																							<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Correo Electronico:</label>
-																							<div class="col-sm-8">
-																								<input type="text" id="txt_2" name="txt_2" placeholder="Correo electronico" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Correo Electronico"  />
-																							</div>
-																						</div>
-																						<div class="form-group has-error">
-																							<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Estado:</label>
-																							<div class="col-sm-8">
-																								<select class="chosen-select form-control" id="txt_9" name="txt_9" data-placeholder="Estado">
-																									<option ></option>
-																									<option value="ACTIVO">ACTIVO</option>
-																									<option value="PASIVO">PASIVO</option>
-																								</select>	
-																							</div>
-																						</div>
-																						<div class="form-group has-error">
+																						</div>	
+																						<div class="form-group">
 																							<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Ascesor Legal:</label>
 																							<div class="col-sm-8">
 																								<input type="text" id="txt_2" name="txt_2" placeholder="Ascesor Legal" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Ascesor Legal"  />
 																							</div>
-																						</div>
-																						<div class="form-group has-error">
-																							<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Representante Legal:</label>
+																						</div>																						
+																						<div class="form-group">
+																							<label class="col-sm-4 control-label no-padding-right" for="form-field-1">RUC/C.I. Representante:</label>
 																							<div class="col-sm-8">
-																								<input type="text" id="txt_2" name="txt_2" placeholder="Representante Legal" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Representante Legal"  />
-																							</div>
-																						</div>
-																						<div class="form-group has-error">
-																							<label class="col-sm-5 control-label no-padding-right" for="form-field-1">CI. Representante Legal:</label>
-																							<div class="col-sm-7">
 																								<input type="text" id="txt_1" name="txt_1"  placeholder="CI. Representante Legal" class="form-control" data-toggle="tooltip" data-original-title="CI. Representante Legal" required pattern="[0-9]{1,}" />
 																							</div>
 																						</div>
@@ -224,38 +238,64 @@
 																								</span>
 																							</div>																																														
 																						</div>
-																					</div>
+																					</div>																					
 																				</div>
 																				<div class="col-sm-5">
-																					<div class="form-group has-error">
-																						<label class="col-sm-5 control-label ">Inicio Factura Pre-impresa</label>
-																						<div class="col-sm-7">
-																							<input type="text" id="spinner1"  />	
+																					<div class="form-group">
+																						<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Contador:</label>
+																						<div class="col-sm-8">
+																							<input type="password" id="txt_5" name="txt_5" placeholder="Contador" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{5,}" data-toggle="tooltip" data-original-title="Digite la contraseña del usuario mínimo 5 carácteres"/>
 																						</div>
 																					</div>
 																					<div class="form-group has-error">
-																						<label class="col-sm-5 control-label ">Item´s factura</label>
-																						<div class="col-sm-7">
+																						<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Inicio Factura:</label>
+																						<div class="col-sm-8">
+																							<input type="text" id="spinner1"/>	
+																						</div>
+																					</div>
+																					<div class="form-group">
+																						<label class="col-sm-4 control-label no-padding-right">Año Contable</label>
+																						<div class="col-sm-8">
+																							<input type="text" id="spinner3" name="txt_1"  class="form-control input-Slarge" data-toggle="tooltip" data-original-title="Año Contable" required pattern="[0-9]{1,}" />
+																						</div>
+																					</div>
+																					<div class="form-group">
+																						<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Estado:</label>
+																						<div class="col-sm-8">
+																							<select class="form-control" id="txt_9" name="txt_9" data-placeholder="Estado">																								
+																								<option value="ACTIVO">ACTIVO</option>
+																								<option value="PASIVO">PASIVO</option>
+																							</select>	
+																						</div>
+																					</div>
+																				</div>
+																				<div class="col-sm-5">
+																					<div class="form-group">
+																						<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Autorizacion SRI:</label>
+																						<div class="col-sm-8">
+																							<input type="text" id="txt_2" name="txt_2" placeholder="Autorizacion SRI" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Autorizacion SRI"  />
+																						</div>
+																					</div>
+																					<div class="form-group has-error">
+																						<label class="col-sm-4 control-label no-padding-right">Item´s factura</label>
+																						<div class="col-sm-8">
 																							<input type="text" id="spinner2"  name="txt_1" class="form-control" data-toggle="tooltip" data-original-title="Item´s factura" required pattern="[0-9]{1,}" />																		
 																						</div>
 																					</div>																					
 																					<div class="form-group">
-																							<label class="col-sm-5 control-label no-padding-right" for="form-field-1">Modo Costeo:</label>
-																							<div class="col-sm-7">																								
-																								<select class="chosen-select" id="txt_" name="txt_" style="width:100px!important" data-placeholder="Modo Costeo">
-																								</select>
-																							</div>
-																						</div>															
-																					<div class="form-group has-error">
-																						<label class="col-sm-5 control-label ">Año Contable</label>
-																						<div class="col-sm-7">
-																							<input type="text" id="spinner3" name="txt_1"  class="form-control input-Slarge" data-toggle="tooltip" data-original-title="Año Contable" required pattern="[0-9]{1,}" />
+																						<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Modo Costeo:</label>
+																						<div class="col-sm-8">																								
+																							<select class="form-control" id="txt_9" name="txt_9" data-placeholder="Modo Costeo">
+																								<option ></option>
+																								<option value="PROCESOS">PROCESOS</option>
+																								<option value="ORDENES DE PRODUCCION">ORDENES DE PRODUCCION</option>
+																							</select>	
 																						</div>
-																					</div>
-																					<div class="form-group has-error">
-																						<label class="col-sm-5 control-label ">Comentario</label>
-																						<div class="col-sm-7">
-																							<textarea class="input-xlarge" name="txt_0" id="txt_0" placeholder="Comentario"></textarea>
+																					</div>																					
+																					<div class="form-group">
+																						<label class="col-sm-4 control-label no-padding-right">Comentario</label>
+																						<div class="col-sm-8">
+																							<textarea class="form-control" name="txt_0" id="txt_0" placeholder="Comentario"></textarea>
 																						</div>
 																					</div>
 																				</div>
@@ -402,9 +442,9 @@
 			});
 			/*-----------------------*/
 			/*funcion inicial spinner para objetos de subir y bajar con intervalos automaticos*/
-			$('#spinner1').ace_spinner({value:0,min:0,max:200,step:1, btn_up_class:'btn-info' , btn_down_class:'btn-info'});
-			$('#spinner2').ace_spinner({value:0,min:0,max:200,step:1, btn_up_class:'btn-info' , btn_down_class:'btn-info'});
-			$('#spinner3').ace_spinner({value:2015,min:2015,max:2050,step:1, btn_up_class:'btn-info' , btn_down_class:'btn-info'});			
+			$('#spinner1').ace_spinner({value:0,min:0,step:1, btn_up_class:'btn btn-success' , btn_down_class:'btn btn-danger'});
+			$('#spinner2').ace_spinner({value:0,min:0,step:1, btn_up_class:'btn btn-success' , btn_down_class:'btn btn-danger'});
+			$('#spinner3').ace_spinner({value:2015,min:2015,max:2050,step:1, btn_up_class:'btn btn-success' , btn_down_class:'btn btn-danger'});			
 				
 			/*-----------------------*/			
 			/*funcion inicial proceso*/
