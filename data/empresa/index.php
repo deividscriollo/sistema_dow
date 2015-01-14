@@ -247,41 +247,12 @@
 																							<input type="password" id="txt_5" name="txt_5" placeholder="Contador" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{5,}" data-toggle="tooltip" data-original-title="Digite la contraseña del usuario mínimo 5 carácteres"/>
 																						</div>
 																					</div>
-																					<div class="form-group has-error">
-																						<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Inicio Factura:</label>
-																						<div class="col-sm-8">
-																							<input type="text" id="spinner1"/>	
-																						</div>
-																					</div>
-																					<div class="form-group">
-																						<label class="col-sm-4 control-label no-padding-right">Año Contable</label>
-																						<div class="col-sm-8">
-																							<input type="text" id="spinner3" name="txt_1"  class="form-control input-Slarge" data-toggle="tooltip" data-original-title="Año Contable" required pattern="[0-9]{1,}" />
-																						</div>
-																					</div>
-																					<div class="form-group">
-																						<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Estado:</label>
-																						<div class="col-sm-8">
-																							<select class="form-control" id="txt_9" name="txt_9" data-placeholder="Estado">																								
-																								<option value="ACTIVO">ACTIVO</option>
-																								<option value="PASIVO">PASIVO</option>
-																							</select>	
-																						</div>
-																					</div>
-																				</div>
-																				<div class="col-sm-5">
 																					<div class="form-group">
 																						<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Autorizacion SRI:</label>
 																						<div class="col-sm-8">
 																							<input type="text" id="txt_2" name="txt_2" placeholder="Autorizacion SRI" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Autorizacion SRI"  />
 																						</div>
-																					</div>
-																					<div class="form-group has-error">
-																						<label class="col-sm-4 control-label no-padding-right">Item´s factura</label>
-																						<div class="col-sm-8">
-																							<input type="text" id="spinner2"  name="txt_1" class="form-control" data-toggle="tooltip" data-original-title="Item´s factura" required pattern="[0-9]{1,}" />																		
-																						</div>
-																					</div>																					
+																					</div>																																									
 																					<div class="form-group">
 																						<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Modo Costeo:</label>
 																						<div class="col-sm-8">																								
@@ -296,6 +267,35 @@
 																						<label class="col-sm-4 control-label no-padding-right">Comentario</label>
 																						<div class="col-sm-8">
 																							<textarea class="form-control" name="txt_0" id="txt_0" placeholder="Comentario"></textarea>
+																						</div>
+																					</div>
+																				</div>
+																				<div class="col-sm-5">																					
+																					<div class="form-group has-error">
+																						<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Inicio Factura:</label>
+																						<div class="col-sm-8">
+																							<input type="text" id="spinner1"/>	
+																						</div>
+																					</div>
+																					<div class="form-group has-error">
+																						<label class="col-sm-4 control-label no-padding-right">Item´s factura</label>
+																						<div class="col-sm-8">
+																							<input type="text" id="spinner2"  name="txt_1" class="form-control" data-toggle="tooltip" data-original-title="Item´s factura" required pattern="[0-9]{1,}" />																		
+																						</div>
+																					</div>	
+																					<div class="form-group">
+																						<label class="col-sm-4 control-label no-padding-right">Año Contable</label>
+																						<div class="col-sm-8">
+																							<input type="text" id="spinner3" name="txt_1"  class="form-control input-Slarge" data-toggle="tooltip" data-original-title="Año Contable" required pattern="[0-9]{1,}" />
+																						</div>
+																					</div>
+																					<div class="form-group">
+																						<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Activo:</label>
+																						<div class="col-xs-8">
+																							<label>
+																								<input name="switch-field-1" class="ace ace-switch ace-switch-5" type="checkbox" checked="">
+																								<span class="lbl"></span>
+																							</label>
 																						</div>
 																					</div>
 																				</div>
