@@ -96,7 +96,7 @@
 																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> C.I./RUC:</label>
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_1" name="txt_1"  placeholder="Cedula" class="col-xs-10 col-sm-5" data-toggle="tooltip" data-original-title="Agregue el nro de CI en caso de ser extranjero seleccione la casilla Extranjero" required pattern="[0-9]{1,}" maxlength="10" />
+																		<input type="text" id="txt_1" name="txt_1"  placeholder="Identificación" class="col-xs-10 col-sm-5" data-toggle="tooltip" data-original-title="Agregue el nro de CI en caso de ser extranjero seleccione la casilla Extranjero" required pattern="[0-9]{1,}" maxlength="10" />
 																		<input type="hidden" id="txt_o" name="txt_o" />
 																		<span class="help-inline col-xs-12 col-sm-7">																			
 																			<div class="checkbox">
@@ -113,7 +113,7 @@
 																<div class="form-group has-error">
 																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Nombres: </label>
 																	<div class="col-sm-9">
-																		<input type="text" id="txt_2" name="txt_2" placeholder="Nombre Completo" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" data-toggle="tooltip" data-original-title="Nombres completos"  />
+																		<input type="text" id="txt_2" name="txt_2" placeholder="Nombres Completo" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" data-toggle="tooltip" data-original-title="Nombres completos"  />
 																	</div>
 																</div>																								
 																<div class="form-group">

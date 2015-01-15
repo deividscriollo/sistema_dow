@@ -97,14 +97,14 @@
 																<div class="form-group has-error">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> RUC/C.I.:</label>
 																	<div class="col-sm-8">
-																		<input type="text" id="txt_2" name="txt_2"  placeholder="Cedula" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
+																		<input type="text" id="txt_2" name="txt_2"  placeholder="Identificación" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
 																	</div>
 																</div>
 
 																<div class="form-group has-error">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Nombres : </label>
 																	<div class="col-sm-8">
-																		<input type="text" id="txt_3" name="txt_3" placeholder="Nombre Completo" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" data-toggle="tooltip" data-original-title="Nombres completos"  />
+																		<input type="text" id="txt_3" name="txt_3" placeholder="Nombres Completo" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" data-toggle="tooltip" data-original-title="Nombres completos"  />
 																	</div>
 																</div>
 
@@ -190,7 +190,7 @@
 																<div class="form-group has-error">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Dirección: </label>
 																	<div class="col-sm-8">
-																		<input type="text" id="txt_12" name="txt_12" placeholder="Dirección" class="form-control"  required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Ingrese la dirección del cliente" />
+																		<input type="text" id="txt_12" name="txt_12" placeholder="Dirección" class="form-control"  required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" data-toggle="tooltip" data-original-title="Ingrese la dirección del cliente" />
 																	</div>
 																</div>
 

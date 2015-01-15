@@ -96,14 +96,14 @@
 																<div class="form-group has-error">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> RUC/CI.:</label>
 																	<div class="col-sm-8">
-																		<input type="text" id="txt_2" name="txt_2"  placeholder="Cedula" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />
+																		<input type="text" id="txt_2" name="txt_2"  placeholder="Identificación" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />
 																	</div>
 																</div>
 
 																<div class="form-group has-error">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Empresa: </label>
 																	<div class="col-sm-8">
-																		<input type="text" id="txt_3" name="txt_3" placeholder="Empresa" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Empresa"  />
+																		<input type="text" id="txt_3" name="txt_3" placeholder="Empresa" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" data-toggle="tooltip" data-original-title="Empresa"  />
 																	</div>
 																</div>	
 
@@ -166,7 +166,7 @@
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Visitador : </label>
 																	<div class="col-sm-8">
-																		<input type="text" id="txt_4" name="txt_4" placeholder="Visitador" class="form-control" data-toggle="tooltip" data-original-title="Visitador"  />
+																		<input type="text" id="txt_4" name="txt_4" placeholder="Nombre Visitador" class="form-control" data-toggle="tooltip" data-original-title="Visitador"  />
 																	</div>
 																</div>	
 
@@ -208,7 +208,7 @@
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Dirección: </label>
 
 																	<div class="col-sm-8">
-																		<input type="text" id="txt_15" name="txt_15" placeholder="Dirección" class="form-control"  required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Ingrese la dirección del proveedor" />
+																		<input type="text" id="txt_15" name="txt_15" placeholder="Dirección" class="form-control"  required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" data-toggle="tooltip" data-original-title="Ingrese la dirección del proveedor" />
 																	</div>
 																</div>
 

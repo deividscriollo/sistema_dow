@@ -119,7 +119,7 @@
 																								<input type="text" id="txt_2" name="txt_2" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" placeholder="Propietario" class="form-control" />
 																							</div>
 																						</div>
-																						<div class="form-group">
+																						<div class="form-group ">
 																							<label class="col-sm-4 control-label no-padding-right" for="txt_3">Teléfono:</label>
 																							<div class="col-sm-8">
 																								<span class="block input-icon input-icon-right">
@@ -164,7 +164,7 @@
 																						<div class="form-group">
 																							<label class="col-sm-4 control-label no-padding-right" for="txt_8">Representante Legal:</label>
 																							<div class="col-sm-8">
-																								<input type="text" id="txt_8" name="txt_8" placeholder="Representante Legal" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Representante Legal"  />
+																								<input type="text" id="txt_8" name="txt_8" placeholder="Representante Legal" class="form-control" pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Representante Legal"  />
 																							</div>
 																						</div>																				
 																					</div>
@@ -172,13 +172,13 @@
 																						<div class="form-group has-error">
 																							<label class="col-sm-4 control-label " for="txt_12">Nombre Empresa</label>
 																							<div class="col-sm-8">
-																								<input type="text" id="txt_12" name="txt_12"  placeholder="Nombre Empresa" class="form-control" data-toggle="tooltip" data-original-title="Nombre Empresa" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" />
+																								<input type="text" id="txt_12" name="txt_12"  placeholder="Nombre Empresa" class="form-control" data-toggle="tooltip" data-original-title="Nombre Empresa" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" />
 																							</div>
 																						</div>
 																						<div class="form-group has-error">
 																							<label class="col-sm-4 control-label " for="txt_13">Slogan</label>
 																							<div class="col-sm-8">
-																								<input type="text" id="txt_13" name="txt_13"  placeholder="Slogan" class="form-control" data-toggle="tooltip" data-original-title="Nombre Slogan" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" />
+																								<input type="text" id="txt_13" name="txt_13"  placeholder="Slogan" class="form-control" data-toggle="tooltip" data-original-title="Nombre Slogan" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" />
 																							</div>
 																						</div>
 																						<div class="form-group">
@@ -195,7 +195,7 @@
 																								</select>
 																							</div>
 																						</div>
-																						<div class="form-group">
+																						<div class="form-group ">
 																							<label class="col-sm-4 control-label no-padding-right" for="txt_11">Ciudad:</label>
 																							<div class="col-sm-8">
 																								<select class="chosen-select form-control" id="txt_11" name="txt_11" data-placeholder="Ciudad">
@@ -205,19 +205,19 @@
 																						<div class="form-group has-error">
 																							<label class="col-sm-4 control-label no-padding-right" for="txt_14">Dirección:</label>
 																							<div class="col-sm-8">
-																								<input type="text" id="txt_14" name="txt_14" placeholder="Dirección" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Nombres completos"  />
+																								<input type="text" id="txt_14" name="txt_14" placeholder="Dirección" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" data-toggle="tooltip" data-original-title="Nombres completos"  />
 																							</div>
 																						</div>	
 																						<div class="form-group">
 																							<label class="col-sm-4 control-label no-padding-right" for="txt_15">Ascesor Legal:</label>
 																							<div class="col-sm-8">
-																								<input type="text" id="txt_15" name="txt_15" placeholder="Ascesor Legal" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Ascesor Legal"  />
+																								<input type="text" id="txt_15" name="txt_15" placeholder="Ascesor Legal" class="form-control" pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Ascesor Legal"  />
 																							</div>
 																						</div>																						
 																						<div class="form-group">
 																							<label class="col-sm-4 control-label no-padding-right" for="txt_16">RUC/C.I. Representante:</label>
 																							<div class="col-sm-8">
-																								<input type="text" id="txt_16" name="txt_16"  placeholder="CI. Representante Legal" class="form-control" data-toggle="tooltip" data-original-title="CI. Representante Legal" required pattern="[0-9]{1,}" />
+																								<input type="text" id="txt_16" name="txt_16"  placeholder="Identificación" class="form-control" data-toggle="tooltip" data-original-title="CI. Representante Legal" pattern="[0-9]{1,}" />
 																							</div>
 																						</div>
 																					</div>
@@ -241,16 +241,16 @@
 																					</div>																					
 																				</div>
 																				<div class="col-sm-5">
-																					<div class="form-group has-error">
+																					<div class="form-group ">
 																						<label class="col-sm-4 control-label no-padding-right" for="txt_17">Contador:</label>
 																						<div class="col-sm-8">
-																							<input type="text" id="txt_17" name="txt_17" placeholder="Contador" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Digite la contraseña del usuario mínimo 5 carácteres"/>
+																							<input type="text" id="txt_17" name="txt_17" placeholder="Contador" class="form-control" pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Digite la contraseña del usuario mínimo 5 carácteres"/>
 																						</div>
 																					</div>
-																					<div class="form-group has-error">
+																					<div class="form-group">
 																						<label class="col-sm-4 control-label no-padding-right" for="txt_18">Autorizacion SRI:</label>
 																						<div class="col-sm-8">
-																							<input type="text" id="txt_18" name="txt_18" placeholder="Autorizacion SRI" class="form-control" required pattern="[0-9]{1,}" data-toggle="tooltip" data-original-title="Autorizacion SRI"  />
+																							<input type="text" id="txt_18" name="txt_18" placeholder="Autorizacion SRI" class="form-control" pattern="[0-9]{1,}" data-toggle="tooltip" data-original-title="Autorizacion SRI"  />
 																						</div>
 																					</div>																																									
 																					<div class="form-group">
