@@ -211,7 +211,7 @@
 																						<div class="form-group">
 																							<label class="col-sm-4 control-label no-padding-right" for="txt_15">Ascesor Legal:</label>
 																							<div class="col-sm-8">
-																								<input type="text" id="txt_15" name="txt_15" placeholder="Ascesor Legal" class="form-control" pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Ascesor Legal"  />
+																								<input type="text" id="txt_15" name="txt_15" placeholder="Ascesor Legal" class="form-control" pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" data-toggle="tooltip" data-original-title="Ascesor Legal"  />
 																							</div>
 																						</div>																						
 																						<div class="form-group">

@@ -93,13 +93,13 @@
 																				<div class="form-group has-error">
 																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Código:</label>
 																					<div class="col-sm-8">
-																						<input type="text" id="txt_2" name="txt_2"  placeholder="Código" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+																						<input type="text" id="txt_2" name="txt_2"  placeholder="Código" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" />																																																						
 																					</div>
 																				</div>
 																				<div class="form-group has-error">
 																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Nombre del Producto:</label>
 																					<div class="col-sm-8">
-																						<input type="text" id="txt_2" name="txt_2"  placeholder="Nombre del Producto" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+																						<input type="text" id="txt_2" name="txt_2"  placeholder="Nombre del Producto" class="form-control" data-toggle="tooltip" data-original-title="" pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" />																																																						
 																					</div>
 																				</div>
 																				<div class="form-group ">
