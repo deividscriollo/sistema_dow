@@ -241,7 +241,7 @@ function menu_lateral(){
 							</li>
 						</ul>
 					</li>
-					<li ';if ($acus[3]=='categorias' || $acus[3]=='bodegas' || $acus[3]=='clientes' || $acus[3]=='marcas' || $acus[3]=='unidad_medida'|| $acus[3]=='usuario'|| $acus[3]=='empresa'|| $acus[3]=='tipo_producto'|| $acus[3]=='proveedores'|| $acus[3]=='productos') {
+					<li ';if ($acus[3]=='factura_compra' || $acus[3]=='inventario' || $acus[3]=='proformas'|| $acus[3]=='' ) {
 								print('class="active open"');
 							}print'>
 						<a href="#" class="dropdown-toggle">
@@ -259,7 +259,7 @@ function menu_lateral(){
 							<li ';if ($acus[3]=='inventario') {
 									print('class="active"');
 								}print'>
-								<a href="../empresa/">
+								<a href="../inventario/">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Inventario
 								</a>
@@ -269,14 +269,14 @@ function menu_lateral(){
 							<li ';if ($acus[3]=='proformas') {
 									print('class="active"');
 								}print'>
-								<a href="../empresa/">
+								<a href="../proformas/">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Proformas
 								</a>
 
 								<b class="arrow"></b>
 							</li>
-							<li ';if ($acus[3]=='bodegas'||$acus[3]=='unidad_medida'||$acus[3]=='tipo_producto') {
+							<li ';if ($acus[3]=='factura_compra'||$acus[3]=='unidad_medida'||$acus[3]=='tipo_producto') {
 									print('class="active open"');
 								}print'>
 								<a href="#" class="dropdown-toggle">
@@ -288,7 +288,7 @@ function menu_lateral(){
 								<b class="arrow"></b>
 
 								<ul class="submenu">
-									<li ';if ($acus[3]=='bodegas') {
+									<li ';if ($acus[3]=='factura_compra') {
 									print('class="active"');
 								}print'>
 										<a href="../factura_compra/">
@@ -446,3 +446,14 @@ function footer(){
 } 
 
 ?>
+
+
+
+
+
+
+
+
+
+
+
