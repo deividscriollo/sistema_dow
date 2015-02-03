@@ -25,7 +25,7 @@ function comprobarCamposRequired(form){
     $(campos_text).each(function() {
         var pattern = new RegExp("^" + $(this)[0].pattern + "$");
         if($(this).val() != '' && pattern.test($(this).val())){            
-            $(this).parent().parent().removeClass('has-error');            
+            $(this).parent().parent().removeClass('has-error');                        
         }else{
             correcto=false;
             $(this).parent().parent().addClass('has-error');
@@ -158,6 +158,42 @@ function change_provincia(pais,provincia,ciudad){
             $("#"+ciudad).trigger("chosen:updated");                                      
         }                   
     });
+}
+function carga_detalles_productos(id_select,fun){     
+    if(id_select == "txt_6"){
+        $("#"+id_select+" option").not(":first").remove();
+    }else{
+        if(id_select == "txt_13"){
+            $("#"+id_select+" option").not(":first").remove();
+        }else{
+            $("#"+id_select+" option").remove();    
+        }           
+    }
+    $.ajax({        
+        type: "POST",
+        dataType: 'json',        
+        url: "../carga_ubicaciones.php?tipo=0&id=0&fun="+fun,        
+        success: function(response) {                     
+            for (var i = 0; i < response.length; i=i+2) {               
+                $("#"+id_select).append("<option value ="+response[i]+">"+response[i+1]+"</option>");                                                                                                                                            
+            }   
+            $("#"+id_select).trigger("chosen:updated");                                          
+        }                   
+    }); 
+}
+function carga_detalles_productos_1(id_select,fun){     
+    $("#"+id_select+" option").remove();        
+    $.ajax({        
+        type: "POST",
+        dataType: 'json',        
+        url: "../carga_ubicaciones.php?tipo=0&id=0&fun="+fun,        
+        success: function(response) {                     
+            for (var i = 0; i < response.length; i=i+3) {               
+                $("#"+id_select).append("<option value ="+response[i]+" data-foo="+response[i+2]+">"+response[i+1]+"</option>");                                                                                                                                            
+            }   
+            $("#"+id_select).trigger("chosen:updated");                                          
+        }                   
+    }); 
 }
 function validarNumeros(e) { // 1
     tecla = (document.all) ? e.keyCode : e.which; // 2

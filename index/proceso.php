@@ -9,7 +9,7 @@ $conexion = conectarse();
 	if (isset($_POST['g'])) {
 		$user = $_POST['txt_1'];
 		$pass = $_POST['txt_2'];		
-		$acu=0;
+		$acu=0;		
 		$result = pg_query("SELECT * FROM USUARIO U, CLAVES C WHERE U.ID_USUARIO=C.ID_USUARIO AND U.USUARIO='$user' AND C.CLAVE=md5('$pass');");
 		while ($row = pg_fetch_row($result)) {			
 			$_SESSION['iddow']=$row[0];

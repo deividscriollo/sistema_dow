@@ -48,7 +48,7 @@
 							<div class="col-xs-12 col-sm-12 widget-container-col">
 								<div class="widget-box">
 									<div class="widget-header">
-										<h5 class="widget-title">Proceso</h5>
+										<h5 class="widget-title">Productos</h5>
 
 										<div class="widget-toolbar">										
 
@@ -65,7 +65,7 @@
 									<div class="widget-body">
 										<div class="widget-main">
 											<div class="row">
-												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_proveedores">
+												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_productos">
 													<div class="row">
 														<div class="col-xs-12">	
 															<div class="col-sm-12">
@@ -91,61 +91,60 @@
 																		<div id="info_pro" class="tab-pane fade in active">
 																			<div class="col-sm-6">
 																				<div class="form-group has-error">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Código:</label>
-																					<div class="col-sm-8">
-																						<input type="text" id="txt_2" name="txt_2"  placeholder="Código" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" />																																																						
+																					<label class="col-sm-4 control-label no-padding-right" for="txt_1"> Código:</label>
+																					<div class="col-sm-8">																						
+																						<input type="text" id="txt_1" name="txt_1"  placeholder="Código" class="form-control" data-toggle="tooltip" data-original-title="Código del Producto" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" />
+																						<input type="hidden" id="txt_0">
 																					</div>
 																				</div>
 																				<div class="form-group has-error">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Nombre del Producto:</label>
+																					<label class="col-sm-4 control-label no-padding-right" for="txt_2"> Nombre del Producto:</label>
 																					<div class="col-sm-8">
-																						<input type="text" id="txt_2" name="txt_2"  placeholder="Nombre del Producto" class="form-control" data-toggle="tooltip" data-original-title="" pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" />																																																						
+																						<input type="text" id="txt_2" name="txt_2"  placeholder="Nombre del Producto"  class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9. ]{1,}" />
 																					</div>
 																				</div>
-																				<div class="form-group ">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Utilidad Minorista:</label>
-																					<div class="col-sm-8">
-																						<input type="text" id="txt_2" name="txt_2"  placeholder="Utilidad Minorista" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
-																					</div>
-																				</div>
-																				<div class="form-group has-error">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Precio Minorista:</label>
-																					<div class="col-sm-8">
-																						<input type="text" id="txt_2" name="txt_2"  placeholder="Precio Minorista" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+																				<div class="form-group ">																	  																	
+																					<label class="col-sm-4 control-label no-padding-right" for="txt_3"> Utilidad Minorista:</label>
+																					<div class="col-sm-8">																																																																		
+																						<input type="text" id="txt_3" name="txt_3" class="form-control" placeholder="Utilidad Minorista" onkeydown="return validarNumeros(event)" data-toggle="tooltip" data-original-title="Utilidad Minorista Porcentaje" />
 																					</div>
 																				</div>
 																				<div class="form-group has-error">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> El producto es: </label>
+																					<label class="col-sm-4 control-label no-padding-right" for="txt_4"> Precio Minorista:</label>
 																					<div class="col-sm-8">
-																						<select class="chosen-select form-control" id="txt_1" name="txt_1" data-placeholder="El producto es">																																										
-																						</select>						
-																						<input type="hidden" id="txt_0" name="txt_0" />											
+																						<input type="text" id="txt_4" name="txt_4" class="form-control"  placeholder="Precio Minorista" onkeydown="return validarNumeros(event)" data-toggle="tooltip" data-original-title="Precio Minorista" required pattern="[0-9.]{1,}" />
 																					</div>
 																				</div>
 																				<div class="form-group">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Categoria: </label>
+																					<label class="col-sm-4 control-label no-padding-right" for="txt_5"> El producto es: </label>
+																					<div class="col-sm-8">
+																						<select class="chosen-select form-control" id="txt_5" name="txt_5" data-placeholder="El producto es">																						
+																						</select>																												
+																					</div>
+																				</div>
+																				<div class="form-group">
+																					<label class="col-sm-4 control-label no-padding-right" for="txt_6"> Categoria: </label>
 																					<div class="col-sm-6">
-																						<select class="chosen-select form-control" id="txt_1" name="txt_1" data-placeholder="Categoria">																																										
-																						</select>						
-																						<input type="hidden" id="txt_0" name="txt_0" />											
+																						<select class="chosen-select form-control" id="txt_6" name="txt_6" data-placeholder="Categoria">																																										
+																							<option value=""></option>
+																						</select>																												
 																					</div>
 																					<div class="col-sm-2 btn btn-sm btn-success" id="btn_agr_cat" data-toggle="modal" href="#modal_categoria" > Agregar</div>
 																				</div>	
 																				<div class="form-group has-error">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Asignado a: </label>
+																					<label class="col-sm-4 control-label no-padding-right" for="txt_7"> Asignado a: </label>
 																					<div class="col-sm-6">
-																						<select class="chosen-select form-control" id="txt_1" name="txt_1" data-placeholder="Asignado a">																																										
-																						</select>						
-																						<input type="hidden" id="txt_0" name="txt_0" />											
+																						<select class="chosen-select form-control" id="txt_7" name="txt_7" data-placeholder="Asignado a">																																										
+																						</select>																												
 																					</div>
 																					<div class="col-sm-2 btn btn-sm btn-success" id="btn_asi_a" data-toggle="modal" href="#modal_asi_a"> Agregar</div>
 																				</div>
 																				<div class="form-group">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Facturar sin existencia: </label>
+																					<label class="col-sm-4 control-label no-padding-right" for="sin_existencia"> Facturar sin existencia: </label>
 																					<div class="col-sm-6">
 																						<div class="col-xs-3">
 																							<label>
-																								<input name="switch-field-1" class="ace ace-switch ace-switch-5" type="checkbox" checked>
+																								<input name="sin_existencia" id="sin_existencia" class="ace ace-switch ace-switch-5" type="checkbox" checked>
 																								<span class="lbl"></span>
 																							</label>
 																						</div>										
@@ -154,59 +153,58 @@
 																			</div>
 																			<div class="col-sm-6">
 																				<div class="form-group">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Código Barras:</label>
+																					<label class="col-sm-4 control-label no-padding-right" for="txt_8"> Código Barras:</label>
 																					<div class="col-sm-8">
-																						<input type="text" id="txt_2" name="txt_2"  placeholder="Código Barras" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+																						<input type="text" id="txt_8" name="txt_8"  placeholder="Código Barras" class="form-control" data-toggle="tooltip" data-original-title="" />
 																					</div>
 																				</div>
 																				<div class="form-group has-error">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Precio Producto:</label>
+																					<label class="col-sm-4 control-label no-padding-right" for="txt_9"> Precio Producto:</label>
 																					<div class="col-sm-8">
-																						<input type="text" id="txt_2" name="txt_2"  placeholder="Precio Producto" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+																						<input type="text" id="txt_9" name="txt_9" class="form-control" placeholder="Precio del Producto" onkeydown="return validarNumeros(event)" data-toggle="tooltip" data-original-title="Precio del Producto" required pattern="[0-9.]{1,}"  />																						
 																					</div>
 																				</div>
 																				<div class="form-group">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Utilidad Mayorista:</label>
+																					<label class="col-sm-4 control-label no-padding-right" for="txt_10"> Utilidad Mayorista:</label>
 																					<div class="col-sm-8">
-																						<input type="text" id="txt_2" name="txt_2"  placeholder="Utilidad Mayorista" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+																						<input type="text" id="txt_10" name="txt_10" class="form-control" placeholder="Utilidad mayorista" onkeydown="return validarNumeros(event)"  data-toggle="tooltip" data-original-title="Utilidad del Mayorista" />																																																																								
 																					</div>
 																				</div>
 																				<div class="form-group has-error">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Precio Mayorista:</label>
+																					<label class="col-sm-4 control-label no-padding-right" for="txt_11"> Precio Mayorista:</label>
 																					<div class="col-sm-8">
-																						<input type="text" id="txt_2" name="txt_2"  placeholder="Precio Mayorista" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+																						<input type="text" id="txt_11" name="txt_11"  class="form-control" placeholder="Precio mayorista" onkeydown="return validarNumeros(event)"  data-toggle="tooltip" data-original-title="Precio del Mayorista" />																																																																																													
 																					</div>
 																				</div>
 																				<div class="form-group">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Cantidad Inicial:</label>
+																					<label class="col-sm-4 control-label no-padding-right" for="txt_12"> Cantidad Inicial:</label>
 																					<div class="col-sm-8">
-																						<input type="text" id="txt_h" name="txt_h"  placeholder="Cantidad Inicial" class="ui-spinner-input" data-toggle="tooltip" data-original-title="" role="spinbutton" />																						
+																						<input type="text" id="txt_12" name="txt_12"  placeholder="Cantidad Inicial" class="ui-spinner-input col-sm-12" onkeydown="return validarNumeros(event)" data-toggle="tooltip" data-original-title="" role="spinbutton" />																						
 																					</div>
 																				</div>
 																				<div class="form-group">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Marcas: </label>
+																					<label class="col-sm-4 control-label no-padding-right" for="txt_13"> Marcas: </label>
 																					<div class="col-sm-6">
-																						<select class="chosen-select form-control" id="txt_1" name="txt_1" data-placeholder="El producto es">																																										
-																						</select>						
-																						<input type="hidden" id="txt_0" name="txt_0" />											
+																						<select class="chosen-select form-control" id="txt_13" name="txt_13" data-placeholder="Marcas">																																										
+																							<option value=""></option>
+																						</select>																												
 																					</div>
 																					<div class="col-sm-2 btn btn-sm btn-success" id="btn_agr_mar" data-toggle="modal" href="#modal_marcas"> Agregar</div>
 																				</div>
 																				<div class="form-group has-error">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Se vender por: </label>
+																					<label class="col-sm-4 control-label no-padding-right" for="txt_14"> Se vender por: </label>
 																					<div class="col-sm-6">
-																						<select class="chosen-select form-control" id="txt_1" name="txt_1" data-placeholder="Se vender por">																																										
-																						</select>						
-																						<input type="hidden" id="txt_0" name="txt_0" />											
+																						<select class="chosen-select form-control" id="txt_14" name="txt_14" data-placeholder="Se vender por">																																										
+																						</select>																																							
 																					</div>
 																					<div class="col-sm-2 btn btn-sm btn-success" id="btn_se-ven_por" data-toggle="modal" href="#modal_se-vender_por"> Agregar</div>
 																				</div>
 																				<div class="form-group">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1">y contiene:</label>
+																					<label class="col-sm-4 control-label no-padding-right" for="txt_15">y contiene:</label>
 																					<div class="col-sm-6">
-																						<input type="text" readonly id="txt_2" name="txt_2"  class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+																						<input type="text" readonly id="txt_15" name="txt_15"  class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
 																					</div>
-																					<label class="col-sm-1 control-label no-padding-right" for="form-field-1">Unid(s)</label>
+																					<label class="col-sm-1 control-label no-padding-right" for="txt_15">Unid(s)</label>
 
 																				</div>
 																			</div>
@@ -228,25 +226,25 @@
 																					</div>
 																					<div class="col-xs-5">
 																						<div class="form-group">
-																							<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Cantidad Mínima:</label>
+																							<label class="col-sm-5 control-label no-padding-right" for="txt_16"> Cantidad Mínima:</label>
 																							<div class="col-sm-7">
-																								<input type="text" id="txt_mi" name="txt_mi"  placeholder="Cantidad Mínima" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																						
+																								<input type="text" id="txt_16" name="txt_16"  placeholder="Cantidad Mínima" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																						
 																							</div>
 																						</div>
 																						<div class="form-group">
-																							<label class="col-sm-5 control-label no-padding-right" for="form-field-1-1"> Iva: </label>
+																							<label class="col-sm-5 control-label no-padding-right" for="iva_producto"> Iva: </label>
 																							<div class="col-sm-7">																								
 																								<label>
-																									<input name="switch-field-1" class="ace ace-switch ace-switch-5" type="checkbox" checked>
+																									<input name="iva_producto" id="iva_producto" class="ace ace-switch ace-switch-5" type="checkbox" checked>
 																									<span class="lbl"></span>
 																								</label>																																	
 																							</div>																							
 																						</div>
 																						<div class="form-group">
-																							<label class="col-sm-5 control-label no-padding-right" for="form-field-1">Producto con Expiración:</label>
+																							<label class="col-sm-5 control-label no-padding-right" for="expiracion_producto">Producto con Expiración:</label>
 																								<div class="col-xs-3">
 																									<label>
-																										<input name="switch-field-1" class="ace ace-switch ace-switch-5" type="checkbox">
+																										<input name="expiracion_producto" id="expiracion_producto" class="ace ace-switch ace-switch-5" type="checkbox">
 																										<span class="lbl"></span>
 																									</label>
 																								</div>	
@@ -255,34 +253,34 @@
 																					</div>
 																					<div class="col-xs-5">
 																						<div class="form-group">
-																							<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Cantidad Máxima:</label>
+																							<label class="col-sm-5 control-label no-padding-right" for="txt_17"> Cantidad Máxima:</label>
 																							<div class="col-sm-7">
-																								<input type="text" id="txt_ma" name="txt_ma"  placeholder="Cantidad Máxima" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																						
+																								<input type="text" id="txt_17" name="txt_17"  placeholder="Cantidad Máxima" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																						
 																							</div>
 																						</div>
 																						<div class="form-group">
-																							<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Producto series:</label>
+																							<label class="col-sm-5 control-label no-padding-right" for="producto_series"> Producto series:</label>
 																								<div class="col-xs-3">
 																									<label>
-																										<input name="switch-field-1" class="ace ace-switch ace-switch-5" type="checkbox">
+																										<input name="producto_series" id="producto_series" class="ace ace-switch ace-switch-5" type="checkbox">
 																										<span class="lbl"></span>
 																									</label>
 																								</div>	
 																							<div class="col-sm-3 btn btn-sm btn-success" id="btn_asig_series"> Asignar series</div>																							
 																						</div>
 																						<div class="form-group">
-																							<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Producto Activo:</label>
+																							<label class="col-sm-5 control-label no-padding-right" for="producto_activo"> Producto Activo:</label>
 																								<div class="col-xs-3">
 																									<label>
-																										<input name="switch-field-1" class="ace ace-switch ace-switch-5" type="checkbox" checked>
+																										<input name="producto_activo" id="producto_activo" class="ace ace-switch ace-switch-5" type="checkbox" checked>
 																										<span class="lbl"></span>
 																									</label>
 																								</div>	
 																						</div>
 																						<div class="form-group">
-																							<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Detalle producto:</label>
+																							<label class="col-sm-5 control-label no-padding-right" for="txt_18"> Detalle producto:</label>
 																							<div class=" col-xs-7">
-																								<textarea class="input-xlarge" name="txt_0" id="txt_0" placeholder="Comentario"></textarea>
+																								<textarea class="input-xlarge" name="txt_18" id="txt_18" placeholder="Comentario"></textarea>
 																							</div>
 																						</div>
 																					</div>
@@ -348,20 +346,20 @@
 		          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 		          <h4 class="modal-title">AGREGAR CATEGORIAS</h4>
 		        </div>
-		        <div class="modal-body">
-		            <form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_proveedores">
+		        <form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_categoriasProductos">
+		        	<div class="modal-body">		            
 		            	<div class="form-group has-error">
-							<label class="col-sm-2 control-label no-padding-right" for="form-field-1">Descripción:</label>
+							<label class="col-sm-2 control-label no-padding-right" for="txt_categoriaProducto">Descripción:</label>
 							<div class="col-sm-5">
-								<input type="text" id="txt_2" name="txt_2"  placeholder="Ingrese categoria" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+								<input type="text" id="txt_categoriaProducto" name="txt_categoriaProducto"  placeholder="Ingrese categoria" class="form-control" data-toggle="tooltip" data-original-title="Nuevas categorías" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" />
 							</div>
-						</div>						
-		            </form>
-		        </div>
-		        <div class="modal-footer">
-		          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-		          <button type="button" class="btn btn-primary">Guardar</button>
-		        </div>
+						</div>								            
+		        	</div>
+		        	<div class="modal-footer">
+			          	<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			         	<button type="submit" class="btn btn-primary" id="guardarCategoriaProducto">Guardar</button>
+			        </div>
+		        </form>
 		      </div><!-- /.modal-content -->
 		    </div><!-- /.modal-dialog -->
 		  </div><!-- /.modal -->
@@ -374,29 +372,29 @@
 		          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 		          <h4 class="modal-title">ASIGNAR A</h4>
 		        </div>
-		        <div class="modal-body">
-		            <form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_proveedores">
-		            	<div class="form-group has-error">
-							<label class="col-sm-2 control-label no-padding-right" for="form-field-1">Descripción:</label>
-							<div class="col-sm-5">
-								<input type="text" id="txt_2" name="txt_2"  placeholder="Ingrese bodega" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
-							</div>
-						</div>	
-						<div class="form-group has-error">
-							<label class="col-sm-2 control-label no-padding-right" for="form-field-1">Ubicacion:</label>
-							<div class="col-sm-5">
-								<input type="text" id="txt_2" name="txt_2"  placeholder="Ingrese ubicación" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
-							</div>
-						</div>						
-		            </form>
-		        </div>
-		        <div class="modal-footer">
-		          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-		          <button type="button" class="btn btn-primary">Guardar</button>
-		        </div>
-		      </div><!-- /.modal-content -->
+		            <form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_asignarProducto">
+		        		<div class="modal-body">			        
+			            	<div class="form-group has-error">
+								<label class="col-sm-2 control-label no-padding-right" for="txt_descripcionBodega">Descripción:</label>
+								<div class="col-sm-5">
+									<input type="text" id="txt_descripcionBodega" name="txt_descripcionBodega"  placeholder="Ingrese bodega" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9. ]{1,}" />																																																						
+								</div>
+							</div>	
+							<div class="form-group has-error">
+								<label class="col-sm-2 control-label no-padding-right" for="txt_ubicacionProducto">Ubicacion:</label>
+								<div class="col-sm-5">
+									<input type="text" id="txt_ubicacionProducto" name="txt_ubicacionProducto"  placeholder="Ingrese ubicación" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9. ]{1,}" />																																																						
+								</div>
+							</div>								            
+			        	</div>
+				        <div class="modal-footer">
+				          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				          <button type="submit" class="btn btn-primary" id="btn_guardarAsignacion">Guardar</button>
+				        </div>
+		        	</form>
+		      	</div><!-- /.modal-content -->
 		    </div><!-- /.modal-dialog -->
-		  </div><!-- /.modal -->
+		</div><!-- /.modal -->
 
 		<!-- Modal categoria-->
 		  <div class="modal fade" id="modal_marcas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -406,20 +404,20 @@
 		          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 		          <h4 class="modal-title">AGREGAR MARCAS</h4>
 		        </div>
-		        <div class="modal-body">
-		            <form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_proveedores">
-		            	<div class="form-group has-error">
-							<label class="col-sm-2 control-label no-padding-right" for="form-field-1">Descripción:</label>
-							<div class="col-sm-5">
-								<input type="text" id="txt_2" name="txt_2"  placeholder="Ingrese marca" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
-							</div>
-						</div>				
-		            </form>
-		        </div>
-		        <div class="modal-footer">
-		          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-		          <button type="button" class="btn btn-primary">Guardar</button>
-		        </div>
+			        <form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_marcasProducto">
+			        	<div class="modal-body">		            
+			            	<div class="form-group has-error">
+								<label class="col-sm-2 control-label no-padding-right" for="txt_marcaProductos">Descripción:</label>
+								<div class="col-sm-5">
+									<input type="text" id="txt_marcaProductos" name="txt_marcaProductos"  placeholder="Ingrese marca" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9. ]{1,}" />																																																						
+								</div>
+							</div>						            
+			        	</div>
+				        <div class="modal-footer">
+				         	<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				         	<button type="submit" class="btn btn-primary" id="btn_guardarMarcaProducto">Guardar</button>
+				        </div>
+			        </form>
 		      </div><!-- /.modal-content -->
 		    </div><!-- /.modal-dialog -->
 		  </div><!-- /.modal -->
@@ -431,32 +429,32 @@
 		          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 		          <h4 class="modal-title">SE VENDE POR</h4>
 		        </div>
-		        <div class="modal-body">
-		            <form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_proveedores">
-		            	<div class="form-group has-error">
-							<label class="col-sm-2 control-label no-padding-right" for="form-field-1">Descripción:</label>
-							<div class="col-sm-5">
-								<input type="text" id="txt_2" name="txt_2"  placeholder="Ingrese marca" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+		        	<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_sevende">
+			        	<div class="modal-body">		            
+			            	<div class="form-group has-error">
+								<label class="col-sm-2 control-label no-padding-right" for="txt_descripcionUnidades">Descripción:</label>
+								<div class="col-sm-5">
+									<input type="text" id="txt_descripcionUnidades" name="txt_descripcionUnidades"  placeholder="Ingrese marca" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9. ]{1,}" />																																																						
+								</div>
 							</div>
-						</div>
-						<div class="form-group has-error">
-							<label class="col-sm-2 control-label no-padding-right" for="form-field-1">Abreviatura:</label>
-							<div class="col-sm-5">
-								<input type="text" id="txt_2" name="txt_2"  placeholder="Ingrese Abreviatura" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+							<div class="form-group has-error">
+								<label class="col-sm-2 control-label no-padding-right" for="txt_abreviatura">Abreviatura:</label>
+								<div class="col-sm-5">
+									<input type="text" id="txt_abreviatura" name="txt_abreviatura"  placeholder="Ingrese Abreviatura" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9. ]{1,}" />																																																						
+								</div>
 							</div>
-						</div>
-						<div class="form-group has-error">
-							<label class="col-sm-2 control-label no-padding-right" for="form-field-1">Cantidad:</label>
-							<div class="col-sm-5">
-								<input type="text" id="txt_2" name="txt_2"  placeholder="Ingrese cantidad" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
-							</div>
-						</div>				
-		            </form>
-		        </div>
-		        <div class="modal-footer">
-		          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-		          <button type="button" class="btn btn-primary">Guardar</button>
-		        </div>
+							<div class="form-group has-error">
+								<label class="col-sm-2 control-label no-padding-right" for="txt_cantidadSevende">Cantidad:</label>
+								<div class="col-sm-5">
+									<input type="text" id="txt_cantidadSevende" name="txt_cantidadSevende"  onkeydown="return validarNumeros(event)" placeholder="Ingrese cantidad" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+								</div>
+							</div>						            
+			        	</div>
+				        <div class="modal-footer">
+				          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				          <button type="button" class="btn btn-primary" id="btn_guardarSevende">Guardar</button>
+				        </div>
+			        </form>
 		      </div><!-- /.modal-content -->
 		    </div><!-- /.modal-dialog -->
 		  </div><!-- /.modal -->
@@ -506,6 +504,7 @@
 		<script src="../../dist/js/ace-elements.min.js"></script>
 		<script src="../../dist/js/ace.min.js"></script>
 		<script src="productos.js"></script>
+		<script src="../generales.js"></script>
 		<!-- inline scripts related to this page -->
 	</body>
 </html>

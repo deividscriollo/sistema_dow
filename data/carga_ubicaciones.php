@@ -48,7 +48,52 @@
 								$sql = "select id_pais from provincia where id_provincia = '$_GET[id]'";															
 								id($conexion,$sql);
 							}else{
-
+								
+							}
+						}else{
+							if($_GET['fun'] == "7"){//para el producto
+								if($_GET['tipo'] == "0"){//indica que se carga al inicio de la pagina
+									$sql = "select id_tipo,descripcion from tipo_producto";															
+									cargarSelect($conexion,$sql);
+								}else{
+									
+								}
+							}else{
+								if($_GET['fun'] == "8"){//para la categoria
+									if($_GET['tipo'] == "0"){//indica que se carga al inicio de la pagina
+										$sql = "select id_categoria,nombre_categoria from categoria";															
+										cargarSelect($conexion,$sql);
+									}else{
+										
+									}
+								}else{
+									if($_GET['fun'] == "9"){//para la categoria
+										if($_GET['tipo'] == "0"){//indica que se carga al inicio de la pagina
+											$sql = "select id_bodega,nombre_bodega from bodega order by fecha_creacion asc";															
+											cargarSelect($conexion,$sql);
+										}else{
+											
+										}
+									}else{
+										if($_GET['fun'] == "10"){//para la categoria
+											if($_GET['tipo'] == "0"){//indica que se carga al inicio de la pagina
+												$sql = "select id_marca,nombre_marca from marca";															
+												cargarSelect($conexion,$sql);
+											}else{
+												
+											}
+										}else{
+											if($_GET['fun'] == "11"){//para la categoria
+												if($_GET['tipo'] == "0"){//indica que se carga al inicio de la pagina
+													$sql = "select id_unidad,descripcion,cantidad from unidades_medida";															
+													cargarSelect_1($conexion,$sql);
+												}else{
+													
+												}
+											}
+										}
+									}
+								}
 							}
 						}	
 					}	

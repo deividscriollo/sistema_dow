@@ -16,7 +16,7 @@ if ($_POST['oper'] == "add") {
     } else {
         $sql = "insert into bodega values ('$id','" . strtoupper($_POST['nombre_bodega']) . "','" . strtoupper($_POST['ubicacion_bodega']) . "','$fecha','1')";
         $guardar = guardarSql($conexion, $sql);
-        $data = "2";
+        $data = "2";//guardado
     }
 } else {
     if ($_POST['oper'] == "edit") {
