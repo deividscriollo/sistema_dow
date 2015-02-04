@@ -41,8 +41,11 @@ function enter(e) {
     }
     return true;
 }
-function actualizar_form(){
-    location.reload();
+function actualizar_form(){    
+    setTimeout(function() {
+      location.reload();
+    }, 2000);
+    
 }
 function limpiar_form(e){
     if(e != undefined)
@@ -182,7 +185,7 @@ function carga_detalles_productos(id_select,fun){
     }); 
 }
 function carga_detalles_productos_1(id_select,fun){     
-    $("#"+id_select+" option").remove();        
+    $("#"+id_select+" option").remove();         
     $.ajax({        
         type: "POST",
         dataType: 'json',        
@@ -192,8 +195,12 @@ function carga_detalles_productos_1(id_select,fun){
                 $("#"+id_select).append("<option value ="+response[i]+" data-foo="+response[i+2]+">"+response[i+1]+"</option>");                                                                                                                                            
             }   
             $("#"+id_select).trigger("chosen:updated");                                          
+            if(id_select == 'txt_14'){        
+                var extra_data = $("#txt_14").find(":selected").data("foo");        
+                $("#txt_15").val(extra_data);
+            }       
         }                   
-    }); 
+    });     
 }
 function validarNumeros(e) { // 1
     tecla = (document.all) ? e.keyCode : e.which; // 2

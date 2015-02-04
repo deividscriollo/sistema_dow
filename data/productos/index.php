@@ -131,7 +131,7 @@
 																					</div>
 																					<div class="col-sm-2 btn btn-sm btn-success" id="btn_agr_cat" data-toggle="modal" href="#modal_categoria" > Agregar</div>
 																				</div>	
-																				<div class="form-group has-error">
+																				<div class="form-group">
 																					<label class="col-sm-4 control-label no-padding-right" for="txt_7"> Asignado a: </label>
 																					<div class="col-sm-6">
 																						<select class="chosen-select form-control" id="txt_7" name="txt_7" data-placeholder="Asignado a">																																										
@@ -167,13 +167,13 @@
 																				<div class="form-group">
 																					<label class="col-sm-4 control-label no-padding-right" for="txt_10"> Utilidad Mayorista:</label>
 																					<div class="col-sm-8">
-																						<input type="text" id="txt_10" name="txt_10" class="form-control" placeholder="Utilidad mayorista" onkeydown="return validarNumeros(event)"  data-toggle="tooltip" data-original-title="Utilidad del Mayorista" />																																																																								
+																						<input type="text" id="txt_10" name="txt_10" class="form-control" placeholder="Utilidad mayorista" onkeydown="return validarNumeros(event)"  data-toggle="tooltip" data-original-title="Utilidad del Mayorista" />
 																					</div>
 																				</div>
 																				<div class="form-group has-error">
 																					<label class="col-sm-4 control-label no-padding-right" for="txt_11"> Precio Mayorista:</label>
 																					<div class="col-sm-8">
-																						<input type="text" id="txt_11" name="txt_11"  class="form-control" placeholder="Precio mayorista" onkeydown="return validarNumeros(event)"  data-toggle="tooltip" data-original-title="Precio del Mayorista" />																																																																																													
+																						<input type="text" id="txt_11" name="txt_11"  class="form-control" placeholder="Precio mayorista" onkeydown="return validarNumeros(event)"  data-toggle="tooltip" data-original-title="Precio del Mayorista" required pattern="[0-9.]{1,}" />																																																																																													
 																					</div>
 																				</div>
 																				<div class="form-group">
@@ -191,7 +191,7 @@
 																					</div>
 																					<div class="col-sm-2 btn btn-sm btn-success" id="btn_agr_mar" data-toggle="modal" href="#modal_marcas"> Agregar</div>
 																				</div>
-																				<div class="form-group has-error">
+																				<div class="form-group">
 																					<label class="col-sm-4 control-label no-padding-right" for="txt_14"> Se vender por: </label>
 																					<div class="col-sm-6">
 																						<select class="chosen-select form-control" id="txt_14" name="txt_14" data-placeholder="Se vender por">																																										
@@ -452,7 +452,7 @@
 			        	</div>
 				        <div class="modal-footer">
 				          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-				          <button type="button" class="btn btn-primary" id="btn_guardarSevende">Guardar</button>
+				          <button type="submit" class="btn btn-primary" id="btn_guardarSevende">Guardar</button>
 				        </div>
 			        </form>
 		      </div><!-- /.modal-content -->

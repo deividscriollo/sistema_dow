@@ -139,11 +139,17 @@ function inicio (){
 	$("#btn_guardarMarcaProducto").on("click",guardarMarcaProducto);
 	/*---------------------------*/	
 	/*change se vende por*/
-	$("#txt_14").on("change",function(){
-		var a = $(this).val();
-		//// falta el data set
-	})
+	$("#txt_14").on("change",function(e){
+		var extra_data = $("#txt_14").find(":selected").data("foo");		
+		$("#txt_15").val(extra_data);
+	});
+	$("#btn_guardarSevende").on("click",guardarSevende);
 	/*--------------*/
+	/*procesos productos*/
+	$("#btn_0").on("click",guardar_productos);
+	$("#btn_1").on("click",limpiar_form);
+	$("#btn_2").on("click",actualizar_form);	
+	/*-----------------*/
 	$("input").on("keyup click",function (e){//campos requeridos				
 		comprobarCamposRequired(e.currentTarget.form.id);
 	});	
@@ -249,6 +255,92 @@ function guardar_marcaProducto(tipo,p){
 	    		}
 	    	}
 		},		
+	}); 
+}
+function guardarSevende(){	
+	var resp=comprobarCamposRequired("form_sevende");	    	
+	if(resp==true){    		
+		$("#form_sevende").on("submit",function (e){												
+			var texto=($("#btn_guardarSevende").text()).trim();																		
+			if(texto=="Guardar"){ 				
+				guardar_seVende("add",e);							  					                	
+	        }
+	        e.preventDefault();
+    		$(this).unbind("submit")		    			            			
+		});	
+		
+	}				 
+}
+function guardar_seVende(tipo,p){		
+	$.ajax({
+	    url: "../unidad_medida/unidad_medida.php", 	    				    	    
+	    data:  "descripcion="+$("#txt_descripcionUnidades").val() + "&oper="+tipo+ "&abreviatura="+$("#txt_abreviatura").val()+"&cantidad="+$("#txt_cantidadSevende").val(), 	    	    	    
+	    type: "POST",				
+	    success: function(data){	    	
+	    	if( data == 2 ){		    		
+	    		carga_detalles_productos_1("txt_14",'11');//marcas y el numero de funcion	    		
+	    		alert('Datos Agregados Correctamente');	
+	    		limpiar_form(p);		    		
+	    	}else{
+	    		if( data == 1 ){	    		
+	    			alert('Este dato ya existe. Ingrese otra')	;
+	    			$("#txt_descripcionUnidades").val("");
+	    			$("#txt_descripcionUnidades").focus();
+	    		}
+	    	}
+		},		
+	}); 
+}
+function guardar_productos(){
+	var resp=comprobarCamposRequired("form_productos");
+	if(resp==true){
+		$("#form_productos").on("submit",function (e){				
+			var valores = $("#form_productos").serialize();
+			var texto=($("#btn_0").text()).trim();	
+			if(texto=="Guardar"){						
+				datos_productos(valores,"g",e);					
+			}else{				
+				datos_productos(valores,"m",e);					
+			}
+			e.preventDefault();
+    		$(this).unbind("submit");
+		});
+	}
+}
+function datos_productos(valores,tipo,p){	
+	$.ajax({				
+		type: "POST",
+		data: valores+"&tipo="+tipo+"&img="+$("#avatar")[0].src,		
+		url: "productos.php",			
+	    success: function(data) {	
+	    	if( data == 0 ){
+	    		alert('Datos Agregados Correctamente');			
+	    		limpiar_form(p);	    		
+	    	}else{
+	    		if(data == 0){
+	    			alert('Datos guardados correctamente');			
+	    			limpiar_form();		    		
+	    		}else{
+	    			if( data == 1 ){
+			    		alert('El código del producto esta repetido. Ingrese nuevamente');			
+			    		$("#txt_1").focus();		    		
+			    	}else{
+			    		if( data == 2 ){
+				    		alert('El código de barras del producto esta repetido. Ingrese nuevamente');			
+				    		$("#txt_8").focus();			    		
+				    	}else{
+				    		if( data == 3 ){
+					    		alert('El nombre del producto esta repetido. Ingrese nuevamente');			
+					    		$("#txt_2").focus();				    		
+					    	}else{
+					    		alert('Error al momento de guardar... El formulario se recargara')
+					    		actualizar_form();
+					    	}
+				    	}
+			    	}
+	    		}	    			
+	    	}
+		}
 	}); 
 }
 /*---------------------------------*/
