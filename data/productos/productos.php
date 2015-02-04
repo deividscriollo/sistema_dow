@@ -32,7 +32,7 @@
     	if ($repetidos == 'true') {				
     		$data = 1;///codigo repetido		
     	}else{
-    		$repetidos = repetidos($conexion, "codigo_barras", strtoupper($_POST['txt_8']), "productos", "g", "", "");
+    		$repetidos = repetidos($conexion, "codigo_barras", strtoupper($_POST['txt_8']), "productos", "gr", "", "");
 	    	if ($repetidos == 'true') {				
 	    		$data = 2;///codigo barras repetido		
 	    	}else{
@@ -67,33 +67,39 @@
 		$repetidos = repetidos($conexion, "codigo", strtoupper($_POST['txt_1']), "productos", "m", $_POST['txt_0'], "id_productos");
 		if ($repetidos == 'true') {				
     		$data = 1;///codigo repetido		
-    	}
-    	$repetidos = repetidos($conexion, "codigo", strtoupper($_POST['txt_8']), "productos", "m", $_POST['txt_0'], "id_productos");
-		if ($repetidos == 'true') {				
-    		$data = 2;///codigo barras repetido		
-    	}
-    	$repetidos = repetidos($conexion, "codigo", strtoupper($_POST['txt_2']), "productos", "m", $_POST['txt_0'], "id_productos");
-		if ($repetidos == 'true') {				
-    		$data = 3;///nombre repetido		
-    	}
+    	}else{
+    		$repetidos = repetidos($conexion, "codigo_barras", strtoupper($_POST['txt_8']), "productos", "mr", $_POST['txt_0'], "id_productos");
+			if ($repetidos == 'true') {				
+	    		$data = 2;///codigo barras repetido		
+	    	}else{
+	    		$repetidos = repetidos($conexion, "descripcion", strtoupper($_POST['txt_2']), "productos", "m", $_POST['txt_0'], "id_productos");
+				if ($repetidos == 'true') {				
+		    		$data = 3;///nombre repetido		
+		    	}else{
+		    		$data = 0;
+		    	}
+	    	}	    	
+    	}    	
 
-		if (strpos($cadena, $buscar) ==  FALSE) {
-			$sql = "update productos set codigo='$_POST[txt_1]',codigo_barras='$_POST[txt_8]',descripcion='".strtoupper($_POST['txt_2'])."',precio='$_POST[txt_9]',utilidad_minorista='$_POST[txt_3]',utilidad_moyorista='$_POST[txt_10]',precio_minorista='$_POST[txt_4]',precio_mayorista='$_POST[txt_11]',id_tipo='$_POST[txt_5]',stock='$_POST[txt_12]',id_categoria='$_POST[txt_6]',id_marca='$_POST[txt_13]',id_bodega='$_POST[txt_7]',id_unidad='$_POST[txt_14]',facturar_existencia='$sin_existencia',cantidad_minima='$_POST[txt_16]',cantidad_maxima='$_POST[txt_17]',id_series_venta='$producto_series',id_lotes='$expiracion_producto',comentario='$_POST[txt_18]',imagen='default.png',estado='$producto_activo',iva_producto='$iva_producto' where id_producto = '$_POST[txt_0]'";					
-		}else{					
-			$resp = img_64("img",$_POST['img'],'png',$id);					
-			if($resp == "true"){				
-				$sql = "update productos set codigo='$_POST[txt_1]',codigo_barras='$_POST[txt_8]',descripcion='".strtoupper($_POST['txt_2'])."',precio='$_POST[txt_9]',utilidad_minorista='$_POST[txt_3]',utilidad_moyorista='$_POST[txt_10]',precio_minorista='$_POST[txt_4]',precio_mayorista='$_POST[txt_11]',id_tipo='$_POST[txt_5]',stock='$_POST[txt_12]',id_categoria='$_POST[txt_6]',id_marca='$_POST[txt_13]',id_bodega='$_POST[txt_7]',id_unidad='$_POST[txt_14]',facturar_existencia='$sin_existencia',cantidad_minima='$_POST[txt_16]',cantidad_maxima='$_POST[txt_17]',id_series_venta='$producto_series',id_lotes='$expiracion_producto',comentario='$_POST[txt_18]',imagen='".$id.".png',estado='$producto_activo',iva_producto='$iva_producto' where id_producto = '$_POST[txt_0]'";								
-			}
-			else{
-				$sql = "update productos set codigo='$_POST[txt_1]',codigo_barras='$_POST[txt_8]',descripcion='".strtoupper($_POST['txt_2'])."',precio='$_POST[txt_9]',utilidad_minorista='$_POST[txt_3]',utilidad_moyorista='$_POST[txt_10]',precio_minorista='$_POST[txt_4]',precio_mayorista='$_POST[txt_11]',id_tipo='$_POST[txt_5]',stock='$_POST[txt_12]',id_categoria='$_POST[txt_6]',id_marca='$_POST[txt_13]',id_bodega='$_POST[txt_7]',id_unidad='$_POST[txt_14]',facturar_existencia='$sin_existencia',cantidad_minima='$_POST[txt_16]',cantidad_maxima='$_POST[txt_17]',id_series_venta='$producto_series',id_lotes='$expiracion_producto',comentario='$_POST[txt_18]',imagen='default.png',estado='$producto_activo',iva_producto='$iva_producto' where id_producto = '$_POST[txt_0]'";					
-			}
-		}	
-		$guardar = guardarSql($conexion,$sql);
-		if( $guardar == 'true'){
-			$data = 0; ////datos guardados
-		}else{
-			$data = 3; /// error al guardar
-		}	
+		if($data == 0){
+    		if (strpos($cadena, $buscar) ==  FALSE) {
+				$sql = "update productos set codigo='$_POST[txt_1]',codigo_barras='$_POST[txt_8]',descripcion='".strtoupper($_POST['txt_2'])."',precio='$_POST[txt_9]',utilidad_minorista='$_POST[txt_3]',utilidad_mayorista='$_POST[txt_10]',precio_minorista='$_POST[txt_4]',precio_mayorista='$_POST[txt_11]',id_tipo='$_POST[txt_5]',stock='$_POST[txt_12]',id_categoria='$_POST[txt_6]',id_marca='$_POST[txt_13]',id_bodega='$_POST[txt_7]',id_unidad='$_POST[txt_14]',facturar_existencia='$sin_existencia',cantidad_minima='$_POST[txt_16]',cantidad_maxima='$_POST[txt_17]',id_series_venta='$producto_series',id_lotes='$expiracion_producto',comentario='$_POST[txt_18]',imagen='default.png',estado='$producto_activo',iva_producto='$iva_producto' where id_productos = '$_POST[txt_0]'";					
+			}else{					
+				$resp = img_64("img",$_POST['img'],'png',$id);					
+				if($resp == "true"){				
+					$sql = "update productos set codigo='$_POST[txt_1]',codigo_barras='$_POST[txt_8]',descripcion='".strtoupper($_POST['txt_2'])."',precio='$_POST[txt_9]',utilidad_minorista='$_POST[txt_3]',utilidad_mayorista='$_POST[txt_10]',precio_minorista='$_POST[txt_4]',precio_mayorista='$_POST[txt_11]',id_tipo='$_POST[txt_5]',stock='$_POST[txt_12]',id_categoria='$_POST[txt_6]',id_marca='$_POST[txt_13]',id_bodega='$_POST[txt_7]',id_unidad='$_POST[txt_14]',facturar_existencia='$sin_existencia',cantidad_minima='$_POST[txt_16]',cantidad_maxima='$_POST[txt_17]',id_series_venta='$producto_series',id_lotes='$expiracion_producto',comentario='$_POST[txt_18]',imagen='".$id.".png',estado='$producto_activo',iva_producto='$iva_producto' where id_productos = '$_POST[txt_0]'";								
+				}
+				else{
+					$sql = "update productos set codigo='$_POST[txt_1]',codigo_barras='$_POST[txt_8]',descripcion='".strtoupper($_POST['txt_2'])."',precio='$_POST[txt_9]',utilidad_minorista='$_POST[txt_3]',utilidad_mayorista='$_POST[txt_10]',precio_minorista='$_POST[txt_4]',precio_mayorista='$_POST[txt_11]',id_tipo='$_POST[txt_5]',stock='$_POST[txt_12]',id_categoria='$_POST[txt_6]',id_marca='$_POST[txt_13]',id_bodega='$_POST[txt_7]',id_unidad='$_POST[txt_14]',facturar_existencia='$sin_existencia',cantidad_minima='$_POST[txt_16]',cantidad_maxima='$_POST[txt_17]',id_series_venta='$producto_series',id_lotes='$expiracion_producto',comentario='$_POST[txt_18]',imagen='default.png',estado='$producto_activo',iva_producto='$iva_producto' where id_productos = '$_POST[txt_0]'";					
+				}
+			}	
+			$guardar = guardarSql($conexion,$sql);
+			if( $guardar == 'true'){
+				$data = 0; ////datos guardados
+			}else{
+				$data = 4; /// error al guardar
+			}		
+    	}
 	}	
 	echo $data;
 ?>

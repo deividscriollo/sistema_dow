@@ -19,6 +19,7 @@
 		<!-- Select -->
 		<link rel="stylesheet" href="../../dist/css/chosen.min.css" />
 		<link rel="stylesheet" href="../../dist/css/jquery.gritter.min.css" />
+		<link rel="stylesheet" href="../../dist/css/ui.jqgrid.min.css" />
 
 
 		<!-- page specific plugin styles -->
@@ -94,7 +95,7 @@
 																					<label class="col-sm-4 control-label no-padding-right" for="txt_1"> Código:</label>
 																					<div class="col-sm-8">																						
 																						<input type="text" id="txt_1" name="txt_1"  placeholder="Código" class="form-control" data-toggle="tooltip" data-original-title="Código del Producto" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" />
-																						<input type="hidden" id="txt_0">
+																						<input type="hidden" id="txt_0" name="txt_0">
 																					</div>
 																				</div>
 																				<div class="form-group has-error">
@@ -202,7 +203,7 @@
 																				<div class="form-group">
 																					<label class="col-sm-4 control-label no-padding-right" for="txt_15">y contiene:</label>
 																					<div class="col-sm-6">
-																						<input type="text" readonly id="txt_15" name="txt_15"  class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{1,}" />																																																						
+																						<input type="text" readonly id="txt_15" name="txt_15"  class="form-control" data-toggle="tooltip" data-original-title="" />																																																						
 																					</div>
 																					<label class="col-sm-1 control-label no-padding-right" for="txt_15">Unid(s)</label>
 
@@ -217,7 +218,7 @@
 																							<div class="col-xs-12">
 																								<div class="col-xs-12">																									
 																									<span class="profile-picture">
-																										<img id="avatar" class="editable img-responsive" alt="Empresa x" src="img/profile-pic.jpg" accept="image/*"/>
+																										<img id="avatar" class="editable img-responsive" alt="Empresa x" src="img/default.png" accept="image/*"/>
 																									</span>
 
 																								</div>																																														
@@ -247,8 +248,7 @@
 																										<input name="expiracion_producto" id="expiracion_producto" class="ace ace-switch ace-switch-5" type="checkbox">
 																										<span class="lbl"></span>
 																									</label>
-																								</div>	
-																							<div class="col-sm-3 btn btn-sm btn-success" id="btn_asig_lot"> Asignar lotes</div>
+																								</div>																								
 																						</div>																																																																	
 																					</div>
 																					<div class="col-xs-5">
@@ -265,8 +265,7 @@
 																										<input name="producto_series" id="producto_series" class="ace ace-switch ace-switch-5" type="checkbox">
 																										<span class="lbl"></span>
 																									</label>
-																								</div>	
-																							<div class="col-sm-3 btn btn-sm btn-success" id="btn_asig_series"> Asignar series</div>																							
+																								</div>																								
 																						</div>
 																						<div class="form-group">
 																							<label class="col-sm-5 control-label no-padding-right" for="producto_activo"> Producto Activo:</label>
@@ -338,6 +337,25 @@
 		</div><!-- /.main-container -->
 
 		<!-- basic scripts modales-->
+		<!-- Modal -->
+		  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    <div class="modal-dialog">
+		      <div class="modal-content">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		          <h4 class="modal-title">BUSCAR PRODCUTOS</h4>
+		        </div>
+		        <div class="modal-body">
+		            <table id="table"></table>
+					<div id="pager"></div>
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		          <button type="button" class="btn btn-primary">Save changes</button>
+		        </div>
+		      </div><!-- /.modal-content -->
+		    </div><!-- /.modal-dialog -->
+		  </div><!-- /.modal -->
 		<!-- Modal categoria-->
 		  <div class="modal fade" id="modal_categoria" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		    <div class="modal-dialog">
@@ -457,7 +475,8 @@
 			        </form>
 		      </div><!-- /.modal-content -->
 		    </div><!-- /.modal-dialog -->
-		  </div><!-- /.modal -->
+		  </div><!-- /.modal -->		   
+
 		
 		<!-- <![endif]-->
 
@@ -500,11 +519,15 @@
 		<script src="../../dist/js/x-editable/ace-editable.min.js"></script>
 		<script src="../../dist/js/jquery.gritter.min.js"></script>
 
-		<!-- ace scripts -->
+		<!-- ace scripts -->		
 		<script src="../../dist/js/ace-elements.min.js"></script>
 		<script src="../../dist/js/ace.min.js"></script>
+		<script src="../../dist/js/jqGrid/jquery.jqGrid.min.js"></script>
+        <script src="../../dist/js/jqGrid/i18n/grid.locale-en.js"></script>
+		
 		<script src="productos.js"></script>
-		<script src="../generales.js"></script>
+		<script src="../generales.js"></script>		
+		
 		<!-- inline scripts related to this page -->
 	</body>
 </html>

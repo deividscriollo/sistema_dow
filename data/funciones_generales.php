@@ -88,7 +88,24 @@ function repetidos($conexion, $campo, $valor, $tabla, $tipo, $id, $id_campo) {//
                 $repetidos = 'false';
             }
         } else {
-            
+            if ($tipo == "gr") {
+                $sql = "select " . $campo . " from " . $tabla . " where " . $campo . " = '" . $valor . "' and codigo_barras != ''";
+                if (pg_num_rows(pg_query($conexion, $sql))) {
+                    $repetidos = 'true';
+                } else {
+                    $repetidos = 'false';
+                }
+            }else{
+                if ($tipo == "mr") {
+                    $sql = "select " . $campo . " from " . $tabla . " where " . $campo . " = '" . $valor . "' and codigo_barras != '' and " . $id_campo . " not in ('$id') " ;
+                    
+                    if (pg_num_rows(pg_query($conexion, $sql))) {
+                        $repetidos = 'true';
+                    } else {
+                        $repetidos = 'false';
+                    }
+                }
+            }    
         }
     }
     return $repetidos;

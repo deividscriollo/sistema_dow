@@ -81,6 +81,22 @@ function limpiar_form(e){
                     $("#btn_0").text("");
                     $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> Guardar");
                     $("#table").trigger('reloadGrid');     
+                }else{
+                    if(form == "form_productos"){
+                        $("#btn_0").text("");
+                        $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> Guardar");
+                        $("#table").trigger('reloadGrid');     
+                        var extra_data = $("#txt_14").find(":selected").data("foo");        
+                        $("#txt_15").val(extra_data);
+                        $("#txt_12").val('0');
+                        $("#txt_16").val('0');
+                        $("#txt_17").val('0');
+                        $("#txt_18").val('');
+                        $("#txt_13").val('')
+                        $("#txt_13").trigger('chosen:updated');
+                        $("#txt_6").val('')
+                        $("#txt_6").trigger('chosen:updated');
+                    }   
                 }   
             }    
         }           
