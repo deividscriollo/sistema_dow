@@ -34,12 +34,13 @@ if(!isset($_SESSION))
 
 		<!-- ace styles -->
 		<link rel="stylesheet" href="../../dist/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+		<link type="text/css" rel="stylesheet" id="ace-skins-stylesheet" href="../../dist/css/ace-skins.min.css">
 
 		<!-- ace settings handler -->
 		<script src="../../dist/js/ace-extra.min.js"></script>
 	</head>
 
-	<body class="no-skin">
+	<body class="skin-1">
 		<?php menu_arriba(); ?>
 
 		<div class="main-container" id="main-container">

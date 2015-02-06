@@ -11,7 +11,7 @@
 	}
 //informacion empresa
 function empresa(){
-	print'DOW';
+	print'TOTORA SISA';
 }
 //Menu banner arriba usuario perfil dependientes del nivel de usuario
 function menu_arriba(){	
@@ -35,7 +35,6 @@ function menu_arriba(){
 				<div class="navbar-header pull-left">
 					<a href="#" class="navbar-brand">
 						<small>
-							<i class="fa fa-credit-card"></i>
 							';print empresa(); print'
 						</small>
 					</a>
@@ -422,7 +421,7 @@ function footer(){
 				<div class="footer-inner">
 					<div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">dow delopers</span>
+							<span class="blue bolder">TOTORA SISA</span>
 							Aplicación web facturación e inventario &copy; 2014-2015
 						</span>
 
