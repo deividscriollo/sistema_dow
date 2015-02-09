@@ -74,18 +74,26 @@
 												<i class="ace-icon fa fa-refresh"></i>
 											</a>
 										</div>
-									</div>
-
+									</div>									
 									<div class="widget-body">
 										<div class="widget-main">
 											<div class="row">
-												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_cliente">												
+												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_cliente">	
+												<div class="scrollable" data-size="200">										
 													<div class="row">
 														<div class="col-xs-12">
-															<div class="col-sm-3">
+															<div class="col-sm-3 hide">
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Comprobante:</label>
 																	<div class="col-sm-8">
+																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" readonly data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
+																	</div>
+																</div>
+															</div>
+															<div class="col-sm-4">
+																<div class="form-group">
+																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Responsable:</label>
+																	<div class="col-sm-6">
 																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" readonly data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
 																	</div>
 																</div>
@@ -106,55 +114,213 @@
 																	</div>
 																</div>
 															</div>
-															<div class="col-sm-3">
-																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Responsable:</label>
-																	<div class="col-sm-8">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" readonly data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
-																	</div>
-																</div>
-															</div>
+															
 														</div>
 													</div>
+													<div class="hr"></div>																									
 													<div class="row">
 														<div class="col-xs-12">
-															<div class="col-sm-3">
-																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Proveedor: </label>
-
-																	<div class="col-sm-8">
-																		<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Tipo cliente">																			
-																			<option value="Cedula">Cedula</option>
-																			<option value="RUC">RUC</option>	
-																			<option value="PASAPORTE">PASAPORTE</option>	
-																		</select>
-																	</div>
-																</div>
-															</div>
-															<div class="col-sm-3">
+															<div class="col-sm-4">
 																<div class="form-group">
 																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Nro de Identificación:</label>
 																	<div class="col-sm-6">
-																		<input type="text" id="txt_2" name="txt_2" readonly class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																	
-																	</div>																	
+																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																		
+																	</div>																													
 																</div>
 															</div>
-															<div class="col-sm-3">
+															
+															<div class="col-sm-4">
 																<div class="form-group">
-																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"></label>
-																	<div class="col-sm-6">
-																		<input type="text" id="txt_2" name="txt_2" readonly class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																	
-																	</div>																	
-																</div>
-															</div>
-															<div class="col-sm-3">
-																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Comprobante: </label>
+																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Proveedor: </label>
 																	<div class="col-sm-8">
-																		<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Tipo cliente">																			
-																			<option value="Cedula">FACTURA</option>
-																			<option value="RUC">BOLETA O NOTA DE VENTA</option>	
-																		</select>
+																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />
+																	</div>
+																</div>
+															</div>															
+															<div class="col-sm-4">
+																<div class="form-group">
+																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1">Tipo de Comprobante</label>
+																	<div class="col-sm-6">
+																		<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Tipo de Comprobante">
+	                                                                        <option value="Factura"> Factura</option>
+	                                                                        <option value="Nota_venta"> Nota o boleta de venta</option>
+	                                                                    </select>
+																	</div>																	
+																</div>
+															</div>															
+														</div>
+													</div>													
+													<div class="row">
+														<div class="col-xs-12">
+															<div class="col-sm-4">
+																<div class="form-group">
+																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Fecha Registro:</label>
+																	<div class="col-sm-6">
+																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																		
+																	</div>																													
+																</div>
+															</div>
+															
+															<div class="col-sm-4">
+																<div class="form-group">
+																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Fecha Emisión: </label>
+																	<div class="col-sm-8">
+																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />
+																	</div>
+																</div>
+															</div>															
+															<div class="col-sm-4">
+																<div class="form-group">
+																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1">Fecha Caducidad:</label>
+																	<div class="col-sm-6">
+																		<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Tipo de Comprobante">
+	                                                                        <option value="Factura"> Factura</option>
+	                                                                        <option value="Nota_venta"> Nota o boleta de venta</option>
+	                                                                    </select>
+																	</div>																	
+																</div>
+															</div>															
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-xs-12">
+															
+															<div class="col-sm-4">
+																<div class="form-group">																	
+																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Nro de Autorización:</label>
+																	<div class="col-sm-6">
+																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																	</div>																														
+																</div>
+															</div>
+															<div class="col-xs-8">															
+																<div class="form-group">
+																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Numero de serie:</label>
+																	<div class="col-sm-3">
+																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																		
+																	</div>	
+																	<div class="col-sm-3">
+																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																		
+																	</div>	
+																	<div class="col-sm-3">
+																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																		
+																	</div>																													
+																</div>												
+															</div>
+														</div>
+													</div>
+													<div class="row ">
+														<div class="col-xs-12">	
+														<div class="col-xs-4"></div>														
+															<div class="col-sm-4">
+																<div class="form-group">
+																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Fecha cancelación:</label>
+																	<div class="col-sm-6">
+																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																	</div>																														
+																</div>
+															</div>
+															<div class="col-sm-4">
+																<div class="form-group">
+																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Forma de Pago:</label>
+																	<div class="col-sm-6">
+																		<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Forma de Pago">
+	                                                                        <option value="CONTADO">CONTADO</option>
+	                                                                        <option value="CREDITO">CREDITO</option>
+	                                                                    </select>
+																	</div>																														
+																</div>														
+															</div>
+														</div>
+													</div>
+												</div>	
+													<div class="row ">
+														<div class="col-xs-12">
+															<div class="col-xs-12">
+																<h3 class="header smaller lighter green">
+																	<i class="ace-icon fa fa-bullhorn"></i>
+																	Detalle Factura
+																</h3>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-xs-12">
+															<div class="col-xs-3">
+																<div class="row">
+																	<div class="col-xs-12">
+																		<label> Codigo de Barra:</label>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-xs-12">
+																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																	</div>
+																</div>
+															</div>
+															<div class="col-xs-3">
+																<div class="row">
+																	<div class="col-xs-12">
+																		<label> Codigo:</label>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-xs-12">
+																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																	</div>
+																</div>
+															</div>
+															<div class="col-xs-3">
+																<div class="row">
+																	<div class="col-xs-12">
+																		<label> Producto:</label>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-xs-12">
+																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																	</div>
+																</div>
+															</div>
+															<div class="col-xs-3">
+																<div class="row">
+																	<div class="col-xs-12">
+																		<div class="col-sm-4">
+																			<div class="row">
+																				<div class="col-xs-12">
+																					<label> Cantidad:</label>
+																				</div>
+																			</div>
+																			<div class="row">
+																				<div class="col-xs-12">
+																					<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																				</div>
+																			</div>
+																		</div>
+																		<div class="col-sm-4">
+																			<div class="row">
+																				<div class="col-xs-12">
+																					<label> Precio:</label>
+																				</div>
+																			</div>
+																			<div class="row">
+																				<div class="col-xs-12">
+																					<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																				</div>
+																			</div>
+																		</div>
+																		<div class="col-sm-4">
+																			<div class="row">
+																				<div class="col-xs-12">
+																					<label> Descuento:</label>
+																				</div>
+																			</div>
+																			<div class="row">
+																				<div class="col-xs-12">
+																					<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																				</div>
+																			</div>
+																		</div>
 																	</div>
 																</div>
 															</div>
@@ -162,172 +328,104 @@
 													</div>
 													<div class="row">
 														<div class="col-xs-12">
-															
-																<div class="form-group">
-																	<div class="col-xs-12">
-																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Comprobante:</label>
-																	<div class="col-sm-2">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
-																	</div>
-																	<div class="col-sm-2">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" />																																																						
-																	</div>	
-																	<div class="col-sm-2">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="9" required pattern="" />																																																						
-																	</div>	
-																	</div>															
-																</div>
+															<div class="col-sm-12">
+																<div class="hr hr-18 dotted hr-double"></div>
+															</div>
+														</div>
+													</div>
 													
-															
-															
-														</div>
-													</div>
-													<div class="row">
-														<div class="col-xs-2">
-													</div>
-													<div class="row">
-
-														<div class="col-xs-12">															
-															<div class="col-sm-6">
-																
-																<div class="form-group has-error">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> C.I.:</label>
-																	<div class="col-sm-8">
-																		<input type="text" id="txt_2" name="txt_2"  placeholder="Cedula" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
-																	</div>
-																</div>
-																<div class="form-group has-error">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Nombres : </label>
-																	<div class="col-sm-8">
-																		<input type="text" id="txt_3" name="txt_3" placeholder="Nombre Completo" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" data-toggle="tooltip" data-original-title="Nombres completos"  />
-																	</div>
-																</div>
-																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Teléfono: </label>
-
-																	<div class="col-sm-8">
-																		<input type="text" id="txt_4" name="txt_4" placeholder="Teléfono" class="form-control" onkeydown="return validarNumeros(event)" />
-																	</div>
-																</div>
-																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Celular: </label>
-																	<div class="col-sm-8">																																				
-																			<input type="text" id="txt_5" name="txt_5" placeholder="Celular" class="form-control" onkeydown="return validarNumeros(event)"/>																																		
-																	</div>
-																</div>
-																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Correo: </label>
-
-																	<div class="col-sm-8">
-																		<input type="mail" id="txt_6" name="txt_6" placeholder="Correo" class="form-control" />
-																	</div>
-																</div>
-																<div class="form-group">
-																	<label class="control-label col-sm-4 no-padding-right">Cupo de Credito:</label>
-
-																	<div class="col-xs-12 col-sm-8">
-																		<div class="input-group">
-																			<span class="input-group-addon">
-																				<i class="ace-icon fa fa-money"></i>
-																			</span>
-
-																			<input type="text" id="txt_7" name="txt_7" class="form-control" placeholder="Cupo de Credito" onkeydown="return validarNumeros(event)" />
-																			
+													<div class="row">														
+														<div class="col-xs-12">
+														 	<div class="col-sm-12">
+																<table id="" class="table table-striped table-bordered table-hover">
+																	<thead>
+																		<tr style="background-color: #2D2D2D; color: white;">
+																			<th class="center"><i class="ace-icon fa fa-bars"></i> Nro</th>
+																			<th><i class="ace-icon fa fa-barcode"></i> Codigo</th>
+																			<th><i class="ace-icon fa fa-info"></i> Detalle</th>
+																			<th><i class="ace-icon fa fa-list-ol"></i> Cantidad</th>
+																			<th><i class="ace-icon fa fa-money"></i> Precio U.</th>
+																			<th><i class="ace-icon fa fa-area-chart"> Descuento</th>
+																			<th><i class="ace-icon fa fa-usd"> Total</th>
+																			<th><i class="ace-icon fa fa-cogs"></i> Accion</th>
+																		</tr>
+																	</thead>
+																	<tbody>
+																		<tr>
+																			<td>1</td>
+																			<td>1234</td>
+																			<td>esto es ejemplo</td>
+																			<td>25</td>
+																			<td>12.05</td>
+																			<td>1</td>
+																			<td>10.15</td>
+																			<td>
+																				<div class="hidden-sm hidden-xs action-buttons">																					
+																					<div class="red dc_btn_accion">
+																						<i class="ace-icon fa fa-trash-o bigger-130"></i>
+																					</div>
+																				</div>
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+															<div class="row">
+																<div class="col-xs-12">
+																	<div class="col-sm-9"></div>
+																	<div class="col-sm-3">
+																		<div class="form-group">
+																			<label class="col-sm-3 control-label no-padding-right" for="form-field-facebook"> Tarifa 0:</label>
+																			<div class="col-sm-9">
+																				<span class="input-icon">
+																					<input type="text" value="00.00" id="form-field-facebook">
+																					<i class="ace-icon fa fa-usd purple"></i>
+																				</span>
+																			</div>
 																		</div>
-																	</div>
-																</div>													
+																		<div class="form-group">
+																			<label class="col-sm-3 control-label no-padding-right" for="form-field-facebook"> Tarifa 12:</label>
+																			<div class="col-sm-9">
+																				<span class="input-icon">
+																					<input type="text" value="00.00" id="form-field-facebook">
+																					<i class="ace-icon fa fa fa-usd orange"></i>
+																				</span>
+																			</div>
+																		</div>
+																		<div class="form-group">
+																			<label class="col-sm-3 control-label no-padding-right" for="form-field-facebook"> 12 % Iva</label>
+																			<div class="col-sm-9">
+																				<span class="input-icon">
+																					<input type="text" value="00.00" id="form-field-facebook">
+																					<i class="ace-icon fa fa fa-usd red"></i>
+																				</span>
+																			</div>
+																		</div>
+																		<div class="form-group">
+																			<label class="col-sm-3 control-label no-padding-right" for="form-field-facebook"> Descuento</label>
+																			<div class="col-sm-9">
+																				<span class="input-icon">
+																					<input type="text" value="00.00" id="form-field-facebook">
+																					<i class="ace-icon fa fa fa-usd green"></i>
+																				</span>
+																			</div>
+																		</div>
+																		<div class="form-group">
+																			<label class="col-sm-3 control-label no-padding-right" for="form-field-facebook"> Total</label>
+																			<div class="col-sm-9">
+																				<span class="input-icon">
+																					<input type="text" value="00.00" id="form-field-facebook">
+																					<i class="ace-icon fa fa-facebook blue"></i>
+																				</span>
+																			</div>
+																		</div>
+																	</div>																	
+																</div>
 															</div>
-															<div class="col-sm-6">
-																
-																
-																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Tipo Cliente: </label>
-
-																	<div class="col-sm-8">
-																		<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Tipo cliente">																			
-																		<option value="Natural">Natural</option>	
-																			<option value="Juridico">Jurídico</option>	
-																		</select>
-																	</div>
-																</div>											
-																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> País: </label>
-
-																	<div class="col-sm-8">																	
-																		<select class="chosen-select form-control" id="txt_9" name="txt_9" data-placeholder="País">
-																			
-																			
-																		</select>																	
-																	</div>
-																</div>
-																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Provincia: </label>
-
-																	<div class="col-sm-8">
-																		<select class="chosen-select form-control" id="txt_10" name="txt_10" data-placeholder="Provincia">
-																															
-																		</select>
-																	</div>
-																</div>
-																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Ciudad: </label>
-
-																	<div class="col-sm-8">
-																		<select class="chosen-select form-control" id="txt_11" name="txt_11" data-placeholder="Ciudad">
-																															
-																		</select>
-																	</div>
-																</div>
-																<div class="form-group has-error">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Dirección: </label>
-
-																	<div class="col-sm-8">
-																		<input type="text" id="txt_12" name="txt_12" placeholder="Dirección" class="form-control"  required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9]{1,}" data-toggle="tooltip" data-original-title="Ingrese la dirección del cliente" />
-																	</div>
-																</div>
-																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Otros: </label>
-																	<div class="col-sm-8">	
-																		<textarea id="txt_13" name="txt_13" placeholder="Otros" class="col-sm-12"></textarea>
-																	</div>
-																</div>
-
-																
-															</div>
-														</div>
-													</div>
-													<h3 class="header smaller lighter green"></h3>
-													<div class="center">
-														<button type="submit" class="btn btn-white btn-info btn-bold" id="btn_0">
-															<i class="ace-icon fa fa-floppy-o bigger-120 blue"></i>
-															Guardar
-														</button>
-														<button type="button" id="btn_1" class="btn btn-white btn-info btn-bold">
-															<i class="ace-icon fa fa-file-o bigger-120 blue"></i>
-															Limpiar
-														</button>
-														<button type="button" id="btn_2" class="btn btn-white btn-info btn-bold">
-															<i class="ace-icon fa fa-refresh bigger-120 blue"></i>
-															Actualizar
-														</button>														
-														<button data-toggle="modal" href="#myModal" type="button" id="btn_3" class="btn btn-white btn-info btn-bold">
-															<i class="ace-icon fa fa-search bigger-120 blue"></i>
-															Buscar
-														</button>
-														<button type="button" id="btn_4" class="btn btn-white btn-info btn-bold">
-															<i class="ace-icon fa fa-arrow-circle-left bigger-120 blue"></i>
-															Atras
-														</button>
-														<button type="button" id="btn_5" class="btn btn-white btn-info btn-bold">
-															<i class="ace-icon fa fa fa-arrow-circle-right bigger-120 blue"></i>
-															Adelante
-														</button>
+														</div>														
 													</div>
 												</form>
-											</div>									
-											
-
-											
+											</div>
 										</div>
 									</div>
 								</div>
@@ -422,5 +520,12 @@
   </div><!-- /.modal -->
 
 <script type="text/javascript">
-	
+	// scrollables
+	$('.scrollable').each(function () {
+		var $this = $(this);
+		$(this).ace_scroll({
+			size: $this.attr('data-size') || 100,
+			//styleClass: 'scroll-left scroll-margin scroll-thin scroll-dark scroll-light no-track scroll-visible'
+		});
+	});
 </script>

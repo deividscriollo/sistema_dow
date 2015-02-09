@@ -1,3 +1,10 @@
+/*por david modificacion en procesos*/
+.dc_btn_accion:hover{
+	cursor: pointer;
+	font-size: 15px;
+	position: absolute;
+}
+/*fin modificacion por david*/
 html{min-height:100%;position:relative}body{
 	background-color:#e4e6e9;
 	min-height:100%;
