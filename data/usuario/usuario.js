@@ -214,7 +214,7 @@ function inicio (){
 				        success: function(response) {         
 				        	pais = response;						        	
 				        	/*cambio los combos*/
-						    $.ajax({        
+						    $.ajax({
 						        type: "POST",
 						        dataType: 'json',        
 						        url: "../carga_ubicaciones.php?tipo=0&id=0&fun=1",        
@@ -258,8 +258,7 @@ function inicio (){
 															$("#txt_11").append("<option value ="+response[i]+">"+response[i+1]+"</option>");            																																
 														}
 										            }   
-										            $("#txt_11").trigger("chosen:updated"); 
-										                                         
+										            $("#txt_11").trigger("chosen:updated");										                                         
 										        }
 										    });	      
 								                                         

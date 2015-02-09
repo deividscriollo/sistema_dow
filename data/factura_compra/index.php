@@ -130,7 +130,11 @@
 																<div class="form-group">
 																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Nro de Identificación:</label>
 																	<div class="col-sm-6">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																		
+																		<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">
+
+	                                                                        <option value="Factura"> Factura</option>
+	                                                                        <option value="Nota_venta"> Nota o boleta de venta</option>
+	                                                                    </select>
 																	</div>																													
 																</div>
 															</div>
@@ -577,9 +581,27 @@
 <script type="text/javascript">
 	// tooltips 
 	$('[data-rel=tooltip]').tooltip();
+	//calendario
 	$('.date-picker').datepicker({
 		autoclose: true,
 		todayHighlight: true
-	})
+	});
+	// seclect chosen 
+	$('.chosen-select').chosen({
+		allow_single_deselect:true,
+		no_results_text:'No encontrado'		
+	});
+
+	console.log($('#txt_nro_identificacion_chosen chosen-drop chosen-search input').children())
+
 
 </script>
+<!-- <a class="chosen-single" tabindex="-1">
+	<span>Factura</span><div><b></b></div>
+</a>
+<div class="chosen-drop">
+	<div class="chosen-search">
+		<input type="text" autocomplete="off">
+	</div>
+	<ul class="chosen-results"></ul>
+</div> -->
