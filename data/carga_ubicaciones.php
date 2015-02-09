@@ -90,6 +90,15 @@
 												}else{
 													
 												}
+											}else{
+												if($_GET['fun'] == "12"){//para la busqueda de proveedores
+													if($_GET['tipo'] == "0"){
+														$sql = "select id_proveedor,identificacion,nombres_completos from proveedor where identificacion like '%$_GET[val]%'";															
+														cargarSelect_1($conexion,$sql);
+													}else{
+														
+													}
+												}	
 											}
 										}
 									}

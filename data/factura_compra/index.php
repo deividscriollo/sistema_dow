@@ -130,10 +130,8 @@
 																<div class="form-group">
 																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Nro de Identificación:</label>
 																	<div class="col-sm-6">
-																		<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">
-
-	                                                                        <option value="Factura"> Factura</option>
-	                                                                        <option value="Nota_venta"> Nota o boleta de venta</option>
+																		<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	                                                                        
+	                                                                        <option value=""> </option>
 	                                                                    </select>
 																	</div>																													
 																</div>
@@ -550,6 +548,7 @@
         <script src="../../dist/js/jqGrid/i18n/grid.locale-en.js"></script>
 		
 		<script src="../generales.js"></script>
+		<script src="factura_compra.js"></script>
 		
 
 		<!-- inline scripts related to this page -->
@@ -592,7 +591,7 @@
 		no_results_text:'No encontrado'		
 	});
 
-	console.log($('#txt_nro_identificacion_chosen chosen-drop chosen-search input').children())
+	//console.log($('#txt_nro_identificacion_chosen chosen-drop chosen-search input').children())
 
 
 </script>
