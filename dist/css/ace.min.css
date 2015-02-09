@@ -1,8 +1,9 @@
 /*por david modificacion en procesos*/
 .dc_btn_accion:hover{
-	cursor: pointer;
-	font-size: 15px;
-	position: absolute;
+	cursor: pointer;	
+}
+.dccolortabla{
+	background: #428BCA;
 }
 /*fin modificacion por david*/
 html{min-height:100%;position:relative}body{

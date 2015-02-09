@@ -17,6 +17,13 @@
 		<!-- Select -->
 		<link rel="stylesheet" href="../../dist/css/chosen.min.css" />		
 		<link rel="stylesheet" href="../../dist/css/ui.jqgrid.min.css" />
+		<link rel="stylesheet" href="../../dist/css/bootstrap-datetimepicker.min.css" />
+		<link rel="stylesheet" href="../../dist/css/datepicker.min.css" />
+		<link rel="stylesheet" href="../../dist/css/bootstrap-timepicker.min.css" />
+		<link rel="stylesheet" href="../../dist/css/daterangepicker.min.css" />
+		<link rel="stylesheet" href="../../dist/css/bootstrap-datetimepicker.min.css" />
+
+
 
 		<!-- page specific plugin styles -->
 
@@ -79,7 +86,6 @@
 										<div class="widget-main">
 											<div class="row">
 												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_cliente">	
-												<div class="scrollable" data-size="200">										
 													<div class="row">
 														<div class="col-xs-12">
 															<div class="col-sm-3 hide">
@@ -131,16 +137,16 @@
 															
 															<div class="col-sm-4">
 																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Proveedor: </label>
-																	<div class="col-sm-8">
+																	<label class="col-sm-5 control-label no-padding-right" for="form-field-1-1"> Proveedor: </label>
+																	<div class="col-sm-7">
 																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />
 																	</div>
 																</div>
 															</div>															
 															<div class="col-sm-4">
 																<div class="form-group">
-																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1">Tipo de Comprobante</label>
-																	<div class="col-sm-6">
+																	<label class="col-sm-5 control-label no-padding-right" for="form-field-1">Tipo de Comprobante</label>
+																	<div class="col-sm-7">
 																		<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Tipo de Comprobante">
 	                                                                        <option value="Factura"> Factura</option>
 	                                                                        <option value="Nota_venta"> Nota o boleta de venta</option>
@@ -156,27 +162,39 @@
 																<div class="form-group">
 																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Fecha Registro:</label>
 																	<div class="col-sm-6">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																		
+																		<div class="input-group">
+																			<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="yyyy-mm-dd" />
+																			<span class="input-group-addon">
+																				<i class="fa fa-calendar bigger-110"></i>
+																			</span>
+																		</div>
 																	</div>																													
 																</div>
 															</div>
 															
 															<div class="col-sm-4">
 																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Fecha Emisión: </label>
-																	<div class="col-sm-8">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />
+																	<label class="col-sm-5 control-label no-padding-right" for="form-field-1-1"> Fecha Emisión: </label>
+																	<div class="col-sm-7">
+																		<div class="input-group">
+																			<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="yyyy-mm-dd" />
+																			<span class="input-group-addon">
+																				<i class="fa fa-calendar bigger-110"></i>
+																			</span>
+																		</div>
 																	</div>
 																</div>
 															</div>															
 															<div class="col-sm-4">
 																<div class="form-group">
-																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1">Fecha Caducidad:</label>
-																	<div class="col-sm-6">
-																		<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Tipo de Comprobante">
-	                                                                        <option value="Factura"> Factura</option>
-	                                                                        <option value="Nota_venta"> Nota o boleta de venta</option>
-	                                                                    </select>
+																	<label class="col-sm-5 control-label no-padding-right" for="form-field-1">Fecha Caducidad:</label>
+																	<div class="col-sm-7">
+																		<div class="input-group">
+																			<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="yyyy-mm-dd" />
+																			<span class="input-group-addon">
+																				<i class="fa fa-calendar bigger-110"></i>
+																			</span>
+																		</div>
 																	</div>																	
 																</div>
 															</div>															
@@ -195,8 +213,8 @@
 															</div>
 															<div class="col-xs-8">															
 																<div class="form-group">
-																	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Numero de serie:</label>
-																	<div class="col-sm-3">
+																	<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Numero de serie:</label>
+																	<div class="col-sm-4">
 																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																		
 																	</div>	
 																	<div class="col-sm-3">
@@ -210,8 +228,7 @@
 														</div>
 													</div>
 													<div class="row ">
-														<div class="col-xs-12">	
-														<div class="col-xs-4"></div>														
+														<div class="col-xs-12">																													
 															<div class="col-sm-4">
 																<div class="form-group">
 																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Fecha cancelación:</label>
@@ -231,9 +248,9 @@
 																	</div>																														
 																</div>														
 															</div>
+															<div class="col-xs-4"></div>
 														</div>
 													</div>
-												</div>	
 													<div class="row ">
 														<div class="col-xs-12">
 															<div class="col-xs-12">
@@ -339,32 +356,36 @@
 														 	<div class="col-sm-12">
 																<table id="" class="table table-striped table-bordered table-hover">
 																	<thead>
-																		<tr style="background-color: #2D2D2D; color: white;">
-																			<th class="center"><i class="ace-icon fa fa-bars"></i> Nro</th>
-																			<th><i class="ace-icon fa fa-barcode"></i> Codigo</th>
-																			<th><i class="ace-icon fa fa-info"></i> Detalle</th>
-																			<th><i class="ace-icon fa fa-list-ol"></i> Cantidad</th>
-																			<th><i class="ace-icon fa fa-money"></i> Precio U.</th>
-																			<th><i class="ace-icon fa fa-area-chart"> Descuento</th>
-																			<th><i class="ace-icon fa fa-usd"> Total</th>
-																			<th><i class="ace-icon fa fa-cogs"></i> Accion</th>
+																		<tr style="background-color: #428BCA; color: white;">
+																			<th class="center" width="2px"><i class="ace-icon fa fa-bars"></i></th>
+																			<th class="center" width="100px"><i class="ace-icon fa fa-barcode"></i> Codigo</th>
+																			<th class="center"><i class="ace-icon fa fa-info"></i> Detalle</th>
+																			<th class="center" width="100px"><i class="ace-icon fa fa-list-ol"></i> Cantidad</th>
+																			<th class="center" width="100px"><i class="ace-icon fa fa-money"></i> Precio U.</th>
+																			<th class="center" width="100px"><i class="ace-icon fa fa-area-chart"> Descuento</th>
+																			<th class="center" width="100px"><i class="ace-icon fa fa-usd"> Total</th>
+																			<th class="center" width="90px"><i class="ace-icon fa fa-cogs"></i> Accion</th>
 																		</tr>
 																	</thead>
 																	<tbody>
 																		<tr>
-																			<td>1</td>
-																			<td>1234</td>
-																			<td>esto es ejemplo</td>
-																			<td>25</td>
-																			<td>12.05</td>
-																			<td>1</td>
-																			<td>10.15</td>
-																			<td>
-																				<div class="hidden-sm hidden-xs action-buttons">																					
-																					<div class="red dc_btn_accion">
+																			<td class="center">1</td>
+																			<td class="center">12340000000000</td>
+																			<td class="center">esto es ejemplo</td>
+																			<td class="center">25</td>
+																			<td class="center">12.05</td>
+																			<td class="center">1</td>
+																			<td class="center">10.15</td>
+																			<td class="center">
+																				<div class="hidden-sm hidden-xs action-buttons ">															
+																					<a class="green dc_btn_accion tooltip-success" data-rel="tooltip" data-original-title="Modificar">
+																						<i class="ace-icon fa fa-pencil bigger-130" ></i>
+																					</a>
+
+																					<a class="red dc_btn_accion tooltip-error" data-rel="tooltip" data-original-title="Eliminar">
 																						<i class="ace-icon fa fa-trash-o bigger-130"></i>
-																					</div>
-																				</div>
+																					</a>
+																				</div>																				
 																			</td>
 																		</tr>
 																	</tbody>
@@ -424,6 +445,34 @@
 															</div>
 														</div>														
 													</div>
+													<div class="row">
+														<div class="center">													 
+															<button type="submit" class="btn btn-primary" id="btn_0">
+																<i class="ace-icon fa fa-floppy-o bigger-120 write"></i>
+																Guardar
+															</button>
+															<button type="button" id="btn_1" class="btn btn-primary">
+																<i class="ace-icon fa fa-file-o bigger-120 write"></i>
+																Limpiar
+															</button>
+															<button type="button" id="btn_2" class="btn btn-primary">
+																<i class="ace-icon fa fa-refresh bigger-120 write"></i>
+																Actualizar
+															</button>														
+															<button data-toggle="modal" href="#myModal" type="button" id="btn_3" class="btn btn-primary">
+																<i class="ace-icon fa fa-search bigger-120 write"></i>
+																Buscar
+															</button>
+															<button type="button" id="btn_4" class="btn btn-primary">
+																<i class="ace-icon fa fa-arrow-circle-left bigger-120 write"></i>
+																Atras
+															</button>
+															<button type="button" id="btn_5" class="btn btn-primary">
+																<i class="ace-icon fa fa fa-arrow-circle-right bigger-120 write"></i>
+																Adelante
+															</button>
+														</div>
+													</div>
 												</form>
 											</div>
 										</div>
@@ -481,6 +530,12 @@
 		<script src="../../dist/js/flot/jquery.flot.pie.min.js"></script>
 		<script src="../../dist/js/flot/jquery.flot.resize.min.js"></script>
 		<script src="../../dist/js/chosen.jquery.min.js"></script>
+		<script src="../../dist/js/date-time/bootstrap-datepicker.min.js"></script>
+		<script src="../../dist/js/date-time/bootstrap-timepicker.min.js"></script>
+		<script src="../../dist/js/date-time/moment.min.js"></script>
+		<script src="../../dist/js/date-time/daterangepicker.min.js"></script>
+		<script src="../../dist/js/date-time/bootstrap-datetimepicker.min.js"></script>
+
 
 
 
@@ -491,7 +546,7 @@
         <script src="../../dist/js/jqGrid/i18n/grid.locale-en.js"></script>
 		
 		<script src="../generales.js"></script>
-		<script src="clientes.js"></script>
+		
 
 		<!-- inline scripts related to this page -->
 
@@ -520,12 +575,11 @@
   </div><!-- /.modal -->
 
 <script type="text/javascript">
-	// scrollables
-	$('.scrollable').each(function () {
-		var $this = $(this);
-		$(this).ace_scroll({
-			size: $this.attr('data-size') || 100,
-			//styleClass: 'scroll-left scroll-margin scroll-thin scroll-dark scroll-light no-track scroll-visible'
-		});
-	});
+	// tooltips 
+	$('[data-rel=tooltip]').tooltip();
+	$('.date-picker').datepicker({
+		autoclose: true,
+		todayHighlight: true
+	})
+
 </script>
