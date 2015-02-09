@@ -25,7 +25,7 @@ function appendToChosen(id,value){
     $('#txt_nro_identificacion')
         .append($('<option></option>')
         .val(id)
-        .attr('selected', 'selected')
+        //.attr('selected', 'selected')
         .html(value)).trigger('chosen:updated');
 }
 
