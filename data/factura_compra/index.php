@@ -131,7 +131,7 @@
 																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Nro de Identificación:</label>
 																	<div class="col-sm-6">
 																		<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	                                                                        
-	                                                                        <option value=""> </option>
+	                                                                        <option value=""> </option>	                                                                        
 	                                                                    </select>
 																	</div>																													
 																</div>
@@ -141,7 +141,9 @@
 																<div class="form-group">
 																	<label class="col-sm-5 control-label no-padding-right" for="form-field-1-1"> Proveedor: </label>
 																	<div class="col-sm-7">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />
+																		<select class="chosen-select form-control" id="txt_nombre_proveedor" name="txt_nombre_proveedor" data-placeholder="Nro de identifiación">	                                                                        
+	                                                                        <option value=""> </option>	                                                                        
+	                                                                    </select>
 																	</div>
 																</div>
 															</div>															
