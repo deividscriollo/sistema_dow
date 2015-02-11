@@ -240,7 +240,7 @@ function menu_lateral(){
 							</li>
 						</ul>
 					</li>
-					<li ';if ($acus[3]=='factura_compra' || $acus[3]=='devolucion_compra' || $acus[3]=='factura_venta'|| $acus[3]=='nota_credito' ) {
+					<li ';if ($acus[3]=='factura_compra' || $acus[3]=='devolucion_compra' || $acus[3]=='factura_venta'|| $acus[3]=='nota_credito'|| $acus[3]=='kardex' ) {
 								print('class="active open"');
 							}print'>
 						<a href="#" class="dropdown-toggle">
@@ -344,7 +344,7 @@ function menu_lateral(){
 									</li>																	
 								</ul>
 							</li>
-							<li ';if ($acus[3]=='bodegas'||$acus[3]=='categorias'||$acus[3]=='marcas'||$acus[3]=='unidad_medida'||$acus[3]=='tipo_producto') {
+							<li ';if ($acus[3]=='cuentas_cobrar'||$acus[3]=='cuentas_pagar') {
 									print('class="active open"');
 								}print'>
 								<a href="#" class="dropdown-toggle">
@@ -379,8 +379,17 @@ function menu_lateral(){
 									</li>																	
 								</ul>
 							</li>
+							<li ';if ($acus[3]=='kardex') {
+									print('class="active"');
+								}print'>
+								<a href="../kardex/">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Kardex
+								</a>
 
-							<li ';if ($acus[3]=='empresa') {
+								<b class="arrow"></b>
+							</li>
+							<li ';if ($acus[3]=='registro_gastos') {
 									print('class="active"');
 								}print'>
 								<a href="../empresa/">
@@ -390,7 +399,7 @@ function menu_lateral(){
 
 								<b class="arrow"></b>
 							</li>
-							<li ';if ($acus[3]=='usuario') {
+							<li ';if ($acus[3]=='gastos_internos') {
 									print('class="active"');
 								}print'>
 								<a href="../usuario/">
