@@ -96,9 +96,18 @@
 														$sql = "select id_proveedor,identificacion,nombres_completos from proveedor where identificacion like '%$_GET[val]%'";															
 														cargarSelect_1($conexion,$sql);
 													}else{
+
+													}
+												}
+											if($_GET['fun'] == "13"){//para la busqueda de clientes
+													if($_GET['tipo'] == "0"){
+														$sql = "select id_cliente,identificacion,nombres_completos from cliente where identificacion like '%$_GET[val]%'";															
+														cargarSelect_1($conexion,$sql);
+													}else{
 														
 													}
-												}	
+												}
+
 											}
 										}
 									}

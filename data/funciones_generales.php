@@ -23,6 +23,7 @@ function cargarSelect($conexion, $sql) {
         echo $lista = json_encode($lista);
     }
 }
+
 function cargarSelect_1($conexion, $sql) {
     $lista = array();
     $data = 0;
@@ -137,5 +138,19 @@ function atras_adelente($conexion,$sql){
     $sql = pg_query($sql);
     $sql = pg_fetch_row($sql);
     return $sql;
+}
+function buscar_nombres($conexion, $sql) {
+    $lista = array();
+    $data = 0;
+    $sql = pg_query($conexion, $sql);
+    if ($sql) {
+        while ($row = pg_fetch_row($sql)) {
+            $lista[]=$row[0];
+            $lista[]=$row[1];
+            $lista[]=$row[2];
+            $lista[]=$row[3];
+        }
+        echo $lista = json_encode($lista);
+    }
 }
 ?>

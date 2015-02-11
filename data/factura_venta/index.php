@@ -58,8 +58,8 @@
                                 <i class="ace-icon fa fa-home home-icon"></i>
                                 <a href="../inicio/">Inicio</a>
                             </li>
-                            <li class="active">Ingresos</li>
-                            <li class="active">Clientes</li>
+                            <li class="active">Procesos</li>
+                            <li class="active">Factura Venta</li>
                             
                         </ul>
                     </div>
@@ -108,7 +108,7 @@
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Fecha Actual:</label>
 																	<div class="col-sm-8">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" readonly data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
+																		<input type="text" id="txt_fecha_actual" name="txt_fecha_actual"  class="form-control" data-toggle="tooltip" readonly data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
 																	</div>
 																</div>
 															</div>
@@ -116,143 +116,102 @@
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Hora Actual:</label>
 																	<div class="col-sm-8">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" readonly data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
+																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" readonly data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />
 																	</div>
 																</div>
 															</div>
 															
 														</div>
 													</div>
-													<div class="hr"></div>																									
+													<div class="hr"></div>		
 													<div class="row">
 														<div class="col-xs-12">
 															<div class="col-sm-4">
-																<div class="form-group">
-																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Nro de Identificación:</label>
-																	<div class="col-sm-6">
-																		<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	                                                                        
-	                                                                        <option value=""> </option>	                                                                        
-	                                                                    </select>
-																	</div>																													
-																</div>
-															</div>
-															
-															<div class="col-sm-4">
-																<div class="form-group">
-																	<label class="col-sm-5 control-label no-padding-right" for="form-field-1-1"> Proveedor: </label>
-																	<div class="col-sm-7">
-																		<select class="chosen-select form-control" id="txt_nombre_proveedor" name="txt_nombre_proveedor" data-placeholder="Nro de identifiación">	                                                                        
-	                                                                        <option value=""> </option>	                                                                        
-	                                                                    </select>
+																<div class="row">
+																	<div class="col-xs-12">																		
+																		<div class="form-group">
+																			<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Cedula Identidad o Ruc:</label>
+																			<div class="col-sm-6">
+																				<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	                                                                        
+			                                                                        <option value=""> </option>	                                                                        
+			                                                                    </select>
+																			</div>																													
+																		</div>																												
 																	</div>
-																</div>
-															</div>															
-															<div class="col-sm-4">
-																<div class="form-group">
-																	<label class="col-sm-5 control-label no-padding-right" for="form-field-1">Tipo de Comprobante</label>
-																	<div class="col-sm-7">
-																		<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Tipo de Comprobante">
-	                                                                        <option value="Factura"> Factura</option>
-	                                                                        <option value="Nota_venta"> Nota o boleta de venta</option>
-	                                                                    </select>
-																	</div>																	
-																</div>
-															</div>															
-														</div>
-													</div>													
-													<div class="row">
-														<div class="col-xs-12">
-															<div class="col-sm-4">
-																<div class="form-group">
-																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Fecha Registro:</label>
-																	<div class="col-sm-6">
-																		<div class="input-group">
-																			<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="yyyy-mm-dd" />
-																			<span class="input-group-addon">
-																				<i class="fa fa-calendar bigger-110"></i>
-																			</span>
-																		</div>
-																	</div>																													
-																</div>
+																</div>																
 															</div>
-															
-															<div class="col-sm-4">
-																<div class="form-group">
-																	<label class="col-sm-5 control-label no-padding-right" for="form-field-1-1"> Fecha Emisión: </label>
-																	<div class="col-sm-7">
-																		<div class="input-group">
-																			<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="yyyy-mm-dd" />
-																			<span class="input-group-addon">
-																				<i class="fa fa-calendar bigger-110"></i>
-																			</span>
+															<div class="col-sm-8">
+																<div class="row">
+																	<div class="col-xs-12">
+																		<div class="col-sm-5">
+																			<div class="form-group">
+																				<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Fecha cancelación:</label>
+																				<div class="col-sm-6">
+																					<div class="input-group">
+																						<input class="form-control date-picker" id="" name="" type="text" data-date-format="yyyy-mm-dd" />
+																						<span class="input-group-addon">
+																							<i class="fa fa-calendar bigger-110"></i>
+																						</span>
+																					</div>
+																				</div>																														
+																			</div>
+																		</div>
+																		<div class="col-sm-7">
+																			<div class="form-group">
+																				<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Nro factura Preimpresa:</label>
+																				<div class="col-sm-2">
+																					<input type="text" id="txt_2" name="txt_2" class="form-control center" value="001" />																			
+																				</div>
+																				<div class="col-sm-2">
+																					<input type="text" id="txt_2" name="txt_2" class="form-control center" value="001" />																			
+																				</div>
+																				<div class="col-sm-3">
+																					<input type="text" id="txt_2" name="txt_2" class="form-control" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" value="000000999" />
+																				</div>																														
+																			</div>
 																		</div>
 																	</div>
-																</div>
-															</div>															
-															<div class="col-sm-4">
-																<div class="form-group">
-																	<label class="col-sm-5 control-label no-padding-right" for="form-field-1">Fecha Caducidad:</label>
-																	<div class="col-sm-7">
-																		<div class="input-group">
-																			<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="yyyy-mm-dd" />
-																			<span class="input-group-addon">
-																				<i class="fa fa-calendar bigger-110"></i>
-																			</span>
-																		</div>
-																	</div>																	
-																</div>
-															</div>															
+																</div>																
+															</div>
 														</div>
-													</div>
+													</div>	
 													<div class="row">
 														<div class="col-xs-12">
-															
-															<div class="col-sm-4">
-																<div class="form-group">																	
-																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Nro de Autorización:</label>
-																	<div class="col-sm-6">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
-																	</div>																														
-																</div>
-															</div>
-															<div class="col-xs-8">															
+															<div class="col-sm-6">
 																<div class="form-group">
-																	<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Numero de serie:</label>
-																	<div class="col-sm-4">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																		
-																	</div>	
-																	<div class="col-sm-3">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																		
-																	</div>	
-																	<div class="col-sm-3">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																		
+																	<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Cliente:</label>
+																	<div class="col-sm-10">
+																		<blockquote>
+																			<p class="blue" id="lbl_client_nom"></p>	
+																		</blockquote>																		
 																	</div>																													
-																</div>												
-															</div>
-														</div>
-													</div>
-													<div class="row ">
-														<div class="col-xs-12">																													
-															<div class="col-sm-4">
-																<div class="form-group">
-																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Fecha cancelación:</label>
-																	<div class="col-sm-6">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
-																	</div>																														
 																</div>
 															</div>
-															<div class="col-sm-4">
-																<div class="form-group">
-																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Forma de Pago:</label>
-																	<div class="col-sm-6">
-																		<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Forma de Pago">
-	                                                                        <option value="CONTADO">CONTADO</option>
-	                                                                        <option value="CREDITO">CREDITO</option>
-	                                                                    </select>
-																	</div>																														
-																</div>														
+															<div class="col-sm-6">
+																<div class="col-sm-6">
+																	<div class="form-group">
+																		<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Tipo de precio:</label>
+																		<div class="col-sm-7">
+																			<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Forma de Pago">
+		                                                                        <option value="CONTADO">CONTADO</option>
+		                                                                        <option value="CREDITO">CREDITO</option>
+		                                                                    </select>
+																		</div>																														
+																	</div>														
+																</div>
+																<div class="col-sm-6">
+																	<div class="form-group">
+																		<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Forma de Pago:</label>
+																		<div class="col-sm-6">
+																			<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Forma de Pago">
+		                                                                        <option value="CONTADO">CONTADO</option>
+		                                                                        <option value="CHEQUE">CHEQUE</option>
+		                                                                        <option value="TARGETA">TARGETA</option>
+		                                                                    </select>
+																		</div>																														
+																	</div>														
+																</div>
 															</div>
-															<div class="col-xs-4"></div>
 														</div>
 													</div>
 													<div class="row ">
@@ -550,7 +509,7 @@
         <script src="../../dist/js/jqGrid/i18n/grid.locale-en.js"></script>
 		
 		<script src="../generales.js"></script>
-		<script src="factura_compra.js"></script>
+		<script src="factura_venta.js"></script>
 		
 
 		<!-- inline scripts related to this page -->
@@ -583,26 +542,21 @@
 	// tooltips 
 	$('[data-rel=tooltip]').tooltip();
 	//calendario
+	var f = new Date();
 	$('.date-picker').datepicker({
 		autoclose: true,
-		todayHighlight: true
+		format:'yyyy-mm-dd',
+		startView:0		
 	});
+	$('.date-picker').val(f.getFullYear() + "-" + (f.getMonth() +1) + "-" + f.getDate());
+	$('#txt_fecha_actual').val(f.getFullYear() + "-" + (f.getMonth() +1) + "-" + f.getDate());
 	// seclect chosen 
 	$('.chosen-select').chosen({
 		allow_single_deselect:true,
 		no_results_text:'No encontrado'		
 	});
-
-	//console.log($('#txt_nro_identificacion_chosen chosen-drop chosen-search input').children())
+	
+	//$('#dob').datepicker('setDate', new Date(2006, 11, 24));
 
 
 </script>
-<!-- <a class="chosen-single" tabindex="-1">
-	<span>Factura</span><div><b></b></div>
-</a>
-<div class="chosen-drop">
-	<div class="chosen-search">
-		<input type="text" autocomplete="off">
-	</div>
-	<ul class="chosen-results"></ul>
-</div> -->

@@ -6,7 +6,7 @@ function inicio (){
 		 $.ajax({        
 	        type: "POST",
 	        dataType: 'json',        
-	        url: "../carga_ubicaciones.php?tipo=0&id=0&fun=12&val="+text,        
+	        url: "../carga_ubicaciones.php?tipo=0&id=0&fun=13&val="+text,        
 	        success: function(data, status) {
 	        	$('#txt_nro_identificacion').html("");	        	
 	        	for (var i = 0; i < data.length; i=i+3) {            				            		            	
@@ -14,10 +14,12 @@ function inicio (){
 		        }		        
 		    },
 		    error: function (data) {
-		        alert(data);
+		        console.log(data)
 		    }	        
 	     });
-	});	
+	  
+	});
+
 	$("#txt_nro_identificacion").chosen().change(function (event,params){
 		if(params == undefined){			
 			$('#txt_nro_identificacion').html("");
@@ -25,10 +27,24 @@ function inicio (){
 			$('#txt_nro_identificacion').trigger('chosen:updated')
 			$('#txt_nombre_proveedor').html("");
 			$('#txt_nombre_proveedor').append($("<option></option>"));    			
-			$('#txt_nombre_proveedor').trigger('chosen:updated')			
+			$('#txt_nombre_proveedor').trigger('chosen:updated')
 		}
-	});	
+	});
 	
+	$("#txt_nro_identificacion").chosen().change(function(){
+		var valor=$("#txt_nro_identificacion").val()
+		$.ajax({
+			url:'factura_venta.php',
+			type:'POST',
+			dataType:'json',
+			data:{buscar_nombre:'ok', id:valor},
+			success:function(data){
+				data=data;
+				var dcacu=data[0]+', '+data[1]+', '+data[2]+', '+data[3]
+				$('#lbl_client_nom').html(dcacu)
+			}
+		});
+	})
 }
 function appendToChosen(id,value,text,extra){			
     $('#txt_nro_identificacion').append($("<option data-extra='"+extra+"'></option>").val(id).html(value)).trigger('chosen:updated');        
