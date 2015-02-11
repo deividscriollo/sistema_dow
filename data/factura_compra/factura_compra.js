@@ -421,14 +421,38 @@ function inicio (){
 	        success: function(data, status) {
 	        	$('#txt_nro_identificacion').html("");	        	
 	        	for (var i = 0; i < data.length; i=i+3) {            				            		            	
-		        	appendToChosen(data[i],data[i+1],text,data[i+2]);
+		          appendToChosen(data[i],data[i+1],text,data[i+2],"txt_nro_identificacion","txt_nro_identificacion_chosen");
 		        }		        
+            $('#txt_nombre_proveedor').html("");
+            $('#txt_nombre_proveedor').append($("<option data-extra='"+data[1]+"'></option>").val(data[0]).html(data[2])).trigger('chosen:updated');                    
+            $("#id_proveedor").val(data[0])            
 		    },
 		    error: function (data) {
 		        alert(data);
 		    }	        
 	     });
 	});	
+  var input_nombre = $("#txt_nombre_proveedor_chosen").children().next().children();    
+  $(input_nombre).on("keyup",function(input_ci){
+    var text = $(this).children().val();
+     $.ajax({        
+          type: "POST",
+          dataType: 'json',        
+          url: "../carga_ubicaciones.php?tipo=0&id=0&fun=14&val="+text,        
+          success: function(data, status) {
+            $('#txt_nombre_proveedor').html("");            
+            for (var i = 0; i < data.length; i=i+3) {                                                 
+              appendToChosen(data[i],data[i+1],text,data[i+2],"txt_nombre_proveedor","txt_nombre_proveedor_chosen");
+            }           
+            $('#txt_nro_identificacion').html("");
+            $('#txt_nro_identificacion').append($("<option data-extra='"+data[1]+"'></option>").val(data[0]).html(data[2])).trigger('chosen:updated');                    
+            $("#id_proveedor").val(data[0])            
+        },
+        error: function (data) {
+            alert(data);
+        }         
+       });
+  }); 
 	$("#txt_nro_identificacion").chosen().change(function (event,params){
 		if(params == undefined){			
 			$('#txt_nro_identificacion').html("");
@@ -436,15 +460,35 @@ function inicio (){
 			$('#txt_nro_identificacion').trigger('chosen:updated')
 			$('#txt_nombre_proveedor').html("");
 			$('#txt_nombre_proveedor').append($("<option></option>"));    			
-			$('#txt_nombre_proveedor').trigger('chosen:updated')			
-		}
+			$('#txt_nombre_proveedor').trigger('chosen:updated');			
+      $("#id_proveedor").val("");            
+		}else{        
+      var a = $("#txt_nro_identificacion option:selected");            
+      $('#txt_nombre_proveedor').html("");
+      $('#txt_nombre_proveedor').append($("<option data-extra='"+$(a).text()+"'></option>").val($(a).val()).html($(a).data("extra"))).trigger('chosen:updated');
+      $("#id_proveedor").val($(a).text());
+    }
 	});	
-	
+  $("#txt_nombre_proveedor").chosen().change(function (event,params){    
+    if(params == undefined){      
+      $('#txt_nro_identificacion').html("");
+      $('#txt_nro_identificacion').append($("<option></option>"));          
+      $('#txt_nro_identificacion').trigger('chosen:updated')
+      $('#txt_nombre_proveedor').html("");
+      $('#txt_nombre_proveedor').append($("<option></option>"));          
+      $('#txt_nombre_proveedor').trigger('chosen:updated');     
+      $("#id_proveedor").val("")            
+    }else{        
+      var a = $("#txt_nombre_proveedor option:selected");            
+      $('#txt_nro_identificacion').html("");
+      $('#txt_nro_identificacion').append($("<option data-extra='"+$(a).text()+"'></option>").val($(a).val()).html($(a).data("extra"))).trigger('chosen:updated');
+      $("#id_proveedor").val($(a).val());
+    }
+  }); 	
 }
-
-function appendToChosen(id,value,text,extra){			
-    $('#txt_nro_identificacion').append($("<option data-extra='"+extra+"'></option>").val(id).html(value)).trigger('chosen:updated');        
-    var input_ci = $("#txt_nro_identificacion_chosen").children().next().children();	
+function appendToChosen(id,value,text,extra,chosen,chosen1){			
+    $('#'+chosen).append($("<option data-extra='"+extra+"'></option>").val(id).html(value)).trigger('chosen:updated');        
+    var input_ci = $("#"+chosen1).children().next().children();	
     $(input_ci).children().val(text);        
     //console.log($("#txt_nro_identificacion_chosen").children().children().next())        
 }

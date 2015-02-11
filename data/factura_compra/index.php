@@ -124,6 +124,7 @@
 																<div class="form-group">
 																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Nro de Identificación:</label>
 																	<div class="col-sm-6">
+																	<input type="hidden" id="id_proveedor">
 																		<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Buscar....">	                                                                        
 	                                                                        <option value=""> </option>	                                                                        
 	                                                                    </select>

@@ -91,7 +91,7 @@
 													
 												}
 											}else{
-												if($_GET['fun'] == "12"){//para la busqueda de proveedores
+												if($_GET['fun'] == "12"){//para la busqueda de ci de  proveedores
 													if($_GET['tipo'] == "0"){
 														$sql = "select id_proveedor,identificacion,nombres_completos from proveedor where identificacion like '%$_GET[val]%'";															
 														cargarSelect_1($conexion,$sql);
@@ -99,15 +99,23 @@
 
 													}
 												}
-											if($_GET['fun'] == "13"){//para la busqueda de clientes
+												if($_GET['fun'] == "13"){//para la busqueda de clientes
 													if($_GET['tipo'] == "0"){
 														$sql = "select id_cliente,identificacion,nombres_completos from cliente where identificacion like '%$_GET[val]%'";															
 														cargarSelect_1($conexion,$sql);
 													}else{
 														
 													}
+												}else{
+													if($_GET['fun'] == "14"){//para la busqueda de nombres de proveedor
+														if($_GET['tipo'] == "0"){
+															$sql = "select id_proveedor,nombres_completos,identificacion from proveedor where nombres_completos like '%$_GET[val]%'";
+															cargarSelect_1($conexion,$sql);
+														}else{
+															
+														}
+													}
 												}
-
 											}
 										}
 									}
