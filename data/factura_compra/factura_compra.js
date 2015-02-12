@@ -1,57 +1,4 @@
-$(document).on("ready",inicio);
-
-//////////////////para la hora///////////
-function show() {
-    var Digital = new Date();
-    var hours = Digital.getHours();
-    var minutes = Digital.getMinutes();
-    var seconds = Digital.getSeconds();
-    var dn = "AM";
-    if (hours > 12) {
-        dn = "PM";
-        hours = hours - 12;
-    }
-    if (hours === 0)
-        hours = 12;
-    if (minutes <= 9)
-        minutes = "0" + minutes;
-    if (seconds <= 9)
-        seconds = "0" + seconds;
-    $("#hora_actual").val(hours + ":" + minutes + ":" + seconds + " " + dn);
-
-    setTimeout("show()", 1000);
-}
-//////////////////////////
-
-
-		//////////////////para punto////////
-	function punto(e){
-		 var key;
-		if (window.event)
-		{
-		    key = e.keyCode;
-		}
-		else if (e.which)
-		{
-		    key = e.which;
-		}
-
-		if (key < 48 || key > 57)
-		{
-		    if (key === 46 || key === 8)
-		    {
-		        return true;
-		    }
-		    else
-		    {
-		        return false;
-		    }
-		}
-		return true;   
-	}
-///////////////////////////////////
-
-///////////////eventos////////////
+$(document).on("ready",inicio);			
 function enter(e) {
     if (e.which === 13 || e.keyCode === 13) {
         agregar();
@@ -75,50 +22,6 @@ function enter3(e) {
     }
     return true;
 }
-
-
-/////////////////////////////////
-
-///////////////eliminar filas//////////////
-function fn_dar_eliminar(){
-
-	alert("eliminar");
-  //   var subtotal = 0;
-  //   var subtotal_general = 0;
-  //   var iva = 0;
-  //   var iva_general = 0;
-  //   var total_general = 0;  
-  //   $("a.elimina").click(function(){   
-  //   $(this).parents("tr").fadeOut("normal", function(){
-  //   var va;
-  //   $(this).children("td").each(function (index) {
-  //           switch (index) {
-  //           case 6:
-  //          va=$(this).text();
-  //           break;
-  //           }
-  //   });
-    
-    
-  //   ///////////////calcular valores//////////////////////
-  //   subtotal = (va / 1.12).toFixed(2);
-  //   iva = (va-subtotal).toFixed(2);
-    
-  //   total_general = (parseFloat($("#total").val()) - parseFloat(va)).toFixed(2);
-  //   subtotal_general = (parseFloat($("#subtotal").val()) - parseFloat(subtotal)).toFixed(2);
-  //   iva_general= (parseFloat($("#iva").val()) - parseFloat(iva)).toFixed(2);
-  //   $("#subtotal").val(subtotal_general);
-  //   $("#iva").val(iva_general);
-  //   $("#total").val(total_general);
-  //   ///////////////////////////////////////////////////
-    
-  //  $(this).remove(); 
-  // }) 
-  // })
-}
-//////////////////////////////////////////
-
-//////////////modificar filas/////////////
 function fn_dar_modificar(){
 	$("a.dc_btn_accion").click(function(){ 
     var id,codigo,producto,cantidad,precio,descuento;
@@ -161,11 +64,6 @@ function fn_dar_modificar(){
      alert(descuento);
 	})
 }
-////////////////////////////////////////
-
-
-
-////////////funciones gregar///////////////
 function agregar(){
     if ($("#id_productos").val() === "") {
         $("#codigo").focus();
@@ -194,8 +92,6 @@ function agregar(){
     }
 
 }
-
-////////////////////////////////////////
 function agregar2() {
     if ($("#id_productos").val() === "") {
         $("#codigo").focus();
@@ -228,9 +124,6 @@ function agregar2() {
         }
     }
 }
-
-
-////////////////////////////////////////
 function agregar3() {
     if ($("#id_productos").val() === "") {
         $("#codigo").focus();
@@ -376,15 +269,7 @@ function agregar3() {
         }
     }
 }
-
-///////////////////////////////
-
-
-function inicio (){		
-	//////para hora////
-	show();
-	///////////////////
-
+function inicio (){			
 	////////////////validaciones/////////////////
 	$("#cantidad").validCampoFranz("0123456789");
 	$("#autorizacion").validCampoFranz("0123456789");
@@ -394,15 +279,9 @@ function inicio (){
 	$("#serie2").attr("maxlength", "3");
 	$("#serie3").validCampoFranz("0123456789");
 	$("#serie3").attr("maxlength", "9");
-	$("#descuento").validCampoFranz("0123456789");
-	/////////////////////////////////////////////
-
-	//////////////para precio////////
-    $("#precio").on("keypress",punto);
-    ////////////////////////////////
-
-
-    ////////////////////eventos campos/////////////
+	$("#descuento").validCampoFranz("0123456789");	
+  $("#precio").on("keypress",punto);
+  ////////////////////eventos campos/////////////
     $("#codigo").on("keypress", enter);
     $("#producto").on("keypress", enter);
     $("#cantidad").on("keypress", enter);
@@ -428,7 +307,7 @@ function inicio (){
             $("#id_proveedor").val(data[0])            
 		    },
 		    error: function (data) {
-		        alert(data);
+		        //alert(data);
 		    }	        
 	     });
 	});	

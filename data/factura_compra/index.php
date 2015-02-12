@@ -79,14 +79,14 @@
 									<div class="widget-body">
 										<div class="widget-main">
 											<div class="row">
-												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_cliente">	
+												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_facturaCompra">	
 													<div class="row">
 														<div class="col-xs-12">
 															<div class="col-sm-3 hide">
 																<div class="form-group">
 																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Comprobante:</label>
 																	<div class="col-sm-8">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" readonly data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
+																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" readonly data-original-title="" maxlength="10" minlength="10" />
 																	</div>
 																</div>
 															</div>
@@ -125,7 +125,7 @@
 																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Nro de Identificación:</label>
 																	<div class="col-sm-6">
 																	<input type="hidden" id="id_proveedor">
-																		<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Buscar....">	                                                                        
+																		<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Buscar...." >	                                                                        
 	                                                                        <option value=""> </option>	                                                                        
 	                                                                    </select>
 																	</div>																													
@@ -220,13 +220,13 @@
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right"> Numero de serie:</label>
 																	<div class="col-sm-3">
-																		<input type="text" id="serie1" name="serie1" class="form-control" data-toggle="tooltip" data-original-title="" required />																		
+																		<input type="text" id="serie1" name="serie1" class="form-control" data-toggle="tooltip" data-original-title="" required value="001" />																		
 																	</div>	
 																	<div class="col-sm-3">
-																		<input type="text" id="serie2" name="serie2" class="form-control" data-toggle="tooltip" data-original-title="" required/>																		
+																		<input type="text" id="serie2" name="serie2" class="form-control" data-toggle="tooltip" data-original-title="" required value="001" />																		
 																	</div>	
 																	<div class="col-sm-3">
-																		<input type="text" id="serie3" name="serie3" class="form-control" data-toggle="tooltip" data-original-title="" required/>																		
+																		<input type="text" id="serie3" name="serie3" class="form-control" data-toggle="tooltip" data-original-title="" required />																		
 																	</div>																													
 																</div>												
 															</div>
