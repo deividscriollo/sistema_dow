@@ -38,7 +38,7 @@
 		<script src="../../dist/js/ace-extra.min.js"></script>
 	</head>
 
-	<body class="skin-1">
+	<body class="skin-2">
 		<?php menu_arriba(); ?>
 
 		<div class="main-container" id="main-container">
@@ -64,7 +64,7 @@
                         </ul>
                     </div>
 					<div class="page-content">
-						<div class="row">
+						<div class="row">						
 							<div class="col-xs-12 col-sm-12 widget-container-col">
 								<div class="widget-box">
 									<div class="widget-header">
@@ -454,9 +454,46 @@
 			</a>
 		</div><!-- /.main-container -->
 
-		<!-- basic scripts -->
+		<!-- Modal -->
+			<div id="top-menu" class="modal aside" data-fixed="true" data-placement="top" data-background="true" data-backdrop="invisible" tabindex="-1">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body container">
+							<div class="row">
+								<div class="col-sm-5 col-sm-offset-1 white">
+									<h3 class="lighter">Bootstrap Grid &amp; Elements</h3>
+									With invisible backdrop
+								</div>
 
-		
+								<div class="col-sm-5 text-center line-height-2">
+									<a class="btn btn-app btn-Default no-radius" href="#">
+										<i class="ace-icon fa fa-pencil-square-o bigger-230"></i>
+										Default
+										<span class="label label-light arrowed-in-right badge-left">11</span>
+									</a>
+
+									&nbsp; &nbsp;
+									<a class="btn btn-info btn-app no-radius" href="#">
+										<i class="ace-icon fa fa-cog bigger-230"></i>
+										Mailbox
+										<span class="label label-danger arrowed-in">6+</span>
+									</a>
+
+									&nbsp; &nbsp;
+									<a class="btn btn-app btn-light no-radius" href="#">
+										<i class="ace-icon fa fa-print bigger-230"></i>
+										Print
+									</a>
+								</div>
+							</div>
+						</div>
+					</div><!-- /.modal-content -->
+
+					<button class="btn btn-inverse btn-app btn-xs ace-settings-btn aside-trigger" data-target="#top-menu" data-toggle="modal" type="button">
+						<i data-icon="fa-chevron-down" data-icon="fa-chevron-up" class="ace-icon fa fa-chevron-down bigger-110 icon-only"></i>
+					</button>
+				</div><!-- /.modal-dialog -->
+			</div>
 		<!-- <![endif]-->
 
 		<!--[if IE]>
@@ -518,25 +555,8 @@
 
 	</body>
 </html>  
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">BUSCAR USUARIOS</h4>
-        </div>
-        <div class="modal-body">
-            <table id="table"></table>
-			<div id="pager"></div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
+
+  
 
 <script type="text/javascript">
 	// tooltips 
@@ -555,7 +575,16 @@
 		allow_single_deselect:true,
 		no_results_text:'No encontrado'		
 	});
+	$('.modal.aside').ace_aside();
+				
+	$('#aside-inside-modal').addClass('aside').ace_aside({container: '#my-modal > .modal-dialog'});
 	
+	$(document).one('ajaxloadstart.page', function(e) {
+		//in ajax mode, remove before leaving page
+		$('.modal.aside').remove();
+		$(window).off('.aside')
+	});
+
 	//$('#dob').datepicker('setDate', new Date(2006, 11, 24));
 
 
