@@ -237,6 +237,7 @@ function punto(e){
 }
 function validarNumeros(e) { // 1    
     tecla = (document.all) ? e.keyCode : e.which; // 2
+    //console.log(e.keyCode)
     if (tecla==8) return true; // backspace
     if (tecla==13) return true; // enter
     if (tecla==9) return true; // tab
@@ -244,6 +245,8 @@ function validarNumeros(e) { // 1
     if (tecla==109) return true; // menos
     if (tecla==110) return true; // punto
     if (tecla==189) return true; // guion
+    if (tecla==39) return true; // atras
+    if (tecla==37) return true; // adelante
     if (e.ctrlKey && tecla==86) { return true}; //Ctrl v
     if (e.ctrlKey && tecla==67) { return true}; //Ctrl c
     if (e.ctrlKey && tecla==88) { return true}; //Ctrl x
@@ -525,7 +528,77 @@ function appendToChosen(id,value,text,extra,chosen,chosen1){
     $(input_ci).children().val(text);        
     //console.log($("#txt_nro_identificacion_chosen").children().children().next())        
 }
-function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,cantidad_producto,limite,precio_unitario,descuento,total){
-        
+function limpiar_chosen_codigo(){
+    $('#codigo').html("");
+    $('#codigo').append($("<option></option>"));          
+    $('#codigo').trigger('chosen:updated')
+    $('#producto').html("");
+    $('#producto').append($("<option></option>"));          
+    $('#producto').trigger('chosen:updated');     
+    $('#codigo_barras').html("");
+    $('#codigo_barras').append($("<option></option>"));          
+    $('#codigo_barras').trigger('chosen:updated');     
+    $("#id_productos").val("");
+    $("#precio").val("");       
+    $("#cantidad").val("");
 
+}
+function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,cantidad_producto,limite,precio_unitario,descuento,total){
+    var contador=0;
+    var vect = new Array();
+    var cont=0;
+    var repe = 0;
+    $("#"+id_tabla+" tbody tr").each(function (index) {                                  
+        $(this).children("td").each(function (index) { 
+            contador++;                                 
+        });                                                         
+    });
+    if(contador == 0){        
+        if (descuento !== "") {
+            desc = descuento
+            precio = (parseFloat(precio_unitario)).toFixed(2);
+            multi = (cantidad_producto * parseFloat(precio_unitario)).toFixed(2);
+            descuento = ((multi * parseFloat(desc))/100).toFixed(2);
+            total = (multi - descuento).toFixed(2);
+        }else{
+            desc = 0;
+            precio = (parseFloat(precio_unitario)).toFixed(2);
+            total = (parseFloat(cantidad_producto) * precio).toFixed(2);
+        }   
+       $("#"+id_tabla+" tbody").append( "<tr>" +"<td align=center>" + id_productos +"</td>" +"<td align=center>" + codigo_producto + "</td>" +"<td align=center>" + detalle_producto +"</td>" +"<td align=center>" + cantidad_producto +"</td>" +"<td align=center>" + precio + "</td>" +"<td align=center>" + desc +"</td>" +"<td align=center>" + total + "</td>" +"<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='green dc_btn_accion tooltip-success' data-rel='tooltip' data-original-title='Modificar'><i class='ace-icon fa fa-pencil bigger-130' onclick='return fn_dar_modificar(event)'></i></a>  <a class='red dc_btn_accion tooltip-error' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' onclick='return fn_dar_eliminar(event)'></i></a></div>"+ "</td>" +"</tr>" );      
+       limpiar_chosen_codigo();                     
+    }else{         
+        $("#"+id_tabla+" tbody tr").each(function (index) {                                                                 
+            $(this).children("td").each(function (index) {                               
+                switch (index) {                                            
+                    case 0:
+                    vect[cont] = $(this).text();   
+                    break;                                                                                                                               
+                }                                          
+            });
+            cont++;  
+        });
+        for(var i=0 ; i<vect.length; i++) {
+            if(vect[i] == id_productos) {
+                repe++;
+            }
+        }                                
+        if(repe==0){
+            if (descuento !== "") {
+                desc = descuento
+                precio = (parseFloat(precio_unitario)).toFixed(2);
+                multi = (cantidad_producto * parseFloat(precio_unitario)).toFixed(2);
+                descuento = ((multi * parseFloat(desc))/100).toFixed(2);
+                total = (multi - descuento).toFixed(2);
+            }else{
+                desc = 0;
+                precio = (parseFloat(precio_unitario)).toFixed(2);
+                total = (parseFloat(cantidad_producto) * precio).toFixed(2);
+            }
+            $("#"+id_tabla+" tbody").append( "<tr>" +"<td align=center>" + id_productos +"</td>" +"<td align=center>" + codigo_producto + "</td>" +"<td align=center>" + detalle_producto +"</td>" +"<td align=center>" + cantidad_producto +"</td>" +"<td align=center>" + precio + "</td>" +"<td align=center>" + desc +"</td>" +"<td align=center>" + total + "</td>" +"<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='green dc_btn_accion tooltip-success' data-rel='tooltip' data-original-title='Modificar'><i class='ace-icon fa fa-pencil bigger-130' onclick='return fn_dar_modificar(event)'></i></a>  <a class='red dc_btn_accion tooltip-error' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' onclick='return fn_dar_eliminar(event)'></i></a></div>"+ "</td>" +"</tr>" );         
+            limpiar_chosen_codigo();                     
+        }else{
+
+        }                               
+    }
 }

@@ -177,19 +177,8 @@ function inicio (){
     }
   }); 	
   $("#codigo").chosen().change(function (event,params){    
-    if(params == undefined){      
-      $('#codigo').html("");
-      $('#codigo').append($("<option></option>"));          
-      $('#codigo').trigger('chosen:updated')
-      $('#producto').html("");
-      $('#producto').append($("<option></option>"));          
-      $('#producto').trigger('chosen:updated');     
-      $('#codigo_barras').html("");
-      $('#codigo_barras').append($("<option></option>"));          
-      $('#codigo_barras').trigger('chosen:updated');     
-      $("#id_productos").val("");
-      $("#precio").val("");       
-      $("#cantidad").val(0);
+    if(params == undefined){     
+      limpiar_chosen_codigo();          
     }else{              
       var a = $("#codigo option:selected");            
       $('#producto').html("");                   
@@ -202,7 +191,7 @@ function inicio (){
     }
   }); 
   $("#producto").chosen().change(function (event,params){    
-    if(params == undefined){      
+    if(params == undefined){         
       $('#codigo').html("");
       $('#codigo').append($("<option></option>"));          
       $('#codigo').trigger('chosen:updated')
@@ -214,7 +203,7 @@ function inicio (){
       $('#codigo_barras').trigger('chosen:updated');     
       $("#id_productos").val("");
       $("#precio").val("");       
-      $("#cantidad").val(0)
+      //$("#cantidad").val(0)
     }else{              
       var a = $("#producto option:selected");            
       $('#codigo').html("");                   
@@ -242,10 +231,12 @@ function inicio (){
       if($("#cantidad").val() != ""){
         if($("#precio").val() != ""){
           if($("#id_productos").val() != ""){
-            agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,cantidad_producto,limite,precio_unitario,descuento,total);
+            //agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,cantidad_producto,limite,precio_unitario,descuento,total);
+            var a = $("#producto option:selected");      
+            agregar_fila("detalle_factura",$("#id_productos").val(),$(a).data("codigo"),$(a).text(),$("#cantidad").val(),$(a).data("stock"),$("#precio").val(),$("#descuento").val(),"");
           }else{
             alert("Seleccione un producto antes de continuar");                        
-            $('#codigo').trigger('chosen:open')            
+            $('#codigo').trigger('chosen:open');            
           }
         }else{
           alert("Ingrese un precio");
