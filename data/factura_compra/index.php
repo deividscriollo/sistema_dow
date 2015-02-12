@@ -276,7 +276,9 @@
 																</div>
 																<div class="row">
 																	<div class="col-xs-12">
-																		<input type="text" id="codigo_barras" name="codigo_barras" class="form-control" data-toggle="tooltip" /> 
+																		<select class="chosen-select form-control" id="codigo_barras" name="codigo_barras" data-placeholder="Código de Barras del Producto">
+																			<option value=""></option>
+																		</select>																					
 																	</div>
 																</div>
 															</div>
@@ -288,7 +290,9 @@
 																</div>
 																<div class="row">
 																	<div class="col-xs-12">
-																		<input type="text" id="codigo" name="codigo" class="form-control" data-toggle="tooltip" /> 
+																		<select class="chosen-select form-control" id="codigo" name="codigo" data-placeholder="Código del Producto">
+																			<option value=""></option>
+																		</select>																		
 																	</div>
 																</div>
 															</div>
@@ -300,7 +304,9 @@
 																</div>
 																<div class="row">
 																	<div class="col-xs-12">
-																		<input type="text" id="producto" name="producto" class="form-control" data-toggle="tooltip" /> 
+																		<select class="chosen-select form-control" id="producto" name="producto" data-placeholder="Descripción del Producto">
+																			<option value=""></option>
+																		</select>																																				
 																	</div>
 																</div>
 															</div>
@@ -315,7 +321,7 @@
 																			</div>
 																			<div class="row">
 																				<div class="col-xs-12">
-																					<input type="text" id="cantidad" name="cantidad" class="form-control" data-toggle="tooltip"  /> 
+																					<input type="text" id="cantidad" name="cantidad" class="form-control" data-toggle="tooltip"  value="" /> 
 																				</div>
 																			</div>
 																		</div>
@@ -327,7 +333,7 @@
 																			</div>
 																			<div class="row">
 																				<div class="col-xs-12">
-																					<input type="text" id="precio" name="precio" class="form-control" data-toggle="tooltip" /> 
+																					<input type="text" id="precio" name="precio" onkeydown="return validarNumeros(event)" value="0.00" class="form-control" data-toggle="tooltip"  /> 
 																				</div>
 																			</div>
 																		</div>
@@ -339,7 +345,7 @@
 																			</div>
 																			<div class="row">
 																				<div class="col-xs-12">
-																					<input type="number" id="descuento" name="descuento" class="form-control" data-toggle="tooltip" min="0"/> 
+																					<input type="number" id="descuento" name="descuento" class="form-control" data-toggle="tooltip" onkeydown="return validarNumeros(event)" value="0" /> 
 																					<input type="text" id="id_productos" name="id_productos" class="form-control" data-toggle="tooltip" /> 
 																				</div>
 																			</div>

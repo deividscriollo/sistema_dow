@@ -218,7 +218,24 @@ function carga_detalles_productos_1(id_select,fun){
         }                   
     });     
 }
-function validarNumeros(e) { // 1
+function punto(e){                
+    if(e.keyCode == 46){        
+        var texto = $(this).val();     
+        var buscar = '.';      
+        var contador = 0;    
+        while (texto.indexOf(buscar) > -1) {        
+            texto = texto.substr(texto.indexOf(buscar)+buscar.length,texto.length);
+            contador++; 
+        }
+        //console.log(contador)
+        if(contador <1 ){
+            return true;
+        } else{
+            return false;
+        }
+    }    
+}
+function validarNumeros(e) { // 1    
     tecla = (document.all) ? e.keyCode : e.which; // 2
     if (tecla==8) return true; // backspace
     if (tecla==13) return true; // enter
@@ -496,4 +513,19 @@ function adelante(id,carpeta,archivo){
         }
     });     
     return resp;
+}
+function appendToChosenProducto(id,val1,val2,val3,val4,val5,val6,val7,text,chosen,chosen1){      
+    $('#'+chosen).append($("<option data-barras='"+val2+"' data-codigo='"+val3+"' data-precio='"+val4+"' data-stock='"+val5+"' data-iva='"+val6+"' data-inventariable='"+val7+"' ></option>").val(id).html(val1)).trigger('chosen:updated');
+    var input = $("#"+chosen1).children().next().children(); 
+    $(input).children().val(text);            
+}
+function appendToChosen(id,value,text,extra,chosen,chosen1){            
+    $('#'+chosen).append($("<option data-extra='"+extra+"'></option>").val(id).html(value)).trigger('chosen:updated');        
+    var input_ci = $("#"+chosen1).children().next().children(); 
+    $(input_ci).children().val(text);        
+    //console.log($("#txt_nro_identificacion_chosen").children().children().next())        
+}
+function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,cantidad_producto,limite,precio_unitario,descuento,total){
+        
+
 }

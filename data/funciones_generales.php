@@ -38,6 +38,24 @@ function cargarSelect_1($conexion, $sql) {
     }
 }
 
+function cargarSelect_8($conexion, $sql) {
+    $lista = array();
+    $data = 0;
+    $sql = pg_query($conexion, $sql);
+    if ($sql) {
+        while ($row = pg_fetch_row($sql)) {
+            $lista[] = $row[0];
+            $lista[] = $row[1];
+            $lista[] = $row[2];
+            $lista[] = $row[3];
+            $lista[] = $row[4];
+            $lista[] = $row[5];
+            $lista[] = $row[6];
+            $lista[] = $row[7];
+        }
+        echo $lista = json_encode($lista);
+    }
+}
 function unique($fecha_larga) {
     $id = uniqid();
     $id = $fecha_larga . $id;

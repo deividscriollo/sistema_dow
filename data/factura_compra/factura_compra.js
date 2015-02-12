@@ -1,27 +1,4 @@
 $(document).on("ready",inicio);			
-function enter(e) {
-    if (e.which === 13 || e.keyCode === 13) {
-        agregar();
-        return false;
-    }
-    return true;
-}
-
-function enter2(e) {
-    if (e.which === 13 || e.keyCode === 13) {
-        agregar2();
-        return false;
-    }
-    return true;
-}
-
-function enter3(e) {
-    if (e.which === 13 || e.keyCode === 13) {
-        agregar3();
-        return false;
-    }
-    return true;
-}
 function fn_dar_modificar(){
 	$("a.dc_btn_accion").click(function(){ 
     var id,codigo,producto,cantidad,precio,descuento;
@@ -48,227 +25,10 @@ function fn_dar_modificar(){
 	            break;
             }
        	 });
-      })
-      // $("#id_productos").val("");
-      // $("#codigo").val("");
-      // $("#producto").val("");
-      // $("#cantidad").val("");
-      // $("#precio").val("");
-      // $("#descuento").val("");		
-
-     alert(id);
-     alert(codigo);
-     alert(producto);
-     alert(cantidad);
-     alert(precio);
-     alert(descuento);
+      }) 	     
 	})
 }
-function agregar(){
-    if ($("#id_productos").val() === "") {
-        $("#codigo").focus();
-        alert("Código");
-    } else {
-        if ($("#codigo").val() === "") {
-            $("#codigo").focus();
-            alert("Código");
-        } else {
-            if ($("#producto").val() === "") {
-                $("#producto").focus();
-                alert("Producto");
-            } else {
-                if ($("#cantidad").val() === "") {
-                    $("#cantidad").focus();
-                } else {
-                    if ($("#cantidad").val() === "0") {
-                        $("#cantidad").focus();
-                        alert("Cantidad válida");
-                    } else {
-                        $("#precio").focus();
-                    }
-                }
-            }
-        }
-    }
 
-}
-function agregar2() {
-    if ($("#id_productos").val() === "") {
-        $("#codigo").focus();
-        alert("Código");
-    } else {
-        if ($("#codigo").val() === "") {
-            $("#codigo").focus();
-            alert("Código");
-        } else {
-            if ($("#producto").val() === "") {
-                $("#producto").focus();
-                alert("Producto");
-            } else {
-                if ($("#cantidad").val() === "") {
-                    $("#cantidad").focus();
-                } else {
-                    if ($("#cantidad").val() === "0") {
-                        $("#cantidad").focus();
-                        alert("Cantidad válida");
-                    } else {
-                        if ($("#precio").val() === "") {
-                            $("#precio").focus();
-                            alert("Precio");
-                        } else {
-                            $("#descuento").focus();
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-function agregar3() {
-    if ($("#id_productos").val() === "") {
-        $("#codigo").focus();
-        alert("Código");
-    } else {
-        if ($("#codigo").val() === "") {
-            $("#codigo").focus();
-            alert("Código");
-        } else {
-            if ($("#producto").val() === "") {
-                $("#producto").focus();
-                alert("Producto");
-            } else {
-                if ($("#cantidad").val() === "") {
-                    $("#cantidad").focus();
-                } else {
-                    if ($("#cantidad").val() === "0") {
-                        $("#cantidad").focus();
-                        alert("Cantidad válida");
-                    } else {
-                        if ($("#precio").val() === "") {
-                            $("#precio").focus();
-                            alert("Precio");
-                        } else {
-
-                            ///////////////////agregar tabla////////////
-                            var vect = new Array();
-					        var cont=0;
-					        var repe = 0;
-					        var precio = 0;
-					        var multi = 0;
-                            var subtotal = 0;
-					        var subtotal_general = 0;
-					        var iva = 0;
-					        var iva_general = 0;
-					        var descuento = 0;
-					        var desc = 0;
-					        var total = 0;
-					        var total_general = 0;
-
-                            //////recorro toda la tabla                      
-					        var contadort=0;
-					        $("#detalle_factura tbody tr").each(function (index) {                                  
-					            $(this).children("td").each(function (index) { 
-					                contadort++;                                 
-					            })                                                         
-					        })     
-					        /////////////////////////////////
-					      if(contadort == 0){
-						        //subtotal = (total / 1.12).toFixed(2);
-						        //iva = (total-subtotal).toFixed(2);	
-                                if ($("#descuento").val() !== "") {
-                                    desc = $("#descuento").val();
-                                    precio = (parseFloat($("#precio").val())).toFixed(2);
-                                    multi = ($("#cantidad").val() * parseFloat($("#precio").val())).toFixed(2);
-                                    descuento = ((multi * parseFloat($("#descuento").val()))/100).toFixed(2);
-                                    total = (multi - descuento).toFixed(2);
-                                }else{
-                                	desc = 0;
-                                    precio = (parseFloat($("#precio").val())).toFixed(2);
-                                    total = (parseFloat($("#cantidad").val()) * precio).toFixed(2);
-                                } 	
-
-                               $("#detalle_factura tbody").append( "<tr>" +
-				                "<td align=center>" + $("#id_productos").val() +"</td>" +
-				                "<td align=center>" + $("#codigo").val() + "</td>" +
-				                "<td align=center>" + $("#producto").val() +"</td>" +
-				                "<td align=center>" + $("#cantidad").val() +"</td>" +
-				                "<td align=center>" + precio + "</td>" +
-				                "<td align=center>" + desc +"</td>" +
-				                "<td align=center>" + total + "</td>" +
-				                "<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='green dc_btn_accion tooltip-success' data-rel='tooltip' data-original-title='Modificar'><i class='ace-icon fa fa-pencil bigger-130' onclick='return fn_dar_modificar(event)'></i></a>  <a class='red dc_btn_accion tooltip-error' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' onclick='return fn_dar_eliminar(event)'></i></a></div>"+ "</td>" +
-				                "</tr>" ); 
-                                $("#id_productos").val("");
-                                $("#codigo").val("");
-                                $("#producto").val("");
-                                $("#cantidad").val("");
-                                $("#precio").val("");
-                                $("#descuento").val("");
-
-
-					      }
-					      else{
-                              //////////////comprobar repetidos/////////////// 
-				               $("#detalle_factura tbody tr").each(function (index) {                                                                 
-				               $(this).children("td").each(function (index) {                               
-						               switch (index) {                                            
-						                 case 0:
-						                 vect[cont] = $(this).text();   
-						                 break;                                                                                                                               
-						              }                                          
-						            });
-						            cont++;  
-					           });
-
-					           for(var i=0 ; i<vect.length; i++) {
-						            if(vect[i] == $("#id_productos").val()) {
-						                repe++;
-						            }
-						          } 
-					           //////////////////////////////////////////////
-                              if(repe==0){
-                                 if ($("#descuento").val() !== "") {
-                                    desc = $("#descuento").val();
-                                    precio = (parseFloat($("#precio").val())).toFixed(2);
-                                    multi = ($("#cantidad").val() * parseFloat($("#precio").val())).toFixed(2);
-                                    descuento = ((multi * parseFloat($("#descuento").val()))/100).toFixed(2);
-                                    total = (multi - descuento).toFixed(2);
-                                }else{
-                                	desc = 0;
-                                    precio = (parseFloat($("#precio").val())).toFixed(2);
-                                    total = (parseFloat($("#cantidad").val()) * precio).toFixed(2);
-                                } 	
-
-                               $("#detalle_factura tbody").append( "<tr>" +
-				                "<td align=center>" + $("#id_productos").val() +"</td>" +
-				                "<td align=center>" + $("#codigo").val() + "</td>" +
-				                "<td align=center>" + $("#producto").val() +"</td>" +
-				                "<td align=center>" + $("#cantidad").val() +"</td>" +
-				                "<td align=center>" + precio + "</td>" +
-				                "<td align=center>" + desc +"</td>" +
-				                "<td align=center>" + total + "</td>" +
-				                "<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='green dc_btn_accion tooltip-success' data-rel='tooltip' data-original-title='Modificar'><i class='ace-icon fa fa-pencil bigger-130' fn_dar_modificar(event)></i></a>  <a class='red dc_btn_accion tooltip-error' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' fn_dar_eliminar(event)></i></a></div>"+ "</td>" +
-				                "</tr>" ); 
-                                $("#id_productos").val("");
-                                $("#codigo").val("");
-                                $("#producto").val("");
-                                $("#cantidad").val("");
-                                $("#precio").val("");
-                                $("#descuento").val("");
-                             }else{
-                             	alert("Error... El producto ya esta ingresado");
-
-                            }
-					      }
-                         alert("ok");
-
-
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
 function inicio (){			
 	////////////////validaciones/////////////////
 	$("#cantidad").validCampoFranz("0123456789");
@@ -280,16 +40,9 @@ function inicio (){
 	$("#serie3").validCampoFranz("0123456789");
 	$("#serie3").attr("maxlength", "9");
 	$("#descuento").validCampoFranz("0123456789");	
-  $("#precio").on("keypress",punto);
-  ////////////////////eventos campos/////////////
-    $("#codigo").on("keypress", enter);
-    $("#producto").on("keypress", enter);
-    $("#cantidad").on("keypress", enter);
-    $("#precio").on("keypress", enter2);
-    $("#descuento").on("keypress", enter3);
-    ///////////////////////////////////////
+  $("#precio").on("keypress",punto);  
 
-
+  /*buscador de ci proveedor*/
 	var input_ci = $("#txt_nro_identificacion_chosen").children().next().children();		
 	$(input_ci).on("keyup",function(input_ci){
 		var text = $(this).children().val();
@@ -306,11 +59,11 @@ function inicio (){
             $('#txt_nombre_proveedor').append($("<option data-extra='"+data[1]+"'></option>").val(data[0]).html(data[2])).trigger('chosen:updated');                    
             $("#id_proveedor").val(data[0])            
 		    },
-		    error: function (data) {
-		        //alert(data);
+		    error: function (data) {		        
 		    }	        
 	     });
 	});	
+  /*buscador del nombre del proveedor*/
   var input_nombre = $("#txt_nombre_proveedor_chosen").children().next().children();    
   $(input_nombre).on("keyup",function(input_ci){
     var text = $(this).children().val();
@@ -332,6 +85,65 @@ function inicio (){
         }         
        });
   }); 
+  /*buscador del codigo del producto*/
+  var input_codigoProducto = $("#codigo_chosen").children().next().children();    
+  $(input_codigoProducto).on("keyup",function(input_ci){
+    var text = $(this).children().val();
+    $.ajax({        
+      type: "POST",
+      dataType: 'json',        
+      url: "../carga_ubicaciones.php?tipo=0&id=0&fun=15&val="+text,        
+      success: function(data, status) {
+        $('#codigo').html("");            
+        for (var i = 0; i < data.length; i=i+8) {                                                 
+          appendToChosenProducto(data[i],data[i+1],data[i+2],data[i+3],data[i+4],data[i+5],data[i+6],data[i+7],text,"codigo","codigo_chosen");
+        }           
+        $('#producto').html("");
+        $('#producto').append($("<option data-barras='"+data[2]+"' data-codigo='"+data[1]+"' data-precio='"+data[4]+"' data-stock='"+data[5]+"' data-iva='"+data[6]+"' data-inventariable='"+data[7]+"' ></option>").val(data[0]).html(data[3])).trigger('chosen:updated');            
+        $("#id_productos").val(data[0]);
+        $('#codigo_barras').html("");
+        $('#codigo_barras').append($("<option data-barras='"+data[3]+"' data-codigo='"+data[1]+"' data-precio='"+data[4]+"' data-stock='"+data[5]+"' data-iva='"+data[6]+"' data-inventariable='"+data[7]+"' ></option>").val(data[0]).html(data[2])).trigger('chosen:updated');                        
+        $("#precio").val(data[4]);
+        //$("#cantidad").val(data[5]);
+      },
+      error: function (data) {
+        alert(data);
+      }          
+    });
+  });
+  $("#codigo_chosen").children().next().children().click(function (){
+    $("#cantidad").focus(); 
+  });
+  /*buscador del nombre del producto*/
+  var input_nombreProducto = $("#producto_chosen").children().next().children();    
+  $(input_nombreProducto).on("keyup",function(input_ci){    
+    var text = $(this).children().val();
+    $.ajax({        
+      type: "POST",
+      dataType: 'json',        
+      url: "../carga_ubicaciones.php?tipo=0&id=0&fun=16&val="+text,        
+      success: function(data, status) {
+        $('#producto').html("");            
+        for (var i = 0; i < data.length; i=i+8) {                                                 
+          appendToChosenProducto(data[i],data[i+3],data[i+2],data[i+1],data[i+4],data[i+5],data[i+6],data[i+7],text,"producto","producto_chosen");
+        }           
+        $('#codigo').html("");
+        $('#codigo').append($("<option data-barras='"+data[2]+"' data-codigo='"+data[3]+"' data-precio='"+data[4]+"' data-stock='"+data[5]+"' data-iva='"+data[6]+"' data-inventariable='"+data[7]+"' ></option>").val(data[0]).html(data[1])).trigger('chosen:updated');            
+        $("#id_productos").val(data[0]);
+        $('#codigo_barras').html("");
+        $('#codigo_barras').append($("<option data-barras='"+data[3]+"' data-codigo='"+data[1]+"' data-precio='"+data[4]+"' data-stock='"+data[5]+"' data-iva='"+data[6]+"' data-inventariable='"+data[7]+"' ></option>").val(data[0]).html(data[2])).trigger('chosen:updated');                        
+        $("#precio").val(data[4]);
+        //$("#cantidad").val(data[5]);
+      },
+      error: function (data) {
+        alert(data);
+      }          
+    });
+  }); 
+  $("#producto_chosen").children().next().children().click(function (){
+    $("#cantidad").focus(); 
+  });  
+  /*eventos change del chosen*/
 	$("#txt_nro_identificacion").chosen().change(function (event,params){
 		if(params == undefined){			
 			$('#txt_nro_identificacion').html("");
@@ -364,11 +176,87 @@ function inicio (){
       $("#id_proveedor").val($(a).val());
     }
   }); 	
-}
-function appendToChosen(id,value,text,extra,chosen,chosen1){			
-    $('#'+chosen).append($("<option data-extra='"+extra+"'></option>").val(id).html(value)).trigger('chosen:updated');        
-    var input_ci = $("#"+chosen1).children().next().children();	
-    $(input_ci).children().val(text);        
-    //console.log($("#txt_nro_identificacion_chosen").children().children().next())        
+  $("#codigo").chosen().change(function (event,params){    
+    if(params == undefined){      
+      $('#codigo').html("");
+      $('#codigo').append($("<option></option>"));          
+      $('#codigo').trigger('chosen:updated')
+      $('#producto').html("");
+      $('#producto').append($("<option></option>"));          
+      $('#producto').trigger('chosen:updated');     
+      $('#codigo_barras').html("");
+      $('#codigo_barras').append($("<option></option>"));          
+      $('#codigo_barras').trigger('chosen:updated');     
+      $("#id_productos").val("");
+      $("#precio").val("");       
+      $("#cantidad").val(0);
+    }else{              
+      var a = $("#codigo option:selected");            
+      $('#producto').html("");                   
+      $('#codigo_barras').html("");             
+      $('#producto').append($("<option data-barras='"+$(a).data("barras")+"' data-codigo='"+$(a).text()+"' data-precio='"+$(a).data("precio")+"' data-stock='"+$(a).data("stock")+"' data-iva='"+$(a).data("iva")+"' data-inventariable='"+$(a).data("inventariable")+"' ></option>").val($(a).val()).html($(a).data("codigo"))).trigger('chosen:updated');                  
+      $('#codigo_barras').append($("<option data-barras='"+$(a).data("codigo")+"' data-codigo='"+$(a).text()+"' data-precio='"+$(a).data("precio")+"' data-stock='"+$(a).data("stock")+"' data-iva='"+$(a).data("iva")+"' data-inventariable='"+$(a).data("inventariable")+"' ></option>").val($(a).val()).html($(a).data("barras"))).trigger('chosen:updated');                  
+      $("#id_productos").val($(a).val());
+      $("#precio").val($(a).data("precio"));       
+      $("#cantidad").focus();
+    }
+  }); 
+  $("#producto").chosen().change(function (event,params){    
+    if(params == undefined){      
+      $('#codigo').html("");
+      $('#codigo').append($("<option></option>"));          
+      $('#codigo').trigger('chosen:updated')
+      $('#producto').html("");
+      $('#producto').append($("<option></option>"));          
+      $('#producto').trigger('chosen:updated');     
+      $('#codigo_barras').html("");
+      $('#codigo_barras').append($("<option></option>"));          
+      $('#codigo_barras').trigger('chosen:updated');     
+      $("#id_productos").val("");
+      $("#precio").val("");       
+      $("#cantidad").val(0)
+    }else{              
+      var a = $("#producto option:selected");            
+      $('#codigo').html("");                   
+      $('#codigo_barras').html("");             
+      $('#codigo').append($("<option data-barras='"+$(a).data("barras")+"' data-codigo='"+$(a).text()+"' data-precio='"+$(a).data("precio")+"' data-stock='"+$(a).data("stock")+"' data-iva='"+$(a).data("iva")+"' data-inventariable='"+$(a).data("inventariable")+"' ></option>").val($(a).val()).html($(a).data("codigo"))).trigger('chosen:updated');                  
+      $('#codigo_barras').append($("<option data-barras='"+$(a).data("codigo")+"' data-codigo='"+$(a).text()+"' data-precio='"+$(a).data("precio")+"' data-stock='"+$(a).data("stock")+"' data-iva='"+$(a).data("iva")+"' data-inventariable='"+$(a).data("inventariable")+"' ></option>").val($(a).val()).html($(a).data("barras"))).trigger('chosen:updated');                  
+      $("#id_productos").val($(a).val());
+      $("#precio").val($(a).data("precio"));      
+      $("#cantidad").focus(); 
+    }
+  });   
+  /*---agregar a la tabla---*/
+  $("#cantidad").on("keypress",function (e){
+    if(e.keyCode == 13){//tecla del alt para el entrer poner 13
+      $("#precio").focus();  
+    }
+  });
+  $("#precio").on("keypress",function (e){
+    if(e.keyCode == 13){//tecla del alt para el entrer poner 13
+      $("#descuento").focus();  
+    }
+  });
+  $("#descuento").on("keypress",function (e){
+    if(e.keyCode == 13){//tecla del alt para el entrer poner 13      
+      if($("#cantidad").val() != ""){
+        if($("#precio").val() != ""){
+          if($("#id_productos").val() != ""){
+            agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,cantidad_producto,limite,precio_unitario,descuento,total);
+          }else{
+            alert("Seleccione un producto antes de continuar");                        
+            $('#codigo').trigger('chosen:open')            
+          }
+        }else{
+          alert("Ingrese un precio");
+          $("#precio").focus();  
+        }
+      }else{
+        alert("Ingrese una cantidad");
+        $("#cantidad").focus();
+      }
+    }
+  });
+
 }
 /*---------------------------------*/
