@@ -5,6 +5,9 @@
 .dccolortabla{
 	background: #428BCA;
 }
+.dc_espacioalto{
+	height: 200px;
+}
 /*fin modificacion por david*/
 html{min-height:100%;position:relative}body{
 	background-color:#e4e6e9;

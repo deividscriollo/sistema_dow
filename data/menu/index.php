@@ -240,7 +240,7 @@ function menu_lateral(){
 							</li>
 						</ul>
 					</li>
-					<li ';if ($acus[3]=='factura_compra' || $acus[3]=='devolucion_compra' || $acus[3]=='factura_venta'|| $acus[3]=='nota_credito'|| $acus[3]=='kardex' ) {
+					<li ';if ($acus[3]=='factura_compra' || $acus[3]=='devolucion_compra' || $acus[3]=='factura_venta'|| $acus[3]=='nota_credito'|| $acus[3]=='kardex'|| $acus[3]=='inventario' ) {
 								print('class="active open"');
 							}print'>
 						<a href="#" class="dropdown-toggle">

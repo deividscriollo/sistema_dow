@@ -118,151 +118,14 @@
 														</div>
 													</div>
 													<div class="hr"></div>
-													<div class="row">
-														<div class="col-xs-5">
-															<div class="row">
-																<div class="col-xs-12">
-																	<div class="col-sm-6">
-																		<div class="row">
-																			<div class="col-xs-12">																		
-																				<div class="form-group">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> C.I. o Ruc:</label>
-																					<div class="col-sm-8">
-																						<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	                                                                        
-					                                                                        <option value=""> </option>	                                                                        
-					                                                                    </select>
-																					</div>																													
-																				</div>																												
-																			</div>
-																		</div>																
-																	</div>
-																	<div class="col-sm-6">
-																		<div class="row">
-																			<div class="col-xs-12">																		
-																				<div class="form-group">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Nombres:</label>
-																					<div class="col-sm-8">
-																						<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	                                                                        
-					                                                                        <option value=""> </option>	                                                                        
-					                                                                    </select>
-																					</div>																													
-																				</div>																												
-																			</div>
-																		</div>																
-																	</div>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col-xs-12">
-																	<div class="col-sm-6">																		
-																		<div class="form-group">
-																			<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Cliente:</label>
-																			<div class="col-sm-8">
-																				<h5 class="blue" id="lbl_client_nombre"></h5>
-																			</div>																													
-																		</div>																												
-																	</div>
-																	<div class="col-sm-6">																		
-																		<div class="form-group">
-																			<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Direccion:</label>
-																			<div class="col-sm-8">
-																				<h5 class="blue" id="lbl_client_direccion"></h5>
-																			</div>																													
-																		</div>																												
-																	</div>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col-xs-12">
-																	<div class="col-sm-6">																		
-																		<div class="form-group">
-																			<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Telefono:</label>
-																			<div class="col-sm-8">
-																				<h5 class="blue" id="lbl_client_telefono"></h5>
-																			</div>																													
-																		</div>																												
-																	</div>
-																	<div class="col-sm-6">																		
-																		<div class="form-group">
-																			<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Correo:</label>
-																			<div class="col-sm-8">
-																				<h5 class="blue" id="lbl_client_correo"></h5>
-																			</div>																													
-																		</div>																												
-																	</div>
-																</div>
-															</div>
-															
-														</div>
-														<div class="col-xs-7">
-															<div class="row">
-																<div class="col-xs-12">
-																	<div class="col-sm-5">
-																		<div class="form-group">
-																			<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Fecha cancelación:</label>
-																			<div class="col-sm-6">
-																				<div class="input-group">
-																					<input class="form-control date-picker" id="" name="" type="text" data-date-format="yyyy-mm-dd" />
-																					<span class="input-group-addon">
-																						<i class="fa fa-calendar bigger-110"></i>
-																					</span>
-																				</div>
-																			</div>																														
-																		</div>
-																	</div>
-																	<div class="col-sm-7">
-																		<div class="form-group">
-																			<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Nro factura preimpresa:</label>
-																			<div class="col-sm-1">
-																				<h5 class="red">011</h5>
-																				<!-- <input type="text" id="txt_2" name="txt_2" class="form-control center" value="001" />																			 -->
-																			</div>
-																			<div class="col-sm-1">
-																				<h5 class="red">011</h5>
-																			</div>
-																			<div class="col-sm-4">
-																				<input type="text" id="txt_2" name="txt_2" class="form-control green" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" value="000000999" />
-																			</div>																														
-																		</div>
-																	</div>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col-xs-12">
-																	<div class="col-sm-6">
-																	<div class="form-group">
-																		<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Tipo de precio:</label>
-																		<div class="col-sm-7">
-																			<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Forma de Pago">
-		                                                                        <option value="CONTADO">CONTADO</option>
-		                                                                        <option value="CREDITO">CREDITO</option>
-		                                                                    </select>
-																		</div>																														
-																	</div>														
-																</div>
-																<div class="col-sm-6">
-																	<div class="form-group">
-																		<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Forma de Pago:</label>
-																		<div class="col-sm-6">
-																			<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Forma de Pago">
-		                                                                        <option value="CONTADO">CONTADO</option>
-		                                                                        <option value="CHEQUE">CHEQUE</option>
-		                                                                        <option value="TARGETA">TARGETA</option>
-		                                                                    </select>
-																		</div>																														
-																	</div>														
-																</div>
-																</div>
-															</div>
-														</div>
-													</div>		
+
 													
 													<div class="row ">
 														<div class="col-xs-12">
 															<div class="col-xs-12">
 																<h3 class="header smaller lighter green">
 																	<i class="ace-icon fa fa-bullhorn"></i>
-																	Detalle Factura
+																	Productos
 																</h3>
 															</div>
 														</div>
@@ -323,7 +186,7 @@
 																		<div class="col-sm-4">
 																			<div class="row">
 																				<div class="col-xs-12">
-																					<label> Precio:</label>
+																					<label> P. Costo:</label>
 																				</div>
 																			</div>
 																			<div class="row">
@@ -335,7 +198,7 @@
 																		<div class="col-sm-4">
 																			<div class="row">
 																				<div class="col-xs-12">
-																					<label> Descuento:</label>
+																					<label> Stock:</label>
 																				</div>
 																			</div>
 																			<div class="row">
@@ -375,62 +238,27 @@
 																	</thead>
 																	<tbody>
 																		<tr class="dc_espacioalto">
+																			
 																		</tr>
 																	</tbody>
 																</table>
 															</div>
-															<div class="row">
+															<!-- <div class="row">
 																<div class="col-xs-12">
 																	<div class="col-sm-9"></div>
-																	<div class="col-sm-3">
-																		<div class="form-group">
-																			<label class="col-sm-3 control-label no-padding-right" for="form-field-facebook"> Tarifa 0:</label>
-																			<div class="col-sm-9">
-																				<span class="input-icon">
-																					<input type="text" value="00.00" id="form-field-facebook">
-																					<i class="ace-icon fa fa-usd purple"></i>
-																				</span>
-																			</div>
-																		</div>
-																		<div class="form-group">
-																			<label class="col-sm-3 control-label no-padding-right" for="form-field-facebook"> Tarifa 12:</label>
-																			<div class="col-sm-9">
-																				<span class="input-icon">
-																					<input type="text" value="00.00" id="form-field-facebook">
-																					<i class="ace-icon fa fa fa-usd orange"></i>
-																				</span>
-																			</div>
-																		</div>
-																		<div class="form-group">
-																			<label class="col-sm-3 control-label no-padding-right" for="form-field-facebook"> 12 % Iva</label>
-																			<div class="col-sm-9">
-																				<span class="input-icon">
-																					<input type="text" value="00.00" id="form-field-facebook">
-																					<i class="ace-icon fa fa fa-usd red"></i>
-																				</span>
-																			</div>
-																		</div>
-																		<div class="form-group">
-																			<label class="col-sm-3 control-label no-padding-right" for="form-field-facebook"> Descuento</label>
-																			<div class="col-sm-9">
-																				<span class="input-icon">
-																					<input type="text" value="00.00" id="form-field-facebook">
-																					<i class="ace-icon fa fa fa-usd green"></i>
-																				</span>
-																			</div>
-																		</div>
+																	<div class="col-sm-3">																		
 																		<div class="form-group">
 																			<label class="col-sm-3 control-label no-padding-right" for="form-field-facebook"> Total</label>
 																			<div class="col-sm-9">
 																				<span class="input-icon">
 																					<input type="text" value="00.00" id="form-field-facebook">
-																					<i class="ace-icon fa fa-money blue"></i> 
+																					<i class="ace-icon fa fa-usd blue"></i>
 																				</span>
 																			</div>
 																		</div>
 																	</div>																	
 																</div>
-															</div>
+															</div> -->
 														</div>														
 													</div>
 													<div class="row">
