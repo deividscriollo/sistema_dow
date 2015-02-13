@@ -96,13 +96,7 @@ if(!isset($_SESSION))
 										<div class="widget-main">
 											
 
-
-
-
-											aki codigo
-
-
-
+											
 
 
 										</div>

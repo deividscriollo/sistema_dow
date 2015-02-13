@@ -38,7 +38,7 @@
 		<script src="../../dist/js/ace-extra.min.js"></script>
 	</head>
 
-	<body class="skin-2">
+	<body class="skin-1">
 		<?php menu_arriba(); ?>
 
 		<div class="main-container" id="main-container">
@@ -87,108 +87,146 @@
 											<div class="row">
 												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_cliente">	
 													<div class="row">
-														<div class="col-xs-12">
+														<div class="col-xs-12">														
 															<div class="col-sm-3 hide">
-																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Comprobante:</label>
-																	<div class="col-sm-8">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" readonly data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
-																	</div>
-																</div>
+																<span class="bigger-120" id>
+																	<span class="green bolder">Comprobante:</span>
+																	<span>000000</span>
+																</span>
 															</div>
 															<div class="col-sm-4">
-																<div class="form-group">
-																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Responsable:</label>
+																<span class="bigger-120" id>
+																	<span class="red bolder">Responsable:</span>
+																	<span>ANDRES MOLINARES</span>
+																</span>
+															</div>
+															<div class="col-sm-4">
+																<span class="bigger-120" id>
+																	<span class="blue bolder">Fecha Actual:</span>
+																	<span>2015-02-13</span>
+																</span>
+															</div>
+															<div class="col-sm-4">
+																<span class="bigger-120" id>
+																	<span class="blue bolder">Hora Actual:</span>
+																	<span>11:00:01</span>
+																</span>
+															</div>
+															
+														</div>
+													</div>
+													<div class="hr"></div>
+													<div class="row">
+														<div class="col-xs-5">
+															<div class="row">
+																<div class="col-xs-12">
 																	<div class="col-sm-6">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" readonly data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
+																		<div class="row">
+																			<div class="col-xs-12">																		
+																				<div class="form-group">
+																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> C.I. o Ruc:</label>
+																					<div class="col-sm-8">
+																						<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	                                                                        
+					                                                                        <option value=""> </option>	                                                                        
+					                                                                    </select>
+																					</div>																													
+																				</div>																												
+																			</div>
+																		</div>																
+																	</div>
+																	<div class="col-sm-6">
+																		<div class="row">
+																			<div class="col-xs-12">																		
+																				<div class="form-group">
+																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Apellidos:</label>
+																					<div class="col-sm-8">
+																						<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	                                                                        
+					                                                                        <option value=""> </option>	                                                                        
+					                                                                    </select>
+																					</div>																													
+																				</div>																												
+																			</div>
+																		</div>																
 																	</div>
 																</div>
 															</div>
-															<div class="col-sm-3">
-																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Fecha Actual:</label>
-																	<div class="col-sm-8">
-																		<input type="text" id="txt_fecha_actual" name="txt_fecha_actual"  class="form-control" data-toggle="tooltip" readonly data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
+															<div class="row">
+																<div class="col-xs-12">
+																	<div class="col-sm-6">																		
+																		<div class="form-group">
+																			<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Cliente:</label>
+																			<div class="col-sm-8">
+																				<p class="blue" id="lbl_client_nombre"></p>
+																			</div>																													
+																		</div>																												
+																	</div>
+																	<div class="col-sm-6">																		
+																		<div class="form-group">
+																			<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Direccion:</label>
+																			<div class="col-sm-8">
+																				<p class="blue" id="lbl_client_direccion"></p>
+																			</div>																													
+																		</div>																												
 																	</div>
 																</div>
 															</div>
-															<div class="col-sm-3">
-																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Hora Actual:</label>
-																	<div class="col-sm-8">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" readonly data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />
+															<div class="row">
+																<div class="col-xs-12">
+																	<div class="col-sm-6">																		
+																		<div class="form-group">
+																			<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Telefono:</label>
+																			<div class="col-sm-8">
+																				<p class="blue" id="lbl_client_telefono"></p>
+																			</div>																													
+																		</div>																												
+																	</div>
+																	<div class="col-sm-6">																		
+																		<div class="form-group">
+																			<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Correo:</label>
+																			<div class="col-sm-8">
+																				<p class="blue" id="lbl_client_correo"></p>
+																			</div>																													
+																		</div>																												
 																	</div>
 																</div>
 															</div>
 															
 														</div>
-													</div>
-													<div class="hr"></div>		
-													<div class="row">
-														<div class="col-xs-12">
-															<div class="col-sm-4">
-																<div class="row">
-																	<div class="col-xs-12">																		
+														<div class="col-xs-7">
+															<div class="row">
+																<div class="col-xs-12">
+																	<div class="col-sm-5">
 																		<div class="form-group">
-																			<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Cedula Identidad o Ruc:</label>
+																			<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Fecha cancelación:</label>
 																			<div class="col-sm-6">
-																				<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	                                                                        
-			                                                                        <option value=""> </option>	                                                                        
-			                                                                    </select>
-																			</div>																													
-																		</div>																												
-																	</div>
-																</div>																
-															</div>
-															<div class="col-sm-8">
-																<div class="row">
-																	<div class="col-xs-12">
-																		<div class="col-sm-5">
-																			<div class="form-group">
-																				<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Fecha cancelación:</label>
-																				<div class="col-sm-6">
-																					<div class="input-group">
-																						<input class="form-control date-picker" id="" name="" type="text" data-date-format="yyyy-mm-dd" />
-																						<span class="input-group-addon">
-																							<i class="fa fa-calendar bigger-110"></i>
-																						</span>
-																					</div>
-																				</div>																														
-																			</div>
-																		</div>
-																		<div class="col-sm-7">
-																			<div class="form-group">
-																				<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Nro factura Preimpresa:</label>
-																				<div class="col-sm-2">
-																					<input type="text" id="txt_2" name="txt_2" class="form-control center" value="001" />																			
+																				<div class="input-group">
+																					<input class="form-control date-picker" id="" name="" type="text" data-date-format="yyyy-mm-dd" />
+																					<span class="input-group-addon">
+																						<i class="fa fa-calendar bigger-110"></i>
+																					</span>
 																				</div>
-																				<div class="col-sm-2">
-																					<input type="text" id="txt_2" name="txt_2" class="form-control center" value="001" />																			
-																				</div>
-																				<div class="col-sm-3">
-																					<input type="text" id="txt_2" name="txt_2" class="form-control" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" value="000000999" />
-																				</div>																														
-																			</div>
+																			</div>																														
 																		</div>
 																	</div>
-																</div>																
-															</div>
-														</div>
-													</div>	
-													<div class="row">
-														<div class="col-xs-12">
-															<div class="col-sm-6">
-																<div class="form-group">
-																	<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Cliente:</label>
-																	<div class="col-sm-10">
-																		<blockquote>
-																			<p class="blue" id="lbl_client_nom"></p>	
-																		</blockquote>																		
-																	</div>																													
+																	<div class="col-sm-7">
+																		<div class="form-group">
+																			<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Nro factura Preimpresa:</label>
+																			<div class="col-sm-2">
+																				<input type="text" id="txt_2" name="txt_2" class="form-control center" value="001" />																			
+																			</div>
+																			<div class="col-sm-2">
+																				<input type="text" id="txt_2" name="txt_2" class="form-control center" value="001" />																			
+																			</div>
+																			<div class="col-sm-3">
+																				<input type="text" id="txt_2" name="txt_2" class="form-control" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" value="000000999" />
+																			</div>																														
+																		</div>
+																	</div>
 																</div>
 															</div>
-															<div class="col-sm-6">
-																<div class="col-sm-6">
+															<div class="row">
+																<div class="col-xs-12">
+																	<div class="col-sm-6">
 																	<div class="form-group">
 																		<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Tipo de precio:</label>
 																		<div class="col-sm-7">
@@ -211,9 +249,11 @@
 																		</div>																														
 																	</div>														
 																</div>
+																</div>
 															</div>
 														</div>
-													</div>
+													</div>		
+													
 													<div class="row ">
 														<div class="col-xs-12">
 															<div class="col-xs-12">

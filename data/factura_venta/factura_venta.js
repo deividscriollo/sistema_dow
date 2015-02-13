@@ -41,7 +41,7 @@ function inicio (){
 			success:function(data){
 				data=data;
 				var dcacu=data[0]+', '+data[1]+', '+data[2]+', '+data[3]
-				$('#lbl_client_nom').html(dcacu)
+				$('#lbl_client_nombre').html(data[0]);
 			}
 		});
 	})
