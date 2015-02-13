@@ -540,19 +540,25 @@ function limpiar_chosen_codigo(){
     $('#codigo_barras').trigger('chosen:updated');     
     $("#id_productos").val("");
     $("#precio").val("");       
-    $("#cantidad").val("");
-
+    $("#cantidad").val(""); 
+    $("#descuento").val(0);   
+    chosen:close
+    $("#codigo").trigger("chosen:close")
+    $("#codigo").trigger("chosen:open")    
+    
+    //console.log($('#codigo_chosen').trigger('chosen:showing_dropdown'));                    
 }
-function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,cantidad_producto,limite,precio_unitario,descuento,total){
+function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,cantidad_producto,limite,precio_unitario,descuento,total){    
     var contador=0;
-    var vect = new Array();
+    var vect = new Array(); 
     var cont=0;
     var repe = 0;
+    var fila = 0;
     $("#"+id_tabla+" tbody tr").each(function (index) {                                  
         $(this).children("td").each(function (index) { 
             contador++;                                 
         });                                                         
-    });
+    });        
     if(contador == 0){        
         if (descuento !== "") {
             desc = descuento
@@ -565,7 +571,7 @@ function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,can
             precio = (parseFloat(precio_unitario)).toFixed(2);
             total = (parseFloat(cantidad_producto) * precio).toFixed(2);
         }   
-       $("#"+id_tabla+" tbody").append( "<tr>" +"<td align=center>" + id_productos +"</td>" +"<td align=center>" + codigo_producto + "</td>" +"<td align=center>" + detalle_producto +"</td>" +"<td align=center>" + cantidad_producto +"</td>" +"<td align=center>" + precio + "</td>" +"<td align=center>" + desc +"</td>" +"<td align=center>" + total + "</td>" +"<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='green dc_btn_accion tooltip-success' data-rel='tooltip' data-original-title='Modificar'><i class='ace-icon fa fa-pencil bigger-130' onclick='return fn_dar_modificar(event)'></i></a>  <a class='red dc_btn_accion tooltip-error' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' onclick='return fn_dar_eliminar(event)'></i></a></div>"+ "</td>" +"</tr>" );      
+       $("#"+id_tabla+" tbody").append( "<tr>" +"<td align=center>" + id_productos +"</td>" +"<td align=center>" + codigo_producto + "</td>" +"<td align=center>" + detalle_producto +"</td>" +"<td align=center>" + cantidad_producto +"</td>" +"<td align=center>" + precio + "</td>" +"<td align=center>" + desc +"</td>" +"<td align=center>" + total + "</td>" +"<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='green dc_btn_accion tooltip-success' data-rel='tooltip' data-original-title='Modificar'><i class='ace-icon fa fa-pencil bigger-130' onclick='return fn_dar_modificar(event)'></i></a>  <a class='red dc_btn_accion tooltip-error' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' onclick='return fn_dar_eliminar(event)'></i></a></div>"+ "</td>" +"</tr>" );             
        limpiar_chosen_codigo();                     
     }else{         
         $("#"+id_tabla+" tbody tr").each(function (index) {                                                                 
@@ -581,6 +587,7 @@ function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,can
         for(var i=0 ; i<vect.length; i++) {
             if(vect[i] == id_productos) {
                 repe++;
+                fila = i;
             }
         }                                
         if(repe==0){
@@ -597,8 +604,36 @@ function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,can
             }
             $("#"+id_tabla+" tbody").append( "<tr>" +"<td align=center>" + id_productos +"</td>" +"<td align=center>" + codigo_producto + "</td>" +"<td align=center>" + detalle_producto +"</td>" +"<td align=center>" + cantidad_producto +"</td>" +"<td align=center>" + precio + "</td>" +"<td align=center>" + desc +"</td>" +"<td align=center>" + total + "</td>" +"<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='green dc_btn_accion tooltip-success' data-rel='tooltip' data-original-title='Modificar'><i class='ace-icon fa fa-pencil bigger-130' onclick='return fn_dar_modificar(event)'></i></a>  <a class='red dc_btn_accion tooltip-error' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' onclick='return fn_dar_eliminar(event)'></i></a></div>"+ "</td>" +"</tr>" );         
             limpiar_chosen_codigo();                     
-        }else{
-
-        }                               
+        }else{     
+            if (descuento !== "") {
+                desc = descuento
+                precio = (parseFloat(precio_unitario)).toFixed(2);
+                multi = (cantidad_producto * parseFloat(precio_unitario)).toFixed(2);
+                descuento = ((multi * parseFloat(desc))/100).toFixed(2);
+                total = (multi - descuento).toFixed(2);
+            }else{
+                desc = 0;
+                precio = (parseFloat(precio_unitario)).toFixed(2);
+                total = (parseFloat(cantidad_producto) * precio).toFixed(2);
+            }                         
+            $("#"+id_tabla+" tbody tr").eq(fila).find("td").each(function (index) {
+                switch (index) {                                            
+                    case 3:
+                        $(this).text($("#cantidad").val());   
+                    break;
+                    case 4:
+                        $(this).text($("#precio").val());   
+                    break;
+                    case 5:
+                        $(this).text($("#descuento").val());   
+                    break;
+                    case 6:
+                        $(this).text(total);   
+                    break;                                                                                                                                               
+                }                     
+            });
+            limpiar_chosen_codigo();                     
+        }
+                                           
     }
 }
