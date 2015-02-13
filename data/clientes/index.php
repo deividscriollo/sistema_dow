@@ -10,35 +10,20 @@
 
 		<meta name="description" content="overview &amp; stats" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-
-		<!-- bootstrap & fontawesome -->
 		<link rel="stylesheet" href="../../dist/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="../../dist/css/font-awesome.min.css" />
-		<!-- Select -->
 		<link rel="stylesheet" href="../../dist/css/chosen.min.css" />		
 		<link rel="stylesheet" href="../../dist/css/ui.jqgrid.min.css" />
-
-		<!-- page specific plugin styles -->
-
-		<!-- text fonts -->
 		<link rel="stylesheet" href="../../dist/css/fontdc.css" />
-
-		<!-- ace styles -->
 		<link rel="stylesheet" href="../../dist/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
 		<link type="text/css" rel="stylesheet" id="ace-skins-stylesheet" href="../../dist/css/ace-skins.min.css">
-
-		<!-- ace settings handler -->
 		<script src="../../dist/js/ace-extra.min.js"></script>
 	</head>
 
 	<body class="skin-1">
 		<?php menu_arriba(); ?>
-
 		<div class="main-container" id="main-container">
-			
-
 			<?php menu_lateral(); ?>
-
 			 <div class="main-content">
 				<div class="main-content-inner">
 					<div class="breadcrumbs" id="breadcrumbs">
@@ -53,7 +38,6 @@
                             </li>
                             <li class="active">Ingresos</li>
                             <li class="active">Clientes</li>
-                            
                         </ul>
                     </div>
 					<div class="page-content">
@@ -62,14 +46,10 @@
 								<div class="widget-box">
 									<div class="widget-header">
 										<h5 class="widget-title"><i class="ace-icon fa fa-user"></i> Clientes</h5>
-
 										<div class="widget-toolbar">
-											
-
 											<a href="#" data-action="fullscreen" class="orange2">
 												<i class="ace-icon fa fa-expand"></i>
 											</a>
-
 											<a href="#" data-action="reload">
 												<i class="ace-icon fa fa-refresh"></i>
 											</a>
@@ -84,7 +64,7 @@
 														<div class="col-xs-12">															
 															<div class="col-sm-6">
 																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Tipo Documento: </label>
+																	<label class="col-sm-4 control-label no-padding-right" for="txt_1"> Tipo Documento: </label>
 																	<div class="col-sm-8">
 																		<select class="chosen-select form-control" id="txt_1" name="txt_1" data-placeholder="País">
 																			<option value="Cedula">Cédula</option>	
@@ -96,21 +76,21 @@
 																</div>
 
 																<div class="form-group has-error">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> RUC/C.I.:</label>
+																	<label class="col-sm-4 control-label no-padding-right" for="txt_2"> RUC/C.I.:</label>
 																	<div class="col-sm-8">
 																		<input type="text" id="txt_2" name="txt_2"  placeholder="Identificación" class="form-control" data-toggle="tooltip" data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
 																	</div>
 																</div>
 
 																<div class="form-group has-error">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Nombres : </label>
+																	<label class="col-sm-4 control-label no-padding-right" for="txt_3"> Nombres : </label>
 																	<div class="col-sm-8">
 																		<input type="text" id="txt_3" name="txt_3" placeholder="Nombres Completo" class="form-control" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" data-toggle="tooltip" data-original-title="Nombres completos"  />
 																	</div>
 																</div>
 
 																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Teléfono: </label>
+																	<label class="col-sm-4 control-label no-padding-right" for="txt_4"> Teléfono: </label>
 																	<div class="col-sm-8">
 																		<span class="block input-icon input-icon-right">
 																			<input type="text" id="txt_4" name="txt_4" placeholder="Teléfono" class="form-control" onkeydown="return validarNumeros(event)" />
@@ -120,7 +100,7 @@
 																</div>
 
 																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Celular: </label>																	
+																	<label class="col-sm-4 control-label no-padding-right" for="txt_5"> Celular: </label>																	
 																	<div class="col-sm-8">
 																		<span class="block input-icon input-icon-right">
 																			<input type="text" id="txt_5" name="txt_5" placeholder="Celular" class="form-control" onkeydown="return validarNumeros(event)"/>
@@ -130,7 +110,7 @@
 																</div>
 
 																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Correo: </label>
+																	<label class="col-sm-4 control-label no-padding-right" for="txt_6"> Correo: </label>
 																	<div class="col-sm-8">
 																		<span class="block input-icon input-icon-right">
 																			<input type="mail" id="txt_6" name="txt_6" placeholder="Correo" class="form-control" />
@@ -155,7 +135,7 @@
 
 															<div class="col-sm-6">
 																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Tipo Cliente: </label>
+																	<label class="col-sm-4 control-label no-padding-right" for="txt_8"> Tipo Cliente: </label>
 																	<div class="col-sm-8">
 																		<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Tipo cliente">																			
 																		<option value="Natural">Natural</option>	
@@ -165,7 +145,7 @@
 																</div>	
 
 																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> País: </label>
+																	<label class="col-sm-4 control-label no-padding-right" for="txt_9"> País: </label>
 																	<div class="col-sm-8">																	
 																		<select class="chosen-select form-control" id="txt_9" name="txt_9" data-placeholder="País">
 																		</select>																	
@@ -173,7 +153,7 @@
 																</div>
 
 																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Provincia: </label>
+																	<label class="col-sm-4 control-label no-padding-right" for="txt_10"> Provincia: </label>
 																	<div class="col-sm-8">
 																		<select class="chosen-select form-control" id="txt_10" name="txt_10" data-placeholder="Provincia">
 																		</select>
@@ -181,7 +161,7 @@
 																</div>
 
 																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Ciudad: </label>
+																	<label class="col-sm-4 control-label no-padding-right" for="txt_11"> Ciudad: </label>
 																	<div class="col-sm-8">
 																		<select class="chosen-select form-control" id="txt_11" name="txt_11" data-placeholder="Ciudad">
 																		</select>
@@ -189,14 +169,14 @@
 																</div>
 
 																<div class="form-group has-error">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Dirección: </label>
+																	<label class="col-sm-4 control-label no-padding-right" for="txt_12"> Dirección: </label>
 																	<div class="col-sm-8">
 																		<input type="text" id="txt_12" name="txt_12" placeholder="Dirección" class="form-control"  required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ0-9 ]{1,}" data-toggle="tooltip" data-original-title="Ingrese la dirección del cliente" />
 																	</div>
 																</div>
 
 																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1-1"> Otros: </label>
+																	<label class="col-sm-4 control-label no-padding-right" for="txt_13"> Otros: </label>
 																	<div class="col-sm-8">	
 																		<textarea id="txt_13" name="txt_13" placeholder="Otros" class="col-sm-12"></textarea>
 																	</div>
