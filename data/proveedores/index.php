@@ -291,7 +291,7 @@
 					<div id="pager"></div>
 		        </div>
 		        <div class="modal-footer">
-		          <button type="button" class="btn btn-primary">Cancelar</button>
+		          <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
 		        </div>
 		      </div><!-- /.modal-content -->
 		    </div><!-- /.modal-dialog -->
