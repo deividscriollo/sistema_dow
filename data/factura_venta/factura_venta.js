@@ -38,10 +38,12 @@ function inicio (){
 			type:'POST',
 			dataType:'json',
 			data:{buscar_nombre:'ok', id:valor},
-			success:function(data){
-				data=data;
-				var dcacu=data[0]+', '+data[1]+', '+data[2]+', '+data[3]
+			success:function(data){				
 				$('#lbl_client_nombre').html(data[0]);
+				$('#lbl_client_telefono').html(data[2]);
+				$('#lbl_client_correo').html(data[3]);
+				$('#lbl_client_direccion').html(data[1]);
+
 			}
 		});
 	})

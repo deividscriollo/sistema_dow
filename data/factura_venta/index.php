@@ -87,26 +87,26 @@
 											<div class="row">
 												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_cliente">	
 													<div class="row">
-														<div class="col-xs-12">														
+														<div class="col-xs-12 pull-right">														
 															<div class="col-sm-3 hide">
-																<span class="bigger-120" id>
+																<span class="bigger-120">
 																	<span class="green bolder">Comprobante:</span>
 																	<span>000000</span>
 																</span>
 															</div>
-															<div class="col-sm-4">
+															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="red bolder">Responsable:</span>
 																	<span>ANDRES MOLINARES</span>
 																</span>
 															</div>
-															<div class="col-sm-4">
+															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="blue bolder">Fecha Actual:</span>
 																	<span>2015-02-13</span>
 																</span>
 															</div>
-															<div class="col-sm-4">
+															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="blue bolder">Hora Actual:</span>
 																	<span>11:00:01</span>
@@ -138,7 +138,7 @@
 																		<div class="row">
 																			<div class="col-xs-12">																		
 																				<div class="form-group">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Apellidos:</label>
+																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Nombres:</label>
 																					<div class="col-sm-8">
 																						<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	                                                                        
 					                                                                        <option value=""> </option>	                                                                        
@@ -156,7 +156,7 @@
 																		<div class="form-group">
 																			<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Cliente:</label>
 																			<div class="col-sm-8">
-																				<p class="blue" id="lbl_client_nombre"></p>
+																				<h5 class="blue" id="lbl_client_nombre"></h5>
 																			</div>																													
 																		</div>																												
 																	</div>
@@ -164,7 +164,7 @@
 																		<div class="form-group">
 																			<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Direccion:</label>
 																			<div class="col-sm-8">
-																				<p class="blue" id="lbl_client_direccion"></p>
+																				<h5 class="blue" id="lbl_client_direccion"></h5>
 																			</div>																													
 																		</div>																												
 																	</div>
@@ -176,7 +176,7 @@
 																		<div class="form-group">
 																			<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Telefono:</label>
 																			<div class="col-sm-8">
-																				<p class="blue" id="lbl_client_telefono"></p>
+																				<h5 class="blue" id="lbl_client_telefono"></h5>
 																			</div>																													
 																		</div>																												
 																	</div>
@@ -184,7 +184,7 @@
 																		<div class="form-group">
 																			<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Correo:</label>
 																			<div class="col-sm-8">
-																				<p class="blue" id="lbl_client_correo"></p>
+																				<h5 class="blue" id="lbl_client_correo"></h5>
 																			</div>																													
 																		</div>																												
 																	</div>
@@ -210,15 +210,16 @@
 																	</div>
 																	<div class="col-sm-7">
 																		<div class="form-group">
-																			<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Nro factura Preimpresa:</label>
-																			<div class="col-sm-2">
-																				<input type="text" id="txt_2" name="txt_2" class="form-control center" value="001" />																			
+																			<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Nro factura preimpresa:</label>
+																			<div class="col-sm-1">
+																				<h5 class="red">011</h5>
+																				<!-- <input type="text" id="txt_2" name="txt_2" class="form-control center" value="001" />																			 -->
 																			</div>
-																			<div class="col-sm-2">
-																				<input type="text" id="txt_2" name="txt_2" class="form-control center" value="001" />																			
+																			<div class="col-sm-1">
+																				<h5 class="red">011</h5>
 																			</div>
-																			<div class="col-sm-3">
-																				<input type="text" id="txt_2" name="txt_2" class="form-control" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" value="000000999" />
+																			<div class="col-sm-4">
+																				<input type="text" id="txt_2" name="txt_2" class="form-control green" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" value="000000999" />
 																			</div>																														
 																		</div>
 																	</div>
