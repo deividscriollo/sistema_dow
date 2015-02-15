@@ -533,12 +533,13 @@
 <script type="text/javascript">
 	// tooltips 
 	$('[data-rel=tooltip]').tooltip();
-	//calendario
+	var f = new Date();
 	$('.date-picker').datepicker({
 		autoclose: true,
-		value: true,
-		todayHighlight: true
+		format:'yyyy-mm-dd',
+		startView:0		
 	});
+	$('.date-picker').val(f.getFullYear() + "-" + (f.getMonth() +1) + "-" + f.getDate());
 	// seclect chosen 
 	$('.chosen-select').chosen({
 		allow_single_deselect:true,
