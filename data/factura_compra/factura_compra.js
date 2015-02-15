@@ -1,4 +1,70 @@
-$(document).on("ready",inicio);			
+$(document).on("ready",inicio);		
+
+function guardar_factura(){
+var vect1 = new Array();
+var vect2 = new Array();
+var vect3 = new Array();
+var vect4 = new Array();
+var vect5 = new Array();
+var cont=0;
+$("#detalle_factura tbody tr").each(function (index) {                                                                 
+    $(this).children("td").each(function (index) {                               
+        switch (index) {                                            
+            case 0:
+                vect1[cont] = $(this).text();   
+                break; 
+            case 3:
+                vect2[cont] = $(this).text();                                       
+                break; 
+            case 4:
+                vect3[cont] = $(this).text();                                       
+                break;
+            case 5:
+                vect4[cont] = $(this).text();                                       
+                break;
+            case 6:
+                vect5[cont] = $(this).text();                                       
+                break;        
+        }                          
+    });
+    cont++;  
+});
+
+    if(vect1.length == 0){
+       alert("Ingrese los productos");  
+       }else{
+
+
+    
+
+
+
+  $.ajax({        
+    type: "POST",
+    data: "tipo="+$("#form_facturaCompra").serialize()+"&campo1="+vect1+"&campo2="+vect2+"&campo3="+vect3+"&campo4="+vect4+"&campo5="+vect5,
+    //contentType: "application/x-www-form-urlencoded;charset=ISO-8859-15",
+    url: "factura_compra.php",      
+      success: function(data) { 
+        if( data == 0 ){
+          alert('Datos Agregados Correctamente');     
+         // limpiar_form(p);  
+         // $('#table').trigger('reloadGrid');              
+        }else{
+         // if( data == 1 ){
+           // alert('Este nro de ' +$("#txt_1").val()+  ' ya existe ingrese otro'); 
+           // $("#txt_2").val("");
+           // $("#txt_2").focus();            
+         // }else{
+          //  alert("Error al momento de enviar los datos la página se recargara");           
+         //   actualizar_form();
+         // }
+        }
+    }
+  }); 
+  }
+
+}
+
 function inicio (){			    
 	////////////////validaciones/////////////////
 	$("#cantidad").validCampoFranz("0123456789");
@@ -223,6 +289,16 @@ function inicio (){
       }
     }
   });
+
+
+///////////////////////////guardar factura compra/////////////////////7
+$("#btn_0").on("click",guardar_factura);
+
+
+
+/////////////////////////////////////////////////////////////////////
+
+
 
 }
 

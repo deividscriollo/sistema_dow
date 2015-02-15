@@ -653,6 +653,8 @@ function guardar_clientes(){
 		});
 	}
 }
+
+
 function datos_clientes(valores,tipo,p){	
 	$.ajax({				
 		type: "POST",

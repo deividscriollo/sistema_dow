@@ -84,25 +84,25 @@
 														<div class="col-xs-12">
 															<div class="col-sm-3 hide">
 																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Comprobante:</label>
+																	<label class="col-sm-4 control-label no-padding-right" for="comprobante"> Comprobante:</label>
 																	<div class="col-sm-8">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" readonly data-original-title="" maxlength="10" minlength="10" />
+																		<input type="text" id="comprobante" name="comprobante" class="form-control" data-toggle="tooltip" data-original-title=""/>
 																	</div>
 																</div>
 															</div>
 															<div class="col-sm-4">
 																<div class="form-group">
-																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Responsable:</label>
+																	<label class="col-sm-6 control-label no-padding-right" for="responsable"> Responsable:</label>
 																	<div class="col-sm-6">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" readonly data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
+																		<input type="text" id="responsable" name="responsable" class="form-control" data-toggle="tooltip" readonly data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
 																	</div>
 																</div>
 															</div>
 															<div class="col-sm-3">
 																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Fecha Actual:</label>
+																	<label class="col-sm-4 control-label no-padding-right" for="fecha_actual"> Fecha Actual:</label>
 																	<div class="col-sm-8">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" readonly data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
+																		<input type="text" id="fecha_actual" name="fecha_actual" class="form-control" data-toggle="tooltip" readonly data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
 																	</div>
 																</div>
 															</div>
@@ -111,10 +111,10 @@
 																	<label class="col-sm-4 control-label no-padding-right" for="hora_actual"> Hora Actual:</label>
 																	<div class="col-sm-8">
 																		<input type="text" id="hora_actual" name="hora_actual" class="form-control" data-toggle="tooltip" readonly data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
+																		
 																	</div>
 																</div>
 															</div>
-															
 														</div>
 													</div>
 													<div class="hr"></div>																									
@@ -122,19 +122,19 @@
 														<div class="col-xs-12">
 															<div class="col-sm-4">
 																<div class="form-group">
-																	<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Nro de Identificación:</label>
+																	<label class="col-sm-6 control-label no-padding-right" for="txt_nro_identificacion"> Nro de Identificación:</label>
 																	<div class="col-sm-6">
-																	<input type="hidden" id="id_proveedor">
+																	<input type="hidden" id="id_proveedor" name="id_proveedor">
 																		<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Buscar...." >	                                                                        
 	                                                                        <option value=""> </option>	                                                                        
 	                                                                    </select>
-																	</div>																													
+																	</div>	
 																</div>
 															</div>
 															
 															<div class="col-sm-4">
 																<div class="form-group">
-																	<label class="col-sm-5 control-label no-padding-right" for="form-field-1-1"> Proveedor: </label>
+																	<label class="col-sm-5 control-label no-padding-right" for="txt_nombre_proveedor"> Proveedor: </label>
 																	<div class="col-sm-7">
 																		<select class="chosen-select form-control" id="txt_nombre_proveedor" name="txt_nombre_proveedor" data-placeholder="Buscar....">	                                                                        
 	                                                                        <option value=""> </option>	                                                                        
@@ -144,11 +144,11 @@
 															</div>															
 															<div class="col-sm-4">
 																<div class="form-group">
-																	<label class="col-sm-5 control-label no-padding-right" for="form-field-1">Tipo de Comprobante</label>
+																	<label class="col-sm-5 control-label no-padding-right" for="tipo_comprobante">Tipo de Comprobante</label>
 																	<div class="col-sm-7">
-																		<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Tipo de Comprobante">
+																		<select class="chosen-select form-control" id="tipo_comprobante" name="tipo_comprobante" data-placeholder="Tipo de Comprobante">
 	                                                                        <option value="Factura"> Factura</option>
-	                                                                        <option value="Nota_venta"> Nota o boleta de venta</option>
+	                                                                        <option value="Notaventa"> Nota o boleta de venta</option>
 	                                                                    </select>
 																	</div>																	
 																</div>
