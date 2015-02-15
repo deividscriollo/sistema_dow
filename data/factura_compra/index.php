@@ -53,7 +53,7 @@
                                 <a href="../inicio/">Inicio</a>
                             </li>
                             <li class="active">Ingresos</li>
-                            <li class="active">Clientes</li>
+                            <li class="active">Factura Compra</li>
                             
                         </ul>
                     </div>
@@ -81,40 +81,33 @@
 											<div class="row">
 												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_facturaCompra">	
 													<div class="row">
-														<div class="col-xs-12">
+														<div class="col-xs-12 pull-right">														
 															<div class="col-sm-3 hide">
-																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="comprobante"> Comprobante:</label>
-																	<div class="col-sm-8">
-																		<input type="text" id="comprobante" name="comprobante" class="form-control" data-toggle="tooltip" data-original-title=""/>
-																	</div>
-																</div>
+																<span class="bigger-120">
+																	<span class="green bolder">Comprobante:</span>
+																	<span>000000</span>
+																</span>
 															</div>
-															<div class="col-sm-4">
-																<div class="form-group">
-																	<label class="col-sm-6 control-label no-padding-right" for="responsable"> Responsable:</label>
-																	<div class="col-sm-6">
-																		<input type="text" id="responsable" name="responsable" class="form-control" data-toggle="tooltip" readonly data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
-																	</div>
-																</div>
+
+															<div class="col-sm-3">
+																<span class="bigger-120" id>
+																	<span class="red bolder">Responsable:</span>
+																	<span ><?php print($_SESSION['nombrescompletosdow']); ?></span>
+																</span>
 															</div>
 															<div class="col-sm-3">
-																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="fecha_actual"> Fecha Actual:</label>
-																	<div class="col-sm-8">
-																		<input type="text" id="fecha_actual" name="fecha_actual" class="form-control" data-toggle="tooltip" readonly data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
-																	</div>
-																</div>
+																<span class="bigger-120" id>
+																	<span class="blue bolder">Fecha Actual:</span>
+																	<span>2015-02-13</span>
+																</span>
 															</div>
 															<div class="col-sm-3">
-																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="hora_actual"> Hora Actual:</label>
-																	<div class="col-sm-8">
-																		<input type="text" id="hora_actual" name="hora_actual" class="form-control" data-toggle="tooltip" readonly data-original-title="" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" />																																																						
-																		
-																	</div>
-																</div>
+																<span class="bigger-120" id>
+																	<span class="blue bolder">Hora Actual:</span>
+																	<span>11:00:01</span>
+																</span>
 															</div>
+															
 														</div>
 													</div>
 													<div class="hr"></div>																									
