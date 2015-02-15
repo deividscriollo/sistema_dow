@@ -50,7 +50,6 @@
 	    $fecha_larga = date('His', time()); 
 		$id2 = unique($fecha_larga);
 		//echo $id2;
-		print_r($arreglo1[$i]);
 
        $sql2 = "insert into detalle_factura_compra values (
        	'$id2','$id','".$arreglo1[$i]."','".$arreglo2[$i]."','".$arreglo3[$i]."','".$arreglo4[$i]."','".$arreglo5[$i]."','Activo','$fecha')"; 
