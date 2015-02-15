@@ -119,98 +119,78 @@
 													</div>
 													<div class="hr"></div>
 													<div class="row">
-														<div class="col-xs-5">
-															<div class="row">
-																<div class="col-xs-12">
-																	<div class="col-sm-6">
-																		<div class="row">
-																			<div class="col-xs-12">																		
-																				<div class="form-group">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> C.I. o Ruc:</label>
-																					<div class="col-sm-8">
-																						<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	                                                                        
-					                                                                        <option value=""> </option>	                                                                        
-					                                                                    </select>
-																					</div>																													
-																				</div>																												
-																			</div>
-																		</div>																
+														<div class="col-xs-12">
+															<div class="col-sm-6">
+																<div class="row">
+																	<div class="col-xs-12">																		
+																		<div class="form-group">
+																			<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Cedula de Identidad o Ruc:</label>
+																			<div class="col-sm-7">
+																				<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	                                                                        
+			                                                                        <option value=""> </option>	                                                                        
+			                                                                    </select>
+																			</div>																													
+																		</div>																												
 																	</div>
-																	<div class="col-sm-6">
-																		<div class="row">
-																			<div class="col-xs-12">																		
-																				<div class="form-group">
-																					<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Nombres:</label>
-																					<div class="col-sm-8">
-																						<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	                                                                        
-					                                                                        <option value=""> </option>	                                                                        
-					                                                                    </select>
-																					</div>																													
-																				</div>																												
-																			</div>
-																		</div>																
-																	</div>
-																</div>
+																</div>																
 															</div>
-															<div class="row">
-																<div class="col-xs-12">
-																	<div class="col-sm-6">																		
+															<div class="col-sm-6">
+																<div class="row">
+																	<div class="col-xs-12">																		
 																		<div class="form-group">
-																			<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Cliente:</label>
-																			<div class="col-sm-8">
-																				<h5 class="blue" id="lbl_client_nombre"></h5>
+																			<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Nombres O Apellido:</label>
+																			<div class="col-sm-7">
+																				<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	                                                                        
+			                                                                        <option value=""> </option>	                                                                        
+			                                                                    </select>
 																			</div>																													
 																		</div>																												
 																	</div>
-																	<div class="col-sm-6">																		
-																		<div class="form-group">
-																			<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Direccion:</label>
-																			<div class="col-sm-8">
-																				<h5 class="blue" id="lbl_client_direccion"></h5>
-																			</div>																													
-																		</div>																												
-																	</div>
-																</div>
+																</div>																
 															</div>
-															<div class="row">
-																<div class="col-xs-12">
-																	<div class="col-sm-6">																		
-																		<div class="form-group">
-																			<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Telefono:</label>
-																			<div class="col-sm-8">
-																				<h5 class="blue" id="lbl_client_telefono"></h5>
-																			</div>																													
-																		</div>																												
-																	</div>
-																	<div class="col-sm-6">																		
-																		<div class="form-group">
-																			<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Correo:</label>
-																			<div class="col-sm-8">
-																				<h5 class="blue" id="lbl_client_correo"></h5>
-																			</div>																													
-																		</div>																												
-																	</div>
-																</div>
-															</div>
-															
 														</div>
-														<div class="col-xs-7">
+													</div>													
+													<div class="row">
+														<div class="col-xs-12">
+															<div class="col-sm-3">																		
+																<div class="form-group">
+																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Cliente:</label>
+																	<div class="col-sm-8">
+																		<h5 class="blue" id="lbl_client_nombre"></h5>
+																	</div>																													
+																</div>																												
+															</div>
+															<div class="col-sm-3">																		
+																<div class="form-group">
+																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Direccion:</label>
+																	<div class="col-sm-8">
+																		<h5 class="blue" id="lbl_client_direccion"></h5>
+																	</div>																													
+																</div>																												
+															</div>
+															<div class="col-sm-3">																		
+																<div class="form-group">
+																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Telefono:</label>
+																	<div class="col-sm-8">
+																		<h5 class="blue" id="lbl_client_telefono"></h5>
+																	</div>																													
+																</div>																												
+															</div>
+															<div class="col-sm-3">																		
+																<div class="form-group">
+																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Correo:</label>
+																	<div class="col-sm-8">
+																		<h5 class="blue" id="lbl_client_correo"></h5>
+																	</div>																													
+																</div>																												
+															</div>																
+														</div>
+													</div>	
+													<div class="row">
+														<div class="col-xs-8">
 															<div class="row">
 																<div class="col-xs-12">
-																	<div class="col-sm-5">
-																		<div class="form-group">
-																			<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Fecha cancelación:</label>
-																			<div class="col-sm-6">
-																				<div class="input-group">
-																					<input class="form-control date-picker" id="" name="" type="text" data-date-format="yyyy-mm-dd" />
-																					<span class="input-group-addon">
-																						<i class="fa fa-calendar bigger-110"></i>
-																					</span>
-																				</div>
-																			</div>																														
-																		</div>
-																	</div>
-																	<div class="col-sm-7">
+																	<div class="col-sm-6">
 																		<div class="form-group">
 																			<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Nro factura preimpresa:</label>
 																			<div class="col-sm-1">
@@ -225,37 +205,57 @@
 																			</div>																														
 																		</div>
 																	</div>
+																	<div class="col-sm-6">
+																		<div class="form-group">
+																			<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Fecha cancelación:</label>
+																			<div class="col-sm-6">
+																				<div class="input-group">
+																					<input class="form-control date-picker" id="" name="" type="text" data-date-format="yyyy-mm-dd" />
+																					<span class="input-group-addon">
+																						<i class="fa fa-calendar bigger-110"></i>
+																					</span>
+																				</div>
+																			</div>																														
+																		</div>
+																	</div>																	
+																</div>
+															</div>
+														</div>
+														<div class="col-xs-4">
+															<div class="row">
+																<div class="col-xs-12">
+																	<div class="col-sm-12">
+																		<div class="form-group">
+																			<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Tipo de precio:</label>
+																			<div class="col-sm-7">
+																				<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Forma de Pago">
+			                                                                        <option value="CONTADO">CONTADO</option>
+			                                                                        <option value="CREDITO">CREDITO</option>
+			                                                                    </select>
+																			</div>																														
+																		</div>														
+																	</div>
 																</div>
 															</div>
 															<div class="row">
 																<div class="col-xs-12">
-																	<div class="col-sm-6">
-																	<div class="form-group">
-																		<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Tipo de precio:</label>
-																		<div class="col-sm-7">
-																			<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Forma de Pago">
-		                                                                        <option value="CONTADO">CONTADO</option>
-		                                                                        <option value="CREDITO">CREDITO</option>
-		                                                                    </select>
-																		</div>																														
-																	</div>														
-																</div>
-																<div class="col-sm-6">
-																	<div class="form-group">
-																		<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Forma de Pago:</label>
-																		<div class="col-sm-6">
-																			<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Forma de Pago">
-		                                                                        <option value="CONTADO">CONTADO</option>
-		                                                                        <option value="CHEQUE">CHEQUE</option>
-		                                                                        <option value="TARGETA">TARGETA</option>
-		                                                                    </select>
-																		</div>																														
-																	</div>														
-																</div>
+																	<div class="col-sm-12">
+																		<div class="form-group">
+																			<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Forma de Pago:</label>
+																			<div class="col-sm-7">
+																				<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Forma de Pago">
+			                                                                        <option value="CONTADO">CONTADO</option>
+			                                                                        <option value="CHEQUE">CHEQUE</option>
+			                                                                        <option value="TARGETA">TARGETA</option>
+			                                                                    </select>
+																			</div>																														
+																		</div>														
+																	</div>
 																</div>
 															</div>
 														</div>
-													</div>		
+													</div>
+														
 													
 													<div class="row ">
 														<div class="col-xs-12">
