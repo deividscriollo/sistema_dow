@@ -392,7 +392,7 @@ function menu_lateral(){
 							<li ';if ($acus[3]=='registro_gastos') {
 									print('class="active"');
 								}print'>
-								<a href="../empresa/">
+								<a href="../registro_gastos/">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Registro Gastos
 								</a>
@@ -402,7 +402,7 @@ function menu_lateral(){
 							<li ';if ($acus[3]=='gastos_internos') {
 									print('class="active"');
 								}print'>
-								<a href="../usuario/">
+								<a href="../gastos_internos/">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Gastos Internos
 								</a>
@@ -411,7 +411,7 @@ function menu_lateral(){
 							</li>
 						</ul>
 					</li>
-					<li ';if ($acus[3]=='factura_compra' || $acus[3]=='devolucion_compra' || $acus[3]=='factura_venta'|| $acus[3]=='nota_credito'|| $acus[3]=='kardex'|| $acus[3]=='inventario' ) {
+					<li ';if ($acus[3]=='r_estadistico' || $acus[3]=='r_simple') {
 								print('class="active open"');
 							}print'>
 						<a href="#" class="dropdown-toggle">
@@ -429,7 +429,7 @@ function menu_lateral(){
 							<li ';if ($acus[3]=='inventario') {
 									print('class="active"');
 								}print'>
-								<a href="../estadistico/">
+								<a href="../r_estadistico/">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Estadisticos
 								</a>
@@ -439,7 +439,7 @@ function menu_lateral(){
 							<li ';if ($acus[3]=='proformas') {
 									print('class="active"');
 								}print'>
-								<a href="../Simples/">
+								<a href="../r_simples/">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Simples
 								</a>
@@ -467,7 +467,7 @@ function footer(){
 					<div class="footer-content">
 						<span class="bigger-120">
 							<span class="blue bolder">TOTORA SISA</span>
-							Aplicación web facturación e inventario &copy; 2014-2015
+							Aplicación web facturación electronica &copy; 2014-2015
 						</span>
 
 						&nbsp; &nbsp;
