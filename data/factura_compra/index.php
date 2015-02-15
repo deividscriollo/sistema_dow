@@ -377,6 +377,7 @@
 																			<th class="center" width="100px"><i class="ace-icon fa fa-area-chart"> Descuento</th>
 																			<th class="center" width="100px"><i class="ace-icon fa fa-usd"> Total</th>
 																			<th class="center" width="90px"><i class="ace-icon fa fa-cogs"></i> Accion</th>
+																			<th class="hidden" width="90px"><i class="ace-icon fa fa-cogs"></i> Iva</th>
 																		</tr>
 																	</thead>
 																	<tbody>
@@ -416,10 +417,10 @@
 																			</div>
 																		</div>
 																		<div class="form-group">
-																			<label class="col-sm-3 control-label no-padding-right" for="descuento"> Descuento</label>
+																			<label class="col-sm-3 control-label no-padding-right" for="descuento_total"> Descuento</label>
 																			<div class="col-sm-9">
 																				<span class="input-icon">
-																					<input type="text" value="00.00" id="descuento" name="descuento" readonly>
+																					<input type="text" value="00.00" id="descuento_total" name="descuento_total" readonly>
 																					<i class="ace-icon fa fa fa-usd green"></i>
 																				</span>
 																			</div>

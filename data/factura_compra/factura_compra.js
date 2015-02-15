@@ -1,34 +1,4 @@
 $(document).on("ready",inicio);			
-function fn_dar_modificar(){
-	$("a.dc_btn_accion").click(function(){ 
-    var id,codigo,producto,cantidad,precio,descuento;
-		$("#detalle_factura tbody tr").each(function (index) {  
-    	 $(this).children("td").each(function (index) {
-	        switch (index) {
-	            case 0:
-	            id=$(this).text();
-	            break;
-	            case 1:
-	            codigo=$(this).text();
-	            break;
-	            case 2:
-	            producto=$(this).text();
-	            break;
-	            case 3:
-	            cantidad=$(this).text();
-	            break;
-	            case 4:
-	            precio=$(this).text();
-	            break;
-	            case 5:
-	            descuento=$(this).text();
-	            break;
-            }
-       	 });
-      }) 	     
-	})
-}
-
 function inicio (){			    
 	////////////////validaciones/////////////////
 	$("#cantidad").validCampoFranz("0123456789");
@@ -237,7 +207,7 @@ function inicio (){
           if($("#id_productos").val() != ""){
             //agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,cantidad_producto,limite,precio_unitario,descuento,total);
             var a = $("#producto option:selected");      
-            agregar_fila("detalle_factura",$("#id_productos").val(),$(a).data("codigo"),$(a).text(),$("#cantidad").val(),$(a).data("stock"),$("#precio").val(),$("#descuento").val(),"");            
+            agregar_fila("detalle_factura",$("#id_productos").val(),$(a).data("codigo"),$(a).text(),$("#cantidad").val(),$(a).data("stock"),$("#precio").val(),$("#descuento").val(),$(a).data("iva"));            
           }else{
             alert("Seleccione un producto antes de continuar");                        
             //$('#codigo').trigger('chosen:open');            
@@ -255,4 +225,5 @@ function inicio (){
   });
 
 }
+
 /*---------------------------------*/
