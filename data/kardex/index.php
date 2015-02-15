@@ -63,6 +63,21 @@ if(!isset($_SESSION))
 
 			 <div class="main-content">
 				<div class="main-content-inner">
+					<div class="breadcrumbs" id="breadcrumbs">
+                        <script type="text/javascript">
+                            try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+                        </script>
+
+                        <ul class="breadcrumb">
+                            <li>
+                                <i class="ace-icon fa fa-home home-icon"></i>
+                                <a href="../inicio/">Inicio</a>
+                            </li>
+                            <li class="active">Procesos</li>
+                            <li class="active">Kardex</li>
+                            
+                        </ul>
+                    </div>
 					<div class="page-content">
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 widget-container-col">
@@ -82,30 +97,67 @@ if(!isset($_SESSION))
 									<div class="widget-body">
 										<div class="widget-main">
 											<div class="row">
-												<div class="col-xs-12">
-													<div class="col-sm-4">
-														
-													</div>
-													<div class="col-sm-4">														
-														<div class="row">
-															<div class="col-xs-8 col-sm-11">
-																<div class="input-group">
-																	<span class="input-group-addon">
-																		<i class="fa fa-calendar bigger-110"></i>
-																	</span>
-																	<input class="form-control" type="text" name="date-range-picker" id="id-date-range-picker-1" placeholder="Seleccione de Rango de fechas" />
+												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_kardex">										
+													<div class="col-xs-12">
+														<div class="col-sm-6">
+															<div class="row">
+																<div class="col-sm-12">
+																	<div class="form-group">
+																		<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Nombre Productos:</label>
+																		<div class="col-sm-8">
+																			<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	                                                                        
+			                                                                    <option value=""> </option>	                                                                        
+			                                                                </select>
+																		</div>																													
+																	</div>	
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-12">
+																	<div class="form-group">
+																		<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Codigo Productos:</label>																		
+																		<div class="col-sm-8">
+																			<div class="input-group">
+																				<span class="input-group-addon">
+																					<i class="fa fa-calendar bigger-110"></i>
+																				</span>
+																				<input class="form-control" type="text" name="date-range-picker" id="id-date-range-picker-1" placeholder="Seleccione de Rango de fechas" />
+																			</div>
+																		</div>
+																	</div>
 																</div>
 															</div>
 														</div>
+														<div class="col-sm-6">
+															<div class="row">
+																<div class="col-sm-12">																															
+																	<div class="form-group">
+																		<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Codigo Productos:</label>
+																		<div class="col-sm-8">
+																			<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	                                                                        
+			                                                                    <option value=""> </option>	                                                                        
+			                                                                </select>
+																		</div>																													
+																	</div>	
+																</div>
+															</div>															
+															<div class="row">
+																<div class="col-sm-12">
+																	<div class="form-group">
+																		<label class="col-sm-4 control-label no-padding-right" for="form-field-1"></label>																		
+																		<div class="col-sm-8">
+																			<div class="btn btn-info ice-icon fa fa-search"> Buscar</div>
+																		</div>
+																	</div>
+																</div>																
+															</div>														
+														</div>
 													</div>
-													<div class="col-sm-4">
-														<div class="btn btn-info ice-icon fa fa-search"> Buscar</div>
-													</div>
-												</div>
-											</div>
+												</form>
+											</div>											
 											<div class="row">
 												<div class="col-xs-12">
-													<div class="clearfix">																												
+													<div class="clearfix">
 														<div class="pull-right tableTools-container"></div>
 													</div>
 													<div>

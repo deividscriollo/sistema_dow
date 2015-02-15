@@ -411,6 +411,43 @@ function menu_lateral(){
 							</li>
 						</ul>
 					</li>
+					<li ';if ($acus[3]=='factura_compra' || $acus[3]=='devolucion_compra' || $acus[3]=='factura_venta'|| $acus[3]=='nota_credito'|| $acus[3]=='kardex'|| $acus[3]=='inventario' ) {
+								print('class="active open"');
+							}print'>
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-print ranger"></i>
+							<span class="menu-text">
+								Reportes
+							</span>
+
+							<b class="arrow fa fa-angle-down red"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							<li ';if ($acus[3]=='inventario') {
+									print('class="active"');
+								}print'>
+								<a href="../estadistico/">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Estadisticos
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							<li ';if ($acus[3]=='proformas') {
+									print('class="active"');
+								}print'>
+								<a href="../Simples/">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Simples
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+						</ul>
+					</li>
 				</ul><!-- /.nav-list -->
 
 				<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
