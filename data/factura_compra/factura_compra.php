@@ -42,12 +42,23 @@
    		
 	for ($i = 0; $i < $nelem; $i++) {		
 		$id2 = unique($fecha_larga);
+		///guardar detalle_factura/////
         $sql2 = "insert into detalle_factura_compra values (
        	'$id2','$id','".$arreglo1[$i]."','".$arreglo2[$i]."','".$arreglo3[$i]."','".$arreglo4[$i]."','".$arreglo5[$i]."','Activo','$fecha')";       
 		$guardar = guardarSql($conexion,$sql2);
+		//////////////////////////////
+        
+
+        //////////////modificar productos///////////
+        $consulta = pg_query("select * from productos where cod_productos = '".$arreglo1[$i]."");
+        while ($row = pg_fetch_row($consulta2)) {
+            $stock = $row[13];
+        }
+        $cal = $stock + $arreglo2[$i];
+
+
 
 	}
-
 
 	echo $data;
 ?>
