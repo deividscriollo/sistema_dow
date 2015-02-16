@@ -58,9 +58,7 @@
         ///////////////////////////////////////////
 
         $sql3 = "update cliente set precio_compra='".$arreglo3[$i]."', stock='$cal' where id_cliente='$_POST[txt_0]'";								
-		$guardar = guardarSql($conexion,$sql);
-
-
+		$guardar = guardarSql($conexion,$sql3);
 	}
 
 	echo $data;
