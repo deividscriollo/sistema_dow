@@ -392,46 +392,46 @@
 																	<div class="col-sm-9"></div>
 																	<div class="col-sm-3">
 																		<div class="form-group">
-																			<label class="col-sm-3 control-label no-padding-right" for="form-field-facebook"> Tarifa 0:</label>
+																			<label class="col-sm-3 control-label no-padding-right" for="tarifa0"> Tarifa 0:</label>
 																			<div class="col-sm-9">
 																				<span class="input-icon">
-																					<input type="text" value="00.00" id="form-field-facebook">
+																					<input type="text" value="00.00" id="tarifa0" name="tarifa0" readonly>
 																					<i class="ace-icon fa fa-usd purple"></i>
 																				</span>
 																			</div>
 																		</div>
 																		<div class="form-group">
-																			<label class="col-sm-3 control-label no-padding-right" for="form-field-facebook"> Tarifa 12:</label>
+																			<label class="col-sm-3 control-label no-padding-right" for="tarifa12"> Tarifa 12:</label>
 																			<div class="col-sm-9">
 																				<span class="input-icon">
-																					<input type="text" value="00.00" id="form-field-facebook">
+																					<input type="text" value="00.00" id="tarifa12" name="tarifa12" readonly>
 																					<i class="ace-icon fa fa fa-usd orange"></i>
 																				</span>
 																			</div>
 																		</div>
 																		<div class="form-group">
-																			<label class="col-sm-3 control-label no-padding-right" for="form-field-facebook"> 12 % Iva</label>
+																			<label class="col-sm-3 control-label no-padding-right" for="iva"> 12 % Iva</label>
 																			<div class="col-sm-9">
 																				<span class="input-icon">
-																					<input type="text" value="00.00" id="form-field-facebook">
+																					<input type="text" value="00.00" id="iva" name="iva" readonly>
 																					<i class="ace-icon fa fa fa-usd red"></i>
 																				</span>
 																			</div>
 																		</div>
 																		<div class="form-group">
-																			<label class="col-sm-3 control-label no-padding-right" for="form-field-facebook"> Descuento</label>
+																			<label class="col-sm-3 control-label no-padding-right" for="descuento_total"> Descuento</label>
 																			<div class="col-sm-9">
 																				<span class="input-icon">
-																					<input type="text" value="00.00" id="form-field-facebook">
+																					<input type="text" value="00.00" id="descuento_total" name="descuento_total" readonly>
 																					<i class="ace-icon fa fa fa-usd green"></i>
 																				</span>
 																			</div>
 																		</div>
 																		<div class="form-group">
-																			<label class="col-sm-3 control-label no-padding-right" for="form-field-facebook"> Total</label>
+																			<label class="col-sm-3 control-label no-padding-right" for="total"> Total</label>
 																			<div class="col-sm-9">
 																				<span class="input-icon">
-																					<input type="text" value="00.00" id="form-field-facebook">
+																					<input type="text" value="00.00" id="total" name="total" readonly>
 																					<i class="ace-icon fa fa-money blue"></i> 
 																				</span>
 																			</div>
@@ -520,41 +520,19 @@
 								</div>
 							</div>
 						</div>
-					</div><!-- /.modal-content -->
-
+					</div>
 					<button class="btn btn-inverse btn-app btn-xs ace-settings-btn aside-trigger" data-target="#top-menu" data-toggle="modal" type="button">
 						<i data-icon="fa-chevron-down" data-icon="fa-chevron-up" class="ace-icon fa fa-chevron-down bigger-110 icon-only"></i>
 					</button>
-				</div><!-- /.modal-dialog -->
+				</div>
 			</div>
-		<!-- <![endif]-->
-
-		<!--[if IE]>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<![endif]-->
-
-		<!--[if !IE]> -->
 		<script type="text/javascript">
 			window.jQuery || document.write("<script src='../../dist/js/jquery.min.js'>"+"<"+"/script>");
 		</script>
-
-		<!-- <![endif]-->
-
-		<!--[if IE]>
-<script type="text/javascript">
- window.jQuery || document.write("<script src='../../dist/js/jquery1x.min.js'>"+"<"+"/script>");
-</script>
-<![endif]-->
 		<script type="text/javascript">
 			if('ontouchstart' in document.documentElement) document.write("<script src='../../dist/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 		</script>
 		<script src="../../dist/js/bootstrap.min.js"></script>
-
-		<!-- page specific plugin scripts -->
-
-		<!--[if lte IE 8]>
-		  <script src="../../dist/js/excanvas.min.js"></script>
-		<![endif]-->
 		<script src="../../dist/js/jquery-ui.custom.min.js"></script>
 		<script src="../../dist/js/jquery.ui.touch-punch.min.js"></script>
 		<script src="../../dist/js/jquery.easypiechart.min.js"></script>
@@ -568,11 +546,6 @@
 		<script src="../../dist/js/date-time/moment.min.js"></script>
 		<script src="../../dist/js/date-time/daterangepicker.min.js"></script>
 		<script src="../../dist/js/date-time/bootstrap-datetimepicker.min.js"></script>
-
-
-
-
-		<!-- ace scripts -->
 		<script src="../../dist/js/ace-elements.min.js"></script>
 		<script src="../../dist/js/ace.min.js"></script>
 		<script src="../../dist/js/jqGrid/jquery.jqGrid.min.js"></script>
@@ -580,12 +553,7 @@
 		
 		<script src="../generales.js"></script>
 		<script src="factura_venta.js"></script>
-		
-
-		<!-- inline scripts related to this page -->
-
-	
-
+        <script src="../../dist/js/validCampoFranz.js" ></script>
 	</body>
 </html>  
 

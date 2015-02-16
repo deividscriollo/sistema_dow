@@ -1,5 +1,12 @@
 $(document).on("ready",inicio);
-function inicio (){			
+function inicio (){		
+ mostrar("estado");	   
+
+ $("#serie3").validCampoFranz("0123456789");
+ $("#serie3").attr("maxlength", "9");
+ $("#precio").on("keypress",punto);
+
+
 	var input_ci = $("#txt_nro_identificacion_chosen").children().next().children();		
 	$(input_ci).on("keyup",function(input_ci){
 		var text = $(this).children().val();
