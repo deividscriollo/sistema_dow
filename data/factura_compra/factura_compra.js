@@ -77,7 +77,7 @@ $("#detalle_factura tbody tr").each(function (index) {
 }
 }
 }
-}
+
 
 function inicio (){		
    mostrar("estado");	    

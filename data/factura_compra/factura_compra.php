@@ -8,6 +8,7 @@
     $hora = time();
     $hora_actual = $hora - (60 * 60 * 24 * 30);
 	$sql = "";	
+	$sql2 = "";	
 	$id_session = '1';///datos session
 	$id = unique($fecha_larga);	
 		
@@ -40,14 +41,13 @@
 	$nelem = count($arreglo1);
    		
 	for ($i = 0; $i < $nelem; $i++) {		
-		$id2 = unique($fecha_larga);	
+		$id2 = unique($fecha_larga);
         $sql2 = "insert into detalle_factura_compra values (
        	'$id2','$id','".$arreglo1[$i]."','".$arreglo2[$i]."','".$arreglo3[$i]."','".$arreglo4[$i]."','".$arreglo5[$i]."','Activo','$fecha')";       
 		$guardar = guardarSql($conexion,$sql2);
 
-
-
-		 
 	}
+
+
 	echo $data;
 ?>
