@@ -33,6 +33,15 @@ function comprobarCamposRequired(form){
     return correcto; 
 }
 
+function autocompletar() {
+    var temp = "";
+    var serie = $("#serie3").val();
+    for (var i = serie.length; i < 9; i++) {
+        temp = temp + "0";
+    }
+    return temp;
+}
+
 function enter(e) {
     if (e.which === 13 || e.keyCode === 13) {
         entrar();
