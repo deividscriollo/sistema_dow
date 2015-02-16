@@ -50,14 +50,14 @@
         
 
         //////////////modificar productos///////////
-        $consulta = pg_query("select * from productos where cod_productos = '".$arreglo1[$i]."");
+        $consulta = pg_query("select * from productos where id_productos = '".$arreglo1[$i]."'");
         while ($row = pg_fetch_row($consulta2)) {
             $stock = $row[13];
         }
         $cal = $stock + $arreglo2[$i];
         ///////////////////////////////////////////
 
-        $sql3 = "update cliente set precio_compra='".$arreglo3[$i]."', stock='$cal' where id_cliente='$_POST[txt_0]'";								
+        $sql3 = "update productos set precio='".$arreglo3[$i]."', stock='$cal' where id_productos='".$arreglo1[$i]."'";								
 		$guardar = guardarSql($conexion,$sql3);
 	}
 

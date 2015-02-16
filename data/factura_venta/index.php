@@ -347,7 +347,8 @@
 																			</div>
 																			<div class="row">
 																				<div class="col-xs-12">
-																					<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																					<input type="number" id="descuento" name="descuento" class="form-control" data-toggle="tooltip" onkeydown="return validarNumeros(event)" value="0" /> 
+																					<input type="hidden" id="id_productos" name="id_productos" class="form-control" data-toggle="tooltip" /> 
 																				</div>
 																			</div>
 																		</div>
@@ -367,7 +368,7 @@
 													<div class="row">														
 														<div class="col-xs-12">
 														 	<div class="col-sm-12">
-																<table id="" class="table table-striped table-bordered table-hover">
+																<table id="detalle_factura" class="table table-striped table-bordered table-hover">
 																	<thead>
 																		<tr style="background-color: #428BCA; color: white;">
 																			<th class="center" width="2px"><i class="ace-icon fa fa-bars"></i></th>
