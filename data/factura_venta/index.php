@@ -124,8 +124,9 @@
 																<div class="row">
 																	<div class="col-xs-12">																		
 																		<div class="form-group">
-																			<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Cedula de Identidad o Ruc:</label>
+																			<label class="col-sm-5 control-label no-padding-right" for="txt_nro_identificacion"> Cedula de Identidad o Ruc:</label>
 																			<div class="col-sm-7">
+																			<input type="hidden" id="id_cliente" name="id_cliente">
 																				<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	                                                                        
 			                                                                        <option value=""> </option>	                                                                        
 			                                                                    </select>
@@ -138,7 +139,7 @@
 																<div class="row">
 																	<div class="col-xs-12">																		
 																		<div class="form-group">
-																			<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Nombres O Apellido:</label>
+																			<label class="col-sm-5 control-label no-padding-right" for="txt_nro_identificacion"> Nombres O Apellido:</label>
 																			<div class="col-sm-7">
 																				<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	                                                                        
 			                                                                        <option value=""> </option>	                                                                        
@@ -201,16 +202,16 @@
 																				<h5 class="red">011</h5>
 																			</div>
 																			<div class="col-sm-4">
-																				<input type="text" id="txt_2" name="txt_2" class="form-control green" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" value="000000999" />
+																				<input type="text" id="serie3" name="serie3" class="form-control green" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" value="000000999" />
 																			</div>																														
 																		</div>
 																	</div>
 																	<div class="col-sm-6">
 																		<div class="form-group">
-																			<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Fecha cancelación:</label>
+																			<label class="col-sm-6 control-label no-padding-right" for="fecha_cancelacion"> Fecha cancelación:</label>
 																			<div class="col-sm-6">
 																				<div class="input-group">
-																					<input class="form-control date-picker" id="" name="" type="text" data-date-format="yyyy-mm-dd" />
+																					<input class="form-control date-picker" id="fecha_cancelacion" name="fecha_cancelacion" type="text" data-date-format="yyyy-mm-dd" />
 																					<span class="input-group-addon">
 																						<i class="fa fa-calendar bigger-110"></i>
 																					</span>
@@ -226,11 +227,11 @@
 																<div class="col-xs-12">
 																	<div class="col-sm-12">
 																		<div class="form-group">
-																			<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Tipo de precio:</label>
+																			<label class="col-sm-5 control-label no-padding-right" for="tipo"> Tipo de precio:</label>
 																			<div class="col-sm-7">
-																				<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Forma de Pago">
-			                                                                        <option value="CONTADO">CONTADO</option>
-			                                                                        <option value="CREDITO">CREDITO</option>
+																				<select class="chosen-select form-control" id="tipo" name="tipo" data-placeholder="Forma de Pago">
+			                                                                        <option value="MAYORISTA">MAYORISTA</option>
+			                                                                        <option value="MINORISTA">MINORISTA</option>
 			                                                                    </select>
 																			</div>																														
 																		</div>														
@@ -241,9 +242,9 @@
 																<div class="col-xs-12">
 																	<div class="col-sm-12">
 																		<div class="form-group">
-																			<label class="col-sm-5 control-label no-padding-right" for="form-field-1"> Forma de Pago:</label>
+																			<label class="col-sm-5 control-label no-padding-right" for="formas"> Forma de Pago:</label>
 																			<div class="col-sm-7">
-																				<select class="chosen-select form-control" id="txt_8" name="txt_8" data-placeholder="Forma de Pago">
+																				<select class="chosen-select form-control" id="formas" name="formas" data-placeholder="Forma de Pago">
 			                                                                        <option value="CONTADO">CONTADO</option>
 			                                                                        <option value="CHEQUE">CHEQUE</option>
 			                                                                        <option value="TARGETA">TARGETA</option>
@@ -277,7 +278,9 @@
 																</div>
 																<div class="row">
 																	<div class="col-xs-12">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																		<select class="chosen-select form-control" id="codigo_barras" name="codigo_barras" data-placeholder="Código de Barras del Producto">
+																			<option value=""></option>
+																		</select>
 																	</div>
 																</div>
 															</div>
@@ -289,7 +292,9 @@
 																</div>
 																<div class="row">
 																	<div class="col-xs-12">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																		<select class="chosen-select form-control" id="codigo" name="codigo" data-placeholder="Código del Producto">
+																			<option value=""></option>
+																		</select>
 																	</div>
 																</div>
 															</div>
@@ -301,7 +306,9 @@
 																</div>
 																<div class="row">
 																	<div class="col-xs-12">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																		<select class="chosen-select form-control" id="producto" name="producto" data-placeholder="Descripción del Producto">
+																			<option value=""></option>
+																		</select>
 																	</div>
 																</div>
 															</div>
@@ -316,7 +323,7 @@
 																			</div>
 																			<div class="row">
 																				<div class="col-xs-12">
-																					<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																					<input type="text" id="cantidad" name="cantidad" class="form-control" data-toggle="tooltip"  value="" /> 
 																				</div>
 																			</div>
 																		</div>
@@ -328,7 +335,7 @@
 																			</div>
 																			<div class="row">
 																				<div class="col-xs-12">
-																					<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																					<input type="text" id="precio" name="precio" onkeydown="return validarNumeros(event)" value="0.00" class="form-control" data-toggle="tooltip"  /> 
 																				</div>
 																			</div>
 																		</div>
