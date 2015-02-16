@@ -69,7 +69,7 @@
 							<div class="col-xs-12 col-sm-12 widget-container-col">
 								<div class="widget-box">
 									<div class="widget-header">
-										<h5 class="widget-title"><i class="ace-icon fa fa-user"></i> Factura Compra</h5>
+										<h5 class="widget-title"><i class="ace-icon fa fa-user"></i> Factura Venta</h5>
 
 										<div class="widget-toolbar">
 											
@@ -91,8 +91,7 @@
 														<div class="col-xs-12 pull-right">														
 															<div class="col-sm-3 hide">
 																<span class="bigger-120">
-																	<span class="green bolder">Comprobante:</span>
-																	<span>000000</span>
+																	<input type="hidden" name="comprobante" id="comprobante" />
 																</span>
 															</div>
 
@@ -111,7 +110,7 @@
 															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="blue bolder">Hora Actual:</span>
-																	<span>11:00:01</span>
+																	<span></span>
 																</span>
 															</div>
 															

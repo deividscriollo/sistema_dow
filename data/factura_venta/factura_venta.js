@@ -2,7 +2,10 @@ $(document).on("ready",inicio);
 function inicio (){		
  mostrar("estado");	   
 
+ ////////////////validaciones/////////////////
+ $("#cantidad").validCampoFranz("0123456789");
  $("#serie3").validCampoFranz("0123456789");
+ $("#descuento").validCampoFranz("0123456789");
  $("#serie3").attr("maxlength", "9");
  $("#precio").on("keypress",punto);
 
