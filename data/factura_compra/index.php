@@ -380,8 +380,8 @@
 															</div>
 															<div class="row">
 																<div class="col-xs-12">
-																	<div class="col-sm-9"></div>
-																	<div class="col-sm-3">
+																	<div class="col-sm-8"></div>
+																	<div class="col-sm-4">
 																		<div class="form-group">
 																			<label class="col-sm-3 control-label no-padding-right" for="tarifa0"> Tarifa 0:</label>
 																			<div class="col-sm-9">
