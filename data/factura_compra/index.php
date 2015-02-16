@@ -85,7 +85,7 @@
 															<div class="col-sm-3 hide">
 																<span class="bigger-120">
 																	<span class="green bolder">Comprobante:</span>
-																	<span>000000</span>
+																	<input type="hidden" name="comprobante" id="comprobante" />
 																</span>
 															</div>
 
@@ -104,7 +104,7 @@
 															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="blue bolder">Hora Actual:</span>
-																	<span>11:00:01</span>
+																	<span id="estado"></span>
 																</span>
 															</div>
 															
@@ -339,7 +339,7 @@
 																			<div class="row">
 																				<div class="col-xs-12">
 																					<input type="number" id="descuento" name="descuento" class="form-control" data-toggle="tooltip" onkeydown="return validarNumeros(event)" value="0" /> 
-																					<input type="text" id="id_productos" name="id_productos" class="form-control" data-toggle="tooltip" /> 
+																					<input type="hidden" id="id_productos" name="id_productos" class="form-control" data-toggle="tooltip" /> 
 																				</div>
 																			</div>
 																		</div>

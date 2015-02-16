@@ -1,21 +1,20 @@
 <?php
-
 	include '../conexion.php';
 	include '../funciones_generales.php';		
 	$conexion = conectarse();
 	date_default_timezone_set('America/Guayaquil');
     $fecha=date('Y-m-d H:i:s', time()); 
     $fecha_larga = date('His', time()); 
+    $hora = time();
+    $hora_actual = $hora - (60 * 60 * 24 * 30);
 	$sql = "";	
 	$id_session = '1';///datos session
 	$id = unique($fecha_larga);	
 		
-	
-	
     ///////////////////////guardar factura compra////////////////////
    $num_serie = $_POST['fecha_registro'];
 
-	$sql = "insert into factura_compra values ('$id','$_POST[id_proveedor]','$id_session','$id','$_POST[fecha_actual]','$_POST[hora_actual]','$_POST[fecha_registro]','$_POST[fecha_emision]','$_POST[fecha_caducidad]','$_POST[tipo_comprobante]','$num_serie','$_POST[autorizacion]','$_POST[fecha_cancelacion]','$_POST[formas]','$_POST[tarifa0]','$_POST[tarifa12]','$_POST[iva]','$_POST[descuento_total]','$_POST[total]','Activo','$fecha')";	
+	$sql = "insert into factura_compra values ('$id','$_POST[id_proveedor]','$id_session','$id','$fecha','$hora_actual','$_POST[fecha_registro]','$_POST[fecha_emision]','$_POST[fecha_caducidad]','$_POST[tipo_comprobante]','$num_serie','$_POST[autorizacion]','$_POST[fecha_cancelacion]','$_POST[formas]','$_POST[tarifa0]','$_POST[tarifa12]','$_POST[iva]','$_POST[descuento_total]','$_POST[total]','Activo','$fecha')";	
 		
 	$guardar = guardarSql($conexion,$sql);
 	if( $guardar == 'true'){
@@ -39,30 +38,16 @@
 	$arreglo4 = explode(',', $campo4);
 	$arreglo5 = explode(',', $campo5);
 	$nelem = count($arreglo1);
-   
-   //print_r($arreglo1);
+   		
+	for ($i = 0; $i < $nelem; $i++) {		
+		$id2 = unique($fecha_larga);	
+        $sql2 = "insert into detalle_factura_compra values (
+       	'$id2','$id','".$arreglo1[$i]."','".$arreglo2[$i]."','".$arreglo3[$i]."','".$arreglo4[$i]."','".$arreglo5[$i]."','Activo','$fecha')";       
+		$guardar = guardarSql($conexion,$sql2);
 
 
-	for ($i = 0; $i < $nelem; $i++) {
-		$sql2 = "";	
-		date_default_timezone_set('America/Guayaquil');
-	    $fecha=date('Y-m-d H:i:s', time()); 
-	    $fecha_larga = date('His', time()); 
-		$id2 = unique($fecha_larga);
-		//echo $id2;
 
-       $sql2 = "insert into detalle_factura_compra values (
-       	'$id2','$id','".$arreglo1[$i]."','".$arreglo2[$i]."','".$arreglo3[$i]."','".$arreglo4[$i]."','".$arreglo5[$i]."','Activo','$fecha')"; 
-
+		 
 	}
-	$guardar = guardarSql($conexion,$sql2); 
-   
-	//if( $guardar == 'true'){
-	//	$data = 0; ////datos guardados
-	//}else{
-	//	$data = 2; /// error al guardar
-	//}
-
-	
 	echo $data;
 ?>

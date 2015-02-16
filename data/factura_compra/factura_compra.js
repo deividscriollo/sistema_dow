@@ -1,4 +1,6 @@
-$(document).on("ready",inicio);		
+$(document).on("ready",inicio);	
+
+
 
 function guardar_factura(){
 var vect1 = new Array();
@@ -33,12 +35,6 @@ $("#detalle_factura tbody tr").each(function (index) {
     if(vect1.length == 0){
        alert("Ingrese los productos");  
        }else{
-
-
-    
-
-
-
   $.ajax({        
     type: "POST",
     data: "tipo="+$("#form_facturaCompra").serialize()+"&campo1="+vect1+"&campo2="+vect2+"&campo3="+vect3+"&campo4="+vect4+"&campo5="+vect5,
@@ -65,7 +61,8 @@ $("#detalle_factura tbody tr").each(function (index) {
 
 }
 
-function inicio (){			    
+function inicio (){		
+   mostrar("estado");	    
 	////////////////validaciones/////////////////
 	$("#cantidad").validCampoFranz("0123456789");
 	$("#autorizacion").validCampoFranz("0123456789");

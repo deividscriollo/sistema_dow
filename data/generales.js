@@ -14,9 +14,8 @@ function mostrar(input) {///funcion para mostrar la hora se necesita un nombre d
         minutes = "0" + minutes;
     if (seconds <= 9)
         seconds = "0" + seconds;
-    $("#"+input).val(hours + ":" + minutes + ":" + seconds + " " + dn);
-    var input = input;
-
+    $("#"+input).text(hours + ":" + minutes + ":" + seconds + " " + dn);
+    //$("#"+input).val(hours + ":" + minutes + ":" + seconds + " " + dn);    
     setTimeout("mostrar('"+input+"')", 1000);    
 }
 function comprobarCamposRequired(form){
@@ -542,7 +541,7 @@ function limpiar_chosen_codigo(){
     $("#precio").val("");       
     $("#cantidad").val(""); 
     $("#descuento").val(0);   
-    chosen:close
+   
     $("#codigo").trigger("chosen:close")
     $("#codigo").trigger("chosen:open")    
     

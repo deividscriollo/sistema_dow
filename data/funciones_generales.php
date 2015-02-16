@@ -171,4 +171,11 @@ function buscar_nombres($conexion, $sql) {
         echo $lista = json_encode($lista);
     }
 }
+function fecha_total(){    
+    
+    date_default_timezone_set('America/Guayaquil');
+    $fecha=date('Y-m-d H:i:s', time()); 
+    $fecha_larga = date('His', time()); 
+    return $valor=uniqid('');
+}
 ?>
