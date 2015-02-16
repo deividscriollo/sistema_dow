@@ -31,7 +31,7 @@ class email  extends PHPMailer{
     /**
  * Metodo encargado del envio del e-mail
  */
-    public function enviar( $para, $nombre, $titulo , $contenido)
+    public function enviar( $para, $nombre, $titulo , $contenido, $archivo)
     {
        $this->AddAddress( $para ,  $nombre );  // Correo y nombre a quien se envia
        $this->WordWrap = 50; // Ajuste de texto
@@ -39,6 +39,7 @@ class email  extends PHPMailer{
        $this->Subject =$titulo;
        $this->Body    =  $contenido; //contenido con etiquetas HTML
        $this->AltBody =  strip_tags($contenido); //Contenido para servidores que no aceptan HTML
+       $this->AddAttachment($archivo);
        //envio de e-mail y retorno de resultado
        return $this->Send() ;
    }
@@ -373,14 +374,28 @@ $contenido_html =  '
  </table>
  </body>
  </html>';
-
+$archivosadd='deivid.pdf';
 $email = new email();
-if ( $email->enviar( 'deividscriollo@gmail.com' , 'Admin' , 'Tengo una pregunta' ,  $contenido_html ) )
-   echo 'Mensaje enviado';
-else
-{
-   echo 'El mensaje no se pudo enviar ';
-   $email->ErrorInfo;
+//if ( $email->enviar( 'deividscriollo@gmail.com' , 'Admin' , 'Tengo una pregunta' ,  $contenido_html,$archivosadd ) )
+   //echo 'Mensaje enviado';
+//else
+//{
+   //echo 'El mensaje no se pudo enviar ';
+   //$email->ErrorInfo;
+//}
+
+?>
+<?php
+
+$zip = new ZipArchive();
+$filename = "./test112.zip";
+
+if ($zip->open($filename, ZipArchive::CREATE)!==TRUE) {
+    exit("cannot open <$filename>\n");
 }
 
+$zip->addFromString("deivid.pdf" . time(), "#1 Esto es una cadena de prueba añadida como  testfilephp.txt.\n");
+echo "numficheros: " . $zip->numFiles . "\n";
+echo "estado:" . $zip->status . "\n";
+$zip->close();
 ?>
