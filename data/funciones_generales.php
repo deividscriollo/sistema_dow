@@ -1,4 +1,8 @@
 <?php
+function sesion_activa(){
+    session_start();        
+    return $_SESSION['iddow'];
+}
 function img_64($destino,$img_64,$extension,$nombre){
     define('UPLOAD_DIR', $destino.'/');    
     $img_64 = str_replace('data:image/png;base64,', '', $img_64);        

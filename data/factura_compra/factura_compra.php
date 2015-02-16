@@ -4,18 +4,16 @@
 	$conexion = conectarse();
 	date_default_timezone_set('America/Guayaquil');
     $fecha=date('Y-m-d H:i:s', time()); 
-    $fecha_larga = date('His', time()); 
-    $hora = time();
-    $hora_actual = $hora - (60 * 60 * 24 * 30);
+    $fecha_larga = date('His', time());     
 	$sql = "";	
 	$sql2 = "";	
-	$id_session = '1';///datos session
+	$id_session = sesion_activa();///datos session
 	$id = unique($fecha_larga);	
 		
     ///////////////////////guardar factura compra////////////////////
-   $num_serie = $_POST['fecha_registro'];
+   $num_serie = $_POST['serie1']."-".$_POST['serie2']."-".$_POST['serie3'];
 
-	$sql = "insert into factura_compra values ('$id','$_POST[id_proveedor]','$id_session','$id','$fecha','$hora_actual','$_POST[fecha_registro]','$_POST[fecha_emision]','$_POST[fecha_caducidad]','$_POST[tipo_comprobante]','$num_serie','$_POST[autorizacion]','$_POST[fecha_cancelacion]','$_POST[formas]','$_POST[tarifa0]','$_POST[tarifa12]','$_POST[iva]','$_POST[descuento_total]','$_POST[total]','Activo','$fecha')";	
+	$sql = "insert into factura_compra values ('$id','$_POST[id_proveedor]','$id_session','$_POST[tipo_comprobante]','$fecha','$_POST[hora]','$_POST[fecha_registro]','$_POST[fecha_emision]','$_POST[fecha_caducidad]','$_POST[tipo_comprobante]','$num_serie','$_POST[autorizacion]','$_POST[fecha_cancelacion]','$_POST[formas]','$_POST[tarifa0]','$_POST[tarifa12]','$_POST[iva]','$_POST[descuento_total]','$_POST[total]','Activo','$fecha')";	
 		
 	$guardar = guardarSql($conexion,$sql);
 	if( $guardar == 'true'){

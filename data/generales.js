@@ -1,3 +1,8 @@
+function fecha_actual (input){
+    var d = new Date();
+    var strDate = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
+    $("#"+input).text(strDate);    
+}
 function mostrar(input) {///funcion para mostrar la hora se necesita un nombre de campo como parametro
     var Digital = new Date();
     var hours = Digital.getHours();
@@ -678,12 +683,5 @@ function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,can
     $("#tarifa12").val(parseFloat(iva12).toFixed(3));
     $("#iva").val(parseFloat(tot_iva).toFixed(3));
     $("#descuento_total").val(parseFloat(desc_tabla).toFixed(3));    
-    $("#total").val(parseFloat(total_fac).toFixed(2));
-    calcular();
-}
-
-function calcular(){
-    $("#detalle_producto tbody").each(function (){
-        console.log("ad")
-    })
+    $("#total").val(parseFloat(total_fac).toFixed(2));    
 }

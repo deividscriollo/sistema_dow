@@ -92,13 +92,13 @@
 															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="red bolder">Responsable:</span>
-																	<span ><?php print($_SESSION['nombrescompletosdow']); ?></span>
+																	<span id="txt_responsable"><?php print($_SESSION['nombrescompletosdow']); ?></span>
 																</span>
 															</div>
 															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="blue bolder">Fecha Actual:</span>
-																	<span>2015-02-13</span>
+																	<span id ="fecha_actual"></span>
 																</span>
 															</div>
 															<div class="col-sm-3">
@@ -516,7 +516,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">BUSCAR USUARIOS</h4>
+          <h4 class="modal-title">BUSCAR FACTURAS COMPRAS</h4>
         </div>
         <div class="modal-body">
             <table id="table"></table>
