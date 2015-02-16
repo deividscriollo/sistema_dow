@@ -8,6 +8,7 @@
     $hora = time();
     $hora_actual = $hora - (60 * 60 * 24 * 30);
 	$sql = "";	
+	$sql2 = "";	
 	$id_session = '1';///datos session
 	$id = unique($fecha_larga);	
 		
@@ -40,14 +41,27 @@
 	$nelem = count($arreglo1);
    		
 	for ($i = 0; $i < $nelem; $i++) {		
-		$id2 = unique($fecha_larga);	
+		$id2 = unique($fecha_larga);
+		///guardar detalle_factura/////
         $sql2 = "insert into detalle_factura_compra values (
        	'$id2','$id','".$arreglo1[$i]."','".$arreglo2[$i]."','".$arreglo3[$i]."','".$arreglo4[$i]."','".$arreglo5[$i]."','Activo','$fecha')";       
 		$guardar = guardarSql($conexion,$sql2);
+		//////////////////////////////
+        
+
+        //////////////modificar productos///////////
+        $consulta = pg_query("select * from productos where cod_productos = '".$arreglo1[$i]."");
+        while ($row = pg_fetch_row($consulta2)) {
+            $stock = $row[13];
+        }
+        $cal = $stock + $arreglo2[$i];
+        ///////////////////////////////////////////
+
+        $sql3 = "update cliente set precio_compra='".$arreglo3[$i]."', stock='$cal' where id_cliente='$_POST[txt_0]'";								
+		$guardar = guardarSql($conexion,$sql);
 
 
-
-		 
 	}
+
 	echo $data;
 ?>

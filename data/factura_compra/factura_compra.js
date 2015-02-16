@@ -1,7 +1,5 @@
 $(document).on("ready",inicio);	
 
-
-
 function guardar_factura(){
 var vect1 = new Array();
 var vect2 = new Array();
@@ -32,9 +30,24 @@ $("#detalle_factura tbody tr").each(function (index) {
     cont++;  
 });
 
-    if(vect1.length == 0){
-       alert("Ingrese los productos");  
-       }else{
+   if($("#id_proveedor").val() == ""){
+     $("#txt_nro_identificacion").trigger("chosen:open"); 
+   }else{
+    if($("#serie1").val() == ""){
+     $("#serie1").focus();
+   }else{
+    if($("#serie2").val() == ""){
+     $("#serie2").focus();
+   }else{
+    if($("#serie3").val() == ""){
+     $("#serie3").focus();
+   }else{
+    if($("#autorizacion").val() == ""){
+     $("#autorizacion").focus();
+   }else{
+   if(vect1.length == 0){
+      alert("Ingrese los productos");  
+    }else{
   $.ajax({        
     type: "POST",
     data: "tipo="+$("#form_facturaCompra").serialize()+"&campo1="+vect1+"&campo2="+vect2+"&campo3="+vect3+"&campo4="+vect4+"&campo5="+vect5,
@@ -55,11 +68,16 @@ $("#detalle_factura tbody tr").each(function (index) {
          //   actualizar_form();
          // }
         }
-    }
-  }); 
+      }
+    }); 
   }
-
+ }
 }
+}
+}
+}
+}
+
 
 function inicio (){		
    mostrar("estado");	    
