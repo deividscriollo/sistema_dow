@@ -1,7 +1,5 @@
 $(document).on("ready",inicio);	
 
-
-
 function guardar_factura(){
 var vect1 = new Array();
 var vect2 = new Array();
@@ -32,6 +30,10 @@ $("#detalle_factura tbody tr").each(function (index) {
     cont++;  
 });
 
+   if($("#id_proveedor").val() == ""){
+     $("#txt_nro_identificacion").trigger("chosen:open") 
+   }else
+     {
     if(vect1.length == 0){
        alert("Ingrese los productos");  
        }else{
@@ -55,10 +57,10 @@ $("#detalle_factura tbody tr").each(function (index) {
          //   actualizar_form();
          // }
         }
-    }
-  }); 
+      }
+    }); 
   }
-
+ }
 }
 
 function inicio (){		
