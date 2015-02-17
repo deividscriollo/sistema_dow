@@ -29,35 +29,25 @@ function guardar_factura(){
     });
     cont++;  
   });
-  if($("#id_proveedor").val() == ""){  
-    $('#txt_nro_identificacion').trigger('mousedown');    
-    alert("Seleccione un proveedor");
+  if($("#id_cliente").val() == ""){  
+   // $('#txt_nro_identificacion').trigger('mousedown');    
+    alert("Seleccione un cliente");
   }else{
-    if($("#serie1").val() == ""){
-      $("#serie1").focus();
-    }else{
-      if($("#serie2").val() == ""){
-        $("#serie2").focus();
-      }else{
-        if($("#serie3").val() == ""){
-          $("#serie3").focus();
-          alert("Ingrese la serie");
-        }else{
-          if($("#autorizacion").val() == ""){
+     if($("#serie3").val() == ""){
+       $("#serie3").focus();
+       alert("Ingrese la serie");
+       }else{
+          if(vect1.length == 0){
             var a = autocompletar($("#serie3").val());
-            $("#serie3").val(a + "" + $("#serie3").val());
-            $("#autorizacion").focus();
-            alert("Ingrese la autorización");
-          }else{
-            if(vect1.length == 0){
+              $("#serie3").val(a + "" + $("#serie3").val());
               alert("Ingrese los productos");  
             }else{
               var a = autocompletar($("#serie3").val());
               $("#serie3").val(a + "" + $("#serie3").val());
               $.ajax({        
                 type: "POST",
-                data: $("#form_facturaCompra").serialize()+"&campo1="+vect1+"&campo2="+vect2+"&campo3="+vect3+"&campo4="+vect4+"&campo5="+vect5+"&hora="+$("#estado").text(),                
-                url: "factura_compra.php",      
+                data: $("#form_facturaVenta").serialize()+"&campo1="+vect1+"&campo2="+vect2+"&campo3="+vect3+"&campo4="+vect4+"&campo5="+vect5+"&hora="+$("#estado").text(),                
+                url: "factura_venta.php",      
                 success: function(data) { 
                   if( data == 0 ){
                     alert('Datos Agregados Correctamente');     
@@ -78,9 +68,7 @@ function guardar_factura(){
                 }
               }); 
             }
-          }
-        }
-      }
+          
     }
   }
 }
@@ -330,6 +318,8 @@ function inicio (){
       		}
     	}
 	});
+/*-----guardar factura compra--*/
+  $("#btn_0").on("click",guardar_factura);
 }
 
 

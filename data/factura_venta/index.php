@@ -23,12 +23,6 @@
 		<link rel="stylesheet" href="../../dist/css/bootstrap-timepicker.min.css" />
 		<link rel="stylesheet" href="../../dist/css/daterangepicker.min.css" />
 		<link rel="stylesheet" href="../../dist/css/bootstrap-datetimepicker.min.css" />
-
-
-
-		<!-- page specific plugin styles -->
-
-		<!-- text fonts -->
 		<link rel="stylesheet" href="../../dist/css/fontdc.css" />
 
 		<!-- ace styles -->
@@ -53,7 +47,6 @@
                         <script type="text/javascript">
                             try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
                         </script>
-
                         <ul class="breadcrumb">
                             <li>
                                 <i class="ace-icon fa fa-home home-icon"></i>
@@ -61,7 +54,6 @@
                             </li>
                             <li class="active">Procesos</li>
                             <li class="active">Factura Venta</li>
-                            
                         </ul>
                     </div>
 					<div class="page-content">
@@ -70,14 +62,10 @@
 								<div class="widget-box">
 									<div class="widget-header">
 										<h5 class="widget-title"><i class="ace-icon fa fa-user"></i> Factura Venta</h5>
-
 										<div class="widget-toolbar">
-											
-
 											<a href="#" data-action="fullscreen" class="orange2">
 												<i class="ace-icon fa fa-expand"></i>
 											</a>
-
 											<a href="#" data-action="reload">
 												<i class="ace-icon fa fa-refresh"></i>
 											</a>
@@ -86,7 +74,7 @@
 									<div class="widget-body">
 										<div class="widget-main">
 											<div class="row">
-												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_cliente">	
+												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_facturaVenta">	
 													<div class="row">
 														<div class="col-xs-12 pull-right">														
 															<div class="col-sm-3 hide">
@@ -94,7 +82,6 @@
 																	<input type="hidden" name="comprobante" id="comprobante" />
 																</span>
 															</div>
-
 															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="red bolder">Responsable:</span>
@@ -110,10 +97,9 @@
 															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="blue bolder">Hora Actual:</span>
-																	<span id="hora_actual"></span>
+																	<span id="estado"></span>
 																</span>
 															</div>
-															
 														</div>
 													</div>
 													<div class="hr"></div>

@@ -9,6 +9,7 @@
 	$sql = "";
 	$sql2 = "";	
 	$sql3 = "";
+	$id_session = sesion_activa();///datos session
 	$id = unique($fecha_larga);
 
 	//if (isset($_POST['buscar_nombre'])) { //buscar nombre con id cliente
@@ -19,7 +20,7 @@
 	///////////////////////guardar factura venta////////////////////
     $num_serie = "001-001-".$_POST['serie3'];
 
-	$sql = "insert into factura_venta values ('$id','$_POST[id_proveedor]','$id_session','$_POST[tipo_comprobante]','$fecha','$_POST[hora_actual]','$_POST[fecha_registro]','$_POST[fecha_emision]','$_POST[fecha_caducidad]','$_POST[tipo_comprobante]','$num_serie','$_POST[autorizacion]','$_POST[fecha_cancelacion]','$_POST[formas]','$_POST[tarifa0]','$_POST[tarifa12]','$_POST[iva]','$_POST[descuento_total]','$_POST[total]','Activo','$fecha')";	
+	$sql = "insert into factura_venta values ('$id','$_POST[id_cliente]','$id_session','$id','$fecha','$_POST[hora]','$num_serie','$_POST[fecha_cancelacion]','$_POST[tipo]','$_POST[formas]','$_POST[tarifa0]','$_POST[tarifa12]','$_POST[iva]','$_POST[descuento_total]','$_POST[total]','Activo','$fecha')";	
 		
 	$guardar = guardarSql($conexion,$sql);
 	if( $guardar == 'true'){

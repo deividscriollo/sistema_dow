@@ -100,7 +100,7 @@
 															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="blue bolder">Hora Actual:</span>
-																	<span id="hora_actual"></span>
+																	<span id="estado"></span>
 																</span>
 															</div>
 															

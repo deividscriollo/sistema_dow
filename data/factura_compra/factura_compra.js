@@ -85,9 +85,9 @@ function guardar_factura(){
   }
 }
 
- 
+
 function inicio (){		
-  mostrar("hora_actual");	
+  mostrar("estado");	
   fecha_actual("fecha_actual");  
   /*jqgrid*/    
   jQuery(function($) {
