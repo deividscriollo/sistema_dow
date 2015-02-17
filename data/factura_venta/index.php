@@ -104,13 +104,13 @@
 															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="blue bolder">Fecha Actual:</span>
-																	<span>2015-02-13</span>
+																	<span id ="fecha_actual"></span>
 																</span>
 															</div>
 															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="blue bolder">Hora Actual:</span>
-																	<span></span>
+																	<span id="hora_actual"></span>
 																</span>
 															</div>
 															
@@ -154,15 +154,7 @@
 														<div class="col-xs-12">
 															<div class="col-sm-3">																		
 																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Cliente:</label>
-																	<div class="col-sm-8">
-																		<h5 class="blue" id="lbl_client_nombre"></h5>
-																	</div>																													
-																</div>																												
-															</div>
-															<div class="col-sm-3">																		
-																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Direccion:</label>
+																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Dirección:</label>
 																	<div class="col-sm-8">
 																		<h5 class="blue" id="lbl_client_direccion"></h5>
 																	</div>																													
@@ -170,7 +162,7 @@
 															</div>
 															<div class="col-sm-3">																		
 																<div class="form-group">
-																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Telefono:</label>
+																	<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Teléfono:</label>
 																	<div class="col-sm-8">
 																		<h5 class="blue" id="lbl_client_telefono"></h5>
 																	</div>																													
@@ -194,14 +186,13 @@
 																		<div class="form-group">
 																			<label class="col-sm-6 control-label no-padding-right" for="form-field-1"> Nro factura preimpresa:</label>
 																			<div class="col-sm-1">
-																				<h5 class="red">011</h5>
-																				<!-- <input type="text" id="txt_2" name="txt_2" class="form-control center" value="001" />																			 -->
+																				<h5 class="red">001-</h5>
 																			</div>
 																			<div class="col-sm-1">
-																				<h5 class="red">011</h5>
+																				<h5 class="red">001-</h5>
 																			</div>
 																			<div class="col-sm-4">
-																				<input type="text" id="serie3" name="serie3" class="form-control green" required pattern="[0-9]{10,10}" maxlength="10" minlength="10" value="000000999" />
+																				<input type="text" id="serie3" name="serie3" class="form-control" data-toggle="tooltip" data-original-title="" required />																		
 																			</div>																														
 																		</div>
 																	</div>
@@ -210,7 +201,7 @@
 																			<label class="col-sm-6 control-label no-padding-right" for="fecha_cancelacion"> Fecha cancelación:</label>
 																			<div class="col-sm-6">
 																				<div class="input-group">
-																					<input class="form-control date-picker" id="fecha_cancelacion" name="fecha_cancelacion" type="text" data-date-format="yyyy-mm-dd" />
+																					<input class="form-control date-picker" id="fecha_cancelacion" name="fecha_cancelacion" type="text" readonly data-date-format="yyyy-mm-dd" />
 																					<span class="input-group-addon">
 																						<i class="fa fa-calendar bigger-110"></i>
 																					</span>
@@ -440,35 +431,35 @@
 															</div>
 														</div>														
 													</div>
-													<div class="row">
-														<div class="center">													 
-															<button type="submit" class="btn btn-primary" id="btn_0">
-																<i class="ace-icon fa fa-floppy-o bigger-120 write"></i>
-																Guardar
-															</button>
-															<button type="button" id="btn_1" class="btn btn-primary">
-																<i class="ace-icon fa fa-file-o bigger-120 write"></i>
-																Limpiar
-															</button>
-															<button type="button" id="btn_2" class="btn btn-primary">
-																<i class="ace-icon fa fa-refresh bigger-120 write"></i>
-																Actualizar
-															</button>														
-															<button data-toggle="modal" href="#myModal" type="button" id="btn_3" class="btn btn-primary">
-																<i class="ace-icon fa fa-search bigger-120 write"></i>
-																Buscar
-															</button>
-															<button type="button" id="btn_4" class="btn btn-primary">
-																<i class="ace-icon fa fa-arrow-circle-left bigger-120 write"></i>
-																Atras
-															</button>
-															<button type="button" id="btn_5" class="btn btn-primary">
-																<i class="ace-icon fa fa fa-arrow-circle-right bigger-120 write"></i>
-																Adelante
-															</button>
-														</div>
-													</div>
 												</form>
+												<div class="row">
+													<div class="center">													 
+														<button type="button" class="btn btn-primary" id="btn_0">
+															<i class="ace-icon fa fa-floppy-o bigger-120 write"></i>
+															Guardar
+														</button>
+														<button type="button" id="btn_1" class="btn btn-primary">
+															<i class="ace-icon fa fa-file-o bigger-120 write"></i>
+															Limpiar
+														</button>
+														<button type="button" id="btn_2" class="btn btn-primary">
+															<i class="ace-icon fa fa-refresh bigger-120 write"></i>
+															Actualizar
+														</button>														
+														<button data-toggle="modal" href="#myModal" type="button" id="btn_3" class="btn btn-primary">
+															<i class="ace-icon fa fa-search bigger-120 write"></i>
+															Buscar
+														</button>
+														<button type="button" id="btn_4" class="btn btn-primary">
+															<i class="ace-icon fa fa-arrow-circle-left bigger-120 write"></i>
+															Atras
+														</button>
+														<button type="button" id="btn_5" class="btn btn-primary">
+															<i class="ace-icon fa fa fa-arrow-circle-right bigger-120 write"></i>
+															Adelante
+														</button>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
