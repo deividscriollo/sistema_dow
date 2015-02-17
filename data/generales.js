@@ -555,7 +555,6 @@ function limpiar_chosen_codigo(){
     $("#precio").val("");       
     $("#cantidad").val(""); 
     $("#descuento").val(0);   
-   
     $("#codigo").trigger("chosen:close")
     $("#codigo").trigger("chosen:open")    
     
