@@ -133,6 +133,16 @@
 																}else{
 																	
 																}
+															}else{
+																if($_GET['fun'] == "17"){//para la busqueda del nombre del producto
+																	if($_GET['tipo'] == "0"){
+																		$sql = "select productos.id_productos,codigo,descripcion,cantidad,detalle_factura_compra.precio,descuento,total from detalle_factura_compra,productos where detalle_factura_compra.id_productos = productos.id_productos and id_factura_compra = '$_GET[id]'";
+																		
+																		carga_tabla_7($conexion,$sql);//json de 7 datos
+																	}else{
+																		
+																	}
+																}
 															}
 														}
 													}													

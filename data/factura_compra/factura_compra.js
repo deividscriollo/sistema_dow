@@ -103,12 +103,12 @@ function inicio (){
       colNames: ['id_Factura_compra','RESPONSABLE','FECHA','HORA ACUTAL','id_proveedor','CI/RUC','PROVEEDOR','COMPROBANTE','FECHA REGISTRO','FECHA EMISION', 'FECHA CADUCIDAD','FECHA CANCELACION','NRO SERIE','NRO AUTORIZACION','FORMA PAGO','TARFIA 0','TARIFA 12','IVA', 'DESCUENTO','TOTAL'],
       colModel:[      
               {name:'comprobante',index:'id_factura_compra',frozen:true,align:'left',search:false},
-              {name:'txt_reponsable',index:'txt_reponsable',frozen : true,align:'left',search:true},
+              {name:'txt_reponsable',index:'usuario.nombres_completos',frozen : true,align:'left',search:true},
               {name:'fecha_actual',index:'fecha_actual',frozen : true,align:'left',search:false},
               {name:'estado',index:'estado',frozen : true,align:'left',search:false},
               {name:'id_proveedor',index:'id_proveedor',frozen : true,align:'left',search:false},
-              {name:'ci_proveedor',index:'ci_proveedor',frozen : true,align:'left',search:true},
-              {name:'nombre_proveedor',index:'nombre_proveedor',frozen : true,align:'left',search:true},
+              {name:'ci_proveedor',index:'proveedor.identificacion',frozen : true,align:'left',search:true},
+              {name:'nombre_proveedor',index:'proveedor.nombres_completos',frozen : true,align:'left',search:true},
               {name:'tipo_comprobante',index:'tipo_comprobante',frozen : true,align:'left',search:false},
               {name:'fecha_registro',index:'fecha_registro',frozen : true,align:'left',search:false},
               {name:'fecha_emision',index:'fecha_emision',frozen : true,align:'left',search:false},
@@ -147,21 +147,41 @@ function inicio (){
               }, 0);
           },
           ondblClickRow: function(rowid) {                                
-              var gsr = jQuery(grid_selector).jqGrid('getGridParam','selrow');                                              
-              var ret = jQuery(grid_selector).jqGrid('getRowData',gsr);                                              
-              $("#comprobante").val(ret.comprobante);
-              $("#txt_responsable").text(ret.txt_reponsable);
-              $("#fecha_actual").val(ret.);
-              $("#estado").val(ret.estado);
-              $("#id_proveedor").val(ret.id_proveedor);                 
-              
-              $("#txt_6").trigger("chosen:updated");                            
-                  $('#myModal').modal('hide');                  
-                  $("#btn_0").text("");
-                  $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> -------");                   
-              },
-          
-          caption: "LISTA DE FACTURAS COMPRA"
+            var gsr = jQuery(grid_selector).jqGrid('getGridParam','selrow');                                              
+            var ret = jQuery(grid_selector).jqGrid('getRowData',gsr);                                              
+            $("#comprobante").val(ret.comprobante);
+            $("#txt_responsable").text(ret.txt_reponsable);
+            $("#fecha_actual").val(ret.fecha_registro);
+            $("#estado").val(ret.estado);
+            $("#id_proveedor").val(ret.id_proveedor);
+            $('#txt_nro_identificacion').html("");
+            $('#txt_nro_identificacion').append($("<option data-extra='"+ret.nombre_proveedor+"'></option>").val(ret.id_proveedor).html(ret.ci_proveedor)).trigger('chosen:updated');                    
+            $('#txt_nombre_proveedor').html("");
+            $('#txt_nombre_proveedor').append($("<option data-extra='"+ret.ci_proveedor+"'></option>").val(ret.id_proveedor).html(ret.nombre_proveedor)).trigger('chosen:updated');                                                             
+            $('#tipo_comprobante').val(ret.tipo_comprobante);
+            $('#tipo_comprobante').trigger("chosen:updated");
+            $('#fecha_registro').val(ret.fecha_registro);
+            $('#fecha_emision').val(ret.fecha_emision);
+            $('#fecha_caducidad').val(ret.fecha_caducidad);
+            $('#fecha_cancelacion').val(ret.fecha_cancelacion);
+            var text = ret.nro_serie;
+            $('#serie1').val(text.substr(0,3));
+            $('#serie2').val(text.substr(4,3));
+            $('#serie3').val(text.substr(8,30));
+            $('#autorizacion').val(ret.autorizacion);
+            $('#formas').val(ret.formas);
+            $('#formas').trigger("chosen:updated");
+            $('#tarifa0').val(ret.tarifa0);
+            $('#tarifa12').val(ret.tarifa12);
+            $('#iva').val(ret.iva);
+            $('#descuento_total').val(ret.descuento_total);
+            $('#total').val(ret.total);
+            $('#myModal').modal('hide');  
+            carga_detalles_fc("detalle_factura");                
+            $("#btn_0").text("");
+            $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> ----------");                   
+        },          
+        caption: "LISTA DE FACTURAS COMPRA"
       });
       jQuery(grid_selector).jqGrid('hideCol', "comprobante");   
       jQuery(grid_selector).jqGrid('hideCol', "id_proveedor");      
@@ -614,5 +634,103 @@ function inicio (){
   $("#btn_1").on("click",actualizar_form);
   /*-----actualizar factura compra--*/
   $("#btn_2").on("click",actualizar_form);
+  $("#btn_4").on("click",function (){   
+    var resp = "";    
+    resp =atras($("#comprobante").val(),"factura_compra","secuencia.php");   
+    if(resp.Cabecera[0] != false){     
+      $("#comprobante").val(resp.Cabecera[0][0]);
+      $("#txt_responsable").text(resp.Cabecera[0][1]);
+      $("#fecha_actual").val(resp.Cabecera[0][8]);
+      $("#estado").val(resp.Cabecera[0][3]);
+      $("#id_proveedor").val(resp.Cabecera[0][4]);
+      $('#txt_nro_identificacion').html("");
+      $('#txt_nro_identificacion').append($("<option resp-extra='"+resp.Cabecera[0][6]+"'></option>").val(resp.Cabecera[0][4]).html(resp.Cabecera[0][5])).trigger('chosen:updated');                    
+      $('#txt_nombre_proveedor').html("");
+      $('#txt_nombre_proveedor').append($("<option resp-extra='"+resp.Cabecera[0][5]+"'></option>").val(resp.Cabecera[0][4]).html(resp.Cabecera[0][6])).trigger('chosen:updated');                                                             
+      $('#tipo_comprobante').val(resp.Cabecera[0][7]);
+      $('#tipo_comprobante').trigger("chosen:updated");
+      $('#fecha_registro').val(resp.Cabecera[0][8]);
+      $('#fecha_emision').val(resp.Cabecera[0][9]);
+      $('#fecha_caducidad').val(resp.Cabecera[0][10]);
+      $('#fecha_cancelacion').val(resp.Cabecera[0][11]);
+      var text = resp.Cabecera[0][12];
+      $('#serie1').val(text.substr(0,3));
+      $('#serie2').val(text.substr(4,3));
+      $('#serie3').val(text.substr(8,30));
+      $('#autorizacion').val(resp.Cabecera[0][13]);
+      $('#formas').val(resp.Cabecera[0][14]);
+      $('#formas').trigger("chosen:updated");
+      $('#tarifa0').val(resp.Cabecera[0][15]);
+      $('#tarifa12').val(resp.Cabecera[0][16]);
+      $('#iva').val(resp.Cabecera[0][17]);
+      $('#descuento_total').val(resp.Cabecera[0][18]);
+      $('#total').val(resp.Cabecera[0][19]);
+      $("#detalle_factura tbody").html("");
+      for(var i = 0; i < resp.Detalles.length; i++){        
+        for(var j = 0; j < resp.Detalles[i].length; j=j+7){          
+          $("#detalle_factura tbody").append( "<tr>" +"<td align=center>" + resp.Detalles[i][j] +"</td>" +"<td align=center>" + resp.Detalles[i][j+1] + "</td>" +"<td align=center>" + resp.Detalles[i][j+2] +"</td>" +"<td align=center>" + resp.Detalles[i][j+3] +"</td>" +"<td align=center>" + resp.Detalles[i][j+4] + "</td>" +"<td align=center>" + resp.Detalles[i][j+5] +"</td>" +"<td align=center>" + resp.Detalles[i][j+6] + "</td>" +"<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='red dc_btn_accion tooltip-error ' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' ></i></a></div>"+ "</td><td class='hidden'>"+"NH"+"</td>" +"</tr>" );                     
+        } 
+      }
+    }else{
+      alert("Sin registros anteriores");
+    }         
+    $("#btn_0").text("");
+    $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> -----------");                   
+  });
+  $("#btn_5").on("click",function (){   
+    var resp = "";    
+    resp =adelante($("#comprobante").val(),"factura_compra","secuencia.php");   
+    if(resp.Cabecera[0] != false){     
+      $("#comprobante").val(resp.Cabecera[0][0]);
+      $("#txt_responsable").text(resp.Cabecera[0][1]);
+      $("#fecha_actual").val(resp.Cabecera[0][8]);
+      $("#estado").val(resp.Cabecera[0][3]);
+      $("#id_proveedor").val(resp.Cabecera[0][4]);
+      $('#txt_nro_identificacion').html("");
+      $('#txt_nro_identificacion').append($("<option resp-extra='"+resp.Cabecera[0][6]+"'></option>").val(resp.Cabecera[0][4]).html(resp.Cabecera[0][5])).trigger('chosen:updated');                    
+      $('#txt_nombre_proveedor').html("");
+      $('#txt_nombre_proveedor').append($("<option resp-extra='"+resp.Cabecera[0][5]+"'></option>").val(resp.Cabecera[0][4]).html(resp.Cabecera[0][6])).trigger('chosen:updated');                                                             
+      $('#tipo_comprobante').val(resp.Cabecera[0][7]);
+      $('#tipo_comprobante').trigger("chosen:updated");
+      $('#fecha_registro').val(resp.Cabecera[0][8]);
+      $('#fecha_emision').val(resp.Cabecera[0][9]);
+      $('#fecha_caducidad').val(resp.Cabecera[0][10]);
+      $('#fecha_cancelacion').val(resp.Cabecera[0][11]);
+      var text = resp.Cabecera[0][12];
+      $('#serie1').val(text.substr(0,3));
+      $('#serie2').val(text.substr(4,3));
+      $('#serie3').val(text.substr(8,30));
+      $('#autorizacion').val(resp.Cabecera[0][13]);
+      $('#formas').val(resp.Cabecera[0][14]);
+      $('#formas').trigger("chosen:updated");
+      $('#tarifa0').val(resp.Cabecera[0][15]);
+      $('#tarifa12').val(resp.Cabecera[0][16]);
+      $('#iva').val(resp.Cabecera[0][17]);
+      $('#descuento_total').val(resp.Cabecera[0][18]);
+      $('#total').val(resp.Cabecera[0][19]);
+      $("#detalle_factura tbody").html("");
+      for(var i = 0; i < resp.Detalles.length; i++){        
+        for(var j = 0; j < resp.Detalles[i].length; j=j+7){          
+          $("#detalle_factura tbody").append( "<tr>" +"<td align=center>" + resp.Detalles[i][j] +"</td>" +"<td align=center>" + resp.Detalles[i][j+1] + "</td>" +"<td align=center>" + resp.Detalles[i][j+2] +"</td>" +"<td align=center>" + resp.Detalles[i][j+3] +"</td>" +"<td align=center>" + resp.Detalles[i][j+4] + "</td>" +"<td align=center>" + resp.Detalles[i][j+5] +"</td>" +"<td align=center>" + resp.Detalles[i][j+6] + "</td>" +"<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='red dc_btn_accion tooltip-error ' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' ></i></a></div>"+ "</td><td class='hidden'>"+"NH"+"</td>" +"</tr>" );                     
+        } 
+      }
+    }else{
+      alert("Sin registros superiores");
+    }         
+    $("#btn_0").text("");
+    $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> -----------");                   
+  });
   
+}
+function carga_detalles_fc(id_tabla){
+  $.ajax({        
+    type: "POST",
+    dataType: 'json',        
+    url: "../carga_ubicaciones.php?tipo=0&id="+$("#comprobante").val()+"&fun=17",        
+    success: function(response) {                 
+      for (var i = 0; i < response.length; i=i+7) {        
+        $("#"+id_tabla+" tbody").append( "<tr>" +"<td align=center>" + response[i] +"</td>" +"<td align=center>" + response[i+1] + "</td>" +"<td align=center>" + response[i+2] +"</td>" +"<td align=center>" + response[i+3] +"</td>" +"<td align=center>" + response[i+4] + "</td>" +"<td align=center>" + response[i+5] +"</td>" +"<td align=center>" + response[i+6] + "</td>" +"<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='red dc_btn_accion tooltip-error ' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' ></i></a></div>"+ "</td><td class='hidden'>"+"NH"+"</td>" +"</tr>" );                     
+      }
+    }
+  });
 }
