@@ -155,7 +155,7 @@ function inicio (){
               }, 0);
           },
           ondblClickRow: function(rowid) {                                
-<<<<<<< HEAD
+
             var gsr = jQuery(grid_selector).jqGrid('getGridParam','selrow');                                              
             var ret = jQuery(grid_selector).jqGrid('getRowData',gsr);                                              
             $("#comprobante").val(ret.comprobante);
@@ -190,24 +190,10 @@ function inicio (){
             $("#btn_0").text("");
             $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> ----------");                   
         },          
-        caption: "LISTA DE FACTURAS COMPRA"
-=======
-              var gsr = jQuery(grid_selector).jqGrid('getGridParam','selrow');                                              
-              var ret = jQuery(grid_selector).jqGrid('getRowData',gsr);                                              
-              $("#comprobante").val(ret.comprobante);
-              $("#txt_responsable").text(ret.txt_reponsable);
-              $("#fecha_actual").val(ret.fecha_actual);
-              $("#estado").val(ret.estado);
-              $("#id_proveedor").val(ret.id_proveedor);                 
-              
-              $("#txt_6").trigger("chosen:updated");                            
-                  $('#myModal').modal('hide');                  
-                  $("#btn_0").text("");
-                  $("#btn_0").append("<span class='glyphicon glyphicon-log-in'></span> -------");                   
-              },
+   
           
           caption: "LISTA DE FACTURAS COMPRA"
->>>>>>> origin/master
+
       });
       jQuery(grid_selector).jqGrid('hideCol', "comprobante");   
       jQuery(grid_selector).jqGrid('hideCol', "id_proveedor");      

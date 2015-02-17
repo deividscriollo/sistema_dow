@@ -98,65 +98,71 @@
 													}else{
 
 													}
-												}
-												if($_GET['fun'] == "13"){//para la busqueda de clientes
-													if($_GET['tipo'] == "0"){
-														$sql = "select id_cliente,identificacion,nombres_completos from cliente where identificacion like '%$_GET[val]%'";															
-														cargarSelect_1($conexion,$sql);
-													}else{
-														
-													}
 												}else{
-													if($_GET['fun'] == "14"){//para la busqueda de nombres de proveedor
+													if($_GET['fun'] == "13"){//para la busqueda de clientes identificacion
 														if($_GET['tipo'] == "0"){
-															$sql = "select id_proveedor,nombres_completos,identificacion from proveedor where nombres_completos like '%$_GET[val]%'";
-															cargarSelect_1($conexion,$sql);
-														}else{
-															
+															$sql = "select id_cliente,identificacion,nombres_completos,direccion,telefono1,correo from cliente where identificacion like '%$_GET[val]%'";															
+															cargarSelect_6($conexion,$sql);
+														}else{															
 														}
-													}
-													else{
-														if($_GET['fun'] == "15"){//para la busqueda del codigo del producto
+													}else{
+														if($_GET['fun'] == "14"){//para la busqueda de nombres de proveedor
 															if($_GET['tipo'] == "0"){
-																$sql = "select id_productos,codigo,codigo_barras,descripcion,precio_minorista,stock,iva_producto,facturar_existencia from productos where codigo like '%$_GET[val]%'";
-																
-																cargarSelect_8($conexion,$sql);//select de 5 datos
+																$sql = "select id_proveedor,nombres_completos,identificacion from proveedor where nombres_completos like '%$_GET[val]%'";
+																cargarSelect_1($conexion,$sql);
 															}else{
 																
 															}
-														}else{
-															if($_GET['fun'] == "16"){//para la busqueda del nombre del producto
+														}
+														else{
+															if($_GET['fun'] == "15"){//para la busqueda del codigo del producto
 																if($_GET['tipo'] == "0"){
-																	$sql = "select id_productos,codigo,codigo_barras,descripcion,precio_minorista,stock,iva_producto,facturar_existencia from productos where descripcion like '%$_GET[val]%'";
-																	
+																	$sql = "select id_productos,codigo,codigo_barras,descripcion,precio_minorista,stock,iva_producto,facturar_existencia from productos where codigo like '%$_GET[val]%'";																	
 																	cargarSelect_8($conexion,$sql);//select de 5 datos
 																}else{
 																	
 																}
 															}else{
-																if($_GET['fun'] == "17"){//para la busqueda del nombre del producto
+																if($_GET['fun'] == "16"){//para la busqueda del nombre del producto
 																	if($_GET['tipo'] == "0"){
-																		$sql = "select productos.id_productos,codigo,descripcion,cantidad,detalle_factura_compra.precio,descuento,total from detalle_factura_compra,productos where detalle_factura_compra.id_productos = productos.id_productos and id_factura_compra = '$_GET[id]'";
+																		$sql = "select id_productos,codigo,codigo_barras,descripcion,precio_minorista,stock,iva_producto,facturar_existencia from productos where descripcion like '%$_GET[val]%'";
 																		
-																		carga_tabla_7($conexion,$sql);//json de 7 datos
+																		cargarSelect_8($conexion,$sql);//select de 5 datos
 																	}else{
 																		
 																	}
+																}else{
+																	if($_GET['fun'] == "17"){//para la busqueda del nombre del producto
+																		if($_GET['tipo'] == "0"){
+																			$sql = "select productos.id_productos,codigo,descripcion,cantidad,detalle_factura_compra.precio,descuento,total from detalle_factura_compra,productos where detalle_factura_compra.id_productos = productos.id_productos and id_factura_compra = '$_GET[id]'";
+																			
+																			carga_tabla_7($conexion,$sql);//json de 7 datos
+																		}else{
+																		
+																		}
+																	}else{
+																		if($_GET['fun'] == "18"){//para la busqueda de clientes
+																			if($_GET['tipo'] == "0"){
+																				$sql = "select id_cliente,identificacion,nombres_completos,direccion,telefono1,correo from cliente where nombres_completos like '%$_GET[val]%'";															
+																				cargarSelect_6($conexion,$sql);
+																			}else{															
+																			}
+																		}
+																	}
 																}
 															}
-														}
-													}													
+														}													
+													}
 												}
 											}
 										}
 									}
 								}
-							}
+							}	
 						}	
-					}	
+					}
 				}
 			}
 		}
 	}
-
 ?>
