@@ -113,7 +113,7 @@
 																	<label class="col-sm-4 control-label no-padding-right" for="txt_6"> Correo: </label>
 																	<div class="col-sm-8">
 																		<span class="block input-icon input-icon-right">
-																			<input type="mail" id="txt_6" name="txt_6" placeholder="Correo" class="form-control" />
+																			<input type="text" id="txt_6" name="txt_6" placeholder="Correo" class="form-control" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" />
 																			<i class="ace-icon fa fa-envelope fa-flip-horizontal"></i>
 	                                                                    </span>
 																	</div>

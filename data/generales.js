@@ -27,7 +27,7 @@ function comprobarCamposRequired(form){
     var correcto=true;
     var campos_text=$('#'+form+' input:required');    
     $(campos_text).each(function() {
-        var pattern = new RegExp("^" + $(this)[0].pattern + "$");
+        var pattern = new RegExp("^" + $(this)[0].pattern + "$");        
         if($(this).val() != '' && pattern.test($(this).val())){            
             $(this).parent().parent().removeClass('has-error');                        
         }else{
