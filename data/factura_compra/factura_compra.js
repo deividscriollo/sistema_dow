@@ -30,7 +30,7 @@ function guardar_factura(){
     cont++;  
   });
   if($("#id_proveedor").val() == ""){      
-    $('txt_nro_identificacion').chosen("open");    
+    alert("Seleccione un proveedor");
   }else{
     if($("#serie1").val() == ""){
       $("#serie1").focus();
@@ -40,13 +40,19 @@ function guardar_factura(){
       }else{
         if($("#serie3").val() == ""){
           $("#serie3").focus();
+          alert("Ingrese la serie");
         }else{
           if($("#autorizacion").val() == ""){
+            var a = autocompletar($("#serie3").val());
+            $("#serie3").val(a + "" + $("#serie3").val());
             $("#autorizacion").focus();
+            alert("Ingrese la autorización");
           }else{
             if(vect1.length == 0){
               alert("Ingrese los productos");  
             }else{
+              var a = autocompletar($("#serie3").val());
+              $("#serie3").val(a + "" + $("#serie3").val());
               $.ajax({        
                 type: "POST",
                 data: $("#form_facturaCompra").serialize()+"&campo1="+vect1+"&campo2="+vect2+"&campo3="+vect3+"&campo4="+vect4+"&campo5="+vect5+"&hora="+$("#estado").text(),                
@@ -54,8 +60,10 @@ function guardar_factura(){
                 success: function(data) { 
                   if( data == 0 ){
                     alert('Datos Agregados Correctamente');     
-                    // limpiar_form(p);  
-                    // $('#table').trigger('reloadGrid');              
+                    setTimeout(function() {
+                      location.reload();
+                    }, 1000);
+                   // $('#table').trigger('reloadGrid');              
                   }else{
                     // if( data == 1 ){
                     //   alert('Este nro de ' +$("#txt_1").val()+  ' ya existe ingrese otro'); 
@@ -151,7 +159,7 @@ function inicio (){
               var ret = jQuery(grid_selector).jqGrid('getRowData',gsr);                                              
               $("#comprobante").val(ret.comprobante);
               $("#txt_responsable").text(ret.txt_reponsable);
-              $("#fecha_actual").val(ret.);
+              $("#fecha_actual").val(ret.fecha_actual);
               $("#estado").val(ret.estado);
               $("#id_proveedor").val(ret.id_proveedor);                 
               
