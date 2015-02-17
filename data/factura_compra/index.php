@@ -63,19 +63,16 @@
 								<div class="widget-box">
 									<div class="widget-header">
 										<h5 class="widget-title"><i class="ace-icon fa fa-user"></i> Factura Compra</h5>
-
 										<div class="widget-toolbar">
-											
-
 											<a href="#" data-action="fullscreen" class="orange2">
 												<i class="ace-icon fa fa-expand"></i>
 											</a>
-
 											<a href="#" data-action="reload">
 												<i class="ace-icon fa fa-refresh"></i>
 											</a>
 										</div>
-									</div>									
+									</div>		
+
 									<div class="widget-body">
 										<div class="widget-main">
 											<div class="row">
@@ -88,7 +85,6 @@
 																	<input type="hidden" name="comprobante" id="comprobante" />
 																</span>
 															</div>
-
 															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="red bolder">Responsable:</span>
@@ -104,7 +100,7 @@
 															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="blue bolder">Hora Actual:</span>
-																	<span id="estado"></span>
+																	<span id="hora_actual"></span>
 																</span>
 															</div>
 															

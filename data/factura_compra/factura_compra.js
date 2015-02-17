@@ -29,7 +29,8 @@ function guardar_factura(){
     });
     cont++;  
   });
-  if($("#id_proveedor").val() == ""){      
+  if($("#id_proveedor").val() == ""){  
+    $('#txt_nro_identificacion').trigger('mousedown');    
     alert("Seleccione un proveedor");
   }else{
     if($("#serie1").val() == ""){
@@ -84,7 +85,7 @@ function guardar_factura(){
   }
 } 
 function inicio (){		
-  mostrar("estado");	
+  mostrar("hora_actual");	
   fecha_actual("fecha_actual");  
   /*jqgrid*/    
   jQuery(function($) {
@@ -448,6 +449,7 @@ function inicio (){
       });
     }
 	});	
+
   /*buscador del nombre del proveedor*/
   var input_nombre = $("#txt_nombre_proveedor_chosen").children().next().children();    
   $(input_nombre).on("keyup",function(input_ci){
@@ -472,6 +474,7 @@ function inicio (){
       });
     }
   }); 
+
   /*buscador del codigo del producto*/
   var input_codigoProducto = $("#codigo_chosen").children().next().children();    
   $(input_codigoProducto).on("keyup",function(input_ci){
@@ -503,6 +506,8 @@ function inicio (){
   $("#codigo_chosen").children().next().children().click(function (){
     $("#cantidad").focus(); 
   });
+
+
   /*buscador del nombre del producto*/
   var input_nombreProducto = $("#producto_chosen").children().next().children();    
   $(input_nombreProducto).on("keyup",function(input_ci){    
@@ -567,6 +572,8 @@ function inicio (){
       $("#id_proveedor").val($(a).val());
     }
   }); 	
+
+
   $("#codigo").chosen().change(function (event,params){    
     if(params == undefined){     
       limpiar_chosen_codigo();          
