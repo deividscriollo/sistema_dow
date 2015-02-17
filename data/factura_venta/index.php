@@ -104,21 +104,13 @@
 															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="blue bolder">Fecha Actual:</span>
-
 																	<span id="fecha_actual"></span>
-
-																	<span id ="fecha_actual"></span>
-
 																</span>
 															</div>
 															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="blue bolder">Hora Actual:</span>
-
-																	<span id="estado"></span>
-
 																	<span id="hora_actual"></span>
-
 																</span>
 															</div>
 															
