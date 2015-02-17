@@ -148,7 +148,7 @@
 																		<div class="form-group">
 																			<label class="col-sm-5 control-label no-padding-right" for="txt_nombre_cliente"> Nombres O Apellido:</label>
 																			<div class="col-sm-7">
-																				<select class="chosen-select form-control" id="txt_nombre_cliente" name="txt_nombre_cliente" data-placeholder="Nro de identifiación">	                                                                        
+																				<select class="chosen-select form-control" id="txt_nombre_cliente" name="txt_nombre_cliente" data-placeholder="Nombres Completos">	                                                                        
 			                                                                        <option value=""> </option>	                                                                        
 			                                                                    </select>
 																			</div>																													

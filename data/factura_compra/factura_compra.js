@@ -83,7 +83,9 @@ function guardar_factura(){
       }
     }
   }
-} 
+}
+
+ 
 function inicio (){		
   mostrar("hora_actual");	
   fecha_actual("fecha_actual");  

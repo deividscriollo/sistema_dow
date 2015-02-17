@@ -12,7 +12,7 @@
 	$id = unique($fecha_larga);	
 		
     ///////////////////////guardar factura compra////////////////////
-   $num_serie = $_POST['serie1']."-".$_POST['serie2']."-".$_POST['serie3'];
+    $num_serie = $_POST['serie1']."-".$_POST['serie2']."-".$_POST['serie3'];
 
 	$sql = "insert into factura_compra values ('$id','$_POST[id_proveedor]','$id_session','$_POST[tipo_comprobante]','$fecha','$_POST[hora_actual]','$_POST[fecha_registro]','$_POST[fecha_emision]','$_POST[fecha_caducidad]','$_POST[tipo_comprobante]','$num_serie','$_POST[autorizacion]','$_POST[fecha_cancelacion]','$_POST[formas]','$_POST[tarifa0]','$_POST[tarifa12]','$_POST[iva]','$_POST[descuento_total]','$_POST[total]','Activo','$fecha')";	
 		
