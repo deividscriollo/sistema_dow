@@ -3,85 +3,29 @@
     include '../conexion.php';  
     include '../funciones_generales.php';  
     $conexion = conectarse();
-    date_default_timezone_set('America/Guayaquil');    
+    date_default_timezone_set('America/Guayaquil'); 
+    session_start()   ;
     class PDF extends FPDF
     {   
         var $widths;
         var $aligns;
         function SetWidths($w){            
             $this->widths=$w;
-        }
-        function SetAligns($a){        
-            $this->aligns=$a;
-        }
-        function Row($data){        
-            $nb=0;
-            for($i=0;$i<count($data);$i++)
-                $nb=max($nb,$this->NbLines($this->widths[$i],$data[$i]));
-            $h=5*$nb;
-            $this->CheckPageBreak($h);            
-            for($i=0;$i<count($data);$i++){
-                $w=$this->widths[$i];
-                $a=isset($this->aligns[$i]) ? $this->aligns[$i] : 'L';            
-                $x=$this->GetX();
-                $y=$this->GetY();            
-                $this->MultiCell( $w,5,$data[$i],0,$a,false);            
-                $this->SetXY($x+$w,$y);
-            }        
-            $this->Ln($h);
-        }    
-        function CheckPageBreak($h){        
-            if($this->GetY()+$h>$this->PageBreakTrigger)
-                $this->AddPage($this->CurOrientation);
-        }
-        function NbLines($w, $txt){    
-            $cw=&$this->CurrentFont['cw'];
-            if($w==0)
-                $w=$this->w-$this->rMargin-$this->x;
-            $wmax=($w-2*$this->cMargin)*1000/$this->FontSize;
-            $s=str_replace("\r", '', $txt);
-            $nb=strlen($s);
-            if($nb>0 and $s[$nb-1]=="\n")
-                $nb--;
-            $sep=-1;
-            $i=0;
-            $j=0;
-            $l=0;
-            $nl=1;
-            while($i<$nb){
-                $c=$s[$i];
-                if($c=="\n"){
-                    $i++;
-                    $sep=-1;
-                    $j=$i;
-                    $l=0;
-                    $nl++;
-                    continue;
-                }
-                if($c==' ')
-                    $sep=$i;
-                $l+=$cw[$c];
-                if($l>$wmax){
-                    if($sep==-1){
-                    if($i==$j)
-                        $i++;
-                    }
-                    else
-                        $i=$sep+1;
-                    $sep=-1;
-                    $j=$i;
-                    $l=0;
-                    $nl++;
-                }
-                else
-                    $i++;
-            }
-            return $nl;
-        }
-        function Header(){                        
+        }                
+        function Header(){             
+            $this->AddFont('Amble-Regular');
+            $this->SetFont('Amble-Regular','',10);        
             $fecha = date('Y-m-d', time());
-            $this->SetFont('Arial','',8);                        
-            $this->Text(5, 5, $fecha, 0, 'C', 0);             
+            $this->SetX(1);
+            $this->SetY(1);
+            $this->Cell(20, 5, $fecha, 0,0, 'C', 0);             
+            $this->SetFont('Amble-Regular','',18);        
+            $this->Cell(150, 5, "CLIENTE", 0,1, 'C', 0);      
+            $sql = "select * from empresa where id_empresa = '".$_SESSION['emprsa_dow']."'";
+            $this->Cell(100, 8, maxCaracter("EMPRESA: ".utf8_decode("ASDA"),50), 0,0, 'L',0);                      
+            /*
+            
+            
             $this->Text(105,5,"CLIENTE",0,'C',0);            
             $this->Image('../../empresa/logotipo.fw.png',-20,8,100,55);
             $this->SetFont('Arial','B',14); 
@@ -104,18 +48,19 @@
             $this->SetDrawColor(0,0,0);
             $this->SetLineWidth(0.6);
             $this->Line(5,60,200,60);
-            $this->Ln(65);
+            $this->Ln(65);*/
         }
         function Footer(){            
             $this->SetY(-15);            
             $this->SetFont('Arial','I',8);            
             $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
-        }       
+        }               
     }
-    $pdf=new PDF('P','mm','A4');
-    $pdf->SetMargins(0,0,0); 
-    $pdf->AliasNbPages();    
-    $pdf->AddPage();    
+    $pdf = new PDF('P','mm','a4');
+    $pdf->AddPage();
+    $pdf->SetMargins(0,0,0,0);
+    $pdf->AliasNbPages();
+    $pdf->AddFont('Amble-Regular');                
     $pdf->SetWidths(array(130,100));
     $pdf->SetFont('Arial','',9);   
     $tarifa0 = 0;
@@ -125,7 +70,7 @@
     $total = 0;
     $sql = "select nombres_completos,direccion,telefono1,telefono2,fecha_actual,identificacion,correo,fecha_actual,fecha_cancelacion,numero_serie,forma_pago,tarifa0,tarifa12,iva,descuento,total from cliente,factura_venta where cliente.id_cliente = factura_venta.id_cliente and id_factura_venta = '$_GET[id]'";
     $sql = sql($conexion,$sql);      
-    while($row = pg_fetch_row($sql)){
+    /*while($row = pg_fetch_row($sql)){
         $pdf->SetX(5);
         $pdf->Row(array("CLIENTE: ".utf8_decode($row[0]), "FECHA: ".utf8_decode($row[4])));             
         $pdf->SetX(5);
@@ -141,7 +86,7 @@
         $iva = $row[13];
         $descuento = $row[14];
         $total = $row[15];
-    } 
+    } */
     $pdf->SetDrawColor(0,0,0);
     $pdf->SetLineWidth(0.6);
     $pdf->Line(5,93,200,93);
@@ -151,28 +96,28 @@
     $pdf->SetX(5);
     $sql = "select cantidad,codigo,descripcion,detalle_factura_venta.precio,descuento,total from detalle_factura_venta,productos where detalle_factura_venta.id_productos = productos.id_productos and detalle_factura_venta.id_factura_venta='$_GET[id]'";
     $sql = sql($conexion,$sql);      
-    $pdf->Row(array(utf8_decode("Cantidad"),utf8_decode("Código"),utf8_decode("Descripción"),utf8_decode("Precio U"),utf8_decode("Descuento"),utf8_decode("Total")));             
+    //$pdf->Row(array(utf8_decode("Cantidad"),utf8_decode("Código"),utf8_decode("Descripción"),utf8_decode("Precio U"),utf8_decode("Descuento"),utf8_decode("Total")));             
     $pdf->SetFont('Arial','',9);   
     while($row = pg_fetch_row($sql)){
         $pdf->SetX(5);
-        $pdf->Row(array(utf8_decode($row[0]),utf8_decode($row[1]),utf8_decode($row[2]),utf8_decode($row[3]),utf8_decode($row[4]),utf8_decode($row[5])));             
+       // $pdf->Row(array(utf8_decode($row[0]),utf8_decode($row[1]),utf8_decode($row[2]),utf8_decode($row[3]),utf8_decode($row[4]),utf8_decode($row[5])));             
     }    
 
-    $pdf->SetWidths(array(300));    
-    $pdf->SetX(5);         
-    $pdf->Row(array("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));             
-    $pdf->Ln(5);        
-    $pdf->SetWidths(array(30,50));
-    $pdf->SetFont('Arial','B',9);  
-    $pdf->SetX(160);         
-    $pdf->Row(array(utf8_decode("Tarifa 0"), $tarifa0));             
-    $pdf->SetX(160);
-    $pdf->Row(array(utf8_decode("Tarifa 12"), $tarifa12));             
-    $pdf->SetX(160);
-    $pdf->Row(array(utf8_decode("Iva"), $iva));             
-    $pdf->SetX(160);
-    $pdf->Row(array(utf8_decode("Descuento"), $descuento));             
-    $pdf->SetX(160);
-    $pdf->Row(array(utf8_decode("Total"), $total));             
-    $pdf->Output();
+    // $pdf->SetWidths(array(300));    
+    // $pdf->SetX(5);         
+    // $pdf->Row(array("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));             
+    // $pdf->Ln(5);        
+    // $pdf->SetWidths(array(30,50));
+    // $pdf->SetFont('Arial','B',9);  
+    // $pdf->SetX(160);         
+    // $pdf->Row(array(utf8_decode("Tarifa 0"), $tarifa0));             
+    // $pdf->SetX(160);
+    // $pdf->Row(array(utf8_decode("Tarifa 12"), $tarifa12));             
+    // $pdf->SetX(160);
+    // $pdf->Row(array(utf8_decode("Iva"), $iva));             
+    // $pdf->SetX(160);
+    // $pdf->Row(array(utf8_decode("Descuento"), $descuento));             
+    // $pdf->SetX(160);
+    // $pdf->Row(array(utf8_decode("Total"), $total));             
+     $pdf->Output();
 ?>

@@ -218,4 +218,8 @@ function sql ($conexion,$sql){
     $sql = pg_query($conexion,$sql);
     return $sql;
 }
+function maxCaracter($texto, $cant){        
+    $texto = substr($texto, 0,$cant);
+    return $texto;
+}
 ?>
