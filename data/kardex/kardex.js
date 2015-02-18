@@ -74,5 +74,53 @@ function inicio(){
       		$('#codigo').append($("<option data-barras='"+$(a).data("barras")+"' data-codigo='"+$(a).text()+"' data-precio='"+$(a).data("precio")+"' data-stock='"+$(a).data("stock")+"' data-iva='"+$(a).data("iva")+"' data-inventariable='"+$(a).data("inventariable")+"' ></option>").val($(a).val()).html($(a).data("codigo"))).trigger('chosen:updated');                  
     	  	$("#id_producto").val($(a).val());
     	}
-  	});   	
+  	});
+
+  $('#btn_buscar').click(function(){
+    $("#dynamic-table tbody").empty(); 
+  
+    $.ajax({
+        type: "POST",
+        url: "kardex.php",  
+        data:{id:$('#id_producto').val(),fecha:$('#rango_fecha').val()},
+        dataType: 'json',
+        success: function(response) {
+          var acu='';
+          var acu2='';
+          for (var i = 0; i < response.length; i=i+8) {
+                  if (response[i+7]==1) {
+                    acu=acu+"<tr>" +
+                    "<td align=center >" + response[i+0] + "</td>" +
+                    "<td align=center>" + response[i+1] + "</td>" +             
+                    "<td align=center>" + response[i+2] + "</td>" +
+                    "<td align=center>" + response[i+3] + "</td>" +                         
+                    "<td align=center>" + response[i+4] + "</td>" +
+                    "<td align=center>" + response[i+5] + "</td>" +                    
+                    "<td align=center>0</td>" +
+                    "<td align=center>0</td>" +
+                    "<td align=center>0</td>" +
+                    "<td align=center>" + response[i+6] + "</td>" +
+                   "<tr>";
+                  }
+                  else if (response[i+7]==2) {
+                    acu=acu+"<tr>" +
+                    "<td align=center >" + response[i+0] + "</td>" +
+                    "<td align=center>" + response[i+1] + "</td>" +             
+                    "<td align=center>" + response[i+2] + "</td>" +                                        
+                    "<td align=center>0</td>" +
+                    "<td align=center>0</td>" +
+                    "<td align=center>0</td>" +
+                    "<td align=center>" + response[i+3] + "</td>" +                         
+                    "<td align=center>" + response[i+4] + "</td>" +
+                    "<td align=center>" + response[i+5] + "</td>" +
+                    "<td align=center>" + response[i+6] + "</td>" +
+                   "<tr>";
+                  };                  
+          }
+          $("#dynamic-table tbody").html(acu);
+         }                    
+      });        
+  })
+  
+               	
 }

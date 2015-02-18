@@ -526,7 +526,37 @@
     </div>
   </div>
 
+  <div id="top-menu" class="modal aside" data-fixed="true" data-placement="top" data-background="true" data-backdrop="invisible" tabindex="-1">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body container">
+							<div class="row">
+								<div class="col-sm-5 col-sm-offset-1 white">
+									<h3 class="lighter">Imprimir &amp; Factura</h3>
+									
+								</div>
+
+								<div class="col-sm-5 text-center line-height-2">									
+									&nbsp; &nbsp;
+									<a class="btn btn-app btn-light no-radius" href="#">
+										<i class="ace-icon fa fa-print bigger-230"></i>
+										Imprmir
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<button class="btn btn-inverse btn-app btn-xs ace-settings-btn aside-trigger" data-target="#top-menu" data-toggle="modal" type="button">
+						<i data-icon="fa-chevron-down" data-icon="fa-chevron-up" class="ace-icon fa fa-chevron-down bigger-110 icon-only"></i>
+					</button>
+				</div>
+			</div>
+
 <script type="text/javascript">
+$('.modal.aside').ace_aside();
+				
+	$('#aside-inside-modal').addClass('aside').ace_aside({container: '#my-modal > .modal-dialog'});
+	
 	// tooltips 
 	$('[data-rel=tooltip]').tooltip();
 	var f = new Date();
