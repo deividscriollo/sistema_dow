@@ -347,7 +347,7 @@ function menu_lateral(){
 						<b class="arrow"></b>
 
 						<ul class="submenu">
-							<li ';if ($acus[3]=='inventario') {
+							<li ';if ($acus[3]=='r_estadistico') {
 									print('class="active"');
 								}print'>
 								<a href="../r_estadistico/">
@@ -357,10 +357,10 @@ function menu_lateral(){
 
 								<b class="arrow"></b>
 							</li>
-							<li ';if ($acus[3]=='proformas') {
+							<li ';if ($acus[3]=='r_simple') {
 									print('class="active"');
 								}print'>
-								<a href="../r_simples/">
+								<a href="../r_simple/">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Simples
 								</a>
