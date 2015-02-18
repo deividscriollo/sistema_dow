@@ -11,49 +11,42 @@
         var $aligns;
         function SetWidths($w){            
             $this->widths=$w;
-        }                
+        }                       
         function Header(){             
             $this->AddFont('Amble-Regular');
             $this->SetFont('Amble-Regular','',10);        
             $fecha = date('Y-m-d', time());
             $this->SetX(1);
             $this->SetY(1);
-            $this->Cell(20, 5, $fecha, 0,0, 'C', 0);             
-            $this->SetFont('Amble-Regular','',18);        
-            $this->Cell(150, 5, "CLIENTE", 0,1, 'C', 0);      
-            $sql = "select * from empresa where id_empresa = '".$_SESSION['emprsa_dow']."'";
-            $this->Cell(100, 8, maxCaracter("EMPRESA: ".utf8_decode("ASDA"),50), 0,0, 'L',0);                      
-            /*
-            
-            
-            $this->Text(105,5,"CLIENTE",0,'C',0);            
-            $this->Image('../../empresa/logotipo.fw.png',-20,8,100,55);
-            $this->SetFont('Arial','B',14); 
-            $this->SetTextColor(67, 130, 121);
-            $this->Text(70,15,"TOTORA SISA S.C.C",0,'C',0);            
-            $this->SetTextColor(0,0,0);
-            $this->SetFont('Arial','B',10);            
-            $this->Text(75,21,"Dir: Bolivar e Imbacocha",0,'C',0);                        
-            $this->Text(60,27,"Tel.: 2919-508 Cel.: 0988598926 - 0988449456",0,'C',0);            
-            $this->SetFont('Arial','B',11);            
-            $this->Text(75,33,"OTAVALO - ECUADOR",0,'C',0);
-            $this->SetFont('Arial','B',10);            
-            $this->Text(60,50,"OBLIGADO A LLEVAR CONTABILIDAD : SI",0,'C',0);
-            $this->Text(150,20,"RUC:. 1091712381001",0,'C',0);
-            $this->Text(160,26,"FACTURA",0,'C',0);
-            $this->Text(150,32,"Nro Aut SRI: 1115375970",0,'C',0);
-            $this->Text(140,37,"Fecha de Aut.: 11 AGOSTO DE 2014",0,'C',0);
-            $this->Text(160,42,"Clave de acceso",0,'C',0);
-            $this->Image('../../empresa/barras.jpg',135,45,70,8);
+            $this->Cell(20, 5, $fecha, 0,0, 'C', 0);                         
+            $this->Cell(150, 5, "CLIENTE", 0,1, 'R', 0);      
+            $this->SetFont('Arial','B',16);        
+            $sql = pg_query("select ruc_empresa,nombre_empresa,propietario,telefono1,telefono2,direccion,correo,sitio_web,autorizacion_sri,ascesor_legar,imagen from empresa where id_empresa = '".$_SESSION['empresa_dow']."'");
+            while($row = pg_fetch_row($sql)){
+                $this->Cell(190, 8, maxCaracter("EMPRESA: ".utf8_decode($row[1]),50), 0,1, 'C',0);                                
+                $this->Image('../empresa/img/'.$row[10],0,8,52,50);
+                $this->SetFont('Amble-Regular','',10);        
+                $this->Cell(180, 5, maxCaracter("PROPIETARIO: ".utf8_decode($row[2]),50),0,1, 'C',0);                                
+                $this->Cell(70, 5, maxCaracter("TEL.: ".utf8_decode($row[3]),50),0,0, 'R',0);                                
+                $this->Cell(60, 5, maxCaracter("CEL.: ".utf8_decode($row[4]),50),0,1, 'C',0);                                
+                $this->Cell(170, 5, maxCaracter("DIR.: ".utf8_decode($row[5]),55),0,1, 'C',0);                                
+                $this->Cell(170, 5, maxCaracter("E-MAIL.: ".utf8_decode($row[6]),55),0,1, 'C',0);                                
+                $this->Cell(170, 5, maxCaracter("SITIO WER.: ".utf8_decode($row[7]),55),0,1, 'C',0);                                
+                $this->Text(70,49,"OBLIGADO A LLEVAR CONTABILIDAD : SI",0,'C',0);                
+                $this->Text(160, 30, maxCaracter("Nro Aut SRI.: ".utf8_decode($row[8]),55),0,1, 'C',0);                                
+                $this->Text(150, 35, maxCaracter("Fecha Aut SRI.: ".utf8_decode($row[9]),55),0,1, 'C',0);                                
+                $this->Text(168,40,"Clave de acceso",0,'C',0);
+                $this->Image('../../empresa/barras.jpg',148,43,64,8);
+            }            
             $this->SetDrawColor(0,0,0);
-            $this->SetLineWidth(0.6);
-            $this->Line(5,60,200,60);
-            $this->Ln(65);*/
+            $this->SetLineWidth(0.5);
+            $this->Line(1,53,210,53);
+            $this->Ln(16);
         }
         function Footer(){            
             $this->SetY(-15);            
             $this->SetFont('Arial','I',8);            
-            $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
+            $this->Cell(0,10,'Pag. '.$this->PageNo().'/{nb}',0,0,'C');
         }               
     }
     $pdf = new PDF('P','mm','a4');
@@ -62,7 +55,7 @@
     $pdf->AliasNbPages();
     $pdf->AddFont('Amble-Regular');                
     $pdf->SetWidths(array(130,100));
-    $pdf->SetFont('Arial','',9);   
+    $pdf->SetFont('Amble-Regular','',10);   
     $tarifa0 = 0;
     $tarifa12 = 0;
     $iva = 0;
@@ -70,39 +63,77 @@
     $total = 0;
     $sql = "select nombres_completos,direccion,telefono1,telefono2,fecha_actual,identificacion,correo,fecha_actual,fecha_cancelacion,numero_serie,forma_pago,tarifa0,tarifa12,iva,descuento,total from cliente,factura_venta where cliente.id_cliente = factura_venta.id_cliente and id_factura_venta = '$_GET[id]'";
     $sql = sql($conexion,$sql);      
-    /*while($row = pg_fetch_row($sql)){
+    while($row = pg_fetch_row($sql)){
         $pdf->SetX(5);
-        $pdf->Row(array("CLIENTE: ".utf8_decode($row[0]), "FECHA: ".utf8_decode($row[4])));             
+        $pdf->Cell(90, 5, maxCaracter("CLIENTE: ".utf8_decode($row[0]),44),0,1, 'L',0);                                        
+        $pdf->SetFont('Amble-Regular','',14);   
+        $pdf->Text(98,59,"NRO FACTURA:            ".$row[9],0,'C',0);
+        $pdf->Text(98,59,"NRO FACTURA:            ".$row[9],0,'C',0);
+        $pdf->SetFont('Amble-Regular','',10);           
+        $pdf->SetX(5);        
+        $pdf->Cell(70, 6, maxCaracter("RUC/CI: ".utf8_decode($row[5]),15),0,0, 'L',0);                                
+        $pdf->Cell(70, 6, maxCaracter("F. EMISION: ".utf8_decode($row[7]),25),0,0, 'L',0);                                
+        $pdf->Cell(63, 6, maxCaracter("F.CANCELACION: ".utf8_decode($row[8]),25),0,1, 'L',0);                                
         $pdf->SetX(5);
-        $pdf->Row(array("DIRECCION: ".utf8_decode($row[1]), "EMAIL: ".utf8_decode($row[6])));             
+        $pdf->Cell(70, 6, maxCaracter("TEL.: ".utf8_decode($row[2]),15),0,0, 'L',0);                                
+        $pdf->Cell(70, 6, maxCaracter("CEL.: ".utf8_decode($row[3]),25),0,0, 'L',0);                                
+        $pdf->Cell(63, 6, maxCaracter("FORMA PAGO: ".utf8_decode($row[10]),25),0,1, 'L',0);                                
         $pdf->SetX(5);
-        $pdf->Row(array("TELEFONO: ".utf8_decode($row[2]), "FECHA EMISION: ".utf8_decode($row[7])));             
-        $pdf->SetX(5);
-        $pdf->Row(array("CELULAR: ".utf8_decode($row[3]), "FECHA CANCELACION: ".utf8_decode($row[8])));             
-        $pdf->SetX(5);
-        $pdf->Row(array("RUC/CI: ".utf8_decode($row[5]), "NRO. FACTURA: ".utf8_decode($row[9]))); 
+        $pdf->Cell(113,6, maxCaracter("DIRECCION: ".utf8_decode($row[1]),62),0,0, 'L',0);                                
+        $pdf->Cell(90, 6, maxCaracter("E-MAIL: ".utf8_decode($row[6]),50),0,1, 'L',0);                                                
         $tarifa0 = $row[11];
         $tarifa12 = $row[12];
         $iva = $row[13];
         $descuento = $row[14];
         $total = $row[15];
-    } */
-    $pdf->SetDrawColor(0,0,0);
-    $pdf->SetLineWidth(0.6);
-    $pdf->Line(5,93,200,93);
-    $pdf->Ln(5);        
+        $pdf->SetDrawColor(0,0,0);
+        $pdf->SetLineWidth(0.5);
+        $pdf->Line(1,78,210,78);
+        $pdf->Ln(5);        
+    }     
     $pdf->SetWidths(array(30,40,55,30,30,30));
     $pdf->SetFont('Arial','B',9);   
     $pdf->SetX(5);
     $sql = "select cantidad,codigo,descripcion,detalle_factura_venta.precio,descuento,total from detalle_factura_venta,productos where detalle_factura_venta.id_productos = productos.id_productos and detalle_factura_venta.id_factura_venta='$_GET[id]'";
     $sql = sql($conexion,$sql);      
-    //$pdf->Row(array(utf8_decode("Cantidad"),utf8_decode("Código"),utf8_decode("Descripción"),utf8_decode("Precio U"),utf8_decode("Descuento"),utf8_decode("Total")));             
-    $pdf->SetFont('Arial','',9);   
-    while($row = pg_fetch_row($sql)){
-        $pdf->SetX(5);
-       // $pdf->Row(array(utf8_decode($row[0]),utf8_decode($row[1]),utf8_decode($row[2]),utf8_decode($row[3]),utf8_decode($row[4]),utf8_decode($row[5])));             
+    $pdf->Cell(20, 5, "CANTIDAD",1,0, 'C',0);
+    $pdf->Cell(30, 5, "CODIGO",1,0, 'C',0);
+    $pdf->Cell(84, 5, "DESCRIPCION",1,0, 'C',0);
+    $pdf->Cell(20, 5, "P. VENTA",1,0, 'C',0);
+    $pdf->Cell(28, 5, "DESCUENTO %",1,0, 'C',0);
+    $pdf->Cell(20, 5, "TOTAL",1,1, 'C',0);    
+    $pdf->SetFont('Amble-Regular','',9);   
+    $pdf->SetX(5);
+    while($row = pg_fetch_row($sql)){        
+        $pdf->Cell(20, 5, maxCaracter(utf8_decode($row[0]),3),0,0, 'C',0);                                                
+        $pdf->Cell(30, 5, maxCaracter(utf8_decode($row[1]),10),0,0, 'C',0);                                                        
+        $pdf->Cell(84, 5, maxCaracter(utf8_decode($row[2]),50),0,0, 'C',0);                                                        
+        $pdf->Cell(20, 5, maxCaracter(utf8_decode($row[3]),4),0,0, 'C',0);                                                        
+        $pdf->Cell(28, 5, maxCaracter(utf8_decode($row[4]),4),0,0, 'C',0);                                                        
+        $pdf->Cell(20, 5, maxCaracter(utf8_decode($row[5]),4),0,0, 'C',0);                                        
+        $pdf->Ln(5);
+        $pdf->SetX(5);                  
     }    
-
+    $pdf->Ln(3);
+    $pdf->SetX(1);       
+    $pdf->Cell(210, 0, maxCaracter(utf8_decode(""),4),1,1, 'C',0);                                        
+    $pdf->Ln(3);
+    $pdf->SetFont('Amble-Regular','',10);   
+    $pdf->Cell(70, 7, "",0,0, 'R',0);                                
+    $pdf->Cell(100, 7, "",0,0, 'R',0);                                
+    $pdf->Cell(60, 7, maxCaracter("TARIFA 0 : ".$tarifa0,50),0,1, 'L',0);                                
+    $pdf->Cell(70, 7, "",0,0, 'R',0);                                
+    $pdf->Cell(100, 7, "",0,0, 'R',0);                                
+    $pdf->Cell(60, 7, maxCaracter("TARIFA 12 : ".$tarifa12,50),0,1, 'L',0);                                
+    $pdf->Cell(70, 7, "",0,0, 'R',0);                                
+    $pdf->Cell(100, 7, "",0,0, 'R',0);                                
+    $pdf->Cell(60, 7, maxCaracter("IVA : ".$iva,50),0,1, 'L',0);                                
+    $pdf->Cell(70, 7, "",0,0, 'R',0);                                
+    $pdf->Cell(100, 7, "",0,0, 'R',0);                                
+    $pdf->Cell(70, 7, maxCaracter("DESCUENTO : ".$descuento,50),0,1, 'L',0);                                
+    $pdf->Cell(70, 7, "",0,0, 'R',0);                                
+    $pdf->Cell(100, 7, "",0,0, 'R',0);                                
+    $pdf->Cell(70, 7, maxCaracter("TOTAL : ".$total,50),0,1, 'L',0);                                    
     // $pdf->SetWidths(array(300));    
     // $pdf->SetX(5);         
     // $pdf->Row(array("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));             
