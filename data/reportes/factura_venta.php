@@ -133,22 +133,6 @@
     $pdf->Cell(70, 7, maxCaracter("DESCUENTO : ".$descuento,50),0,1, 'L',0);                                
     $pdf->Cell(70, 7, "",0,0, 'R',0);                                
     $pdf->Cell(100, 7, "",0,0, 'R',0);                                
-    $pdf->Cell(70, 7, maxCaracter("TOTAL : ".$total,50),0,1, 'L',0);                                    
-    // $pdf->SetWidths(array(300));    
-    // $pdf->SetX(5);         
-    // $pdf->Row(array("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));             
-    // $pdf->Ln(5);        
-    // $pdf->SetWidths(array(30,50));
-    // $pdf->SetFont('Arial','B',9);  
-    // $pdf->SetX(160);         
-    // $pdf->Row(array(utf8_decode("Tarifa 0"), $tarifa0));             
-    // $pdf->SetX(160);
-    // $pdf->Row(array(utf8_decode("Tarifa 12"), $tarifa12));             
-    // $pdf->SetX(160);
-    // $pdf->Row(array(utf8_decode("Iva"), $iva));             
-    // $pdf->SetX(160);
-    // $pdf->Row(array(utf8_decode("Descuento"), $descuento));             
-    // $pdf->SetX(160);
-    // $pdf->Row(array(utf8_decode("Total"), $total));             
-     $pdf->Output();
+    $pdf->Cell(70, 7, maxCaracter("TOTAL : ".$total,50),0,1, 'L',0);                                                     
+    $pdf->Output();
 ?>
