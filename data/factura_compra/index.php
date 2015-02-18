@@ -15,7 +15,7 @@
 		<link rel="stylesheet" href="../../dist/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="../../dist/css/font-awesome.min.css" />
 		<!-- Select -->
-		<link rel="stylesheet" href="../../dist/css/chosen.min.css" />		
+		<link rel="stylesheet" href="../../dist/css/chosen.min.css" />				
 		<link rel="stylesheet" href="../../dist/css/ui.jqgrid.min.css" />
 		<link rel="stylesheet" href="../../dist/css/bootstrap-datetimepicker.min.css" />
 		<link rel="stylesheet" href="../../dist/css/datepicker.min.css" />

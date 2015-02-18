@@ -103,10 +103,11 @@ if(!isset($_SESSION))
 															<div class="row">
 																<div class="col-sm-12">
 																	<div class="form-group">
-																		<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Nombre Productos:</label>
+																		<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Código del Producto:</label>
 																		<div class="col-sm-8">
-																			<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	                                                                        
-			                                                                    <option value=""> </option>	                                                                        
+																			<input type="hidden"  id="id_producto" name="id_producto" />
+																			<select class="chosen-select form-control" id="codigo" name="codigo" data-placeholder="Código del producto">	                                                                        
+			                                                                    <option value=""></option>	                                                                        
 			                                                                </select>
 																		</div>																													
 																	</div>	
@@ -115,7 +116,7 @@ if(!isset($_SESSION))
 															<div class="row">
 																<div class="col-sm-12">
 																	<div class="form-group">
-																		<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Codigo Productos:</label>																		
+																		<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Fecha a Buscar:</label>																		
 																		<div class="col-sm-8">
 																			<div class="input-group">
 																				<span class="input-group-addon">
@@ -132,10 +133,10 @@ if(!isset($_SESSION))
 															<div class="row">
 																<div class="col-sm-12">																															
 																	<div class="form-group">
-																		<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Codigo Productos:</label>
+																		<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Nombre del Producto:</label>
 																		<div class="col-sm-8">
-																			<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	                                                                        
-			                                                                    <option value=""> </option>	                                                                        
+																			<select class="chosen-select form-control" id="producto" name="producto" data-placeholder="Nombre del producto">	                                                                        
+			                                                                    <option value=""></option>	                                                                        
 			                                                                </select>
 																		</div>																													
 																	</div>	
@@ -334,10 +335,16 @@ if(!isset($_SESSION))
 		<!-- ace scripts -->
 		<script src="../../dist/js/ace-elements.min.js"></script>
 		<script src="../../dist/js/ace.min.js"></script>
-
+		<script src="../generales.js"></script>
+		<script src="kardex.js"></script>
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
 			$(function(){
+				// seclect chosen 
+				$('.chosen-select').chosen({
+					allow_single_deselect:true,
+					no_results_text:'No encontrado'		
+				});
 			// rango de fechas
 				$('input[name=date-range-picker]').daterangepicker({
 					'applyClass' : 'btn-sm btn-success',
