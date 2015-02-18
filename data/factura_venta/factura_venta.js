@@ -30,7 +30,7 @@ function guardar_factura(){
     cont++;  
   });
   if($("#id_cliente").val() == ""){  
-   // $('#txt_nro_identificacion').trigger('mousedown');    
+    $('#txt_nro_identificacion').trigger('chosen:open');    
     alert("Seleccione un cliente");
   }else{
      if($("#serie3").val() == ""){
@@ -75,8 +75,7 @@ function guardar_factura(){
 
 
 
-function inicio (){		
-
+function inicio (){		  
 	mostrar("estado");
 	fecha_actual("fecha_actual");
  	////////////////validaciones/////////////////

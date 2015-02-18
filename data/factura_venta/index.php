@@ -111,9 +111,9 @@
 																		<div class="form-group">
 																			<label class="col-sm-5 control-label no-padding-right" for="txt_nro_identificacion"> Cedula de Identidad o Ruc:</label>
 																			<div class="col-sm-7">
-																			<input type="hidden" id="id_cliente" name="id_cliente">
-																				<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	                                                                        
-			                                                                        <option value=""> </option>	                                                                        
+																			<input type="hidden" id="id_cliente" name="id_cliente">																				
+																				<select class="chosen-select form-control" id="txt_nro_identificacion" name="txt_nro_identificacion" data-placeholder="Nro de identifiación">	     
+			                                                                        <option value=""></option>	                                                                        
 			                                                                    </select>
 																			</div>																													
 																		</div>																												
