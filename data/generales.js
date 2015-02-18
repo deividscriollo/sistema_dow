@@ -567,7 +567,7 @@ function limpiar_chosen_codigo(){
     //console.log($('#codigo_chosen').trigger('chosen:showing_dropdown'));                    
 }
 
-function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,cantidad_producto,limite,precio_unitario,descuento,iva){    
+function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,cantidad_producto,limite,precio_unitario,descuento,iva,inventariable){    
     var contador=0;
     var vect = new Array();     
     var cont=0;
@@ -590,7 +590,7 @@ function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,can
             precio = (parseFloat(precio_unitario)).toFixed(2);
             total = (parseFloat(cantidad_producto) * precio).toFixed(2);
         }           
-        console.log($("#"+id_tabla+" tbody").append( "<tr>" +"<td align=center>" + id_productos +"</td>" +"<td align=center>" + codigo_producto + "</td>" +"<td align=center>" + detalle_producto +"</td>" +"<td align=center>" + cantidad_producto +"</td>" +"<td align=center>" + precio + "</td>" +"<td align=center>" + desc +"</td>" +"<td align=center>" + total + "</td>" +"<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='red dc_btn_accion tooltip-error elimina' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' ></i></a></div>"+ "</td><td class='hidden'>"+iva+"</td>" +"</tr>" ));  
+        $("#"+id_tabla+" tbody").append( "<tr>" +"<td align=center>" + id_productos +"</td>" +"<td align=center>" + codigo_producto + "</td>" +"<td align=center>" + detalle_producto +"</td>" +"<td align=center>" + cantidad_producto +"</td>" +"<td align=center class='hidden'>" + limite +"</td>" +"<td align=center class='hidden'>" + inventariable +"</td>" +"<td align=center>" + precio + "</td>" +"<td align=center>" + desc +"</td>" +"<td align=center>" + total + "</td>" +"<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='red dc_btn_accion tooltip-error elimina' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' ></i></a></div>"+ "</td><td class='hidden'>"+iva+"</td>" +"</tr>" ); 
     }else{         
         $("#"+id_tabla+" tbody tr").each(function (index) {                                                                 
             $(this).children("td").each(function (index) {                               

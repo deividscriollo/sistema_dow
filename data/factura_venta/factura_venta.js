@@ -72,9 +72,6 @@ function guardar_factura(){
     }
   }
 }
-
-
-
 function inicio (){		  
 	mostrar("estado");
 	fecha_actual("fecha_actual");
@@ -183,7 +180,7 @@ function inicio (){
 		}
 	});
 	/*buscador del codigo del producto*/
-  	var input_codigoProducto = $("#codigo_chosen").children().next().children();    
+  var input_codigoProducto = $("#codigo_chosen").children().next().children();    
   	$(input_codigoProducto).on("keyup",function(input_ci){
     	var text = $(this).children().val();
       	if(text != ""){
@@ -299,9 +296,21 @@ function inicio (){
       		if($("#cantidad").val() != ""){
         		if($("#precio").val() != ""){
           			if($("#id_productos").val() != ""){
-            		//agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,cantidad_producto,limite,precio_unitario,descuento,total);
-            			var a = $("#producto option:selected");      
-            			agregar_fila("detalle_factura",$("#id_productos").val(),$(a).data("codigo"),$(a).text(),$("#cantidad").val(),$(a).data("stock"),$("#precio").val(),$("#descuento").val(),$(a).data("iva"));            
+            		//agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,cantidad_producto,limite,precio_unitario,descuento,total,inventariable);            			
+                  var a = $("#producto option:selected");      
+                  //console.log($("#cantidad").val() <= $(a).data('stock'))
+                  if($(a).data('inventariable') == 'on' && $("#cantidad").val() <= $(a).data('stock'))
+                  {
+            			 agregar_fila("detalle_factura",$("#id_productos").val(),$(a).data("codigo"),$(a).text(),$("#cantidad").val(),$(a).data("stock"),$("#precio").val(),$("#descuento").val(),$(a).data("iva"),$(a).data("inventariable"));            
+                  }else{
+                    if($(a).data('inventariable') == 'off'){
+                      agregar_fila("detalle_factura",$("#id_productos").val(),$(a).data("codigo"),$(a).text(),$("#cantidad").val(),$(a).data("stock"),$("#precio").val(),$("#descuento").val(),$(a).data("iva"),$(a).data("inventariable"));                                  
+                    }else{
+                      alert('Fuera de stcok el límite de productos es '+$(a).data('stock'));
+                      $("#cantidad").val('');
+                      $("#cantidad").focus();
+                    }
+                  }
           			}else{
             			alert("Seleccione un producto antes de continuar");                        
 	            		//$('#codigo').trigger('chosen:open');            

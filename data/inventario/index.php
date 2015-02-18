@@ -105,13 +105,13 @@
 															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="blue bolder">Fecha Actual:</span>
-																	<span>2015-02-13</span>
+																	<span id="fecha_actual"></span>
 																</span>
 															</div>
 															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="blue bolder">Hora Actual:</span>
-																	<span>11:00:01</span>
+																	<spani id="hora_acutal"></span>
 																</span>
 															</div>
 															
@@ -140,7 +140,9 @@
 																</div>
 																<div class="row">
 																	<div class="col-xs-12">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																		<select class="chosen-select form-control" id="barras" name="barras" data-placeholder="Código de barras">	     
+  	                                                                        <option value=""></option>	                                                                        
+			                                                            </select>																		
 																	</div>
 																</div>
 															</div>
@@ -152,7 +154,10 @@
 																</div>
 																<div class="row">
 																	<div class="col-xs-12">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																		<input type="hidden" id="id_productos" name="id_productos" /> 
+																		<select class="chosen-select form-control" id="codigo" name="codigo" data-placeholder="Código del producto">	     
+  	                                                                        <option value=""></option>	                                                                        
+			                                                            </select>																		
 																	</div>
 																</div>
 															</div>
@@ -164,7 +169,9 @@
 																</div>
 																<div class="row">
 																	<div class="col-xs-12">
-																		<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																		<select class="chosen-select form-control" id="producto" name="producto" data-placeholder="Nombre del producto">	     
+  	                                                                        <option value=""></option>	                                                                        
+			                                                            </select>																		
 																	</div>
 																</div>
 															</div>
@@ -179,7 +186,7 @@
 																			</div>
 																			<div class="row">
 																				<div class="col-xs-12">
-																					<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																					<input type="text" id="cantidad" name="cantidad" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
 																				</div>
 																			</div>
 																		</div>
@@ -191,7 +198,7 @@
 																			</div>
 																			<div class="row">
 																				<div class="col-xs-12">
-																					<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																					<input type="text" id="precio" name="precio" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
 																				</div>
 																			</div>
 																		</div>
@@ -203,7 +210,7 @@
 																			</div>
 																			<div class="row">
 																				<div class="col-xs-12">
-																					<input type="text" id="txt_2" name="txt_2" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																					<input type="text" id="stock" name="stock" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
 																				</div>
 																			</div>
 																		</div>
@@ -399,7 +406,7 @@
         <script src="../../dist/js/jqGrid/i18n/grid.locale-en.js"></script>
 		
 		<script src="../generales.js"></script>
-		<script src="factura_venta.js"></script>
+		<script src="inventario.js"></script>
 		
 
 		<!-- inline scripts related to this page -->
