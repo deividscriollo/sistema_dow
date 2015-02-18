@@ -8,6 +8,7 @@
 	$sql = "";	
 	$sql2 = "";	
 	$sql3 = "";	
+	$sql4 = "";
 	$id_session = sesion_activa();///datos session
 	$id = unique($fecha_larga);	
 		
@@ -56,11 +57,17 @@
             $stock = $row[10];
         }
         $cal = $stock + $arreglo2[$i];
-        ///////////////////////////////////////////
-
+        
         $sql3 = "update productos set precio='".$arreglo3[$i]."', stock='$cal' where id_productos='".$arreglo1[$i]."'";								
 		$guardar = guardarSql($conexion, $sql3);
-	}
+        ///////////////////////////////////////////
+        //
+        //////////////agregar al kardex///////////
+        $sql4 = "insert into kardex values (
+       	'$id2','".$arreglo1[$i]."','$fecha','Factura Compra','$num_serie','".$arreglo2[$i]."','".$arreglo3[$i]."','".$arreglo5[$i]."','Ingreso','1','$fecha')";       
+		$guardar = guardarSql($conexion,$sql4);
+		////////////////////////////////////////
+  	}
 
 	echo $data;
 ?>
