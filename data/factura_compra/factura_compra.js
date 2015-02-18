@@ -62,7 +62,7 @@ function guardar_factura(){
                   if( data == 0 ){
                     alert('Datos Agregados Correctamente');     
                     setTimeout(function() {
-                      location.reload();
+                    location.reload();
                     }, 1000);
                    // $('#table').trigger('reloadGrid');              
                   }else{

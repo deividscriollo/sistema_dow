@@ -2,6 +2,7 @@
 //inclucion de librerias
 	include '../conexion.php';
 	include '../funciones_generales.php';
+	include '../correos/mail.php';
 	$conexion = conectarse();
 	date_default_timezone_set('America/Guayaquil');
 	$fecha = date('Y-m-d H:i:s', time());
@@ -21,7 +22,7 @@
 	///////////////////////guardar factura venta////////////////////
     $num_serie = "001-001-".$_POST['serie3'];
 
-	$sql = "insert into factura_venta values ('$id','$_POST[id_cliente]','$id_session','$id','$fecha','$_POST[hora]','$num_serie','$_POST[fecha_cancelacion]','$_POST[tipo]','$_POST[formas]','$_POST[tarifa0]','$_POST[tarifa12]','$_POST[iva]','$_POST[descuento_total]','$_POST[total]','Activo','$fecha')";	
+	$sql = "insert into factura_venta values ('$id','$_POST[txt_nro_identificacion]','$id_session','$id','$fecha','$_POST[hora]','$num_serie','$_POST[fecha_cancelacion]','$_POST[tipo]','$_POST[formas]','$_POST[tarifa0]','$_POST[tarifa12]','$_POST[iva]','$_POST[descuento_total]','$_POST[total]','Activo','$fecha')";	
 		
 	$guardar = guardarSql($conexion,$sql);
 	if( $guardar == 'true'){
@@ -74,8 +75,10 @@
    	'$id2','".$arreglo1[$i]."','$fecha','Factura Venta','$num_serie','".$arreglo2[$i]."','".$arreglo3[$i]."','".$arreglo5[$i]."','Egreso','2','$fecha')";       
 	$guardar = guardarSql($conexion,$sql4);
 	////////////////////////////////////////
-}
 
+	
+}
+envio_correo_ventas('deividscriollo@gmail.com','deivid',$_POST['total'],'../correos/deivid.pdf', $num_serie);
 echo $data;
 	
 

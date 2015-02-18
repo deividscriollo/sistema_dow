@@ -265,16 +265,7 @@ function menu_lateral(){
 
 								<b class="arrow"></b>
 							</li>
-							<li ';if ($acus[3]=='proformas') {
-									print('class="active"');
-								}print'>
-								<a href="../proformas/">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Proformas
-								</a>
-
-								<b class="arrow"></b>
-							</li>
+							
 							<li ';if ($acus[3]=='factura_compra'||$acus[3]=='devolucion_compra') {
 									print('class="active open"');
 								}print'>
@@ -298,15 +289,7 @@ function menu_lateral(){
 										<b class="arrow"></b>
 									</li>									
 
-									<li ';if ($acus[3]=='devolucion_compra') {
-									print('class="active"');
-								}print'>
-										<a href="../devolucion_compra/">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Devolución
-										</a>
-										<b class="arrow"></b>
-									</li>																	
+																										
 								</ul>
 							</li>
 							<li ';if ($acus[3]=='factura_venta'||$acus[3]=='nota_credito') {
@@ -332,53 +315,10 @@ function menu_lateral(){
 										<b class="arrow"></b>
 									</li>									
 
-									<li ';if ($acus[3]=='nota_credito') {
-									print('class="active"');
-								}print'>
-										<a href="../nota_credito/">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Notas de Crédito
-										</a>
-
-										<b class="arrow"></b>
-									</li>																	
+																									
 								</ul>
 							</li>
-							<li ';if ($acus[3]=='cuentas_cobrar'||$acus[3]=='cuentas_pagar') {
-									print('class="active open"');
-								}print'>
-								<a href="#" class="dropdown-toggle">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Cartera
-									<b class="arrow fa fa-angle-down"></b>
-								</a>
-
-								<b class="arrow"></b>
-
-								<ul class="submenu">
-									<li ';if ($acus[3]=='bodegas') {
-									print('class="active"');
-								}print'>
-										<a href="../bodegas/">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Cuentas por Cobrar
-										</a>
-
-										<b class="arrow"></b>
-									</li>									
-
-									<li ';if ($acus[3]=='categorias') {
-									print('class="active"');
-								}print'>
-										<a href="../categorias/">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Cuentas por Pagar
-										</a>
-
-										<b class="arrow"></b>
-									</li>																	
-								</ul>
-							</li>
+							
 							<li ';if ($acus[3]=='kardex') {
 									print('class="active"');
 								}print'>
@@ -389,26 +329,7 @@ function menu_lateral(){
 
 								<b class="arrow"></b>
 							</li>
-							<li ';if ($acus[3]=='registro_gastos') {
-									print('class="active"');
-								}print'>
-								<a href="../registro_gastos/">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Registro Gastos
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-							<li ';if ($acus[3]=='gastos_internos') {
-									print('class="active"');
-								}print'>
-								<a href="../gastos_internos/">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Gastos Internos
-								</a>
-
-								<b class="arrow"></b>
-							</li>
+							
 						</ul>
 					</li>
 					<li ';if ($acus[3]=='r_estadistico' || $acus[3]=='r_simple') {
