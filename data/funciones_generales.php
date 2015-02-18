@@ -214,4 +214,8 @@ function fecha_total(){
     $fecha_larga = date('His', time()); 
     return $valor=uniqid('');
 }
+function sql ($conexion,$sql){
+    $sql = pg_query($conexion,$sql);
+    return $sql;
+}
 ?>
