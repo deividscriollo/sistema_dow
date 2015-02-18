@@ -577,9 +577,9 @@ function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,can
         $(this).children("td").each(function (index) { 
             contador++;                                 
         });                                                         
-    });             
+    });                
     if(contador == 0){        
-        if (descuento !== "") {
+        if (descuento != "") {
             desc = descuento
             precio = (parseFloat(precio_unitario)).toFixed(2);
             multi = (cantidad_producto * parseFloat(precio_unitario)).toFixed(2);
@@ -661,16 +661,17 @@ function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,can
     $("#"+id_tabla+" tbody tr").each(function (index) {                                  
         $(this).children("td").each(function (index) { 
             switch (index) {                                            
-                case 3:
+                case 3:                
                     cant_tabla = $(this).text();                    
                 break;
-                case 4:
+                case 6:                    
                     precio_u_tabla = $(this).text();                    
                 break;                
-                case 6:
+                case 8:
+                    //console.log($(this).text())
                     total_tabla = $(this).text()                    
                 break;                                                                                                                               
-                case 8:
+                case 10:                    
                     if ($(this).text() == 'on'){
                         iva12 = parseFloat(iva12) + parseFloat(total_tabla);
 
@@ -683,6 +684,7 @@ function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,can
         desc_tabla = desc_tabla +((cant_tabla * precio_u_tabla) - total_tabla);                
     });    
     var tot_iva = parseFloat(iva12 * 0.12).toFixed(3);    
+    
     var total_fac = parseFloat(iva12)+parseFloat(tot_iva)+parseFloat(iva0);    
     $("#tarifa0").val(parseFloat(iva0).toFixed(3));
     $("#tarifa12").val(parseFloat(iva12).toFixed(3));
