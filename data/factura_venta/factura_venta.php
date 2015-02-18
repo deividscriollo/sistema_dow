@@ -78,7 +78,15 @@
 
 	
 }
-envio_correo_ventas('deividscriollo@gmail.com','deivid',$_POST['total'],'../correos/deivid.pdf', $num_serie);
+
+$consulta2 = pg_query("select * from cliente where id_cliente = '".$_POST['txt_nro_identificacion']."'");
+    while ($row = pg_fetch_row($consulta2)) {
+        $nombre= $row[3];
+        $correo= $row[9];
+    }
+
+$l='localhost/sistema_dow/data/reportes/factura_venta.php?id='.$id;
+envio_correo_ventas($correo,$nombre,$_POST['total'],$l, $num_serie);
 echo $data;
 	
 

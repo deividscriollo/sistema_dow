@@ -95,10 +95,12 @@
             $this->Text(75,33,"OTAVALO - ECUADOR",0,'C',0);
             $this->SetFont('Arial','B',10);            
             $this->Text(60,50,"OBLIGADO A LLEVAR CONTABILIDAD : SI",0,'C',0);
-            $this->Text(150,27,"RUC:. 1091712381001",0,'C',0);
-            $this->Text(160,32,"FACTURA",0,'C',0);
-            $this->Text(150,37,"Nro Aut SRI: 1115375970",0,'C',0);
-            $this->Text(140,43,"Fecha de Aut.: 11 AGOSTO DE 2014",0,'C',0);
+            $this->Text(150,20,"RUC:. 1091712381001",0,'C',0);
+            $this->Text(160,26,"FACTURA",0,'C',0);
+            $this->Text(150,32,"Nro Aut SRI: 1115375970",0,'C',0);
+            $this->Text(140,37,"Fecha de Aut.: 11 AGOSTO DE 2014",0,'C',0);
+            $this->Text(160,42,"Clave de acceso",0,'C',0);
+            $this->Image('../../empresa/barras.jpg',135,45,70,8);
             $this->SetDrawColor(0,0,0);
             $this->SetLineWidth(0.6);
             $this->Line(5,60,200,60);

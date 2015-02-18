@@ -16,13 +16,13 @@ function guardar_factura(){
         case 3:
           vect2[cont] = $(this).text();                                       
         break; 
-        case 4:
+        case 6:
           vect3[cont] = $(this).text();                                       
         break;
-        case 5:
+        case 7:
           vect4[cont] = $(this).text();                                       
         break;
-        case 6:
+        case 8:
           vect5[cont] = $(this).text();                                       
         break;        
       }                          

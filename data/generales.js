@@ -619,8 +619,8 @@ function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,can
                 desc = 0;
                 precio = (parseFloat(precio_unitario)).toFixed(2);
                 total = (parseFloat(cantidad_producto) * precio).toFixed(2);
-            }
-            $("#"+id_tabla+" tbody").append( "<tr>" +"<td align=center>" + id_productos +"</td>" +"<td align=center>" + codigo_producto + "</td>" +"<td align=center>" + detalle_producto +"</td>" +"<td align=center>" + cantidad_producto +"</td>" +"<td align=center>" + precio + "</td>" +"<td align=center>" + desc +"</td>" +"<td align=center>" + total + "</td>" +"<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='red dc_btn_accion tooltip-error elimina' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' ></i></a></div>"+ "</td><td class='hidden'>"+iva+"</td>" +"</tr>" );                     
+            }            
+            $("#"+id_tabla+" tbody").append( "<tr>" +"<td align=center>" + id_productos +"</td>" +"<td align=center>" + codigo_producto + "</td>" +"<td align=center>" + detalle_producto +"</td>" +"<td align=center>" + cantidad_producto +"</td>" +"<td align=center class='hidden'>" + limite +"</td>" +"<td align=center class='hidden'>" + inventariable +"</td>" +"<td align=center>" + precio + "</td>" +"<td align=center>" + desc +"</td>" +"<td align=center>" + total + "</td>" +"<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='red dc_btn_accion tooltip-error elimina' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' ></i></a></div>"+ "</td><td class='hidden'>"+iva+"</td>" +"</tr>" ); 
         }else{     
             if (descuento !== "") {
                 desc = descuento
@@ -635,16 +635,16 @@ function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,can
             }                         
             $("#"+id_tabla+" tbody tr").eq(fila).find("td").each(function (index) {
                 switch (index) {                                            
-                    case 3:
+                    case 3:                        
                         $(this).text($("#cantidad").val());   
                     break;
-                    case 4:
+                    case 6:                        
                         $(this).text($("#precio").val());   
                     break;
-                    case 5:
+                    case 7:                        
                         $(this).text($("#descuento").val());   
                     break;
-                    case 6:
+                    case 8:
                         $(this).text(total);   
                     break;                                                                                                                                               
                 }                     
