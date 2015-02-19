@@ -222,4 +222,11 @@ function maxCaracter($texto, $cant){
     $texto = substr($texto, 0,$cant);
     return $texto;
 }
+function carga_json($conexion,$sql){     
+        $sql = pg_query($sql);
+        $sql = pg_fetch_all($sql);        
+        
+        return $sql;
+    }
+
 ?>
