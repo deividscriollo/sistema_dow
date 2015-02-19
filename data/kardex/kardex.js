@@ -75,49 +75,46 @@ function inicio(){
     	  	$("#id_producto").val($(a).val());
     	}
   	});
-
-  $('#btn_buscar').click(function(){
-    $("#dynamic-table tbody").empty(); 
   
+  $('#btn_buscar').click(function(){
+    //$("#dynamic-table tbody").empty(); 
     $.ajax({
         type: "POST",
         url: "kardex.php",  
         data:{id:$('#id_producto').val(),fecha:$('#rango_fecha').val()},
         dataType: 'json',
-        success: function(response) {
-          var acu='';
-          var acu2='';
+        success: function(response) {         
           for (var i = 0; i < response.length; i=i+8) {
                   if (response[i+7]==1) {
-                    acu=acu+"<tr>" +
-                    "<td align=center >" + response[i+0] + "</td>" +
-                    "<td align=center>" + response[i+1] + "</td>" +             
-                    "<td align=center>" + response[i+2] + "</td>" +
-                    "<td align=center>" + response[i+3] + "</td>" +                         
-                    "<td align=center>" + response[i+4] + "</td>" +
-                    "<td align=center>" + response[i+5] + "</td>" +                    
-                    "<td align=center>0</td>" +
-                    "<td align=center>0</td>" +
-                    "<td align=center>0</td>" +
-                    "<td align=center>" + response[i+6] + "</td>" +
-                   "<tr>";
+                    $('#td_kardex').dataTable().fnAddData([
+                      response[i+0],
+                      response[i+1],
+                      response[i+2],
+                      response[i+3],
+                      response[i+4],
+                      response[i+5],                      
+                      '0',
+                      '0',
+                      '0',
+                      response[i+6],
+                    ]);                    
                   }
-                  else if (response[i+7]==2) {
-                    acu=acu+"<tr>" +
-                    "<td align=center >" + response[i+0] + "</td>" +
-                    "<td align=center>" + response[i+1] + "</td>" +             
-                    "<td align=center>" + response[i+2] + "</td>" +                                        
-                    "<td align=center>0</td>" +
-                    "<td align=center>0</td>" +
-                    "<td align=center>0</td>" +
-                    "<td align=center>" + response[i+3] + "</td>" +                         
-                    "<td align=center>" + response[i+4] + "</td>" +
-                    "<td align=center>" + response[i+5] + "</td>" +
-                    "<td align=center>" + response[i+6] + "</td>" +
-                   "<tr>";
+                  else if (response[i+7]==2) {                   
+                   $('#td_kardex').dataTable().fnAddData([
+                      response[i+0],
+                      response[i+1],
+                      response[i+2],
+                      '0',
+                      '0',
+                      '0',
+                      response[i+3],
+                      response[i+4],
+                      response[i+5],
+                      response[i+6],
+                    ]);
                   };                  
           }
-          $("#dynamic-table tbody").html(acu);
+          //$("#dynamic-table tbody").html(acu);
          }                    
       });        
   })

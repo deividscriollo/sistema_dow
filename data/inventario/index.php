@@ -321,28 +321,15 @@
 						<div class="modal-body container">
 							<div class="row">
 								<div class="col-sm-5 col-sm-offset-1 white">
-									<h3 class="lighter">Bootstrap Grid &amp; Elements</h3>
-									With invisible backdrop
+									<h3 class="lighter">Imprimir &amp; Inventario</h3>
 								</div>
 
-								<div class="col-sm-5 text-center line-height-2">
-									<a class="btn btn-app btn-Default no-radius" href="#">
-										<i class="ace-icon fa fa-pencil-square-o bigger-230"></i>
-										Default
-										<span class="label label-light arrowed-in-right badge-left">11</span>
-									</a>
-
-									&nbsp; &nbsp;
-									<a class="btn btn-info btn-app no-radius" href="#">
-										<i class="ace-icon fa fa-cog bigger-230"></i>
-										Mailbox
-										<span class="label label-danger arrowed-in">6+</span>
-									</a>
+								<div class="col-sm-5 text-center line-height-2">									
 
 									&nbsp; &nbsp;
 									<a class="btn btn-app btn-light no-radius" href="#">
 										<i class="ace-icon fa fa-print bigger-230"></i>
-										Print
+										Inprimir
 									</a>
 								</div>
 							</div>

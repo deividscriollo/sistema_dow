@@ -162,12 +162,10 @@ if(!isset($_SESSION))
 														<div class="pull-right tableTools-container"></div>
 													</div>
 													<div>
-														<table id="dynamic-table" class="table table-striped table-bordered table-hover">
+														<table id="td_kardex" class="table table-striped table-bordered table-hover">
 															<thead>
 																<tr>
-																	<th class="center">
-																		Producto
-																	</th>
+																	<th>Producto</th>
 																	<th>Detalle</th>
 																	<th>Factura</th>
 																	<th>Cant. Entrada</th>
@@ -284,15 +282,12 @@ if(!isset($_SESSION))
 		
 			jQuery(function($) {
 				//initiate dataTables plugin
-				var oTable1 = 
-				$('#dynamic-table')
+				var oTable1 = $('#td_kardex')
 				//.wrap("<div class='dataTables_borderWrap' />")   //if you are applying horizontal scrolling (sScrollX)
 				.dataTable( {
 					bAutoWidth: false,
 					"aoColumns": [
-					  { "bSortable": false },
-					  null, null,null, null, null,
-					  { "bSortable": false }
+					  { "bSortable": false },null, null,null, null, null,  { "bSortable": false },null,null,null
 					],
 					"aaSorting": [],			
 					language: {
@@ -412,7 +407,7 @@ if(!isset($_SESSION))
 				//ColVis extension
 				var colvis = new $.fn.dataTable.ColVis( oTable1, {
 					"buttonText": "<i class='fa fa-search'></i>",
-					"aiExclude": [0, 6],
+					"aiExclude": [0, 9],
 					"bShowAll": true,
 					//"bRestore": true,
 					"sAlign": "right",
