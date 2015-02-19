@@ -223,9 +223,7 @@ function maxCaracter($texto, $cant){
     return $texto;
 }
 function carga_json($conexion,$sql){     
-        $sql = pg_query($sql);
-        $sql = pg_fetch_all($sql);        
-        
+        $sql = pg_query($sql);                
         return $sql;
     }
 

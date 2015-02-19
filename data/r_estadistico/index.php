@@ -80,7 +80,7 @@ if(!isset($_SESSION))
 															<label class="pull-right inline">
 																<small class="muted smaller-90"></small>
 
-																<button class="btn btn-app btn-light btn-xs">
+																<button class="btn btn-app btn-light btn-xs" id="mas_vendido">
 																	<i class="ace-icon fa fa-bar-chart-o bigger-160"></i>
 																	Ver
 																</button>
@@ -96,7 +96,7 @@ if(!isset($_SESSION))
 															<label class="pull-right inline">
 																<small class="muted smaller-90"></small>
 
-																<button class="btn btn-app btn-light btn-xs">
+																<button class="btn btn-app btn-light btn-xs" id="cliente_mas_compra">
 																	<i class="ace-icon fa fa-bar-chart-o bigger-160"></i>
 																	Ver
 																</button>
@@ -123,7 +123,7 @@ if(!isset($_SESSION))
 																		</div>
 																	</div>
 																</td>
-																<td class="legendLabel">Clientes</td>
+																<td class="legendLabel"></td>
 															</tr>
 															<tr>
 																<td class="legendColorBox">
@@ -131,7 +131,7 @@ if(!isset($_SESSION))
 																		<div style="width:4px;height:0;border:5px solid #2091CF;overflow:hidden"></div>
 																	</div>
 																</td>
-																<td class="legendLabel">Provedores</td>
+																<td class="legendLabel"></td>
 															</tr>
 															<tr>
 																<td class="legendColorBox">
@@ -139,7 +139,7 @@ if(!isset($_SESSION))
 																		<div style="width:4px;height:0;border:5px solid #AF4E96;overflow:hidden"></div>
 																	</div>
 																</td>
-																<td class="legendLabel">Gestion</td>
+																<td class="legendLabel"></td>
 															</tr>
 															<tr>
 																<td class="legendColorBox">
@@ -147,7 +147,7 @@ if(!isset($_SESSION))
 																		<div style="width:4px;height:0;border:5px solid #DA5430;overflow:hidden"></div>
 																	</div>
 																</td>
-																<td class="legendLabel">Actividades</td>
+																<td class="legendLabel"></td>
 															</tr>
 															<tr>
 																<td class="legendColorBox">
@@ -155,7 +155,7 @@ if(!isset($_SESSION))
 																		<div style="width:4px;height:0;border:5px solid #FEE074;overflow:hidden"></div>
 																	</div>
 																</td>
-																<td class="legendLabel">Procesos</td>
+																<td class="legendLabel"></td>
 															</tr>
 														</tbody>
 													</table>

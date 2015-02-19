@@ -1,6 +1,32 @@
 $(document).on("ready",inicio);
 function inicio(){
-	jQuery(function($) {
+	$("#mas_vendido").on("click",function(){
+		$.ajax({        
+	        type: "POST",
+	        dataType: 'json',        
+	        url: "graficos.php?fun=1",        
+	        //async:false,
+	        success: function(response) {         			        		        	
+	        	data = response;
+	        	grafico(data);        	
+	        }
+	    });
+	});
+	$("#cliente_mas_compra").on("click",function(){
+		$.ajax({        
+	        type: "POST",
+	        dataType: 'json',        
+	        url: "graficos.php?fun=2",        	        
+	        //async:false,
+	        success: function(response) {         			        		        	
+	        	data = response;
+	        	grafico(data);        	
+	        }
+	    });
+	});
+	
+}
+function grafico(data){
 		$('.easy-pie-chart.percentage').each(function(){
 			var $box = $(this).closest('.infobox');
 			var barColor = $(this).data('color') || (!$box.hasClass('infobox-dark') ? $box.css('color') : 'rgba(255,255,255,0.95)');
@@ -30,19 +56,9 @@ function inicio(){
 		});		
 	  	//flot chart resize plugin, somehow manipulates default browser resize event to optimize it!
 	  	//but sometimes it brings up errors with normal resize event handlers
-	  	$.resize.throttleWindow = false;
-	
-	  	var placeholder = $('#piechart-placeholder').css({'width':'90%' , 'min-height':'150px'});
-	  	
-	  	var data = [
-			{ label: "social networks",  data: 38.7, color: "#68BC31"},
-			{ label: "search engines",  data: 24.5, color: "#2091CF"},
-			{ label: "ad campaigns",  data: 8.2, color: "#AF4E96"},
-			{ label: "direct traffic",  data: 18.6, color: "#DA5430"},
-			{ label: "other",  data: 10, color: "#FEE074"}
-		]			
-	 	drawPieChart(placeholder, data);
-	
+	  	$.resize.throttleWindow = false;	
+	  	var placeholder = $('#piechart-placeholder').css({'width':'90%' , 'min-height':'150px'});	  		  		  		    
+	 	drawPieChart(placeholder, data);	
 	 /**
 	 we saved the drawing function and the data to redraw with different position later when switching to RTL mode dynamically
 	 so that's not needed actually.
@@ -183,9 +199,6 @@ function inicio(){
 				$(this).addClass('dropup');
 			else $(this).removeClass('dropup');
 		});
-	
-	})
-	
 }
 function drawPieChart(placeholder, data, position) {
 	$.plot(placeholder, data, {
