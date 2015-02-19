@@ -1,5 +1,9 @@
 $(document).on("ready",inicio);	
 
+function fn_dar_eliminar(){
+alert("ok");
+}
+
 function guardar_factura(){
   var vect1 = new Array();
   var vect2 = new Array();
@@ -64,16 +68,6 @@ function guardar_factura(){
                     setTimeout(function() {
                     location.reload();
                     }, 1000);
-                   // $('#table').trigger('reloadGrid');              
-                  }else{
-                    // if( data == 1 ){
-                    //   alert('Este nro de ' +$("#txt_1").val()+  ' ya existe ingrese otro'); 
-                    //   $("#txt_2").val("");
-                    //   $("#txt_2").focus();            
-                    // }else{
-                    //   alert("Error al momento de enviar los datos la página se recargara");           
-                    //   actualizar_form();
-                    // }
                   }
                 }
               }); 
@@ -158,7 +152,6 @@ function inicio (){
               }, 0);
           },
           ondblClickRow: function(rowid) {                                
-
             var gsr = jQuery(grid_selector).jqGrid('getGridParam','selrow');                                              
             var ret = jQuery(grid_selector).jqGrid('getRowData',gsr);                                              
             $("#comprobante").val(ret.comprobante);
@@ -471,7 +464,7 @@ function inicio (){
             $("#id_proveedor").val(data[0])            
         },
         error: function (data) {
-            alert(data);
+            // alert(data);
         }         
       });
     }
@@ -500,7 +493,7 @@ function inicio (){
             //$("#cantidad").val(data[5]);
           },
           error: function (data) {
-            alert(data);
+            // alert(data);
           }         
         });     
     }
@@ -508,7 +501,6 @@ function inicio (){
   $("#codigo_chosen").children().next().children().click(function (){
     $("#cantidad").focus(); 
   });
-
 
   /*buscador del nombre del producto*/
   var input_nombreProducto = $("#producto_chosen").children().next().children();    
@@ -533,7 +525,7 @@ function inicio (){
           //$("#cantidad").val(data[5]);
         },
         error: function (data) {
-          alert(data);
+          // alert(data);
         }          
       });
     }
@@ -575,7 +567,7 @@ function inicio (){
     }
   }); 	
 
-
+/////////////////////////////////////////
   $("#codigo").chosen().change(function (event,params){    
     if(params == undefined){     
       limpiar_chosen_codigo();          

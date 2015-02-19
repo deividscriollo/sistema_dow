@@ -116,6 +116,7 @@ function limpiar_form(e){
         $("input:not([readonly='readonly']):text:visible:first").focus();   
     }
 }
+
 function carga_ubicaciones(pais,provincia,ciudad){
     $.ajax({        
         type: "POST",
@@ -151,6 +152,7 @@ function carga_ubicaciones(pais,provincia,ciudad){
         }                   
     }); 
 }
+
 function change_pais(pais,provincia,ciudad){    
     $.ajax({       /*cargar el select provincia*/        
         type: "POST",
@@ -177,6 +179,7 @@ function change_pais(pais,provincia,ciudad){
         }                   
     });    
 }
+
 function change_provincia(pais,provincia,ciudad){    
     $.ajax({       /*cargar el select provincia*/        
         type: "POST",
@@ -191,6 +194,7 @@ function change_provincia(pais,provincia,ciudad){
         }                   
     });
 }
+
 function carga_detalles_productos(id_select,fun){     
     if(id_select == "txt_6"){
         $("#"+id_select+" option").not(":first").remove();
@@ -213,6 +217,7 @@ function carga_detalles_productos(id_select,fun){
         }                   
     }); 
 }
+
 function carga_detalles_productos_1(id_select,fun){     
     $("#"+id_select+" option").remove();         
     $.ajax({        
@@ -231,6 +236,7 @@ function carga_detalles_productos_1(id_select,fun){
         }                   
     });     
 }
+
 function punto(e){                
     if(e.keyCode == 46){        
         var texto = $(this).val();     
@@ -248,6 +254,7 @@ function punto(e){
         }
     }    
 }
+
 function validarNumeros(e) { // 1    
     tecla = (document.all) ? e.keyCode : e.which; // 2
     //console.log(e.keyCode)
@@ -270,6 +277,7 @@ function validarNumeros(e) { // 1
     te = String.fromCharCode(tecla); 
     return patron.test(te); // prueba
 }
+
 function ci(campo,extranjero){ 
     if(extranjero == 'OFF'){
         var numero = $("#"+campo).val();        
@@ -362,6 +370,7 @@ function ci(campo,extranjero){
         }         
     }      
 }
+
 function ci_ruc_pass(campo,valor,documento){
 
     var numero = valor;
@@ -498,6 +507,7 @@ function ci_ruc_pass(campo,valor,documento){
         }                    
     }         
 }
+
 function atras(id,carpeta,archivo){
     var url = '';    
     //url = "../secuencia.php?id="+id+"&fn=0";    
@@ -514,6 +524,7 @@ function atras(id,carpeta,archivo){
     });     
     return resp;
 }
+
 function adelante(id,carpeta,archivo){
     var url = '';    
     //url = "../secuencia.php?id="+id+"&fn=1";    
@@ -530,23 +541,27 @@ function adelante(id,carpeta,archivo){
     });     
     return resp;
 }
+
 function appendToChosenProducto(id,val1,val2,val3,val4,val5,val6,val7,text,chosen,chosen1){      
     $('#'+chosen).append($("<option data-barras='"+val2+"' data-codigo='"+val3+"' data-precio='"+val4+"' data-stock='"+val5+"' data-iva='"+val6+"' data-inventariable='"+val7+"' ></option>").val(id).html(val1)).trigger('chosen:updated');
     var input = $("#"+chosen1).children().next().children(); 
     $(input).children().val(text);            
 }
+
 function appendToChosen(id,value,text,extra,chosen,chosen1){            
     $('#'+chosen).append($("<option data-extra='"+extra+"'></option>").val(id).html(value)).trigger('chosen:updated');        
     var input_ci = $("#"+chosen1).children().next().children(); 
     $(input_ci).children().val(text);        
     //console.log($("#txt_nro_identificacion_chosen").children().children().next())        
 }
+
 function appendToChosen_cliente(id,value,text,extra,extra1,extra2,extra3,chosen,chosen1){            
     $('#'+chosen).append($("<option data-extra='"+extra+"' data-direccion='"+extra1+"' data-telefono='"+extra2+"' data-email='"+extra3+"'></option>").val(id).html(value)).trigger('chosen:updated');        
     var input_ci = $("#"+chosen1).children().next().children(); 
     $(input_ci).children().val(text);        
     //console.log($("#txt_nro_identificacion_chosen").children().children().next())        
 }
+
 function limpiar_chosen_codigo(){
     $('#codigo').html("");
     $('#codigo').append($("<option></option>"));          
@@ -561,10 +576,53 @@ function limpiar_chosen_codigo(){
     $("#precio").val("");       
     $("#cantidad").val(""); 
     $("#descuento").val(0);   
-    $("#codigo").trigger("chosen:close")
-    $("#codigo").trigger("chosen:open")    
-    
-    //console.log($('#codigo_chosen').trigger('chosen:showing_dropdown'));                    
+    $("#codigo").trigger("chosen:close");
+    $("#codigo").trigger("chosen:open");                  
+}
+
+function eliminar_fila(){
+    var desc_tabla = 0;
+    var total_tabla = 0;
+    var iva0 = 0;
+    var iva12 = 0;
+    var cant_tabla = 0;
+    var precio_u_tabla = 0;
+    $("a.dc_btn_accion").click(function(){
+      $(this).parents("tr").fadeOut("normal", function(){
+         $(this).children("td").each(function (index) {
+                switch (index) {
+                case 3:  
+                    cant_tabla = $(this).text();                    
+                break;
+                case 6:   
+                    precio_u_tabla = $(this).text();                    
+                break; 
+                case 8:
+                    total_tabla=$(this).text();
+                break;
+                case 10:
+                if ($(this).text() == 'on'){
+                    iva12 = parseFloat($("#tarifa12").val()) - parseFloat(total_tabla);
+
+                }else{
+                    iva0 = parseFloat($("#tarifa0").val()) - parseFloat(total_tabla);
+                }
+                break;
+             }
+          });
+         ///////////////calcular valores//////////////////////
+         desc_tabla = desc_tabla + ((cant_tabla * precio_u_tabla) - total_tabla);
+         var tot_iva = parseFloat(iva12 * 0.12).toFixed(3);    
+         var total_fac = parseFloat(iva12) + parseFloat(tot_iva) + parseFloat(iva0);   
+
+         $("#tarifa0").val(parseFloat(iva0).toFixed(3));
+         $("#tarifa12").val(parseFloat(iva12).toFixed(3));
+         $("#iva").val(parseFloat(tot_iva).toFixed(3));
+         $("#descuento_total").val(parseFloat(desc_tabla).toFixed(2));    
+         $("#total").val(parseFloat(total_fac).toFixed(2));
+         $(this).remove(); 
+       }); 
+    });
 }
 
 function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,cantidad_producto,limite,precio_unitario,descuento,iva,inventariable){    
@@ -577,7 +635,8 @@ function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,can
         $(this).children("td").each(function (index) { 
             contador++;                                 
         });                                                         
-    });                
+    });  
+
     if(contador == 0){        
         if (descuento != "") {
             desc = descuento
@@ -590,7 +649,7 @@ function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,can
             precio = (parseFloat(precio_unitario)).toFixed(2);
             total = (parseFloat(cantidad_producto) * precio).toFixed(2);
         }           
-        $("#"+id_tabla+" tbody").append( "<tr>" +"<td align=center>" + id_productos +"</td>" +"<td align=center>" + codigo_producto + "</td>" +"<td align=center>" + detalle_producto +"</td>" +"<td align=center>" + cantidad_producto +"</td>" +"<td align=center class='hidden'>" + limite +"</td>" +"<td align=center class='hidden'>" + inventariable +"</td>" +"<td align=center>" + precio + "</td>" +"<td align=center>" + desc +"</td>" +"<td align=center>" + total + "</td>" +"<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='red dc_btn_accion tooltip-error elimina' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' ></i></a></div>"+ "</td><td class='hidden'>"+iva+"</td>" +"</tr>" ); 
+        $("#"+id_tabla+" tbody").append( "<tr>" +"<td align=center>" + id_productos +"</td>" +"<td align=center>" + codigo_producto + "</td>" +"<td align=center>" + detalle_producto +"</td>" +"<td align=center>" + cantidad_producto +"</td>" +"<td align=center class='hidden'>" + limite +"</td>" +"<td align=center class='hidden'>" + inventariable +"</td>" +"<td align=center>" + precio + "</td>" +"<td align=center>" + desc +"</td>" +"<td align=center>" + total + "</td>" +"<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='red dc_btn_accion tooltip-error' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' onclick='return eliminar_fila(event)' ></i></a></div>"+ "</td><td class='hidden'>"+iva+"</td>" +"</tr>" ); 
     }else{         
         $("#"+id_tabla+" tbody tr").each(function (index) {                                                                 
             $(this).children("td").each(function (index) {                               
@@ -620,7 +679,7 @@ function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,can
                 precio = (parseFloat(precio_unitario)).toFixed(2);
                 total = (parseFloat(cantidad_producto) * precio).toFixed(2);
             }            
-            $("#"+id_tabla+" tbody").append( "<tr>" +"<td align=center>" + id_productos +"</td>" +"<td align=center>" + codigo_producto + "</td>" +"<td align=center>" + detalle_producto +"</td>" +"<td align=center>" + cantidad_producto +"</td>" +"<td align=center class='hidden'>" + limite +"</td>" +"<td align=center class='hidden'>" + inventariable +"</td>" +"<td align=center>" + precio + "</td>" +"<td align=center>" + desc +"</td>" +"<td align=center>" + total + "</td>" +"<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='red dc_btn_accion tooltip-error elimina' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' ></i></a></div>"+ "</td><td class='hidden'>"+iva+"</td>" +"</tr>" ); 
+            $("#"+id_tabla+" tbody").append( "<tr>" +"<td align=center>" + id_productos +"</td>" +"<td align=center>" + codigo_producto + "</td>" +"<td align=center>" + detalle_producto +"</td>" +"<td align=center>" + cantidad_producto +"</td>" +"<td align=center class='hidden'>" + limite +"</td>" +"<td align=center class='hidden'>" + inventariable +"</td>" +"<td align=center>" + precio + "</td>" +"<td align=center>" + desc +"</td>" +"<td align=center>" + total + "</td>" +"<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='red dc_btn_accion tooltip-error elimina' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' onclick='return eliminar_fila(event)' ></i></a></div>"+ "</td><td class='hidden'>"+iva+"</td>" +"</tr>" ); 
         }else{     
             if (descuento !== "") {
                 desc = descuento
@@ -668,7 +727,6 @@ function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,can
                     precio_u_tabla = $(this).text();                    
                 break;                
                 case 8:
-                    //console.log($(this).text())
                     total_tabla = $(this).text()                    
                 break;                                                                                                                               
                 case 10:                    
@@ -689,6 +747,6 @@ function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,can
     $("#tarifa0").val(parseFloat(iva0).toFixed(3));
     $("#tarifa12").val(parseFloat(iva12).toFixed(3));
     $("#iva").val(parseFloat(tot_iva).toFixed(3));
-    $("#descuento_total").val(parseFloat(desc_tabla).toFixed(3));    
+    $("#descuento_total").val(parseFloat(desc_tabla).toFixed(2));    
     $("#total").val(parseFloat(total_fac).toFixed(2));    
 }

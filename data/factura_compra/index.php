@@ -79,18 +79,6 @@
 												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_facturaCompra">	
 													<div class="row">
 														<div class="col-xs-12 pull-right">														
-															<div class="col-sm-3 hide">
-																<span class="bigger-120">
-																	<span class="green bolder">Comprobante:</span>
-																	<input type="hidden" name="comprobante" id="comprobante" />
-																</span>
-															</div>
-															<div class="col-sm-3">
-																<span class="bigger-120" id>
-																	<span class="red bolder">Responsable:</span>
-																	<span id="txt_responsable"><?php print($_SESSION['nombrescompletosdow']); ?></span>
-																</span>
-															</div>
 															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="blue bolder">Fecha Actual:</span>
@@ -103,7 +91,12 @@
 																	<span id="estado"></span>
 																</span>
 															</div>
-															
+															<div class="col-sm-3">
+																<span class="bigger-120" id>
+																	<span class="red bolder">Responsable:</span>
+																	<span id="txt_responsable"><?php print($_SESSION['nombrescompletosdow']); ?></span>
+																</span>
+															</div>
 														</div>
 													</div>
 													<div class="hr"></div>																									
