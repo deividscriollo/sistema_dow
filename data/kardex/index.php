@@ -24,7 +24,6 @@ if(!isset($_SESSION))
 		<link rel="stylesheet" href="../../dist/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="../../dist/css/font-awesome.min.css" />
 
-
 		<!-- page specific plugin styles -->
 		<link rel="stylesheet" href="../../dist/css/jquery-ui.custom.min.css" />
 		<link rel="stylesheet" href="../../dist/css/chosen.min.css" />
@@ -33,16 +32,6 @@ if(!isset($_SESSION))
 		<link rel="stylesheet" href="../../dist/css/daterangepicker.min.css" />
 		<link rel="stylesheet" href="../../dist/css/bootstrap-datetimepicker.min.css" />
 		<link rel="stylesheet" href="../../dist/css/colorpicker.min.css" />
-
-
-
-		<!-- Select -->
-
-
-
-		<!-- page specific plugin styles -->
-
-		<!-- text fonts -->
 		<link rel="stylesheet" href="../../dist/css/fontdc.css" />
 
 		<!-- ace styles -->
@@ -55,19 +44,14 @@ if(!isset($_SESSION))
 
 	<body class="skin-1">
 		<?php menu_arriba(); ?>
-
 		<div class="main-container" id="main-container">
-			
-
 			<?php menu_lateral(); ?>
-
 			 <div class="main-content">
 				<div class="main-content-inner">
 					<div class="breadcrumbs" id="breadcrumbs">
                         <script type="text/javascript">
                             try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
                         </script>
-
                         <ul class="breadcrumb">
                             <li>
                                 <i class="ace-icon fa fa-home home-icon"></i>
@@ -75,7 +59,6 @@ if(!isset($_SESSION))
                             </li>
                             <li class="active">Procesos</li>
                             <li class="active">Kardex</li>
-                            
                         </ul>
                     </div>
 					<div class="page-content">
@@ -83,7 +66,7 @@ if(!isset($_SESSION))
 							<div class="col-xs-12 col-sm-12 widget-container-col">
 								<div class="widget-box">
 									<div class="widget-header">
-										<h5 class="widget-title">Proceso</h5>
+										<h5 class="widget-title">Kardex</h5>
 										<div class="widget-toolbar">
 											<a href="#" data-action="fullscreen" class="orange2">
 												<i class="ace-icon fa fa-expand"></i>
@@ -93,7 +76,6 @@ if(!isset($_SESSION))
 											</a>
 										</div>
 									</div>
-
 									<div class="widget-body">
 										<div class="widget-main">
 											<div class="row">
@@ -177,15 +159,12 @@ if(!isset($_SESSION))
 																	<th>Transacción</th>
 																</tr>
 															</thead>
-
 															<tbody>
-																
 															</tbody>
 														</table>
 													</div>
 												</div>
 											</div>
-
 										</div>
 									</div>
 								</div>
@@ -193,46 +172,22 @@ if(!isset($_SESSION))
 						</div>
 					</div>
 				</div>
-			</div><!-- /.main-content -->
+			</div>
 
 			<?php footer(); ?>
 
 			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
 				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
 			</a>
-		</div><!-- /.main-container -->
-
-		<!-- basic scripts -->
-
-		
-		<!-- <![endif]-->
-
-		<!--[if IE]>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<![endif]-->
-
+		</div>
 		<!--[if !IE]> -->
 		<script type="text/javascript">
 			window.jQuery || document.write("<script src='../../dist/js/jquery.min.js'>"+"<"+"/script>");
 		</script>
-
-		<!-- <![endif]-->
-
-		<!--[if IE]>
-<script type="text/javascript">
- window.jQuery || document.write("<script src='../../dist/js/jquery1x.min.js'>"+"<"+"/script>");
-</script>
-<![endif]-->
 		<script type="text/javascript">
 			if('ontouchstart' in document.documentElement) document.write("<script src='../../dist/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 		</script>
 		<script src="../../dist/js/bootstrap.min.js"></script>
-
-		<!-- page specific plugin scripts -->
-
-		<!--[if lte IE 8]>
-		  <script src="../../dist/js/excanvas.min.js"></script>
-		<![endif]-->
 		<script src="../../dist/js/jquery-ui.custom.min.js"></script>
 		<script src="../../dist/js/jquery.ui.touch-punch.min.js"></script>
 		<script src="../../dist/js/chosen.jquery.min.js"></script>
@@ -402,8 +357,6 @@ if(!isset($_SESSION))
 					});
 				}, 200);
 				
-				
-				
 				//ColVis extension
 				var colvis = new $.fn.dataTable.ColVis( oTable1, {
 					"buttonText": "<i class='fa fa-search'></i>",
@@ -414,7 +367,6 @@ if(!isset($_SESSION))
 					"fnLabel": function(i, title, th) {
 						return $(th).text();//remove icons, etc
 					}
-					
 				}); 
 				
 				//style it
@@ -430,8 +382,6 @@ if(!isset($_SESSION))
 				.addClass('dropdown-menu dropdown-light dropdown-caret dropdown-caret-right')
 				.find('li').wrapInner('<a href="javascript:void(0)" />') //'A' tag is required for better styling
 				.find('input[type=checkbox]').addClass('ace').next().addClass('lbl padding-8');
-			
-			
 				
 				/////////////////////////////////
 				//table checkboxes
@@ -455,15 +405,11 @@ if(!isset($_SESSION))
 					else tableTools_obj.fnDeselect($(this).closest('tr').get(0));
 				});
 				
-			
-				
-				
 					$(document).on('click', '#dynamic-table .dropdown-toggle', function(e) {
 					e.stopImmediatePropagation();
 					e.stopPropagation();
 					e.preventDefault();
 				});
-				
 				
 				//And for the first simple table, which doesn't have TableTools or dataTables
 				//select/deselect all rows according to table header checkbox
@@ -485,8 +431,6 @@ if(!isset($_SESSION))
 					else $row.removeClass(active_class);
 				});
 			
-				
-			
 				/********************************/
 				//add tooltip for small view action buttons in dropdown menu
 				$('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
@@ -500,13 +444,10 @@ if(!isset($_SESSION))
 			
 					var off2 = $source.offset();
 					//var w2 = $source.width();
-			
 					if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
 					return 'left';
 				}
-			
 			})
 		</script>
-
 	</body>
 </html>

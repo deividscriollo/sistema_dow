@@ -35,12 +35,8 @@
 
 	<body class="skin-1">
 		<?php menu_arriba(); ?>
-
 		<div class="main-container" id="main-container">
-			
-
 			<?php menu_lateral(); ?>
-
 			 <div class="main-content">
 				<div class="main-content-inner">
 					<div class="breadcrumbs" id="breadcrumbs">
@@ -61,7 +57,7 @@
 							<div class="col-xs-12 col-sm-12 widget-container-col">
 								<div class="widget-box">
 									<div class="widget-header">
-										<h5 class="widget-title"><i class="ace-icon fa fa-user"></i> Factura Venta</h5>
+										<h5 class="widget-title">Factura Venta</h5>
 										<div class="widget-toolbar">
 											<a href="#" data-action="fullscreen" class="orange2">
 												<i class="ace-icon fa fa-expand"></i>
@@ -76,18 +72,7 @@
 											<div class="row">
 												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_facturaVenta">	
 													<div class="row">
-														<div class="col-xs-12 pull-right">														
-															<div class="col-sm-3 hide">
-																<span class="bigger-120">
-																	<input type="hidden" name="comprobante" id="comprobante" />
-																</span>
-															</div>
-															<div class="col-sm-3">
-																<span class="bigger-120" id>
-																	<span class="red bolder">Responsable:</span>
-																	<span ><?php print($_SESSION['nombrescompletosdow']); ?></span>
-																</span>
-															</div>
+														<div class="col-xs-12 pull-right">
 															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="blue bolder">Fecha Actual:</span>
@@ -98,6 +83,12 @@
 																<span class="bigger-120" id>
 																	<span class="blue bolder">Hora Actual:</span>
 																	<span id="estado"></span>
+																</span>
+															</div>
+															<div class="col-sm-3">
+																<span class="bigger-120" id>
+																	<span class="red bolder">Responsable:</span>
+																	<span ><?php print($_SESSION['nombrescompletosdow']); ?></span>
 																</span>
 															</div>
 														</div>
@@ -521,8 +512,6 @@
 	</body>
 </html>  
 
-  
-
 <script type="text/javascript">
 	// tooltips 
 	$('[data-rel=tooltip]').tooltip();
@@ -549,8 +538,5 @@
 		$('.modal.aside').remove();
 		$(window).off('.aside')
 	});
-
 	//$('#dob').datepicker('setDate', new Date(2006, 11, 24));
-
-
 </script>

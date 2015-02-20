@@ -23,12 +23,6 @@
 		<link rel="stylesheet" href="../../dist/css/bootstrap-timepicker.min.css" />
 		<link rel="stylesheet" href="../../dist/css/daterangepicker.min.css" />
 		<link rel="stylesheet" href="../../dist/css/bootstrap-datetimepicker.min.css" />
-
-
-
-		<!-- page specific plugin styles -->
-
-		<!-- text fonts -->
 		<link rel="stylesheet" href="../../dist/css/fontdc.css" />
 
 		<!-- ace styles -->
@@ -41,27 +35,21 @@
 
 	<body class="skin-1">
 		<?php menu_arriba(); ?>
-
 		<div class="main-container" id="main-container">
-			
-
 			<?php menu_lateral(); ?>
-
 			 <div class="main-content">
 				<div class="main-content-inner">
 					<div class="breadcrumbs" id="breadcrumbs">
                         <script type="text/javascript">
                             try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
                         </script>
-
                         <ul class="breadcrumb">
                             <li>
                                 <i class="ace-icon fa fa-home home-icon"></i>
                                 <a href="../inicio/">Inicio</a>
                             </li>
                             <li class="active">Procesos</li>
-                            <li class="active">Factura Venta</li>
-                            
+                            <li class="active">Inventario</li>
                         </ul>
                     </div>
 					<div class="page-content">
@@ -69,39 +57,23 @@
 							<div class="col-xs-12 col-sm-12 widget-container-col">
 								<div class="widget-box">
 									<div class="widget-header">
-										<h5 class="widget-title"><i class="ace-icon fa fa-user"></i> Factura Compra</h5>
-
+										<h5 class="widget-title">Inventario</h5>
 										<div class="widget-toolbar">
-											
-
 											<a href="#" data-action="fullscreen" class="orange2">
 												<i class="ace-icon fa fa-expand"></i>
 											</a>
-
 											<a href="#" data-action="reload">
 												<i class="ace-icon fa fa-refresh"></i>
 											</a>
 										</div>
-									</div>									
+									</div>	
+
 									<div class="widget-body">
 										<div class="widget-main">
 											<div class="row">
 												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_cliente">	
 													<div class="row">
 														<div class="col-xs-12 pull-right">														
-															<div class="col-sm-3 hide">
-																<span class="bigger-120">
-																	<span class="green bolder">Comprobante:</span>
-																	<span>000000</span>
-																</span>
-															</div>
-
-															<div class="col-sm-3">
-																<span class="bigger-120" id>
-																	<span class="red bolder">Responsable:</span>
-																	<span ><?php print($_SESSION['nombrescompletosdow']); ?></span>
-																</span>
-															</div>
 															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="blue bolder">Fecha Actual:</span>
@@ -111,20 +83,23 @@
 															<div class="col-sm-3">
 																<span class="bigger-120" id>
 																	<span class="blue bolder">Hora Actual:</span>
-																	<spani id="hora_acutal"></span>
+																	<spani id="estado"></span>
 																</span>
 															</div>
-															
+															<div class="col-sm-3">
+																<span class="bigger-120" id>
+																	<span class="red bolder">Responsable:</span>
+																	<span ><?php print($_SESSION['nombrescompletosdow']); ?></span>
+																</span>
+															</div>
 														</div>
 													</div>
 													<div class="hr"></div>
-
 													
 													<div class="row ">
 														<div class="col-xs-12">
 															<div class="col-xs-12">
 																<h3 class="header smaller lighter green">
-																	<i class="ace-icon fa fa-bullhorn"></i>
 																	Productos
 																</h3>
 															</div>
@@ -186,7 +161,7 @@
 																			</div>
 																			<div class="row">
 																				<div class="col-xs-12">
-																					<input type="text" id="cantidad" name="cantidad" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																					<input type="text" id="cantidad" name="cantidad" class="form-control" data-toggle="tooltip" required pattern="" /> 
 																				</div>
 																			</div>
 																		</div>
@@ -198,7 +173,7 @@
 																			</div>
 																			<div class="row">
 																				<div class="col-xs-12">
-																					<input type="text" id="precio" name="precio" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																					<input type="text" id="precio" name="precio" class="form-control" data-toggle="tooltip" required readonly /> 
 																				</div>
 																			</div>
 																		</div>
@@ -210,7 +185,7 @@
 																			</div>
 																			<div class="row">
 																				<div class="col-xs-12">
-																					<input type="text" id="stock" name="stock" class="form-control" data-toggle="tooltip" maxlength="3" required pattern="" /> 
+																					<input type="text" id="stock" name="stock" class="form-control" data-toggle="tooltip" required readonly /> 
 																				</div>
 																			</div>
 																		</div>
@@ -236,10 +211,11 @@
 																			<th class="center" width="2px"><i class="ace-icon fa fa-bars"></i></th>
 																			<th class="center" width="100px"><i class="ace-icon fa fa-barcode"></i> Codigo</th>
 																			<th class="center"><i class="ace-icon fa fa-info"></i> Detalle</th>
-																			<th class="center" width="100px"><i class="ace-icon fa fa-list-ol"></i> Cantidad</th>
-																			<th class="center" width="100px"><i class="ace-icon fa fa-money"></i> Precio U.</th>
-																			<th class="center" width="100px"><i class="ace-icon fa fa-area-chart"> Descuento</th>
-																			<th class="center" width="100px"><i class="ace-icon fa fa-usd"> Total</th>
+																			<th class="center" width="100px"><i class="ace-icon fa fa-money"></i>P. Costo</th>
+																			<th class="center" width="100px"><i class="ace-icon fa fa-money"></i>P. Venta</th>
+																			<th class="center" width="100px"><i class="ace-icon fa fa-area-chart"> Stock</th>
+																			<th class="center" width="100px"><i class="ace-icon fa fa-usd"> Existencia</th>
+																			<th class="center" width="100px"><i class="ace-icon fa fa-usd"> Diferencia</th>
 																			<th class="center" width="90px"><i class="ace-icon fa fa-cogs"></i> Accion</th>
 																		</tr>
 																	</thead>
@@ -306,11 +282,10 @@
 					</div>
 				</div>
 			</div><!-- /.main-content -->
+		<?php footer(); ?>
 
-			<?php footer(); ?>
-
-			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
-				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+		<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+			<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
 			</a>
 		</div><!-- /.main-container -->
 
@@ -341,34 +316,14 @@
 					</button>
 				</div><!-- /.modal-dialog -->
 			</div>
-		<!-- <![endif]-->
-
-		<!--[if IE]>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<![endif]-->
-
 		<!--[if !IE]> -->
 		<script type="text/javascript">
 			window.jQuery || document.write("<script src='../../dist/js/jquery.min.js'>"+"<"+"/script>");
 		</script>
-
-		<!-- <![endif]-->
-
-		<!--[if IE]>
-<script type="text/javascript">
- window.jQuery || document.write("<script src='../../dist/js/jquery1x.min.js'>"+"<"+"/script>");
-</script>
-<![endif]-->
 		<script type="text/javascript">
 			if('ontouchstart' in document.documentElement) document.write("<script src='../../dist/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 		</script>
 		<script src="../../dist/js/bootstrap.min.js"></script>
-
-		<!-- page specific plugin scripts -->
-
-		<!--[if lte IE 8]>
-		  <script src="../../dist/js/excanvas.min.js"></script>
-		<![endif]-->
 		<script src="../../dist/js/jquery-ui.custom.min.js"></script>
 		<script src="../../dist/js/jquery.ui.touch-punch.min.js"></script>
 		<script src="../../dist/js/jquery.easypiechart.min.js"></script>
@@ -383,9 +338,6 @@
 		<script src="../../dist/js/date-time/daterangepicker.min.js"></script>
 		<script src="../../dist/js/date-time/bootstrap-datetimepicker.min.js"></script>
 
-
-
-
 		<!-- ace scripts -->
 		<script src="../../dist/js/ace-elements.min.js"></script>
 		<script src="../../dist/js/ace.min.js"></script>
@@ -393,17 +345,10 @@
         <script src="../../dist/js/jqGrid/i18n/grid.locale-en.js"></script>
 		
 		<script src="../generales.js"></script>
+		<script src="../../dist/js/validCampoFranz.js" ></script>
 		<script src="inventario.js"></script>
-		
-
-		<!-- inline scripts related to this page -->
-
-	
-
 	</body>
 </html>  
-
-  
 
 <script type="text/javascript">
 	// tooltips 

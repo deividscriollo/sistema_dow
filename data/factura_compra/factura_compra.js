@@ -1,9 +1,5 @@
 $(document).on("ready",inicio);	
 
-function fn_dar_eliminar(){
-alert("ok");
-}
-
 function guardar_factura(){
   var vect1 = new Array();
   var vect2 = new Array();

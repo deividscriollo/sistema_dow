@@ -372,7 +372,6 @@ function ci(campo,extranjero){
 }
 
 function ci_ruc_pass(campo,valor,documento){
-
     var numero = valor;
     var suma = 0;      
     var residuo = 0;      
@@ -749,4 +748,20 @@ function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,can
     $("#iva").val(parseFloat(tot_iva).toFixed(3));
     $("#descuento_total").val(parseFloat(desc_tabla).toFixed(2));    
     $("#total").val(parseFloat(total_fac).toFixed(2));    
+}
+
+function agregar_fila_inventario(id_tabla,id_productos,codigo_producto,detalle_producto,cantidad_producto){
+var contador=0;
+var vect = new Array();     
+var cont=0;
+var repe = 0;
+var fila = 0;
+$("#"+id_tabla+" tbody tr").each(function (index) {                                  
+    $(this).children("td").each(function (index) { 
+        contador++;                                 
+    });                                                         
+});
+
+    
+
 }

@@ -1,5 +1,9 @@
 $(document).on("ready",inicio);
-function inicio (){			
+
+function inicio (){		
+  mostrar("estado");  
+  fecha_actual("fecha_actual"); 
+
 	/*buscador del codigo del producto*/
   	var input_codigoProducto = $("#codigo_chosen").children().next().children();    
   	$(input_codigoProducto).on("keyup",function(input_ci){
@@ -77,7 +81,8 @@ function inicio (){
   	}); 
   	$("#producto_chosen").children().next().children().click(function (){
     	$("#cantidad").focus(); 
-  	});  
+  	});
+      
 	$("#producto").chosen().change(function (event,params){    
     	if(params == undefined){         
       		$('#codigo').html("");
@@ -103,5 +108,25 @@ function inicio (){
       		$("#stock").val($(a).data("stock"));
 	      	$("#cantidad").focus(); 
     	}
-  	});   		
+  	});   	
+
+
+    $("#cantidad").validCampoFranz("0123456789");
+
+    $("#cantidad").on("keypress",function (e){
+    if(e.keyCode == 13){//tecla del alt para el entrer poner 13
+        if($("#cantidad").val() != ""){
+            if($("#id_productos").val() != ""){
+                alert("ok")
+            }else{
+                alert("Seleccione un producto antes de continuar");                        
+                //$('#codigo').trigger('chosen:open');            
+                $('#codigo_chosen').trigger('mousedown');
+            }
+        }else{
+            alert("Ingrese una cantidad");
+            $("#cantidad").focus();
+        }
+    }
+});
 }

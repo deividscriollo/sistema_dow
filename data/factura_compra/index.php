@@ -34,19 +34,14 @@
 
 	<body class="skin-1">
 		<?php menu_arriba(); ?>
-
 		<div class="main-container" id="main-container">
-			
-
 			<?php menu_lateral(); ?>
-
 			 <div class="main-content">
 				<div class="main-content-inner">
 					<div class="breadcrumbs" id="breadcrumbs">
                         <script type="text/javascript">
                             try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
                         </script>
-
                         <ul class="breadcrumb">
                             <li>
                                 <i class="ace-icon fa fa-home home-icon"></i>
@@ -54,15 +49,15 @@
                             </li>
                             <li class="active">Ingresos</li>
                             <li class="active">Factura Compra</li>
-                            
                         </ul>
                     </div>
+
 					<div class="page-content">
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 widget-container-col">
 								<div class="widget-box">
 									<div class="widget-header">
-										<h5 class="widget-title"><i class="ace-icon fa fa-user"></i> Factura Compra</h5>
+										<h5 class="widget-title">Factura Compra</h5>
 										<div class="widget-toolbar">
 											<a href="#" data-action="fullscreen" class="orange2">
 												<i class="ace-icon fa fa-expand"></i>
@@ -113,7 +108,6 @@
 																	</div>	
 																</div>
 															</div>
-															
 															<div class="col-sm-4">
 																<div class="form-group">
 																	<label class="col-sm-5 control-label no-padding-right" for="txt_nombre_proveedor"> Proveedor: </label>
@@ -152,7 +146,6 @@
 																	</div>																													
 																</div>
 															</div>
-															
 															<div class="col-sm-4">
 																<div class="form-group">
 																	<label class="col-sm-5 control-label no-padding-right" for="fecha_emision"> Fecha Emisión: </label>
@@ -183,21 +176,19 @@
 													</div>
 													<div class="row">
 														<div class="col-xs-12">
-															<div class="col-sm-4">
-																	<div class="form-group">
-																		<label class="col-sm-6 control-label no-padding-right" for="fecha_cancelacion"> Fecha cancelación:</label>
-																			<div class="col-sm-6">
-																				<div class="input-group">
-																				<input class="form-control date-picker" id="fecha_cancelacion" name="fecha_cancelacion" readonly type="text" data-date-format="yyyy-mm-dd" />
-																				<span class="input-group-addon">
-																					<i class="fa fa-calendar bigger-110"></i>
-																				</span>
-																			</div>
-																		</div>																														
-																	</div>
+														<div class="col-sm-4">
+																<div class="form-group">
+																	<label class="col-sm-6 control-label no-padding-right" for="fecha_cancelacion"> Fecha cancelación:</label>
+																		<div class="col-sm-6">
+																			<div class="input-group">
+																			<input class="form-control date-picker" id="fecha_cancelacion" name="fecha_cancelacion" readonly type="text" data-date-format="yyyy-mm-dd" />
+																			<span class="input-group-addon">
+																				<i class="fa fa-calendar bigger-110"></i>
+																			</span>
+																		</div>
+																	</div>																														
 																</div>
-															
-															
+															</div>
 															<div class="col-xs-8">															
 																<div class="form-group">
 																	<label class="col-sm-3 control-label no-padding-right"> Numero de serie:</label>
@@ -344,7 +335,6 @@
 															</div>
 														</div>
 													</div>
-													
 													<div class="row">														
 														<div class="col-xs-12">
 														 	<div class="col-sm-12">
@@ -363,7 +353,6 @@
 																		</tr>
 																	</thead>
 																	<tbody>
-																		
 																	</tbody>
 																</table>
 															</div>
@@ -459,12 +448,11 @@
 					</div>
 				</div>
 			</div>
+		<?php footer(); ?>
 
-			<?php footer(); ?>
-
-			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
-				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
-			</a>
+		<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+			<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+		</a>
 		</div>
 		<script type="text/javascript">
 			window.jQuery || document.write("<script src='../../dist/js/jquery.min.js'>"+"<"+"/script>");
@@ -520,34 +508,33 @@
   </div>
 
   <div id="top-menu" class="modal aside" data-fixed="true" data-placement="top" data-background="true" data-backdrop="invisible" tabindex="-1">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-body container">
-							<div class="row">
-								<div class="col-sm-5 col-sm-offset-1 white">
-									<h3 class="lighter">Imprimir &amp; Factura</h3>
-									
-								</div>
-
-								<div class="col-sm-5 text-center line-height-2">									
-									&nbsp; &nbsp;
-									<a class="btn btn-app btn-light no-radius" href="#">
-										<i class="ace-icon fa fa-print bigger-230"></i>
-										Imprmir
-									</a>
-								</div>
-							</div>
-						</div>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body container">
+				<div class="row">
+					<div class="col-sm-5 col-sm-offset-1 white">
+						<h3 class="lighter">Imprimir &amp; Factura</h3>
+						
 					</div>
-					<button class="btn btn-inverse btn-app btn-xs ace-settings-btn aside-trigger" data-target="#top-menu" data-toggle="modal" type="button">
-						<i data-icon="fa-chevron-down" data-icon="fa-chevron-up" class="ace-icon fa fa-chevron-down bigger-110 icon-only"></i>
-					</button>
+
+					<div class="col-sm-5 text-center line-height-2">									
+						&nbsp; &nbsp;
+						<a class="btn btn-app btn-light no-radius" href="#">
+							<i class="ace-icon fa fa-print bigger-230"></i>
+							Imprmir
+						</a>
+					</div>
 				</div>
 			</div>
+		</div>
+		<button class="btn btn-inverse btn-app btn-xs ace-settings-btn aside-trigger" data-target="#top-menu" data-toggle="modal" type="button">
+			<i data-icon="fa-chevron-down" data-icon="fa-chevron-up" class="ace-icon fa fa-chevron-down bigger-110 icon-only"></i>
+		</button>
+	</div>
+ </div>
 
 <script type="text/javascript">
 $('.modal.aside').ace_aside();
-				
 	$('#aside-inside-modal').addClass('aside').ace_aside({container: '#my-modal > .modal-dialog'});
 	
 	// tooltips 
