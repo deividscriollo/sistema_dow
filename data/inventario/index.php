@@ -95,7 +95,6 @@
 														</div>
 													</div>
 													<div class="hr"></div>
-													
 													<div class="row ">
 														<div class="col-xs-12">
 															<div class="col-xs-12">
@@ -205,7 +204,7 @@
 													<div class="row">														
 														<div class="col-xs-12">
 														 	<div class="col-sm-12">
-																<table id="" class="table table-striped table-bordered table-hover">
+																<table id="detalle_inventario" class="table table-striped table-bordered table-hover">
 																	<thead>
 																		<tr style="background-color: #428BCA; color: white;">
 																			<th class="center" width="2px"><i class="ace-icon fa fa-bars"></i></th>

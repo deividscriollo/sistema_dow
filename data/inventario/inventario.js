@@ -117,7 +117,7 @@ function inicio (){
     if(e.keyCode == 13){//tecla del alt para el entrer poner 13
         if($("#cantidad").val() != ""){
             if($("#id_productos").val() != ""){
-                alert("ok")
+                agregar_fila_inventario("detalle_inventario",$("#id_productos").val(),$(a).data("codigo"),$(a).text(),$("#cantidad").val(),$(a).data("stock"),$("#precio").val(),$("#descuento").val(),$(a).data("iva"));
             }else{
                 alert("Seleccione un producto antes de continuar");                        
                 //$('#codigo').trigger('chosen:open');            
