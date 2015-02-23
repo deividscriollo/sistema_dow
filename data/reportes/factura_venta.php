@@ -24,7 +24,7 @@
             $sql = pg_query("select ruc_empresa,nombre_empresa,propietario,telefono1,telefono2,direccion,correo,sitio_web,autorizacion_sri,ascesor_legar,imagen from empresa where id_empresa = '".$_SESSION['empresa_dow']."'");
             while($row = pg_fetch_row($sql)){
                 $this->Cell(190, 8, maxCaracter("EMPRESA: ".utf8_decode($row[1]),50), 0,1, 'C',0);                                
-                $this->Image('../empresa/img/'.$row[10],0,8,52,50);
+                $this->Image('../empresa/img/'.$row[10],0,8,52,40);
                 $this->SetFont('Amble-Regular','',10);        
                 $this->Cell(180, 5, maxCaracter("PROPIETARIO: ".utf8_decode($row[2]),50),0,1, 'C',0);                                
                 $this->Cell(70, 5, maxCaracter("TEL.: ".utf8_decode($row[3]),50),0,0, 'R',0);                                

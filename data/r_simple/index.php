@@ -80,7 +80,7 @@ if(!isset($_SESSION))
 															<label class="pull-right inline">
 																<small class="muted smaller-90"></small>
 
-																<button class="btn btn-app btn-light btn-xs">
+																<button class="btn btn-app btn-light btn-xs" id="mas_vendido">
 																	<i class="ace-icon fa fa-print bigger-160"></i>
 																	Ver
 																</button>
@@ -96,7 +96,7 @@ if(!isset($_SESSION))
 															<label class="pull-right inline">
 																<small class="muted smaller-90"></small>
 
-																<button class="btn btn-app btn-light btn-xs">
+																<button class="btn btn-app btn-light btn-xs" id="mas_compra">
 																	<i class="ace-icon fa fa-print bigger-160"></i>
 																	Ver
 																</button>
@@ -166,6 +166,7 @@ if(!isset($_SESSION))
 		<!-- ace scripts -->
 		<script src="../../dist/js/ace-elements.min.js"></script>
 		<script src="../../dist/js/ace.min.js"></script>
+		<script src="r_simple.js"></script>
 
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
