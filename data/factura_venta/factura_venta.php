@@ -75,8 +75,6 @@
    	'$id2','".$arreglo1[$i]."','$fecha','Factura Venta','$num_serie','".$arreglo2[$i]."','".$arreglo3[$i]."','".$arreglo5[$i]."','Egreso','2','$fecha')";       
 	$guardar = guardarSql($conexion,$sql4);
 	////////////////////////////////////////
-
-	
 }
 
 $consulta2 = pg_query("select * from cliente where id_cliente = '".$_POST['txt_nro_identificacion']."'");

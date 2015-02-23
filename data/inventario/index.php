@@ -71,7 +71,7 @@
 									<div class="widget-body">
 										<div class="widget-main">
 											<div class="row">
-												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_cliente">	
+												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_inventario">	
 													<div class="row">
 														<div class="col-xs-12 pull-right">														
 															<div class="col-sm-3">
@@ -250,36 +250,35 @@
                                                     <br />
                                                     <br />
                                                     <br />
-    
-													<div class="row">
-														<div class="center">													 
-															<button type="submit" class="btn btn-primary" id="btn_0">
-																<i class="ace-icon fa fa-floppy-o bigger-120 write"></i>
-																Guardar
-															</button>
-															<button type="button" id="btn_1" class="btn btn-primary">
-																<i class="ace-icon fa fa-file-o bigger-120 write"></i>
-																Limpiar
-															</button>
-															<button type="button" id="btn_2" class="btn btn-primary">
-																<i class="ace-icon fa fa-refresh bigger-120 write"></i>
-																Actualizar
-															</button>														
-															<button data-toggle="modal" href="#myModal" type="button" id="btn_3" class="btn btn-primary">
-																<i class="ace-icon fa fa-search bigger-120 write"></i>
-																Buscar
-															</button>
-															<button type="button" id="btn_4" class="btn btn-primary">
-																<i class="ace-icon fa fa-arrow-circle-left bigger-120 write"></i>
-																Atras
-															</button>
-															<button type="button" id="btn_5" class="btn btn-primary">
-																<i class="ace-icon fa fa fa-arrow-circle-right bigger-120 write"></i>
-																Adelante
-															</button>
-														</div>
-													</div>
 												</form>
+												<div class="row">
+													<div class="center">													 
+														<button type="button" class="btn btn-primary" id="btn_0">
+															<i class="ace-icon fa fa-floppy-o bigger-120 write"></i>
+															Guardar
+														</button>
+														<button type="button" id="btn_1" class="btn btn-primary">
+															<i class="ace-icon fa fa-file-o bigger-120 write"></i>
+															Limpiar
+														</button>
+														<button type="button" id="btn_2" class="btn btn-primary">
+															<i class="ace-icon fa fa-refresh bigger-120 write"></i>
+															Actualizar
+														</button>														
+														<button data-toggle="modal" href="#myModal" type="button" id="btn_3" class="btn btn-primary">
+															<i class="ace-icon fa fa-search bigger-120 write"></i>
+															Buscar
+														</button>
+														<button type="button" id="btn_4" class="btn btn-primary">
+															<i class="ace-icon fa fa-arrow-circle-left bigger-120 write"></i>
+															Atras
+														</button>
+														<button type="button" id="btn_5" class="btn btn-primary">
+															<i class="ace-icon fa fa fa-arrow-circle-right bigger-120 write"></i>
+															Adelante
+														</button>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>

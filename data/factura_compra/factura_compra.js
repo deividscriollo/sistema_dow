@@ -29,6 +29,7 @@ function guardar_factura(){
     });
     cont++;  
   });
+  
   if($("#id_proveedor").val() == ""){  
     $('#txt_nro_identificacion').trigger('mousedown');    
     alert("Seleccione un proveedor");
