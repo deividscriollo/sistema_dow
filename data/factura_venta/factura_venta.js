@@ -297,14 +297,13 @@ function inicio (){
                     if($(a).data('inventariable') == 'off'){
                       agregar_fila("detalle_factura",$("#id_productos").val(),$(a).data("codigo"),$(a).text(),$("#cantidad").val(),$(a).data("stock"),$("#precio").val(),$("#descuento").val(),$(a).data("iva"),$(a).data("inventariable"));                                  
                     }else{
-                      alert('Fuera de stcok el límite de productos es '+$(a).data('stock'));
+                      alert('Fuera de stock el límite del productos es: '+$(a).data('stock'));
                       $("#cantidad").val('');
                       $("#cantidad").focus();
                     }
                   }
           			}else{
             			alert("Seleccione un producto antes de continuar");                        
-	            		//$('#codigo').trigger('chosen:open');            
     	        		$('#codigo_chosen').trigger('mousedown');
         	  		}
         		}else{

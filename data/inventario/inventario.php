@@ -45,12 +45,9 @@
 		$guardar = guardarSql($conexion,$sql2);
 		//////////////////////////////
 
-
 		//////////////modificar productos///////////
 	    $sql3 = "update productos set stock='".$arreglo3[$i]."' where id_productos='".$arreglo1[$i]."'";								
 		$guardar = guardarSql($conexion, $sql3);
 	    ///////////////////////////////////////////
- 
 	   }
-
 ?>

@@ -81,6 +81,4 @@ $consulta2 = pg_query("select * from cliente where id_cliente = '".$_POST['id_cl
 $l='localhost/sistema_dow/data/reportes/factura_venta.php?id='.$id;
 envio_correo_ventas($correo,$nombre,$_POST['total'],$l, $num_serie);
 echo $data;
-	
-
 ?>
