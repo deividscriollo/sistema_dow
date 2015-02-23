@@ -211,7 +211,7 @@
 																			<th class="center" width="100px"><i class="ace-icon fa fa-barcode"></i> Codigo</th>
 																			<th class="center"><i class="ace-icon fa fa-info"></i> Detalle</th>
 																			<th class="center" width="100px"><i class="ace-icon fa fa-money"></i>P. Costo</th>
-																			<th class="center" width="100px"><i class="ace-icon fa fa-money"></i>P. Venta</th>
+																			<!-- <th class="center" width="100px"><i class="ace-icon fa fa-money"></i>P. Venta</th> -->
 																			<th class="center" width="100px"><i class="ace-icon fa fa-area-chart"> Stock</th>
 																			<th class="center" width="100px"><i class="ace-icon fa fa-usd"> Existencia</th>
 																			<th class="center" width="100px"><i class="ace-icon fa fa-usd"> Diferencia</th>
@@ -219,9 +219,7 @@
 																		</tr>
 																	</thead>
 																	<tbody>
-																		<tr class="dc_espacioalto">
-																			
-																		</tr>
+																		
 																	</tbody>
 																</table>
 															</div>
@@ -243,6 +241,16 @@
 															</div> -->
 														</div>														
 													</div>
+
+													<br />
+                                                    <br />
+                                                    <br />
+                                                    <br />
+                                                    <br />
+                                                    <br />
+                                                    <br />
+                                                    <br />
+    
 													<div class="row">
 														<div class="center">													 
 															<button type="submit" class="btn btn-primary" id="btn_0">

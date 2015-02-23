@@ -750,4 +750,27 @@ function agregar_fila(id_tabla,id_productos,codigo_producto,detalle_producto,can
     $("#total").val(parseFloat(total_fac).toFixed(2));    
 }
 
+function agregar_fila_inventario(id_tabla,id_productos,codigo_producto,detalle_producto,precio_costo,stock,existencia,diferencia){
+var contador=0;
+var vect = new Array();     
+var cont=0;
+var repe = 0;
+var fila = 0;
+var diferencia = 0;
+$("#"+id_tabla+" tbody tr").each(function (index) {                                  
+    $(this).children("td").each(function (index) { 
+        contador++;                                 
+    });                                                         
+});
+
+if(contador == 0){
+    diferencia = (parseInt( $("#cantidad").val()) - Math.abs(parseInt( $("#stock").val())))
+    $("#"+id_tabla+" tbody").append( "<tr>" +"<td align=center>" + id_productos +"</td>" +"<td align=center>" + codigo_producto + "</td>" +"<td align=center>" + detalle_producto +"</td>" +"<td align=center>" + precio_costo +"</td>" +"<td align=center class='hidden'>" + stock +"</td>" +"<td align=center class='hidden'>" + existencia +"</td>" +"<td align=center>" + diferencia + "</td>" +"<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='red dc_btn_accion tooltip-error' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' onclick='return eliminar_fila(event)' ></i></a></div>" +"</tr>" ); 
+    }
+
+}
+
+
+
+
 

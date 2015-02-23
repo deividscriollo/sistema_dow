@@ -110,14 +110,14 @@ function inicio (){
     	}
   	});   	
 
-
     $("#cantidad").validCampoFranz("0123456789");
 
     $("#cantidad").on("keypress",function (e){
     if(e.keyCode == 13){//tecla del alt para el entrer poner 13
         if($("#cantidad").val() != ""){
             if($("#id_productos").val() != ""){
-                agregar_fila_inventario("detalle_inventario",$("#id_productos").val(),$(a).data("codigo"),$(a).text(),$("#cantidad").val(),$(a).data("stock"),$("#precio").val(),$("#descuento").val(),$(a).data("iva"));
+                var a = $("#producto option:selected");
+                agregar_fila_inventario("detalle_inventario",$("#id_productos").val(),$(a).data("codigo"),$(a).text(),$("#precio").val(),$(a).data("stock"),$("#cantidad").val());
             }else{
                 alert("Seleccione un producto antes de continuar");                        
                 //$('#codigo').trigger('chosen:open');            
