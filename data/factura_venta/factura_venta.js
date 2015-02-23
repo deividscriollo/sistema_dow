@@ -52,9 +52,9 @@ function guardar_factura(){
                     success: function(data) { 
                         if( data == 0 ){
                             alert('Datos Agregados Correctamente');     
-                            setTimeout(function() {
-                                location.reload();
-                            }, 1000);
+                            // setTimeout(function() {
+                            //     location.reload();
+                            // }, 1000);
                         }
                     }
                 }); 

@@ -8,6 +8,7 @@
 	$fecha_larga = date('His', time());
 	$sql = "";
 	$sql2 = "";
+	$sql3 = "";
 	$id_session = sesion_activa();///datos session
 	$id = unique($fecha_larga);
 
@@ -43,11 +44,13 @@
 		'$id2','$id','".$arreglo1[$i]."','".$arreglo2[$i]."','".$arreglo3[$i]."','".$arreglo4[$i]."','Activo','$fecha')";       
 		$guardar = guardarSql($conexion,$sql2);
 		//////////////////////////////
+
+
+		//////////////modificar productos///////////
+	    $sql3 = "update productos set stock='".$arreglo3[$i]."' where id_productos='".$arreglo1[$i]."'";								
+		$guardar = guardarSql($conexion, $sql3);
+	    ///////////////////////////////////////////
  
 	   }
-
-
-
-	
 
 ?>
