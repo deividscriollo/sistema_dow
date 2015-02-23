@@ -142,7 +142,7 @@ function inicio (){
 	        	success: function(data, status) {
 	        		$('#txt_nombre_cliente').html("");	        	
 			        for (var i = 0; i < data.length; i=i+6) {            				            		            	
-			        	appendToChosen_cliente(data[i+1],data[i+2],text,data[i+1],data[i+3],data[i+4],data[i+5],"txt_nombre_cliente","txt_nombre_cliente_chosen");
+			        	appendToChosen_cliente(data[i],data[i+2],text,data[i+1],data[i+3],data[i+4],data[i+5],"txt_nombre_cliente","txt_nombre_cliente_chosen");                
 			        }		        
 		    	    $('#txt_nro_identificacion').html("");
 		        	$('#txt_nro_identificacion').append($("<option data-extra='"+data[2]+"' data-direccion='"+data[3]+"' data-telefono='"+data[4]+"' data-email='"+data[5]+"'></option>").val(data[0]).html(data[1])).trigger('chosen:updated');                    
