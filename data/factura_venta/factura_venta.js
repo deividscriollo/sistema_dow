@@ -29,6 +29,7 @@ function guardar_factura(){
         });
         cont++;  
     });
+    
     if($("#id_cliente").val() == ""){  
         $('#txt_nro_identificacion').trigger('chosen:open');    
         alert("Seleccione un cliente");

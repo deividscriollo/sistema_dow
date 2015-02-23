@@ -572,7 +572,8 @@ function limpiar_chosen_codigo(){
     $('#codigo_barras').append($("<option></option>"));          
     $('#codigo_barras').trigger('chosen:updated');     
     $("#id_productos").val("");
-    $("#precio").val("");       
+    $("#precio").val("");   
+    $("#stock").val("");    
     $("#cantidad").val(""); 
     $("#descuento").val(0);   
     $("#codigo").trigger("chosen:close");
@@ -764,10 +765,50 @@ $("#"+id_tabla+" tbody tr").each(function (index) {
 });
 
 if(contador == 0){
-    diferencia = (parseInt( $("#cantidad").val()) - Math.abs(parseInt( $("#stock").val())))
-    $("#"+id_tabla+" tbody").append( "<tr>" +"<td align=center>" + id_productos +"</td>" +"<td align=center>" + codigo_producto + "</td>" +"<td align=center>" + detalle_producto +"</td>" +"<td align=center>" + precio_costo +"</td>" +"<td align=center class='hidden'>" + stock +"</td>" +"<td align=center class='hidden'>" + existencia +"</td>" +"<td align=center>" + diferencia + "</td>" +"<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='red dc_btn_accion tooltip-error' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' onclick='return eliminar_fila(event)' ></i></a></div>" +"</tr>" ); 
-    }
+    diferencia = (parseInt( $("#cantidad").val()) - Math.abs(parseInt( $("#stock").val())));
+    $("#"+id_tabla+" tbody").append( "<tr>" +"<td align=center>" + id_productos +"</td>" +"<td align=center>" + codigo_producto + "</td>" +"<td align=center>" + detalle_producto +"</td>" +"<td align=center>" + precio_costo +"</td>" +"<td align=center>" + stock +"</td>" +"<td align=center>" + existencia +"</td>" +"<td align=center>" + diferencia + "</td>" +"<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='red dc_btn_accion tooltip-error' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' onclick='return eliminar_fila(event)' ></i></a></div>" +"</tr>" ); 
+    }else{
+      $("#"+id_tabla+" tbody tr").each(function (index) {                                                                 
+            $(this).children("td").each(function (index) {                               
+                switch (index) {                                            
+                    case 0:
+                    vect[cont] = $(this).text();   
+                    break;                                                                                                                               
+                }                                          
+            });
+            cont++;  
+        });
+        for(var i=0 ; i<vect.length; i++) {
+            if(vect[i] == id_productos) {
+                repe++;
+                fila = i;
+            }
+        }
 
+        if(repe==0){
+           diferencia = (parseInt( $("#cantidad").val()) - Math.abs(parseInt( $("#stock").val())));
+           $("#"+id_tabla+" tbody").append( "<tr>" +"<td align=center>" + id_productos +"</td>" +"<td align=center>" + codigo_producto + "</td>" +"<td align=center>" + detalle_producto +"</td>" +"<td align=center>" + precio_costo +"</td>" +"<td align=center>" + stock +"</td>" +"<td align=center>" + existencia +"</td>" +"<td align=center>" + diferencia + "</td>" +"<td align=center>" + "<div class=hidden-sm hidden-xs action-buttons> <a class='red dc_btn_accion tooltip-error' data-rel='tooltip' data-original-title='Eliminar'><i class='ace-icon fa fa-trash-o bigger-130' onclick='return eliminar_fila(event)' ></i></a></div>" +"</tr>" ); 
+        }else{
+            diferencia = (parseInt( $("#cantidad").val()) - Math.abs(parseInt( $("#stock").val())));
+           $("#"+id_tabla+" tbody tr").eq(fila).find("td").each(function (index) {
+                switch (index) {                                            
+                    case 3:                        
+                        $(this).text($("#precio").val());   
+                    break;
+                    case 4:                        
+                        $(this).text($("#stock").val());   
+                    break;
+                    case 5:                        
+                        $(this).text($("#cantidad").val());    
+                    break;
+                    case 6:
+                        $(this).text(diferencia);   
+                    break;                                                                                                                                               
+                }                     
+            });
+        }
+    }
+    limpiar_chosen_codigo();
 }
 
 

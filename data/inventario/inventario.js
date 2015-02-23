@@ -1,48 +1,48 @@
 $(document).on("ready",inicio);
 
 function guardar_inventario(){
-  var vect1 = new Array();
-  var vect2 = new Array();
-  var vect3 = new Array();
-  var vect4 = new Array();
-  var cont=0;
-  $("#detalle_inventario tbody tr").each(function (index) {                                                                 
-    $(this).children("td").each(function (index) {                               
-      switch (index) {                                            
-        case 0:
-          vect1[cont] = $(this).text();   
-        break; 
-        case 3:
-          vect2[cont] = $(this).text();                                       
-        break; 
-        case 6:
-          vect3[cont] = $(this).text();                                       
-        break;
-        case 7:
-          vect4[cont] = $(this).text();                                       
-        break;      
-      }                          
+    var vect1 = new Array();
+    var vect2 = new Array();
+    var vect3 = new Array();
+    var vect4 = new Array();
+    var cont=0;
+    $("#detalle_inventario tbody tr").each(function (index) {                                                                 
+        $(this).children("td").each(function (index) {                               
+            switch (index) {                                            
+                case 0:
+                    vect1[cont] = $(this).text();   
+                    break; 
+                case 4:
+                    vect2[cont] = $(this).text();                                       
+                    break; 
+                case 5:
+                    vect3[cont] = $(this).text();                                       
+                    break;
+                case 6:
+                    vect4[cont] = $(this).text();                                       
+                    break;      
+            }                          
+        });
+        cont++;  
     });
-    cont++;  
-  });
 
-  if(vect1.length == 0){
-    alert("Ingrese productos al inventario");  
-  }else{
-  $.ajax({        
-      type: "POST",
-      data: $("#form_facturaCompra").serialize()+"&campo1="+vect1+"&campo2="+vect2+"&campo3="+vect3+"&campo4="+vect4+"&hora="+$("#estado").text(),                
-      url: "inventario.php",      
-      success: function(data) { 
-        if( data == 0 ){
-          alert('Datos Agregados Correctamente');     
-          setTimeout(function() {
-          location.reload();
-          }, 1000);
-        }
-      }
-    }); 
-  }
+    if(vect1.length == 0){
+        alert("Ingrese productos al inventario");  
+    }else{
+        $.ajax({        
+            type: "POST",
+            data: $("#form_facturaCompra").serialize()+"&campo1="+vect1+"&campo2="+vect2+"&campo3="+vect3+"&campo4="+vect4+"&hora="+$("#estado").text(),                
+            url: "inventario.php",      
+            success: function(data) { 
+                if( data == 0 ){
+                    alert('Datos Agregados Correctamente');     
+                    // setTimeout(function() {
+                    //     location.reload();
+                    // }, 1000);
+                }
+            }
+        }); 
+    }
 }
 
 

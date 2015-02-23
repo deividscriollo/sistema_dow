@@ -11,11 +11,6 @@
 	$id_session = sesion_activa();///datos session
 	$id = unique($fecha_larga);
 
-	// if (isset($_POST['buscar_nombre'])) { //buscar nombre con id cliente
-	// 	$sql = "select nombres_completos,direccion,telefono1,correo from cliente where id_cliente = '$_POST[id]'";
-	// 	buscar_nombres($conexion,$sql);
-	// }
-
 	$sql = "insert into inventario values ('$id','$id_session','$fecha','$_POST[hora]','Activo','$fecha')";	
 		
 	$guardar = guardarSql($conexion,$sql);
@@ -24,6 +19,33 @@
 	}else{
 		$data = 2; /// error al guardar
 	}
+
+	/////datos detalle inventario/////
+	$campo1 = $_POST['campo1'];
+	$campo2 = $_POST['campo2'];
+	$campo3 = $_POST['campo3'];
+	$campo4 = $_POST['campo4'];
+	///////////////////////////////
+
+	/////descomponer detalle_inventario////
+	$arreglo1 = explode(',', $campo1);
+	$arreglo2 = explode(',', $campo2);
+	$arreglo3 = explode(',', $campo3);
+	$arreglo4 = explode(',', $campo4);
+	$nelem = count($arreglo1);
+	/////////////////////////////////////
+
+	for ($i = 0; $i < $nelem; $i++) {
+		$id2 = unique($fecha_larga);
+
+		///guardar detalle_factura/////
+		$sql2 = "insert into detalle_inventario values (
+		'$id2','$id','".$arreglo1[$i]."','".$arreglo2[$i]."','".$arreglo3[$i]."','".$arreglo4[$i]."','Activo','$fecha')";       
+		$guardar = guardarSql($conexion,$sql2);
+		//////////////////////////////
+ 
+	   }
+
 
 
 	

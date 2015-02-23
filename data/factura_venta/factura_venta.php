@@ -13,12 +13,7 @@
 	$sql4 = "";
 	$id_session = sesion_activa();///datos session
 	$id = unique($fecha_larga);
-
-	//if (isset($_POST['buscar_nombre'])) { //buscar nombre con id cliente
-	//	$sql = "select nombres_completos,direccion,telefono1,correo from cliente where id_cliente = '$_POST[id]'";
-	//	buscar_nombres($conexion,$sql);
-	//}
-
+	
 	///////////////////////guardar factura venta////////////////////
     $num_serie = "001-001-".$_POST['serie3'];
 
