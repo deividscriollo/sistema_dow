@@ -52,9 +52,9 @@ function guardar_factura(){
                     success: function(data) { 
                         if( data == 0 ){
                             alert('Datos Agregados Correctamente');     
-                            // setTimeout(function() {
-                            //     location.reload();
-                            // }, 1000);
+                            setTimeout(function() {
+                                location.reload();
+                            }, 1000);
                         }
                     }
                 }); 
@@ -115,7 +115,7 @@ function inicio (){
 			var a = $("#txt_nro_identificacion option:selected");            
       		$('#txt_nombre_cliente').html("");
       		$('#txt_nombre_cliente').append($("<option data-extra='"+$(a).text()+"' data-direccion='"+$(a).data("direccion")+"' data-telefono='"+$(a).data("telefono")+"' data-email='"+$(a).data("email")+"'></option>").val($(a).val()).html($(a).data("extra"))).trigger('chosen:updated');      		
-      		$("#id_cliente").val($(a).text());		        
+      		$("#id_cliente").val($(a).val());		        
 			$('#lbl_client_telefono').html($(a).data("telefono"));
 			$('#lbl_client_correo').html($(a).data("email"));
 			$('#lbl_client_direccion').html($(a).data("direccion"));
@@ -164,10 +164,10 @@ function inicio (){
 			var a = $("#txt_nombre_cliente option:selected");            
       		$('#txt_nro_identificacion').html("");
       		$('#txt_nro_identificacion').append($("<option data-extra='"+$(a).text()+"' data-direccion='"+$(a).data("direccion")+"' data-telefono='"+$(a).data("telefono")+"' data-email='"+$(a).data("email")+"'></option>").val($(a).val()).html($(a).data("extra"))).trigger('chosen:updated');      		
-      		$("#id_cliente").val($(a).text());		        
-			$('#lbl_client_telefono').html($(a).data("telefono"));
-			$('#lbl_client_correo').html($(a).data("email"));
-			$('#lbl_client_direccion').html($(a).data("direccion"));
+      		$("#id_cliente").val($(a).val());		        
+    			$('#lbl_client_telefono').html($(a).data("telefono"));
+    			$('#lbl_client_correo').html($(a).data("email"));
+    			$('#lbl_client_direccion').html($(a).data("direccion"));
 		}
 	});
 	/*buscador del codigo del producto*/
