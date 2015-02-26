@@ -117,23 +117,7 @@
 	                                                                    </select>
 																	</div>
 																</div>
-															</div>															
-															<div class="col-sm-4">
-																<div class="form-group">
-																	<label class="col-sm-5 control-label no-padding-right" for="tipo_comprobante">Tipo de Comprobante</label>
-																	<div class="col-sm-7">
-																		<select class="chosen-select form-control" id="tipo_comprobante" name="tipo_comprobante" data-placeholder="Tipo de Comprobante">
-	                                                                        <option value="Factura"> Factura</option>
-	                                                                        <option value="Notaventa"> Nota o boleta de venta</option>
-	                                                                    </select>
-																	</div>																	
-																</div>
-															</div>															
-														</div>
-													</div>													
-													<div class="row">
-														<div class="col-xs-12">
-															<div class="col-sm-4"></div>
+															</div>														
 															<div class="col-sm-4">
 																<div class="form-group">
 																	<label class="col-sm-5 control-label no-padding-right" for="txt_nro_factura"> Nro. Factura:</label>
@@ -144,9 +128,9 @@
 	                                                                    </select>
 																	</div>																											
 																</div>
-															</div>																														
+															</div>													
 														</div>
-													</div>
+													</div>	
 													<div class="row ">
 														<div class="col-xs-12">
 															<div class="col-xs-12">
