@@ -190,7 +190,8 @@
 																							}else{
 																								if($_GET['fun'] == "24"){//para la busqueda del codigo del producto
 																									if($_GET['tipo'] == "0"){
-																										$sql = "select productos.id_productos,codigo,codigo_barras,descripcion,detalle_factura_compra.precio,cantidad,descuento,total from detalle_factura_compra,productos where detalle_factura_compra.id_productos = productos.id_productos and id_factura_compra ='$_GET[id]' and productos.id_productos like '%$_GET[val]%'";																	
+																										$sql = "select productos.id_productos,codigo,codigo_barras,descripcion,detalle_factura_compra.precio,cantidad,descuento,total from detalle_factura_compra,productos where detalle_factura_compra.id_productos = productos.id_productos and id_factura_compra ='$_GET[id]' and productos.codigo like '%$_GET[val]%'";																	
+																										
 																										cargarSelect_8($conexion,$sql);//select de 5 datos
 																									}else{
 																										

@@ -47,7 +47,7 @@ function guardar_factura(){
                 $("#serie3").val(a + "" + $("#serie3").val());
                 $.ajax({        
                     type: "POST",
-                    data: $("#form_facturaVenta").serialize()+"&campo1="+vect1+"&campo2="+vect2+"&campo3="+vect3+"&campo4="+vect4+"&campo5="+vect5+"&hora="+$("#estado").text(),                
+                    data: $("#form_facturaVenta").serialize()+"&campo1="+vect1+"&campo2="+vect2+"&campo3="+vect3+"&campo4="+vect4+"&campo5="+vect5+"&hora="+$("#estado").text()+"&nombre="+$("#txt_nombre_cliente").text()+"&correo="+$("#lbl_client_correo").text(),                
                     url: "factura_venta.php",      
                     success: function(data) { 
                         if( data == 0 ){

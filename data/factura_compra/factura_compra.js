@@ -31,7 +31,7 @@ function guardar_factura(){
     });
   
     if($("#id_proveedor").val() == ""){  
-        $('#txt_nro_identificacion').trigger('mousedown');    
+        //$('#txt_nro_identificacion').trigger('mousedown');    
         alert("Seleccione un proveedor");
     }else{
         if($("#serie1").val() == ""){

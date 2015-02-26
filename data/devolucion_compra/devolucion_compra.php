@@ -13,9 +13,8 @@
 	$id = unique($fecha_larga);	
 		
     ///////////////////////guardar factura compra////////////////////
-    $num_serie = $_POST['serie1']."-".$_POST['serie2']."-".$_POST['serie3'];
 
-	$sql = "insert into factura_compra values ('$id','$_POST[id_proveedor]','$id_session','$id','$fecha','$_POST[hora]','$_POST[fecha_registro]','$_POST[fecha_emision]','$_POST[fecha_caducidad]','$_POST[tipo_comprobante]','$num_serie','$_POST[autorizacion]','$_POST[fecha_cancelacion]','$_POST[formas]','$_POST[tarifa0]','$_POST[tarifa12]','$_POST[iva]','$_POST[descuento_total]','$_POST[total]','Activo','$fecha')";	
+	$sql = "insert into devolucion_compra values ('$id','$_POST[id_proveedor]','$id_session','$_POST[id_factura_compra]','$fecha','$_POST[hora]','$_POST[tarifa0]','$_POST[tarifa12]','$_POST[iva]','$_POST[descuento_total]','$_POST[total]','','Activo','$fecha')";	
 		
 	$guardar = guardarSql($conexion,$sql);
 	if( $guardar == 'true'){
@@ -45,18 +44,17 @@
 		$stock = 0;
 		$cal = 0;
 		///guardar detalle_factura/////
-        $sql2 = "insert into detalle_factura_compra values (
+        $sql2 = "insert into detalle_devolucion_compra values (
        	'$id2','$id','".$arreglo1[$i]."','".$arreglo2[$i]."','".$arreglo3[$i]."','".$arreglo4[$i]."','".$arreglo5[$i]."','Activo','$fecha')";       
 		$guardar = guardarSql($conexion,$sql2);
 		//////////////////////////////
-        
 
         //////////////modificar productos///////////
         $consulta = pg_query("select * from productos where id_productos = '".$arreglo1[$i]."'");
         while ($row = pg_fetch_row($consulta)) {
             $stock = $row[10];
         }
-        $cal = $stock + $arreglo2[$i];
+        $cal = $stock - $arreglo2[$i];
         
         $sql3 = "update productos set precio='".$arreglo3[$i]."', stock='$cal' where id_productos='".$arreglo1[$i]."'";								
 		$guardar = guardarSql($conexion, $sql3);
@@ -64,7 +62,7 @@
         //
         //////////////agregar al kardex///////////
         $sql4 = "insert into kardex values (
-       	'$id2','".$arreglo1[$i]."','$fecha','Factura Compra','$num_serie','".$arreglo2[$i]."','".$arreglo3[$i]."','".$arreglo5[$i]."','Ingreso','1','$fecha')";       
+       	'$id2','".$arreglo1[$i]."','$fecha','Devolución Compra','$_POST[num_factura]','".$arreglo2[$i]."','".$arreglo3[$i]."','".$arreglo5[$i]."','Ingreso','1','$fecha')";       
 		$guardar = guardarSql($conexion,$sql4);
 		////////////////////////////////////////
   	}

@@ -48,7 +48,7 @@
                                 <a href="../inicio/">Inicio</a>
                             </li>
                             <li class="active">Ingresos</li>
-                            <li class="active">Devolucion Compra</li>
+                            <li class="active">Devolución Compra</li>
                         </ul>
                     </div>
 
@@ -57,7 +57,7 @@
 							<div class="col-xs-12 col-sm-12 widget-container-col">
 								<div class="widget-box">
 									<div class="widget-header">
-										<h5 class="widget-title">Devolucion Compra</h5>
+										<h5 class="widget-title">Devolución Compra</h5>
 										<div class="widget-toolbar">
 											<a href="#" data-action="fullscreen" class="orange2">
 												<i class="ace-icon fa fa-expand"></i>
@@ -208,7 +208,7 @@
 																			</div>
 																			<div class="row">
 																				<div class="col-xs-12">
-																					<input type="text" id="precio" name="precio" onkeydown="return validarNumeros(event)" value="0.00" class="form-control" data-toggle="tooltip"  /> 
+																					<input type="text" id="precio" name="precio" onkeydown="return validarNumeros(event)" value="0.00" class="form-control" data-toggle="tooltip" readonly  /> 
 																				</div>
 																			</div>
 																		</div>
@@ -220,7 +220,7 @@
 																			</div>
 																			<div class="row">
 																				<div class="col-xs-12">
-																					<input type="number" id="descuento" name="descuento" class="form-control" data-toggle="tooltip" onkeydown="return validarNumeros(event)" value="0" /> 
+																					<input type="number" id="descuento" name="descuento" class="form-control" data-toggle="tooltip" onkeydown="return validarNumeros(event)" value="0" readonly /> 
 																					<input type="hidden" id="id_productos" name="id_productos" class="form-control" data-toggle="tooltip" /> 
 																				</div>
 																			</div>
