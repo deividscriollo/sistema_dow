@@ -18,6 +18,7 @@ function validando_xml($fecha, $comprobante){
 
 
 	$dom = new DomDocument('1.0', 'UTF-8');
+	$dom1 = new DomDocument('1.0', 'UTF-8');
     //add root
     $root = $dom->appendChild($dom->createElement('autorizacion'));
     //add NodeA element to Root
@@ -25,9 +26,7 @@ function validando_xml($fecha, $comprobante){
     $nodeB = $dom->createElement('numeroAutorizacion','0902201514132517912561150012784234238');
     $nodeC = $dom->createElement('fechaAutorizacion',$fecha);
     $nodeD = $dom->createElement('ambiente','PRODUCCIÓN_DESARROLLO');
-    $nodeE = $dom->createElement('comprobante',$comprobante);
-    
-    
+    $nodeE = $dom->createElement('comprobante');
 
     $root->appendChild($nodeA);
     $root->appendChild($nodeB);
