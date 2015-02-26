@@ -288,7 +288,16 @@ function menu_lateral(){
 
 										<b class="arrow"></b>
 									</li>									
+									<li ';if ($acus[3]=='devolucion_compra') {
+									print('class="active"');
+								}print'>
+										<a href="../devolucion_compra/">
+											<i class="menu-icon fa fa-caret-right"></i>
+											Devolución Compras
+										</a>
 
+										<b class="arrow"></b>
+									</li>
 																										
 								</ul>
 							</li>
