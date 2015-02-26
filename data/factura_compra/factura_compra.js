@@ -547,7 +547,7 @@ function inicio (){
       var a = $("#txt_nro_identificacion option:selected");            
       $('#txt_nombre_proveedor').html("");
       $('#txt_nombre_proveedor').append($("<option data-extra='"+$(a).text()+"'></option>").val($(a).val()).html($(a).data("extra"))).trigger('chosen:updated');
-      $("#id_proveedor").val($(a).text());
+      $("#id_proveedor").val($(a).val());
     }
 	});	
   $("#txt_nombre_proveedor").chosen().change(function (event,params){    

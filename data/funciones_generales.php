@@ -92,6 +92,7 @@ function cargarSelect_8($conexion, $sql) {
         echo $lista = json_encode($lista);
     }
 }
+
 function unique($fecha_larga) {
     $id = uniqid();
     $id = $fecha_larga . $id;

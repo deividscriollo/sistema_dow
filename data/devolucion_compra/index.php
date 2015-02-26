@@ -71,7 +71,7 @@
 									<div class="widget-body">
 										<div class="widget-main">
 											<div class="row">
-												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_facturaCompra">	
+												<form class="form-horizontal" role="form" rol="form" action="" method="POST" id="form_devolucionCompra">	
 													<div class="row">
 														<div class="col-xs-12 pull-right">														
 															<div class="col-sm-3">
@@ -136,9 +136,10 @@
 															<div class="col-sm-4"></div>
 															<div class="col-sm-4">
 																<div class="form-group">
-																	<label class="col-sm-5 control-label no-padding-right" for="fecha_registro"> Nro. Factura:</label>
+																	<label class="col-sm-5 control-label no-padding-right" for="txt_nro_factura"> Nro. Factura:</label>
 																	<div class="col-sm-7">
-																		<select class="chosen-select form-control" id="txt_nombre_proveedor" name="txt_nombre_proveedor" data-placeholder="Buscar....">	                                                                        
+																		<input type="hidden" id="id_factura_compra" name="id_factura_compra" />
+																		<select class="chosen-select form-control" id="txt_nro_factura" name="txt_nro_factura" data-placeholder="Buscar....">	                                                                        
 	                                                                        <option value=""> </option>	                                                                        
 	                                                                    </select>
 																	</div>																											
@@ -400,7 +401,7 @@
         <script src="../../dist/js/jqGrid/i18n/grid.locale-en.js"></script>
 		
 		<script src="../generales.js"></script>
-		<script src="factura_compra.js"></script>
+		<script src="devolucion_compra.js"></script>
 		<script src="../../dist/js/validCampoFranz.js" ></script>
 	</body>
 </html>  
