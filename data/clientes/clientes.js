@@ -27,23 +27,7 @@ function inicio (){
 	});	
 	/*----procesos ci ruc pass-----*/
 	$("#txt_1").change(function (){
-		$("#txt_2").val("");
-		$("#txt_2").focus();
-		if($(this).val() == "Cedula"){						
-			$("#txt_2").prop("maxlength",10);
-			$("#txt_2").attr("minlength",10);
-			$("#txt_2").prop("pattern","[0-9]{10,10}");
-		}else{
-			if($(this).val() == "RUC"){								
-				$("#txt_2").prop("maxlength",13);
-				$("#txt_2").attr("minlength",13);
-				$("#txt_2").prop("pattern","[0-9]{13,13}");
-			}else{			
-				$("#txt_2").removeAttr("maxlength");			
-				$("#txt_2").attr("minlength",1);
-				$("#txt_2").prop("pattern","[0-9]{1,}");
-			}
-		}
+		documentos("0");
 	});
 	$("#txt_2").keyup(function(){
 		ci_ruc_pass("txt_2",$("#txt_2").val(),$("#txt_1").val())
@@ -67,17 +51,18 @@ function inicio (){
 		if(resp[0] != false){
 			$("#txt_0").val(resp[0][0]);
 			$("#txt_1").val(resp[0][1]);
+			$("#txt_1").trigger("chosen:updated"); 
 			$("#txt_2").val(resp[0][2]);
 			$("#txt_3").val(resp[0][3]);
 			$("#txt_8").val(resp[0][4]);		
 			$("#txt_8").trigger("chosen:updated"); 
 			$("#txt_4").val(resp[0][5]);		
 			$("#txt_5").val(resp[0][6]);								
-			$("#txt_12").val(resp[0][9]);		
-			$("#txt_10").val(resp[0][10]);		
+			$("#txt_12").val(resp[0][9]);					
 			$("#txt_13").val(resp[0][11]);		
 			$("#txt_7").val(resp[0][12]);		
-		    
+			$("#txt_6").val(resp[0][10]);		
+		    documentos("1");
 		    /**/
 	        var prov = 0;
 	        var pais = 0;
@@ -163,17 +148,18 @@ function inicio (){
 		if(resp[0] != false){
 			$("#txt_0").val(resp[0][0]);
 			$("#txt_1").val(resp[0][1]);
+			$("#txt_1").trigger("chosen:updated"); 
 			$("#txt_2").val(resp[0][2]);
 			$("#txt_3").val(resp[0][3]);
 			$("#txt_8").val(resp[0][4]);		
 			$("#txt_8").trigger("chosen:updated"); 
 			$("#txt_4").val(resp[0][5]);		
 			$("#txt_5").val(resp[0][6]);								
-			$("#txt_12").val(resp[0][9]);		
-			$("#txt_10").val(resp[0][10]);		
+			$("#txt_12").val(resp[0][9]);					
+			$("#txt_6").val(resp[0][10]);		
 			$("#txt_13").val(resp[0][11]);		
 			$("#txt_7").val(resp[0][12]);		
-		    
+		    documentos("1");
 		    /**/
 	        var prov = 0;
 	        var pais = 0;
@@ -332,7 +318,9 @@ function inicio (){
 	            $("#txt_7").val(ret.txt_7);
 	            $("#txt_8").val(ret.txt_8);	            
 	            $("#txt_12").val(ret.txt_12);
-	            $("#txt_13").val(ret.txt_13);	            	            
+	            $("#txt_13").val(ret.txt_13);	
+	            $("#txt_1").trigger("chosen:updated");  
+	            documentos("1");           	            
 	            /**/
 	            var prov = 0;
 	            var pais = 0;
@@ -679,4 +667,5 @@ function datos_clientes(valores,tipo,p){
 		}
 	}); 
 }
+
 /*---------------------------------*/

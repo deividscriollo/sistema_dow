@@ -825,7 +825,27 @@ if(contador == 0){
     }
     limpiar_chosen_codigo();
 }
-
+function documentos(fun){
+    if(fun == 0){
+        $("#txt_2").val("");    
+    }   
+    $("#txt_2").focus();
+    if($("#txt_1").val() == "Cedula"){                      
+        $("#txt_2").prop("maxlength",10);
+        $("#txt_2").attr("minlength",10);
+        $("#txt_2").prop("pattern","[0-9]{10,10}");
+    }else{
+        if($("#txt_1").val() == "RUC"){                             
+            $("#txt_2").prop("maxlength",13);
+            $("#txt_2").attr("minlength",13);
+            $("#txt_2").prop("pattern","[0-9]{13,13}");
+        }else{          
+            $("#txt_2").removeAttr("maxlength");            
+            $("#txt_2").attr("minlength",1);
+            $("#txt_2").prop("pattern","[0-9]{1,}");
+        }
+    }
+}
 
 
 

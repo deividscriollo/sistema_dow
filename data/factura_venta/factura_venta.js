@@ -89,9 +89,9 @@ function inicio (){
 		    	    $('#txt_nombre_cliente').html("");
 		        	$('#txt_nombre_cliente').append($("<option data-extra='"+data[1]+"' data-direccion='"+data[3]+"' data-telefono='"+data[4]+"' data-email='"+data[5]+"'></option>").val(data[0]).html(data[2])).trigger('chosen:updated');                    
 			        $("#id_cliente").val(data[0]);		        
-					$('#lbl_client_telefono').html(data[3]);
-					$('#lbl_client_correo').html(data[4]);
-					$('#lbl_client_direccion').html(data[5]);
+    					$('#lbl_client_telefono').html(data[4]);
+    					$('#lbl_client_correo').html(data[5]);
+    					$('#lbl_client_direccion').html(data[3]);
 			    },
 			    error: function (data) {
 			        console.log(data)
@@ -137,10 +137,10 @@ function inicio (){
 			        }		        
 		    	    $('#txt_nro_identificacion').html("");
 		        	$('#txt_nro_identificacion').append($("<option data-extra='"+data[2]+"' data-direccion='"+data[3]+"' data-telefono='"+data[4]+"' data-email='"+data[5]+"'></option>").val(data[0]).html(data[1])).trigger('chosen:updated');                    
-			        $("#id_cliente").val(data[0]);		        
-					$('#lbl_client_telefono').html(data[3]);
-					$('#lbl_client_correo').html(data[4]);
-					$('#lbl_client_direccion').html(data[5]);
+			        $("#id_cliente").val(data[0]);		        					
+              $('#lbl_client_telefono').html(data[4]);
+              $('#lbl_client_correo').html(data[5]);
+              $('#lbl_client_direccion').html(data[3]);
 			    },
 			    error: function (data) {
 			        console.log(data)
