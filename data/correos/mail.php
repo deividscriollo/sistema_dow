@@ -298,7 +298,7 @@ function envio_correo_ventas($correoa,$nombre,$total_factura,$archivoadjunto,$nu
   ';
   
   $email = new email();
-  if ( $email->enviar( $correoa , 'TOTORA SISA' , 'FACTURA ELECTRONICA' ,  $contenido_html,$archivoadjunto ) )( $correoa , 'TOTORA SISA' , 'FACTURA ELECTRONICA' ,  $contenido_html,$archivoadjunto ) )
+  if (mail( $correoa , 'TOTORA SISA' , 'FACTURA ELECTRONICA' ,  $contenido_html,$archivoadjunto ) )
      $res=1;
   else
   {
