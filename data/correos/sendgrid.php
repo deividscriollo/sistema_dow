@@ -4,14 +4,20 @@ $url = 'https://api.sendgrid.com/';
 $user = 'thyrons';
 $pass = 'rootdow1234';
 
+$to = "";
+$subject = "";
+$html =  "";
+$text = "";
+$from = "";
+
 $params = array(
     'api_user'  => $user,
     'api_key'   => $pass,
-    'to'        => 'willynarvaez6@gmail.com',
-    'subject'   => 'testing from curl',
-    'html'      => 'testing body',
-    'text'      => 'testing body',
-    'from'      => 'example@sendgrid.com',
+    'to'        => $to,
+    'subject'   => $subject,
+    'html'      => $html,
+    'text'      => $text,
+    'from'      => $from,
   );
 
 
