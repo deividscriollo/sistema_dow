@@ -104,6 +104,54 @@ if(!isset($_SESSION))
 														</span><!-- /.col -->
 													</h3>
 												</div>
+												<div class="col-sm-7">
+													<h3 class="row header smaller lighter blue">
+														<span class="col-sm-6"> Lista de Productos</span><!-- /.col -->
+
+														<span class="col-sm-6">
+															<label class="pull-right inline">
+																<small class="muted smaller-90"></small>
+
+																<button class="btn btn-app btn-light btn-xs" id="lista_productos">
+																	<i class="ace-icon fa fa-print bigger-160"></i>
+																	Ver
+																</button>
+															</label>
+														</span><!-- /.col -->
+													</h3>
+												</div>
+												<div class="col-sm-7">
+													<h3 class="row header smaller lighter blue">
+														<span class="col-sm-6"> Lista de Clientes</span><!-- /.col -->
+
+														<span class="col-sm-6">
+															<label class="pull-right inline">
+																<small class="muted smaller-90"></small>
+
+																<button class="btn btn-app btn-light btn-xs" id="lista_clientes">
+																	<i class="ace-icon fa fa-print bigger-160"></i>
+																	Ver
+																</button>
+															</label>
+														</span><!-- /.col -->
+													</h3>
+												</div>
+												<div class="col-sm-7">
+													<h3 class="row header smaller lighter blue">
+														<span class="col-sm-6"> Lista de Proveedores</span><!-- /.col -->
+
+														<span class="col-sm-6">
+															<label class="pull-right inline">
+																<small class="muted smaller-90"></small>
+
+																<button class="btn btn-app btn-light btn-xs" id="lista_proveedores">
+																	<i class="ace-icon fa fa-print bigger-160"></i>
+																	Ver
+																</button>
+															</label>
+														</span><!-- /.col -->
+													</h3>
+												</div>
 											</div>
 										</div>
 										</div>
