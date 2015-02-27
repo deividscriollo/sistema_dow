@@ -82,7 +82,6 @@ function validando_xml($id,$fecha, $total,$detalle,$cliente,$ruc_ced,$tot_sin_im
 	$zip->addFromString($nom_arch . time(), "#1 Esto es una cadena de prueba añadida como  testfilephp.txt.\n");	
 	$zip->close();
 }
-
 //validando_xml('id','fecha','total','detalle','cliente','ruc_ced','total_sin inpuestos','descuento','iva','diferencia','telefono','num_factu','dir-client','orden_num');
 
  ?>
