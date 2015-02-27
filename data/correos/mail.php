@@ -1,5 +1,6 @@
 <?php
 require 'PHPMailer/PHPMailerAutoload.php';
+require 'prueba.php';
 /**
 * Clase email que se extiende de PHPMailer
 */
@@ -47,7 +48,8 @@ class email  extends PHPMailer{
 }//--> fin clase
 
 /* == se emplea la clase email == */
-function envio_correo_ventas($correoa,$nombre,$total_factura,$archivoadjunto,$num_factura){
+function envio_correo_ventas($correoa,$nombre,$total_factura,$archivoadjunto,$num_factura,$id){
+
   $res=0;
   $contenido_html =  '
   <!DOCTYPE html>
@@ -306,21 +308,11 @@ function envio_correo_ventas($correoa,$nombre,$total_factura,$archivoadjunto,$nu
   }
   return $res;
 }
-  
 
 
-?>
-<?php
 
-//$zip = new ZipArchive();
-//$filename = "./test112.zip";
 
-//if ($zip->open($filename, ZipArchive::CREATE)!==TRUE) {
-//    exit("cannot open <$filename>\n");
-//}
 
-//$zip->addFromString("deivid.pdf" . time(), "#1 Esto es una cadena de prueba añadida como  testfilephp.txt.\n");
-//echo "numficheros: " . $zip->numFiles . "\n";
-//echo "estado:" . $zip->status . "\n";
-//$zip->close();
+
+//envio_correo_ventas('deividscriollo@gmail.com','deivid C','678567',$filename,'1234');
 ?>
