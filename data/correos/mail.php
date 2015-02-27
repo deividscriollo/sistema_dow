@@ -1,6 +1,6 @@
 <?php
 require 'PHPMailer/PHPMailerAutoload.php';
-require 'prueba.php';
+//require 'prueba.php';
 /**
 * Clase email que se extiende de PHPMailer
 */
@@ -40,7 +40,7 @@ class email  extends PHPMailer{
        $this->Subject =$titulo;
        $this->Body    =  $contenido; //contenido con etiquetas HTML
        $this->AltBody =  strip_tags($contenido); //Contenido para servidores que no aceptan HTML
-       $this->AddAttachment($archivo);
+       $this->AddAttachment('../correos/factura_electronicaid.zip');
        //envio de e-mail y retorno de resultado
        return $this->Send() ;
    }
@@ -48,7 +48,7 @@ class email  extends PHPMailer{
 }//--> fin clase
 
 /* == se emplea la clase email == */
-function envio_correo_ventas($correoa, $nombre, $total_factura, $link, $num_factura,$archivoadjunto){
+function envio_correo_ventas($correoa, $nombre, $total_factura, $link, $num_factura){
 
   $res=0;
   $contenido_html =  '
@@ -300,7 +300,7 @@ function envio_correo_ventas($correoa, $nombre, $total_factura, $link, $num_fact
   ';
   
   $email = new email();
-  if (mail( $correoa , 'TOTORA SISA' , 'FACTURA ELECTRONICA' ,  $contenido_html,$archivoadjunto ) )
+  if ($email->enviar( $correoa , 'TOTORA SISA' , 'FACTURA ELECTRONICA' ,  $contenido_html,'df') )
      $res=1;
   else
   {

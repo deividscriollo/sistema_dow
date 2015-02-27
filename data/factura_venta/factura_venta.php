@@ -3,6 +3,7 @@
 	include '../conexion.php';
 	include '../funciones_generales.php';
 	include '../correos/mail.php';
+	// include '../correos/prueba.php';
 	$conexion = conectarse();
 	date_default_timezone_set('America/Guayaquil');
 	$fecha = date('Y-m-d H:i:s', time());
@@ -71,10 +72,12 @@
 	$guardar = guardarSql($conexion,$sql4);
 	////////////////////////////////////////
 }
+
+
 //validando_xml($id,'fecha','total','detalle','cliente','ruc_ced','total_sin inpuestos','descuento','iva','diferencia','telefono','num_factu','dir-client','orden_num');
 
-
 $l='localhost/sistema_dow/data/reportes/factura_venta.php?id='.$id;
-envio_correo_ventas($_POST['correo'],$_POST['nombre'],$_POST['total'],$l, $num_serie,'xml/FAC_ELECTRONICAid.xml');
+envio_correo_ventas($_POST['correo'],$_POST['nombre'],$_POST['total'],$l, $num_serie);
+print'hola';
 echo $data;
 ?>
