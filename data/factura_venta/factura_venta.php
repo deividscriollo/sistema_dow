@@ -78,6 +78,5 @@
 
 $l='localhost/sistema_dow/data/reportes/factura_venta.php?id='.$id;
 envio_correo_ventas($_POST['correo'],$_POST['nombre'],$_POST['total'],$l, $num_serie);
-print'hola';
 echo $data;
 ?>
