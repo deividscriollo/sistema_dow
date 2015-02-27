@@ -2,7 +2,7 @@
 
 $url = 'https://api.sendgrid.com/';
 $user = 'thyrons';
-$pass = 'thyrons0910';
+$pass = 'rootdow1234';
 
 $params = array(
     'api_user'  => $user,
