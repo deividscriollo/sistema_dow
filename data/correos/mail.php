@@ -48,7 +48,7 @@ class email  extends PHPMailer{
 }//--> fin clase
 
 /* == se emplea la clase email == */
-function envio_correo_ventas($correoa,$nombre,$total_factura,$archivoadjunto,$num_factura,$id){
+function envio_correo_ventas($correoa, $nombre, $total_factura, $link, $num_factura,$archivoadjunto){
 
   $res=0;
   $contenido_html =  '
@@ -244,7 +244,7 @@ function envio_correo_ventas($correoa,$nombre,$total_factura,$archivoadjunto,$nu
        <table width="60%" align="center" cellspacing="0" cellpadding="0" border="0" style="table-layout: fixed;"><tbody><tr><td width="100%" bgcolor="#d9edf7" style="font-family: Arial, sans-serif; line-height: 19px; color: #31708f; font-size: 14px; font-weight: normal; padding: 15px; border: 1px solid #bce8f1; background-color: #f9d2aa;" valign="top" align="left">
          Si requiere su factura electrónica para la declaración tributaria del SRI. 
          <br>
-         <a href="'.$archivoadjunto.'" style="color: #428bca; text-decoration: none; background-color: transparent;"> Dar clic Aqui</a>
+         <a href="'.$link.'" style="color: #428bca; text-decoration: none; background-color: transparent;"> Dar clic Aqui</a>
        </td></tr></tbody></table>
        </td></tr></tbody></table>
     </td></tr></tbody></table>
