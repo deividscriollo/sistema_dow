@@ -1,4 +1,7 @@
 <?php
+date_default_timezone_set('America/Guayaquil'); 
+$fecha = date('Y-m-d H:i:s', time());   
+$fecha_larga = date('His', time());
 function sesion_activa(){
     session_start();        
     return $_SESSION['iddow'];
@@ -23,23 +26,6 @@ function cargarSelect($conexion, $sql) {
         while ($row = pg_fetch_row($sql)) {
             $lista[] = $row[0];
             $lista[] = $row[1];
-        }
-        echo $lista = json_encode($lista);
-    }
-}
-function carga_tabla_7($conexion, $sql) {
-    $lista = array();
-    $data = 0;
-    $sql = pg_query($conexion, $sql);
-    if ($sql) {
-        while ($row = pg_fetch_row($sql)) {
-            $lista[] = $row[0];
-            $lista[] = $row[1];
-            $lista[] = $row[2];
-            $lista[] = $row[3];
-            $lista[] = $row[4];
-            $lista[] = $row[5];
-            $lista[] = $row[6];
         }
         echo $lista = json_encode($lista);
     }
@@ -73,7 +59,23 @@ function cargarSelect_6($conexion, $sql) {
         echo $lista = json_encode($lista);
     }
 }
-
+function carga_tabla_7($conexion, $sql) {
+    $lista = array();
+    $data = 0;
+    $sql = pg_query($conexion, $sql);
+    if ($sql) {
+        while ($row = pg_fetch_row($sql)) {
+            $lista[] = $row[0];
+            $lista[] = $row[1];
+            $lista[] = $row[2];
+            $lista[] = $row[3];
+            $lista[] = $row[4];
+            $lista[] = $row[5];
+            $lista[] = $row[6];
+        }
+        echo $lista = json_encode($lista);
+    }
+}
 function cargarSelect_8($conexion, $sql) {
     $lista = array();
     $data = 0;
@@ -224,8 +226,19 @@ function maxCaracter($texto, $cant){
     return $texto;
 }
 function carga_json($conexion,$sql){     
-        $sql = pg_query($sql);                
-        return $sql;
+    $sql = pg_query($sql);                
+    return $sql;
+}       
+function auditoria_sistema($conexion,$sql_nuevo,$sql_anterior,$tabla,$id_user,$proceso,$id_registro){
+    if($tipo = 'I'){
+       $id = unique($fecha_larga);  
+       $consulta = "insert into auditoria_sistema values ('$id','$tabla','$id_registro','$sql_anterior','$sql_nuevo','$proceso','".sesion_activa()."','$ip','$mac','0','$fecha')";
     }
+
+}
+//print_r($_SERVER['REMOTE_ADDR']);
+//print_r($_SERVER);
+print_r($_SERVER['SERVER_ADDR']);
+
 
 ?>
