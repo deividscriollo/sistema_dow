@@ -229,16 +229,26 @@ function carga_json($conexion,$sql){
     $sql = pg_query($sql);                
     return $sql;
 }       
-function auditoria_sistema($conexion,$sql_nuevo,$sql_anterior,$tabla,$id_user,$proceso,$id_registro){
-    if($tipo = 'I'){
-       $id = unique($fecha_larga);  
-       $consulta = "insert into auditoria_sistema values ('$id','$tabla','$id_registro','$sql_anterior','$sql_nuevo','$proceso','".sesion_activa()."','$ip','$mac','0','$fecha')";
-    }
-
+function sql_array($conexion,$sql){    
+    $sql = pg_fetch_row(pg_query($sql));                                 
+    $sql = "array['".implode("', '", $sql)."']";   
+    return $sql;     
 }
-//print_r($_SERVER['REMOTE_ADDR']);
-//print_r($_SERVER);
-print_r($_SERVER['SERVER_ADDR']);
-
-
+function auditoria_sistema($conexion,$tabla,$id_user,$proceso,$id_registro,$fecha_larga,$fecha,$sql_nuevo,$sql_anterior){
+    $cliente = $_SERVER['REMOTE_ADDR'];
+    $server = $_SERVER['SERVER_ADDR'];
+    $id = unique($fecha_larga);    
+    if($proceso == 'Insert'){                
+        $consulta = "insert into auditoria values ('$id','$tabla','$id_registro',array[''],$sql_nuevo::text[],'$proceso','$id_user','$cliente','$server','0','$fecha')";                       
+        pg_query($consulta);               
+    }else{
+        if($proceso == 'Update'){        
+            $consulta = "insert into auditoria values ('$id','$tabla','$id_registro',$sql_anterior::text[],$sql_nuevo::text[],'$proceso','$id_user','$cliente','$server','0','$fecha')";                       
+            pg_query($consulta);       
+        }else{            
+            if($proceso == 'Backup'){        
+            }               
+        }
+    }
+}
 ?>
