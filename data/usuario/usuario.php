@@ -7,7 +7,8 @@
 	$fecha_larga = date('His', time());
 	$sql = "";	
 	$id = unique($fecha_larga);	
-	$id_c = unique($fecha_larga);	
+	$id_c = unique($fecha_larga);
+	$id_user = sesion_activa();	
 	$check = "OFF";	
 	if(isset($_POST["form-field-checkbox"]))
 		$check = "ON";	
@@ -32,8 +33,11 @@
 					else{
 						$sql ="insert into usuario values ('$id','$_POST[txt_1]','$_POST[txt_2]','$_POST[txt_3]','$_POST[txt_7]','$_POST[txt_11]','$_POST[txt_12]','$_POST[txt_8]','$_POST[txt_13]','$_POST[txt_4]','0','default.png','$check','$fecha')";					
 					}
-				}	
+				}					
 				$guardar = guardarSql($conexion,$sql);
+				$sql_nuevo = "select (id_usuario,identificacion,nombres_completos,telefono1,telefono2,id_ciudad,direccion,correo,usuario,id_cargo,estado,imagen,extranjero,fecha_creacion) from usuario where id_usuario ='$id'";        
+        		$sql_nuevo = sql_array($conexion,$sql_nuevo);
+        		auditoria_sistema($conexion,'usuario',$id_user,'Insert',$id,$fecha_larga,$fecha,$sql_nuevo,'');
 				if( $guardar == 'true'){
 					$data = 0; ////datos guardados
 				}else{
@@ -73,7 +77,12 @@
 					$data = 2; /// error al guardar
 				}				
 				$sql = "update claves set id_usuario='$_POST[txt_o]',clave='$_POST[txt_5]' where id_usuario = '$_POST[txt_o]'";
+				$sql_anterior = "select (id_usuario,identificacion,nombres_completos,telefono1,telefono2,id_ciudad,direccion,correo,usuario,id_cargo,estado,imagen,extranjero,fecha_creacion) from usuario where id_usuario ='$_POST[txt_o]'";        
+        		$sql_anterior = sql_array($conexion,$sql_anterior);
 				guardarSql($conexion,$sql);
+				$sql_nuevo = "select (id_usuario,identificacion,nombres_completos,telefono1,telefono2,id_ciudad,direccion,correo,usuario,id_cargo,estado,imagen,extranjero,fecha_creacion) from usuario where id_usuario ='$_POST[txt_o]'";        
+            	$sql_nuevo = sql_array($conexion,$sql_nuevo);            
+            	auditoria_sistema($conexion,'usuario',$id_user,'Update',$_POST['txt_o'],$fecha_larga,$fecha,$sql_nuevo,$sql_anterior);
 			}
 		}
 	}	
