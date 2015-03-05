@@ -93,10 +93,7 @@ if(!isset($_SESSION))
 									</div>
 
 									<div class="widget-body">
-										<div class="widget-main">
-											
-
-											
+										<div class="widget-main">estructura en procesos de gestion
 
 
 										</div>
@@ -162,7 +159,6 @@ if(!isset($_SESSION))
 
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
-			
 		</script>
 	</body>
 </html>

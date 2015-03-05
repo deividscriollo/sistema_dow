@@ -378,6 +378,17 @@ function menu_lateral(){
 							</li>
 						</ul>
 					</li>
+					<li ';if ($acus[3]=='privilegios') {
+								print('class="active open"');
+							}print'>
+						<a href="../privilegios/">
+							<i class="menu-icon fa fa-user"></i>
+							<span class="menu-text"> Privilegios </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>	
+					
 				</ul><!-- /.nav-list -->
 
 				<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
