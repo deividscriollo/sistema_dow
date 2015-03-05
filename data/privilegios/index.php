@@ -227,7 +227,7 @@ if(!isset($_SESSION))
 	
 	function initiateDemoData(){
 		var tree_data = {
-			'for-sale' : {text: 'For Sale', type: 'fold'}	,
+			'for-sale' : {text: 'For Sale', type: 'folder'}	,
 			'vehicles' : {text: 'Vehicles', type: 'folder'}	,
 			'rentals' : {text: 'Rentals', type: 'folder'}	,
 			'real-estate' : {text: 'Real Estate', type: 'folder'}	,
