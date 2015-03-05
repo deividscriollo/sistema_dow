@@ -3,11 +3,18 @@
 	include '../funciones_generales.php';		
 	$conexion = conectarse();	
     date_default_timezone_set('America/Guayaquil');
+    $nivel_1_admin =  array(1,1,1,1);
+	$nivel_2_admin =  array(1,1,1,1,1,1,1,1,1,1,1,1);
+	$nivel_3_admin =  array(1,1,1,1,1,1,1,1);
+	$nivel_1_otros =  array(1,1,1,1);
+	$nivel_2_otros =  array(1,1,1,1,1,1,1,1,1,1,1,1);
+	$nivel_3_otros =  array(1,1,1,1,1,1,1,1);
 	$fecha = date('Y-m-d H:i:s', time());
 	$fecha_larga = date('His', time());
 	$sql = "";	
 	$id = unique($fecha_larga);	
 	$id_c = unique($fecha_larga);
+	$id_p = unique($fecha_larga);	
 	$id_user = sesion_activa();	
 	$check = "OFF";	
 	if(isset($_POST["form-field-checkbox"]))
@@ -38,6 +45,24 @@
 				$sql_nuevo = "select (id_usuario,identificacion,nombres_completos,telefono1,telefono2,id_ciudad,direccion,correo,usuario,id_cargo,estado,imagen,extranjero,fecha_creacion) from usuario where id_usuario ='$id'";        
         		$sql_nuevo = sql_array($conexion,$sql_nuevo);
         		auditoria_sistema($conexion,'usuario',$id_user,'Insert',$id,$fecha_larga,$fecha,$sql_nuevo,'');
+				/**/
+				if($_POST['txt_4'] == '1'){
+					$nivel_1_admin = "array['".implode("', '", $nivel_1_admin)."']";
+					$nivel_2_admin = "array['".implode("', '", $nivel_2_admin)."']";
+					$nivel_3_admin = "array['".implode("', '", $nivel_3_admin)."']";	
+					$sql ="insert into permisos values ('$id_p',".$nivel_1_admin."::INT[],".$nivel_2_admin."::INT[],".$nivel_3_admin."::INT[],'$id')";						
+				}else{
+					$nivel_1_otros = "array['".implode("', '", $nivel_1_otros)."']";
+					$nivel_2_otros = "array['".implode("', '", $nivel_2_otros)."']";
+					$nivel_3_otros = "array['".implode("', '", $nivel_3_otros)."']";	
+					$sql ="insert into permisos values ('$id_p',".$nivel_1_otros."::INT[],".$nivel_2_otros."::INT[],".$nivel_3_otros."::INT[],'$id')";						
+				}							
+				$guardar = guardarSql($conexion,$sql);
+				$sql_nuevo = "select (id_permisos,nivel1,nivel2,nivel3,id_usuario) from permisos where id_permisos = '$id_p'";        
+        		$sql_nuevo = sql_array($conexion,$sql_nuevo);
+        		auditoria_sistema($conexion,'permisos',$id_user,'Insert',$id,$fecha_larga,$fecha,$sql_nuevo,'');
+				/**/
+
 				if( $guardar == 'true'){
 					$data = 0; ////datos guardados
 				}else{
