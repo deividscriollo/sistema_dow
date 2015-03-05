@@ -171,53 +171,7 @@ function menu_lateral(){
 							Unidades de Medida
 						</a>
 						<b class="arrow"></b>
-<<<<<<< HEAD
 
-						<ul class="submenu">
-							<li ';if ($acus[3]=='r_estadistico') {
-									print('class="active"');
-								}print'>
-								<a href="../r_estadistico/">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Estadisticos
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-							<li ';if ($acus[3]=='r_simple') {
-									print('class="active"');
-								}print'>
-								<a href="../r_simple/">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Simples
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-						</ul>
-					</li>
-					<li ';if ($acus[3]=='privilegios') {
-								print('class="active open"');
-							}print'>
-						<a href="../privilegios/">
-							<i class="menu-icon fa fa-user"></i>
-							<span class="menu-text"> Privilegios </span>
-						</a>
-
-						<b class="arrow"></b>
-					</li>	
-					
-				</ul><!-- /.nav-list -->
-
-				<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-					<i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
-				</div>
-
-				<script type="text/javascript">
-					try{ace.settings.check("sidebar" , "collapsed")}catch(e){}
-				</script>
-			</div>
-=======
 					</li>';
 				}
 				if($_SESSION['nivel3'][4] == 1){
@@ -428,6 +382,33 @@ function menu_lateral(){
 			}
 			print '</ul>
 		</li>';		
+	}	
+	if($_SESSION['nivel1'][4] == 1){		
+		print '<li ';if ($acus[3]=='privilegios') {
+		print('class="active open"');
+		}print'>
+			<a href="#" class="dropdown-toggle">
+				<i class="menu-icon fa fa-user"></i>
+				<span class="menu-text">
+					Administración
+				</span>
+				<b class="arrow fa fa-angle-down red"></b>
+			</a>
+			<b class="arrow"></b>
+			<ul class="submenu">';
+			if($_SESSION['nivel2'][12] == 1){
+				print '<li ';if ($acus[3]=='privilegios') {
+					print('class="active"');
+				}print'>
+					<a href="../privilegios/">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Privilegios
+					</a>
+					<b class="arrow"></b>
+				</li>';
+			}			
+			print '</ul>
+		</li>';		
 	}
 	print '</ul><!-- /.nav-list -->
 		<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
@@ -437,7 +418,6 @@ function menu_lateral(){
 			try{ace.settings.check("sidebar" , "collapsed")}catch(e){}
 		</script>
 	</div>
->>>>>>> origin/master
 	';
 }
 //pie de Pagina Footer proceso desarrolladores empresa y datos adicionales de la misma

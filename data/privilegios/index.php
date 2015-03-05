@@ -73,30 +73,31 @@ if(!isset($_SESSION))
 									</div>
 									<div class="widget-body">
 										<div class="widget-main">
-											<div class="row">
-												<div class="col-sm-4"></div>
-												<div class="col-sm-5">
-													<h3 class="lighter block green">Información, proceso de privilegios</h3>
-													<form class="form-horizontal">
-														<div class="control-group">
-															<label class="control-label" for="password">Nombre privilegio:</label>
-															<div class="controls">
-																<div class="span12">
-																	<select class="chosen-select form-control" id="form-field-select-3" data-placeholder="Choose a State...">
-																		<option value="">  </option>
-																		<option value="AL">Alabama</option>
-																		<option value="AK">Alaska</option>
-																		<option value="AZ">Arizona</option>															
-
-																	</select>
-
-																</div>
-															</div>
-														</div>
-													</form>
-												</div>												
+											<div class="row">												
+												<div class="col-xs-12">		
+												<h3 class="lighter block green">Información, proceso de privilegios</h3>															
+													<div class="col-sm-3">
+														<div class="form-group">																												
+															<select class="chosen-select form-control" id="txt_1" name="txt_1" data-placeholder="CI USUARIO">
+																<option value=""></option>																	
+															</select>						
+															<input type="hidden" id="txt_0" name="txt_0" />																															
+														</div>													
+													</div>				
+													<div class="col-sm-3">
+														<div class="form-group">																												
+															<select class="chosen-select form-control" id="txt_2" name="txt_2" data-placeholder="NOMBRES USUARIO">
+																<option value=""></option>																	
+															</select>																																				
+														</div>													
+													</div>		
+													<div class="col-sm-3">
+														<div class="form-group">																												
+															<button type="button" class="btn btn-primary" id="btn_agregar">Agregar</button>
+														</div>													
+													</div>							
+												</div>
 											</div>
-
 											<div class="row">
 												<div class="col-sm-6">
 													<div class="widget-box widget-color-blue2">
@@ -112,11 +113,11 @@ if(!isset($_SESSION))
 														</div>
 													</div>
 												</div>
-											</div>	
+											</div>												
 										</div>
 									</div>
-								</div>
-							</div>							
+								</div>							
+							</div>
 						</div>
 					</div>
 				</div>
@@ -175,6 +176,8 @@ if(!isset($_SESSION))
 		<!-- ace scripts -->
 		<script src="../../dist/js/ace-elements.min.js"></script>
 		<script src="../../dist/js/ace.min.js"></script>
+		<script src="privilegios.js"></script>
+		<script src="../generales.js"></script>
 
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">

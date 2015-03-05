@@ -204,6 +204,26 @@
 																										}else{
 																											
 																										}
+																									}else{
+																										if($_GET['fun'] == "26"){//para la busqueda del codigo del producto
+																											if($_GET['tipo'] == "0"){
+																												$sql = "select id_usuario,identificacion,nombres_completos from usuario where identificacion like '%$_GET[val]%'";																	
+																												cargarSelect_1($conexion,$sql);//select de 3 datos
+																											}else{
+																												
+																											}
+																										}else{
+																											if($_GET['fun'] == "27"){//para la busqueda del codigo del producto
+																												if($_GET['tipo'] == "0"){
+																													$sql = "select id_usuario,identificacion,nombres_completos from usuario where nombres_completos like '%$_GET[val]%'";																	
+																													cargarSelect_1($conexion,$sql);//select de 3 datos
+																												}else{
+																													
+																												}
+																											}else{
+
+																											}	
+																										}	
 																									}	
 																								}
 																							}	
