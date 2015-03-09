@@ -107,7 +107,9 @@ if(!isset($_SESSION))
 
 														<div class="widget-body">
 															<div class="widget-main padding-8">
-																<ul id="tree1"></ul>
+																<ul id="tree1">
+																	
+																</ul>
 
 															</div>
 														</div>

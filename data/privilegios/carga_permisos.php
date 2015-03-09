@@ -7,10 +7,33 @@
 	$fecha_larga = date('His', time());
 	$sql = "select nivel1,nivel2,nivel3 from permisos where id_usuario = '$_GET[id]'";
 
-	$lista = cargarSelect_1($conexion,$sql);	
-	$n1 = '';
-	$n1 = str_replace("{", "", $lista[0]);
-	$n1 = str_replace("}", "", $lista[0]);
-	print_r($lista[0]);
+	$lista = carga_json_1($conexion,$sql);	
+	$lista1 = $lista[0];
+	$lista1 = str_replace("{", "", $lista1);
+	$lista1 = str_replace("}", "", $lista1);
+	$lista1 = explode(",", $lista1);
+	$lista1 = array($lista1);
+
+	$lista2 = $lista[1];
+	$lista2 = str_replace("{", "", $lista2);
+	$lista2 = str_replace("}", "", $lista2);
+	$lista2 = explode(",", $lista2);
+	$lista2 = array($lista2);
+
+	$lista3 = $lista[2];
+	$lista3 = str_replace("{", "", $lista3);
+	$lista3 = str_replace("}", "", $lista3);
+	$lista3 = explode(",", $lista3);
+	$lista3 = array($lista3);
+
+	
+	$lista4=array("nivel1" => $lista1, "nivel2" => $lista2, "nivel3" => $lista3); 
+	$data = (json_encode($lista4));
+	echo $data;
+
+	
+
+	
+		
 
 ?>
