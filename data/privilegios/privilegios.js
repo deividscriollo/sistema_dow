@@ -1,6 +1,6 @@
 $(document).on("ready",inicio);
 function inicio (){					
-	
+	$("#btn_guardar").attr("disabled",true);
    /**/
 	$('#tree1').ace_tree({
 		dataSource: function(options, callback){			
@@ -64,8 +64,7 @@ function inicio (){
 			}						
 			var $data = null;		
 			if(!("text" in options) && !("type" in options)){			
-				$data = tree_data;//the root tree									
-				console.log($data)
+				$data = tree_data;//the root tree													
 				callback({ data: $data });
 				return;
 			}
@@ -92,7 +91,7 @@ function inicio (){
 	
 	$('.chosen-select').chosen({allow_single_deselect:true}); 	
 	
-	$("#btn_agregar").click(function(){								
+	$("#btn_agregar").click(function(){										
 		if($("#txt_0").val()!= ''){
 			$.ajax({        
 		        type: "POST",
@@ -166,9 +165,214 @@ function inicio (){
 					},3000)		    
 				}			        							
 	       	});
+			$("#btn_agregar").attr("disabled",true)
+			$("#btn_guardar").attr("disabled",false)
 		}else{
 			alert("Seleccione un usuario")
 		}		
+	});
+	$("#btn_limpiar").click(function(){
+		actualizar_form();
+	});
+	$("#btn_guardar").click(function(){
+		if($("#txt_0").val()== ""){
+			alert("Seleccione un usuario y carge sus permisos para continuar");
+		}else{
+			var vector_1 = new Array();
+			var vector_2 = new Array();
+			var vector_3 = new Array();
+			var cont_n2 = 0;									
+			var cont_n2_1 = 0;	
+			var cont_n2_2 = 0;	
+			var cont_n3_1 = 0;						
+			var cont_n3_2 = 0;
+			var cont_n3_3 = 0;
+			var cont_n3 = 0;									
+			var cont_n4 = 0;									
+			/*nivel 1 Inicio*/
+			if($("#n1_1").hasClass("tree-selected")){
+				vector_1[0] = 1;
+			}else{
+				vector_1[0] = 0;
+			}		
+			/*--------------*/
+			/*nivel 2 Ingresos*/
+				/*nivel 3_1 Generales*/
+				if($("#n3_1").hasClass("tree-selected")){
+					vector_3[0] = 1;
+					cont_n3_1++;
+				}else{
+					vector_3[0] = 0;
+				}
+				if($("#n3_2").hasClass("tree-selected")){
+					vector_3[1] = 1;
+					cont_n3_1++;
+				}else{
+					vector_3[1] = 0;
+				}
+				if($("#n3_3").hasClass("tree-selected")){
+					vector_3[2] = 1;
+					cont_n3_1++;
+				}else{
+					vector_3[2] = 0;
+				}			
+				if($("#n3_4").hasClass("tree-selected")){
+					vector_3[3] = 1;
+					cont_n3_1++;
+				}else{
+					vector_3[3] = 0;
+				}
+				if($("#n3_5").hasClass("tree-selected")){
+					vector_3[4] = 1;
+					cont_n3_1++;
+				}else{
+					vector_3[4] = 0;
+				}							
+				/*--------*/			
+			if(cont_n3_1 > 0){
+				vector_2[0] = 1;
+				cont_n2++;
+			}else{
+				vector_2[0] = 0;
+			}
+			if($("#n2_2").hasClass("tree-selected")){
+				vector_2[1] = 1;
+				cont_n2++;
+			}else{
+				vector_2[1] = 0;
+			}
+			if($("#n2_3").hasClass("tree-selected")){
+				vector_2[2] = 1;
+				cont_n2++;
+			}else{
+				vector_2[2] = 0;
+			}
+			if($("#n2_4").hasClass("tree-selected")){
+				vector_2[3] = 1;
+				cont_n2++;
+			}else{
+				vector_2[3] = 0;
+			}
+			if($("#n2_5").hasClass("tree-selected")){
+				vector_2[4] = 1;
+				cont_n2++;
+			}else{
+				vector_2[4] = 0;
+			}
+			if($("#n2_6").hasClass("tree-selected")){
+				vector_2[5] = 1;
+				cont_n2++;
+			}else{
+				vector_2[5] = 0;
+			}	
+			if(cont_n2 > 0){
+				vector_1[1] = 1;
+			}else{
+				vector_1[1] = 0;
+			}
+			/*---------*/			
+			/*nivel 2 Procesos*/
+			if($("#n2_7").hasClass("tree-selected")){
+				vector_2[6] = 1;
+				cont_n2_2++;
+			}else{
+				vector_2[6] = 0;
+			}
+				/*nivel 3_2 Compras*/
+				if($("#n3_6").hasClass("tree-selected")){
+					vector_3[5] = 1;
+					cont_n3_2++;
+				}else{
+					vector_3[5] = 0;
+				}
+				if($("#n3_7").hasClass("tree-selected")){
+					vector_3[6] = 1;
+					cont_n3_2++;
+				}else{
+					vector_3[6] = 0;
+				}
+				/*------*/
+				/*nivel 3_3 Ventas*/
+				if($("#n3_8").hasClass("tree-selected")){
+					vector_3[7] = 1;
+					cont_n3_3++;
+				}else{
+					vector_3[7] = 0;
+				}
+				/*---------*/									
+			if(cont_n3_2 > 0){
+				vector_2[7] = 1;
+				cont_n2_2++;
+			}else{
+				vector_2[7] = 0;
+			}
+			if(cont_n3_3 > 0){
+				vector_2[8] = 1;
+				cont_n2_2++;
+			}else{
+				vector_2[8] = 0;
+			}
+			if($("#n2_10").hasClass("tree-selected")){
+				vector_2[9] = 1;
+				cont_n2_2++;
+			}else{
+				vector_2[9] = 0;
+			}		
+			if(cont_n2_2 > 0){
+				vector_1[2] = 1;
+			}else{
+				vector_1[2] = 0;
+			}
+			/*-------------*/
+			/*nivel 3 Reportes*/
+			if($("#n2_11").hasClass("tree-selected")){
+				vector_2[10] = 1;
+				cont_n3++;
+			}else{
+				vector_2[1] = 0;
+			}
+			if($("#n2_12").hasClass("tree-selected")){
+				vector_2[11] = 1;
+				cont_n3++;
+			}else{
+				vector_2[1] = 0;
+			}
+			if(cont_n3 > 0){
+				vector_1[3] = 1;
+			}else{
+				vector_1[3] = 0;
+			}
+			/*-------------*/	
+			/*nivel 4 Permisos*/
+			if($("#n2_13").hasClass("tree-selected")){
+				vector_2[12] = 1;
+				cont_n4++;
+			}else{
+				vector_2[12] = 0;
+			}			
+			if(cont_n4 > 0){
+				vector_1[4] = 1;
+			}else{
+				vector_1[4] = 0;
+			}
+			/*---------------*/				
+
+			$.ajax({				
+				type: "POST",
+				data: "vector_1="+vector_1+"&vector_2="+vector_2+"&vector_3="+vector_3+"&id="+$("#txt_0").val(),		
+				url: "privilegios.php",			
+			    success: function(data) {		    	
+		    		if(data == 0){		    			
+		    			alert('Datos guardados correctamente');					    			
+		    			actualizar_form();
+
+		    		}else{		    							    			    			
+		    			alert('Error al momento de modificar los permisos');					    			
+		    			actualizar_form();
+		    		}	    				    	
+				}
+			});
+		}
 	});
 	/*--buscadores--*/
 	var input_ci = $("#txt_1_chosen").children().next().children();			

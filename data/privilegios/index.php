@@ -91,9 +91,18 @@ if(!isset($_SESSION))
 															</select>																																				
 														</div>													
 													</div>		
-													<div class="col-sm-3">
+													<div class="col-sm-1">
 														<div class="form-group">																												
 															<button type="button" class="btn btn-primary" id="btn_agregar">Agregar</button>
+														</div>													
+													</div>							
+														<div class="form-group">																												
+													<div class="col-sm-1">
+															<button type="button" class="btn btn-primary" id="btn_guardar">Guardar</button>
+														</div>													
+													</div>							
+													<div class="col-sm-1">
+															<button type="button" class="btn btn-primary" id="btn_limpiar">Limpiar</button>
 														</div>													
 													</div>							
 												</div>
