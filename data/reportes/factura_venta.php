@@ -39,7 +39,7 @@
                 $this->Image('../../empresa/barras.jpg',148,43,64,8);
             }            
             $this->SetDrawColor(0,0,0);
-            $this->SetLineWidth(0.5);
+            $this->SetLineWidth(0.3);
             $this->Line(1,53,210,53);
             $this->Ln(16);
         }
@@ -87,7 +87,7 @@
         $descuento = $row[14];
         $total = $row[15];
         $pdf->SetDrawColor(0,0,0);
-        $pdf->SetLineWidth(0.5);
+        $pdf->SetLineWidth(0.3);
         $pdf->Line(1,78,210,78);
         $pdf->Ln(5);        
     }     
@@ -114,25 +114,46 @@
         $pdf->Ln(5);
         $pdf->SetX(5);                  
     }    
-    $pdf->Ln(3);
+    $pdf->Ln(3);   
     $pdf->SetX(1);       
     $pdf->Cell(210, 0, maxCaracter(utf8_decode(""),4),1,1, 'C',0);                                        
     $pdf->Ln(3);
     $pdf->SetFont('Amble-Regular','',10);   
-    $pdf->Cell(70, 7, "",0,0, 'R',0);                                
-    $pdf->Cell(100, 7, "",0,0, 'R',0);                                
-    $pdf->Cell(60, 7, maxCaracter("TARIFA 0 : ".$tarifa0,50),0,1, 'L',0);                                
-    $pdf->Cell(70, 7, "",0,0, 'R',0);                                
-    $pdf->Cell(100, 7, "",0,0, 'R',0);                                
-    $pdf->Cell(60, 7, maxCaracter("TARIFA 12 : ".$tarifa12,50),0,1, 'L',0);                                
-    $pdf->Cell(70, 7, "",0,0, 'R',0);                                
-    $pdf->Cell(100, 7, "",0,0, 'R',0);                                
-    $pdf->Cell(60, 7, maxCaracter("IVA : ".$iva,50),0,1, 'L',0);                                
-    $pdf->Cell(70, 7, "",0,0, 'R',0);                                
-    $pdf->Cell(100, 7, "",0,0, 'R',0);                                
-    $pdf->Cell(70, 7, maxCaracter("DESCUENTO : ".$descuento,50),0,1, 'L',0);                                
-    $pdf->Cell(70, 7, "",0,0, 'R',0);                                
-    $pdf->Cell(100, 7, "",0,0, 'R',0);                                
-    $pdf->Cell(70, 7, maxCaracter("TOTAL : ".$total,50),0,1, 'L',0);                                                     
+    $pdf->SetX(4);
+    $pdf->Cell(155, 7, "",0,0, 'R',0);                                
+    $pdf->Cell(28, 7, utf8_decode("TARIFA 0 : "),1,0,'L',0);                                
+    $pdf->Cell(20, 7, maxCaracter($tarifa0,50),1,1, 'C',0); 
+    $pdf->SetX(4);
+    $pdf->Cell(155, 7, "",0,0, 'R',0);                                
+    $pdf->Cell(28, 7, utf8_decode("TARIFA 12 : "),1,0,'L',0);                                          
+    $pdf->Cell(20, 7, maxCaracter($tarifa12,50),1,1, 'C',0);                                
+    $pdf->SetX(4);
+    $pdf->Cell(155, 7, "",0,0, 'R',0);                                
+    $pdf->Cell(28, 7, utf8_decode("IVA : "),1,0,'L',0);                                          
+    $pdf->Cell(20, 7, maxCaracter($iva,50),1,1, 'C',0);                                
+    $pdf->SetX(4);
+    $pdf->Cell(155, 7, "",0,0, 'R',0);                                
+    $pdf->Cell(28, 7, utf8_decode("DESCUENTO : "),1,0,'L',0);                                          
+    $pdf->Cell(20, 7, maxCaracter($descuento,50),1,1, 'C',0);                                
+    $pdf->SetX(4);
+    $pdf->Cell(155, 7, "",0,0, 'R',0);                                
+    $pdf->Cell(28, 7, utf8_decode("TOTAL : "),1,0,'L',0);                                          
+    $pdf->Cell(20, 7, maxCaracter($total,50),1,1, 'C',0);     
+    
+    /*---------*/
+    
+    $pdf->SetY(225);           
+    $pdf->SetX(20);           
+    $pdf->Cell(70, 30, '',1,1, 'C',0);                       
+    $pdf->SetY(225);           
+    $pdf->SetX(20);           
+    $pdf->Cell(70, 7, utf8_decode("INFORMACIÓN ADICIONAL "),0,1,'C',0);                                                                      
+    $pdf->SetX(20);           
+    $pdf->Cell(70, 7, utf8_decode("Contacto: 092-997-4820 / 09647964744"),0,1,'L',0);                                                                      
+    $pdf->SetX(20);           
+    $pdf->Cell(70, 7, utf8_decode("Email: info-tributaria@totorasisca.ec"),0,1,'L',0);                                                                      
+    $pdf->SetX(20);           
+    $pdf->Cell(70, 7, utf8_decode("Sitio Web: www.totorasisca.com"),0,1,'L',0);                                                                      
+    /*---------*/                                                 
     $pdf->Output();
 ?>
