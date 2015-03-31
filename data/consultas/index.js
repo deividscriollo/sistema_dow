@@ -73,7 +73,6 @@ $(function(){
 	            type:  'post',
 	            data: {cargar_tabla:':)',txt_1:$('#txt_cedula').val()},
 	            success : function ( data )  {	
-	            	console.log(data);
 	            	$("#tbl_facturas tbody").html(data); 
 			    } 
 			});	

@@ -19,17 +19,16 @@
 								FROM FACTURA_VENTA FV, CLIENTE C
 								WHERE C.ID_CLIENTE=FV.ID_CLIENTE 
 								AND IDENTIFICACION='$_POST[txt_1]'");
-		$a=0;
+		$a=1;
 		while ($row = pg_fetch_row($consulta)) {
+			$ab=split(' ','');
 			print'<tr>';
 			print'<td>'.$a++.'</td>';
-		    print'<td>'.$row[0].'</td>';
-		    print'<td>'.$row[1].'</td>';
-		    print'<td>'.$row[2].'</td>';
-		    print'<td>'.$row[3].'</td>';
 		    print'<td>'.$row[4].'</td>';
+		    print'<td>'.$row[1].'</td>';
+		    print'<td>'.$row[3].'</td>';
 		    print'<td>'.$row[5].'</td>';
-		    print'<td>'.'<a href="">
+		    print'<td>'.'<a href="../reportes/factura_venta.php?id='.$row[0].'" TARGET="_new">
 							<i class="ace-icon fa fa-print red2"></i>							
 						</a>'.'</td>';
 			print'</tr>';
