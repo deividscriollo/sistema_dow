@@ -87,7 +87,7 @@ if(!isset($_SESSION))
 																	<div class="form-group">
 																		<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Cuenta de:</label>
 																		<div class="col-sm-8">
-																			<input type="hidden"  id="id_producto" name="id_producto" />
+																			<input type="hidden"  id="txt_0" name="txt_0" />
 																			<select class="chosen-select form-control" id="codigo" name="codigo" data-placeholder="Cuenta de">	                                                                        
 			                                                                    <option value="G">Grupo</option>
 			                                                                    <option value="M">Movimiento</option>
@@ -115,7 +115,7 @@ if(!isset($_SESSION))
 																	<div class="form-group">
 																		<label class="col-sm-4 control-label no-padding-right" for="form-field-1">Descripción:</label>
 																		<div class="col-sm-8">
-																			<input class="form-control" type="text" name="txt_2" id="txt_2" required pattern="[0-9a-zA-ZñÑ.áéíóúÁÉÍÓÚ]{1,}"  placeholder="Descripción de la cuenta" />	
+																			<input class="form-control" type="text" name="txt_2" id="txt_2" required pattern="[0-9a-zA-ZñÑ.áéíóúÁÉÍÓÚ ]{1,}"  placeholder="Descripción de la cuenta" />	
 																		</div>																													
 																	</div>	
 																</div>
@@ -165,19 +165,17 @@ if(!isset($_SESSION))
 														<div class="pull-right tableTools-container"></div>
 													</div>
 													<div>
-														<table id="td_kardex" class="table table-striped table-bordered table-hover">
+														<table id="td_cuentas" class="table table-striped table-bordered table-hover">
 															<thead>
 																<tr>
-																	<th>Producto</th>
-																	<th>Detalle</th>
-																	<th>Factura</th>
-																	<th>Cant. Entrada</th>
-																	<th>Precio. Entrada</th>
-																	<th>Valor. Entrada</th>
-																	<th>Cant. Salida</th>
-																	<th>Precio. Salida</th>
-																	<th>Valor. Salida</th>
-																	<th>Transacción</th>
+																	<th>Código</th>																	
+																	<th>Cuenta</th>																																		
+																	<th>Nombre Cuenta</th>																																																			
+																	<th>tipo_cuenta</th>																	
+																	<th>Tipo Cuenta</th>																	
+																	<th>Fecha Modificación</th>																																		
+																	<th>estado</th>
+																	<th>Estado</th>																																																		
 																</tr>
 															</thead>
 															<tbody>
@@ -258,12 +256,12 @@ if(!isset($_SESSION))
 		
 			jQuery(function($) {
 				//initiate dataTables plugin
-				var oTable1 = $('#td_kardex')
+				var oTable1 = $('#td_cuentas')
 				//.wrap("<div class='dataTables_borderWrap' />")   //if you are applying horizontal scrolling (sScrollX)
-				.dataTable( {
+				.dataTable( {					
 					bAutoWidth: false,
 					"aoColumns": [
-					  { "bSortable": false },null, null,null, null, null,  { "bSortable": false },null,null,null
+					  { "bSortable": false },null, null,null, null, null,null,null
 					],
 					"aaSorting": [],			
 					language: {
@@ -277,7 +275,7 @@ if(!isset($_SESSION))
 					    "sInfoPostFix":    "",
 					    "sSearch":         "Buscar: ",
 					    "sUrl":            "",
-					    "sInfoThousands":  ",",
+					    "sInfoThousands":  ",",					    
 					    "sLoadingRecords": "Cargando...",
 					    "oPaginate": {
 					        "sFirst":    "Primero",
@@ -289,7 +287,49 @@ if(!isset($_SESSION))
 					        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
 					        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
 					    }
-					}
+					},
+					"columnDefs": [
+			            {
+			                "targets": [ 0 ],
+			                "visible": false,	
+			                "bVisible":false,			                
+			            },			            
+			            {
+			                "targets": [ 1 ],
+			                "visible": true,			                
+			            },			            
+			            {
+			                "targets": [ 2 ],
+			                "visible": true,			                
+			            },			            
+			            {
+			                "targets": [ 3 ],
+			                "visible": false,
+			                "bVisible":false,
+			                		                
+			            },			            
+			            {
+			                "targets": [ 4 ],
+			                "visible": true,			                
+			            },			            
+			            {
+			                "targets": [ 5 ],
+			                "visible": true,			                
+			            },			      
+			            {
+			                "targets": [ 6 ],
+			                "visible": false,
+			                "bVisible":false,
+			                
+			            },			            
+			            {
+			                "targets": [ 7 ],
+			                "visible": true,			                
+			            },			                  
+			            
+			            
+			            
+			        ],
 			    } );
 				//oTable1.fnAdjustColumnSizing();
 			
@@ -303,11 +343,10 @@ if(!isset($_SESSION))
 				}
 			
 				//initiate TableTools extension
-				var tableTools_obj = new $.fn.dataTable.TableTools( oTable1, {
-					"sSwfPath": "../../dist/js/dataTables/extensions/TableTools/swf/copy_csv_xls_pdf.swf", //in Ace demo dist will be replaced by correct assets path
-					
+				var tableTools_obj = new $.fn.dataTable.TableTools( oTable1, {					 
+					"sSwfPath": "../../dist/js/dataTables/extensions/TableTools/swf/copy_csv_xls_pdf.swf", //in Ace demo dist will be replaced by correct assets path					
 					"sRowSelector": "td:not(:last-child)",
-					"sRowSelect": "multi",
+					"sRowSelect": "multi",					
 					"fnRowSelected": function(row) {
 						//check checkbox when row is selected
 						try { $(row).find('input[type=checkbox]').get(0).checked = true }
@@ -317,10 +356,10 @@ if(!isset($_SESSION))
 						//uncheck checkbox
 						try { $(row).find('input[type=checkbox]').get(0).checked = false }
 						catch(e) {}
-					},
-			
+					},					
 					"sSelectedClass": "success",
 			        "aButtons": [
+
 						{
 							"sExtends": "copy",
 							"sToolTip": "Copiar al portapapeles",
@@ -337,13 +376,15 @@ if(!isset($_SESSION))
 						{
 							"sExtends": "csv",
 							"sToolTip": "Exportar a CSV",
+							"mColumns":[1, 2, 4, 5, 7],
 							"sButtonClass": "btn btn-white btn-primary  btn-bold",
 							"sButtonText": "<i class='fa fa-file-excel-o bigger-110 green'></i>"
 						},
 						
 						{
 							"sExtends": "pdf",
-							"sToolTip": "Exportar a PDF",
+							"sToolTip": "Exportar a PDF",							
+							"mColumns":[1, 2, 4, 5, 7],
 							"sButtonClass": "btn btn-white btn-primary  btn-bold",
 							"sButtonText": "<i class='fa fa-file-pdf-o bigger-110 red'></i>"
 						},
@@ -381,7 +422,7 @@ if(!isset($_SESSION))
 				//ColVis extension
 				var colvis = new $.fn.dataTable.ColVis( oTable1, {
 					"buttonText": "<i class='fa fa-search'></i>",
-					"aiExclude": [0, 9],
+					"aiExclude": [0, 3, 6],
 					"bShowAll": true,
 					//"bRestore": true,
 					"sAlign": "right",
@@ -409,7 +450,7 @@ if(!isset($_SESSION))
 				$('th input[type=checkbox], td input[type=checkbox]').prop('checked', false);
 				
 				//select/deselect all rows according to table header checkbox
-				$('#dynamic-table > thead > tr > th input[type=checkbox]').eq(0).on('click', function(){
+				$('#dynamic-table > thead > tr > th input[type=checkbox]').eq(0).on('click', function(){					
 					var th_checked = this.checked;//checkbox inside "TH" table header
 					
 					$(this).closest('table').find('tbody > tr').each(function(){
@@ -421,12 +462,12 @@ if(!isset($_SESSION))
 				
 				//select/deselect a row when the checkbox is checked/unchecked
 				$('#dynamic-table').on('click', 'td input[type=checkbox]' , function(){
-					var row = $(this).closest('tr').get(0);
+					var row = $(this).closest('tr').get(0);					
 					if(!this.checked) tableTools_obj.fnSelect(row);
 					else tableTools_obj.fnDeselect($(this).closest('tr').get(0));
 				});
 				
-					$(document).on('click', '#dynamic-table .dropdown-toggle', function(e) {
+					$(document).on('click', '#dynamic-table .dropdown-toggle', function(e) {						
 					e.stopImmediatePropagation();
 					e.stopPropagation();
 					e.preventDefault();
@@ -435,7 +476,7 @@ if(!isset($_SESSION))
 				//And for the first simple table, which doesn't have TableTools or dataTables
 				//select/deselect all rows according to table header checkbox
 				var active_class = 'active';
-				$('#simple-table > thead > tr > th input[type=checkbox]').eq(0).on('click', function(){
+				$('#simple-table > thead > tr > th input[type=checkbox]').eq(0).on('click', function(){					
 					var th_checked = this.checked;//checkbox inside "TH" table header
 					
 					$(this).closest('table').find('tbody > tr').each(function(){

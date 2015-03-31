@@ -256,4 +256,5 @@ function auditoria_sistema($conexion,$tabla,$id_user,$proceso,$id_registro,$fech
         }
     }
 }
+
 ?>
