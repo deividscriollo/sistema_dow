@@ -24,7 +24,6 @@ function inicio (){
 	/*-----------------------*/
 	$("input").on("keyup click",function (e){//campos requeridos		
 		comprobarCamposRequired(e.currentTarget.form.id)
-
 	});	
 	/*----procesos ci ruc pass-----*/
 	$("#txt_1").change(function (){
