@@ -26,7 +26,10 @@
 		    $lista[] = $row[3];
 		    $lista[] = $row[4];
 		    $lista[] = $row[5];
-		    $lista[] = $row[6];
+		    $lista[] = '<button class="btn btn-white btn-default btn-round">
+							<i class="ace-icon fa fa-times red2"></i>
+							Imprimir
+						</button>';
 		}
 		echo $lista = json_encode($lista);
 	}		

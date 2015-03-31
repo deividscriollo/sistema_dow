@@ -26,7 +26,7 @@
             while($row = pg_fetch_row($sql)){ 
                 $this->nro_fac =$row[0];                   
             }
-            $sql = pg_query("select ruc_empresa,nombre_empresa,propietario,telefono1,telefono2,direccion,correo,sitio_web,autorizacion_sri,ascesor_legar,imagen from empresa where id_empresa = '".$_SESSION['empresa_dow']."'");
+            $sql = pg_query("select ruc_empresa,nombre_empresa,propietario,telefono1,telefono2,direccion,correo,sitio_web,autorizacion_sri,ascesor_legar,imagen from empresa where id_empresa = '11001854f72c12c2b36'");
             while($row = pg_fetch_row($sql)){                
                 $this->Image('../empresa/img/'.$row[10],0,8,60,30);
                 $this->SetY(40);           

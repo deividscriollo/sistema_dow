@@ -103,6 +103,7 @@
 													<div class="table-header">
 														Resultado de las facturas realizadas por nuestros clientes
 													</div>
+													<a href="../reportes/factura_venta.php?id=09565455141e3610616">Factura venta</a>
 													<table id="tbl_facturas" class="table table-striped table-bordered table-hover">
 														<thead>
 															<tr>
