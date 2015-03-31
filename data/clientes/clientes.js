@@ -279,8 +279,6 @@ function inicio (){
 	            {name:'txt_6',index:'correo',frozen : true,align:'left',search:true},
 	            {name:'txt_13',index:'comentario',frozen : true,align:'left',search:false},
 	            {name:'txt_7',index:'cupo_credito',frozen : true,align:'left',search:false},
-	            
-
 	        ],          
 	        rowNum: 10,       
 	        width:600,
@@ -291,7 +289,6 @@ function inicio (){
 	        sortname: 'id_cliente',
 	        sortorder: 'asc',
 	        caption: 'LISTA DE CLIENTES',	        
-	        
 	        altRows: true,
 	        multiselect: false,
 	        multiboxonly: true,
