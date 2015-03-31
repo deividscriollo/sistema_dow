@@ -19,19 +19,21 @@
 								FROM FACTURA_VENTA FV, CLIENTE C
 								WHERE C.ID_CLIENTE=FV.ID_CLIENTE 
 								AND IDENTIFICACION='$_POST[txt_1]'");
+		$a=0;
 		while ($row = pg_fetch_row($consulta)) {
-		    $lista[] = $row[0];
-		    $lista[] = $row[1];
-		    $lista[] = $row[2];
-		    $lista[] = $row[3];
-		    $lista[] = $row[4];
-		    $lista[] = $row[5];
-		    $lista[] = '<button class="btn btn-white btn-default btn-round">
-							<i class="ace-icon fa fa-times red2"></i>
-							Imprimir
-						</button>';
+			print'<tr>';
+			print'<td>'.$a++.'</td>';
+		    print'<td>'.$row[0].'</td>';
+		    print'<td>'.$row[1].'</td>';
+		    print'<td>'.$row[2].'</td>';
+		    print'<td>'.$row[3].'</td>';
+		    print'<td>'.$row[4].'</td>';
+		    print'<td>'.$row[5].'</td>';
+		    print'<td>'.'<a href="">
+							<i class="ace-icon fa fa-print red2"></i>							
+						</a>'.'</td>';
+			print'</tr>';
 		}
-		echo $lista = json_encode($lista);
 	}		
 	
 ?>

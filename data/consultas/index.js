@@ -70,17 +70,11 @@ $(function(){
 		submitHandler: function (form) {
 			$.ajax({
 	            url:'consultas.php',						
-	            async:  false ,   
 	            type:  'post',
-	            dataType:'json',
 	            data: {cargar_tabla:':)',txt_1:$('#txt_cedula').val()},
 	            success : function ( data )  {	
-	            	console.log(data)
-	            	$("#tbl_facturas tbody").html(''); 
-	            	for (var i = 0; i < data.length; i=i+6) {
-		                    $('#tbl_facturas tbody').append('<td>'+(i+1)+'</td>'+'<td>'+data[i+4]+'</td>'+'<td>'+data[i+1]+'</td>'+'<td>'+data[i+2]+'</td>'+'<td>'+data[i+3]+'</td>'+'<td>'+data[i+4]+'</td>'+'<td>'+data[i+5]+'</td>'+'<td>'+data[i+6]+'</td>');
-
-		            }
+	            	console.log(data);
+	            	$("#tbl_facturas tbody").html(data); 
 			    } 
 			});	
 		}					
