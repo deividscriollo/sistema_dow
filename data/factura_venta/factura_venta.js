@@ -66,6 +66,21 @@ function guardar_factura(){
 function inicio (){		  
 	mostrar("estado");
 	fecha_actual("fecha_actual");
+
+  if ($("#num_oculto").val() === "") {
+        $("#serie3").val("");
+    } else {
+        var str = $("#num_oculto").val();
+        var res = parseInt(str.substr(8, 16));
+        res = res + 1;
+        
+        $("#serie3").val(res);
+        var a = autocompletar(res);
+        var validado = a + "" + res;
+        $("#serie3").val(validado);
+    }
+
+
  	////////////////validaciones/////////////////
  	$("#cantidad").validCampoFranz("0123456789");
  	$("#serie3").validCampoFranz("0123456789");
