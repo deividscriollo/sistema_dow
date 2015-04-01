@@ -143,12 +143,8 @@ if(!isset($_SESSION))
 																	<button type="button" id="btn_2" class="btn btn-primary">
 																		<i class="ace-icon fa fa-refresh bigger-120 write"></i>
 																		Actualizar
-																	</button>														
-																	<button data-toggle="modal" href="#myModal" type="button" id="btn_3" class="btn btn-primary">
-																		<i class="ace-icon fa fa-search bigger-120 write"></i>
-																		Buscar
-																	</button>
-																	<button data-toggle="modal" href="#myModal" type="button" id="btn_4" class="btn btn-primary">
+																	</button>																															
+																	<button type="button" id="btn_3" class="btn btn-primary">
 																		<i class="ace-icon fa fa-upload bigger-120 write"></i>
 																		Subir Acrivho Excel
 																	</button>

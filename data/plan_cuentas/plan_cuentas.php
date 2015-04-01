@@ -45,6 +45,8 @@
 					$data = 2; /// error al guardar
 				}				
 			}
+		}else{
+			
 		}
 
 	}	

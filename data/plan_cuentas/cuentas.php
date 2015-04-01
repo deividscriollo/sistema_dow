@@ -3,7 +3,7 @@ include '../conexion.php';
 include '../funciones_generales.php';		
 $conexion = conectarse();
 $lista = array();
-$sql = "select id_plan,codigo_cuenta,nombre_cuenta,tipo_cuenta, fecha,estado from plan_cuentas order by fecha asc";
+$sql = "select id_plan,codigo_cuenta,nombre_cuenta,tipo_cuenta, fecha,estado from plan_cuentas order by codigo_cuenta asc";
 $sql = carga_json($conexion,$sql);
 $tipo = '';
 $estado = '';
