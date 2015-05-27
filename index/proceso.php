@@ -5,7 +5,6 @@ $conexion = conectarse();
 		session_start();		
 	}
 
-
 	if (isset($_POST['g'])) {
 		$user = $_POST['txt_1'];
 		$pass = $_POST['txt_2'];		
@@ -18,6 +17,7 @@ $conexion = conectarse();
 			$_SESSION['usuariodow']=$row[8];			
 			$acu=1;
 		}
+		
 		$result = pg_query("select nivel1,nivel2,nivel3 from permisos where id_usuario = '".$_SESSION['iddow']."'");
 		while ($row = pg_fetch_row($result)) {			
 			$_SESSION['nivel1']=$row[0];
