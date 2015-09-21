@@ -25,8 +25,9 @@ if(!isset($_SESSION))
 		<link rel="stylesheet" href="../../dist/css/font-awesome.min.css" />
 		<!-- Select -->
 		<link rel="stylesheet" href="../../dist/css/chosen.min.css" />
-
-
+		<link rel="stylesheet" href="../../dist/css/datepicker.min.css" />
+		<link rel="stylesheet" href="../../dist/css/daterangepicker.min.css" />
+		<link rel="stylesheet" href="../../dist/css/bootstrap-datetimepicker.min.css" />
 		<!-- page specific plugin styles -->
 
 		<!-- text fonts -->
@@ -34,8 +35,7 @@ if(!isset($_SESSION))
 
 		<!-- ace styles -->
 		<link rel="stylesheet" href="../../dist/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
-		<link type="text/css" rel="stylesheet" id="ace-skins-stylesheet" href="../../dist/css/ace-skins.min.css">
-
+		<link type="text/css" rel="stylesheet" id="ace-skins-stylesheet" href="../../dist/css/ace-skins.min.css">		
 		<!-- ace settings handler -->
 		<script src="../../dist/js/ace-extra.min.js"></script>
 	</head>
@@ -152,6 +152,29 @@ if(!isset($_SESSION))
 														</span><!-- /.col -->
 													</h3>
 												</div>
+												<div class="col-sm-7">
+													<h3 class="row header smaller lighter blue">
+														<span class="col-sm-4"> Ventas Diarias</span><!-- /.col -->
+														<div class="col-sm-4">
+															<div class="input-group">
+																<span class="input-group-addon">
+																	<i class="fa fa-calendar bigger-110"></i>
+																</span>
+																<input class="form-control" type="text" name="date-range-picker" id="rango_fecha" placeholder="Seleccione de Rango de fechas" />
+															</div>
+														</div>
+														<span class="col-sm-4">
+															<label class="pull-right inline">
+																<small class="muted smaller-90"></small>
+
+																<button class="btn btn-app btn-light btn-xs" id="ventas_diarias">
+																	<i class="ace-icon fa fa-print bigger-160"></i>
+																	Ver
+																</button>
+															</label>
+														</span><!-- /.col -->														
+													</h3>
+												</div>
 											</div>
 										</div>
 										</div>
@@ -208,9 +231,14 @@ if(!isset($_SESSION))
 		<script src="../../dist/js/flot/jquery.flot.min.js"></script>
 		<script src="../../dist/js/flot/jquery.flot.pie.min.js"></script>
 		<script src="../../dist/js/flot/jquery.flot.resize.min.js"></script>
-		<script src="../../dist/js/chosen.jquery.min.js"></script>
+		<script src="../../dist/js/chosen.jquery.min.js"></script>		
 
-
+		<script src="../../dist/js/date-time/bootstrap-datepicker.min.js"></script>
+		<script src="../../dist/js/date-time/bootstrap-timepicker.min.js"></script>
+		<script src="../../dist/js/date-time/moment.min.js"></script>
+		<script src="../../dist/js/date-time/daterangepicker.min.js"></script>
+		<script src="../../dist/js/date-time/bootstrap-datetimepicker.min.js"></script>
+		<script src="../../dist/js/bootstrap-colorpicker.min.js"></script>
 		<!-- ace scripts -->
 		<script src="../../dist/js/ace-elements.min.js"></script>
 		<script src="../../dist/js/ace.min.js"></script>

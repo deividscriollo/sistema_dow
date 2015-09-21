@@ -1,5 +1,13 @@
 $(document).on("ready",inicio);
 function inicio (){
+	$('input[name=date-range-picker]').daterangepicker({
+		'applyClass' : 'btn-sm btn-success',
+		'cancelClass' : 'btn-sm btn-purple',
+		locale: {
+			applyLabel: 'Aplicar',
+			cancelLabel: 'Cancelar',
+		}
+	});
 	$("#mas_vendido").click(function(){
 		window.open('../reportes/producto_mas_vendido.php','_blank');      				
 
@@ -18,6 +26,10 @@ function inicio (){
 	});
 	$("#lista_proveedores").click(function(){
 		window.open('../reportes/proveedores.php','_blank');      				
+
+	});
+	$("#ventas_diarias").click(function(){
+		window.open('../reportes/ventas_diarias.php?fecha='+$('#rango_fecha').val(),'_blank');      				
 
 	});
 }
